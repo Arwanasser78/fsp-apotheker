@@ -1,386 +1,941 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FSP Apotheker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3157d5">
+<meta name="description" content="FSP Apotheker – Deutsch für die Fachsprachenprüfung Pharmazie">
+<title>FSP Apotheker – Premium</title>
 
 <style>
-*{box-sizing:border-box}
+:root{
+  --blue:#3157d5;
+  --blue2:#5575e8;
+  --purple:#744fd8;
+  --green:#159a68;
+  --orange:#ef8b28;
+  --red:#df4b58;
+  --yellow:#f4c542;
+  --bg:#f4f6fb;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#68738a;
+  --border:#e5e8f0;
+  --shadow:0 10px 30px rgba(30,48,90,.08);
+  --radius:20px;
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
-  background:#f5f7fb;
-  color:#172033;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 .app{
-  max-width:760px;
-  margin:auto;
   min-height:100vh;
+  padding-bottom:92px;
 }
 
-header{
-  background:#fff;
-  padding:18px;
-  border-bottom:1px solid #e5e7eb;
-  position:sticky;
-  top:0;
-  z-index:5;
+.topbar{
+  background:linear-gradient(135deg,#3157d5 0%,#684bd4 100%);
+  color:white;
+  padding:18px 16px 26px;
+  border-radius:0 0 28px 28px;
+}
+
+.topbar-inner{
+  max-width:760px;
+  margin:auto;
+}
+
+.brand-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
 }
 
 .brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.logo{
+  width:45px;
+  height:45px;
+  border-radius:14px;
+  background:rgba(255,255,255,.17);
+  display:grid;
+  place-items:center;
+  font-size:24px;
   font-weight:800;
+  border:1px solid rgba(255,255,255,.18);
+}
+
+.brand h1{
+  margin:0;
   font-size:21px;
 }
 
-.sub{
+.brand p{
+  margin:3px 0 0;
   font-size:12px;
-  color:#718096;
+  opacity:.82;
 }
 
-.stats{
-  position:absolute;
-  right:14px;
-  top:18px;
+.top-actions{
   display:flex;
   gap:6px;
 }
 
-.pill{
-  background:#eef2ff;
-  padding:7px 9px;
-  border-radius:99px;
+.stat-pill{
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.15);
+  padding:7px 10px;
+  border-radius:14px;
   font-size:12px;
-  font-weight:700;
-}
-
-main{
-  padding:18px 16px 95px;
+  white-space:nowrap;
 }
 
 .hero{
-  background:linear-gradient(135deg,#2563eb,#4f46e5);
-  color:#fff;
-  border-radius:22px;
-  padding:22px;
+  max-width:760px;
+  margin:18px auto 0;
 }
 
-.hero h1{
-  margin:0 0 8px;
+.hero h2{
+  margin:0 0 6px;
+  font-size:27px;
+  line-height:1.15;
 }
 
 .hero p{
-  line-height:1.55;
+  margin:0;
+  font-size:14px;
+  opacity:.88;
+  line-height:1.5;
 }
 
-.btn{
-  background:#4338ca;
-  color:#fff;
-  border:0;
-  border-radius:11px;
-  padding:11px 15px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.btn:hover{
-  opacity:.92;
-}
-
-.hero .btn{
-  background:#fff;
-  color:#3348bd;
+.container{
+  max-width:760px;
+  margin:0 auto;
+  padding:18px 14px;
 }
 
 .section{
-  margin-top:24px;
+  margin-bottom:20px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin:4px 2px 10px;
 }
 
-.card,.case,.lesson{
-  background:#fff;
-  border:1px solid #e5e9f0;
-  border-radius:18px;
-  padding:16px;
+.section-title h2,
+.section-title h3{
+  margin:0;
+  font-size:18px;
+}
+
+.section-title span{
+  font-size:12px;
+  color:var(--muted);
 }
 
 .card{
-  cursor:pointer;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:17px;
+  margin-bottom:12px;
 }
 
-.icon{
-  font-size:27px;
+.card.compact{
+  padding:14px;
 }
 
 .card h3{
-  font-size:15px;
-  margin:8px 0 4px;
+  margin:0 0 7px;
+  font-size:17px;
+}
+
+.card h4{
+  margin:14px 0 7px;
+}
+
+.card p{
+  line-height:1.55;
+  margin:7px 0;
 }
 
 .muted{
-  color:#6b778c;
-}
-
-.lesson{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin:10px 0;
-}
-
-.num{
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  background:#eef2ff;
-  color:#4338ca;
-  display:grid;
-  place-items:center;
-  font-weight:800;
-  flex-shrink:0;
-}
-
-.lesson>div:nth-child(2){
-  flex:1;
-}
-
-.lesson small{
-  display:block;
-  color:#718096;
-  margin-top:3px;
-}
-
-.case{
-  margin:10px 0;
-}
-
-.tag{
-  display:inline-block;
-  background:#eef2ff;
-  color:#4338ca;
-  border-radius:99px;
-  padding:5px 9px;
-  font-size:11px;
-  font-weight:800;
-}
-
-.case h3{
-  margin:10px 0 5px;
-}
-
-.nav{
-  position:fixed;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:760px;
-  background:#fff;
-  border-top:1px solid #e5e7eb;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  padding:8px 4px;
-  z-index:10;
-}
-
-.nav button{
-  border:0;
-  background:none;
-  color:#718096;
-  font-size:11px;
-  cursor:pointer;
-}
-
-.nav button.active{
-  color:#4338ca;
-  font-weight:800;
-}
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#11182788;
-  align-items:flex-end;
-  z-index:20;
-}
-
-.sheet{
-  background:#fff;
-  width:100%;
-  max-width:760px;
-  margin:auto;
-  border-radius:24px 24px 0 0;
-  padding:22px;
-  max-height:90vh;
-  overflow:auto;
-}
-
-.close{
-  float:right;
-  border:0;
-  border-radius:50%;
-  width:34px;
-  height:34px;
-  cursor:pointer;
-  font-size:20px;
-}
-
-.option{
-  display:block;
-  width:100%;
-  text-align:left;
-  border:0;
-  background:#f5f7fb;
-  padding:14px;
-  border-radius:12px;
-  margin:8px 0;
-  cursor:pointer;
-  font:inherit;
-}
-
-.option:hover{
-  background:#e9edff;
-}
-
-.answer{
-  padding:14px;
-  border-radius:14px;
-  margin-top:12px;
-  background:#f8fafc;
-  border:1px solid #e5e7eb;
-}
-
-.correct{
-  background:#ecfdf5;
-  border:1px solid #a7f3d0;
-  color:#065f46;
-}
-
-.wrong{
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  color:#9a3412;
-}
-
-.dialogue{
-  background:#f8fafc;
-  border-left:4px solid #4f46e5;
-  padding:13px;
-  border-radius:10px;
-  margin:10px 0;
-  line-height:1.6;
-}
-
-.progress{
-  background:#e5e7eb;
-  height:9px;
-  border-radius:99px;
-  overflow:hidden;
-  margin:10px 0 16px;
-}
-
-.progress>div{
-  height:100%;
-  background:linear-gradient(90deg,#2563eb,#4f46e5);
-  border-radius:99px;
+  color:var(--muted);
 }
 
 .small{
   font-size:12px;
-  color:#718096;
 }
 
-.success{
-  background:#ecfdf5;
-  border:1px solid #a7f3d0;
-  color:#065f46;
-  padding:14px;
+.tiny{
+  font-size:11px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#edf1ff;
+  color:#3157d5;
+  font-weight:700;
+  font-size:11px;
+}
+
+.badge.premium{
+  background:#fff1c9;
+  color:#9a6900;
+}
+
+.badge.green{
+  background:#e7f8f1;
+  color:#10734e;
+}
+
+.badge.red{
+  background:#fdecef;
+  color:#a72d3b;
+}
+
+.badge.orange{
+  background:#fff0df;
+  color:#a95d0a;
+}
+
+.btn{
+  border:0;
   border-radius:14px;
-  margin:12px 0;
+  padding:11px 15px;
+  font-weight:750;
+  transition:.18s ease;
 }
 
-.warning{
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  color:#9a3412;
-  padding:14px;
-  border-radius:14px;
-  margin:12px 0;
+.btn:active{
+  transform:scale(.98);
 }
 
-.info{
-  background:#eff6ff;
-  border:1px solid #bfdbfe;
-  color:#1e40af;
-  padding:14px;
-  border-radius:14px;
-  margin:12px 0;
+.btn-primary{
+  background:var(--blue);
+  color:white;
 }
 
-.sheet textarea,
-textarea{
+.btn-primary:hover{
+  background:#2748b9;
+}
+
+.btn-secondary{
+  background:#eef1f8;
+  color:#29344b;
+}
+
+.btn-success{
+  background:var(--green);
+  color:white;
+}
+
+.btn-warning{
+  background:#f0a129;
+  color:white;
+}
+
+.btn-danger{
+  background:var(--red);
+  color:white;
+}
+
+.btn-premium{
+  background:linear-gradient(135deg,#f4c542,#e69a1d);
+  color:#4a3300;
+  box-shadow:0 7px 18px rgba(225,161,32,.2);
+}
+
+.btn-full{
   width:100%;
-  min-height:160px;
-  border:1px solid #d8dee8;
+}
+
+.btn-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.grid{
+  display:grid;
+  gap:12px;
+}
+
+.grid-2{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.grid-3{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+@media(max-width:560px){
+  .grid-2,
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+}
+
+.lesson-card{
+  position:relative;
+  overflow:hidden;
+}
+
+.lesson-card .lesson-top{
+  display:flex;
+  gap:13px;
+  align-items:flex-start;
+}
+
+.lesson-number{
+  flex:none;
+  width:44px;
+  height:44px;
   border-radius:14px;
+  background:#edf1ff;
+  color:var(--blue);
+  display:grid;
+  place-items:center;
+  font-weight:900;
+}
+
+.lesson-card.premium-locked .lesson-number{
+  background:#fff4d8;
+  color:#9a6900;
+}
+
+.lesson-info{
+  flex:1;
+}
+
+.lesson-info h3{
+  margin:0 0 3px;
+}
+
+.lesson-info p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.lock{
+  margin-top:12px;
+  background:#fff8e6;
+  border:1px solid #f5e1aa;
+  padding:10px 12px;
+  border-radius:13px;
+  font-size:12px;
+  color:#76591b;
+}
+
+.progress{
+  height:9px;
+  background:#e9ecf3;
+  border-radius:99px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  border-radius:99px;
+  transition:.3s;
+}
+
+.progress-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+
+.xp-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.xp-number{
+  font-size:28px;
+  font-weight:900;
+  color:var(--blue);
+}
+
+.premium-banner{
+  background:linear-gradient(135deg,#201d49,#5942a9);
+  color:white;
+  border-radius:22px;
+  padding:19px;
+  position:relative;
+  overflow:hidden;
+}
+
+.premium-banner:after{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  right:-80px;
+  top:-80px;
+  background:rgba(255,255,255,.09);
+}
+
+.premium-banner h2{
+  margin:0 0 7px;
+}
+
+.premium-banner p{
+  margin:5px 0;
+  color:rgba(255,255,255,.8);
+  line-height:1.5;
+  font-size:13px;
+}
+
+.price{
+  font-size:38px;
+  font-weight:900;
+  line-height:1;
+}
+
+.price small{
+  font-size:13px;
+  font-weight:500;
+  opacity:.75;
+}
+
+.feature-list{
+  list-style:none;
+  padding:0;
+  margin:12px 0;
+}
+
+.feature-list li{
+  padding:7px 0;
+  font-size:13px;
+  display:flex;
+  gap:8px;
+}
+
+.feature-list li:before{
+  content:"✓";
+  color:#19d99a;
+  font-weight:900;
+}
+
+.free-list li:before{
+  color:var(--blue);
+}
+
+.tabs{
+  display:flex;
+  gap:7px;
+  overflow:auto;
+  padding-bottom:3px;
+  scrollbar-width:none;
+}
+
+.tabs::-webkit-scrollbar{
+  display:none;
+}
+
+.tab{
+  white-space:nowrap;
+  border:1px solid var(--border);
+  background:white;
+  color:var(--muted);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.tab.active{
+  background:#3157d5;
+  border-color:#3157d5;
+  color:white;
+}
+
+.option{
+  width:100%;
+  text-align:left;
+  background:white;
+  border:1px solid var(--border);
+  padding:13px;
+  border-radius:14px;
+  margin-top:8px;
+  transition:.15s;
+}
+
+.option:hover{
+  border-color:#9aaae8;
+  background:#fafbff;
+}
+
+.option.correct{
+  background:#e8f8f1;
+  border-color:#55bc92;
+  color:#0b6848;
+}
+
+.option.wrong{
+  background:#fdebed;
+  border-color:#e16a75;
+  color:#9b2937;
+}
+
+.question-number{
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+}
+
+.question-text{
+  font-size:19px;
+  line-height:1.4;
+  font-weight:800;
+  margin:7px 0 13px;
+}
+
+.explanation{
+  margin-top:12px;
   padding:12px;
-  font:inherit;
+  background:#f3f6ff;
+  border-radius:13px;
+  font-size:13px;
+  line-height:1.55;
+}
+
+.answer-box{
+  background:#eef8f4;
+  border:1px solid #c6e8da;
+  padding:13px;
+  border-radius:14px;
+  line-height:1.55;
+}
+
+.warning-box{
+  background:#fff5e7;
+  border:1px solid #f0d59c;
+  padding:13px;
+  border-radius:14px;
+  line-height:1.55;
+}
+
+.info-box{
+  background:#f1f5ff;
+  border:1px solid #d7dfff;
+  padding:13px;
+  border-radius:14px;
+  line-height:1.55;
+}
+
+.danger-box{
+  background:#fff0f2;
+  border:1px solid #f1c4ca;
+  padding:13px;
+  border-radius:14px;
+  line-height:1.55;
+}
+
+.term{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  border-bottom:1px solid var(--border);
+  padding:12px 0;
+}
+
+.term:last-child{
+  border-bottom:0;
+}
+
+.term strong{
+  display:block;
+  margin-bottom:3px;
+}
+
+.term .translation{
+  color:var(--blue);
+  font-weight:700;
+  font-size:13px;
+}
+
+.phrase{
+  padding:12px;
+  border-radius:13px;
+  background:#f8f9fc;
+  margin-top:8px;
+  line-height:1.5;
+}
+
+.phrase strong{
+  display:block;
+  color:var(--blue);
+  margin-bottom:4px;
+}
+
+.dialogue{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.bubble{
+  max-width:92%;
+  padding:11px 13px;
+  border-radius:16px;
+  line-height:1.5;
+  font-size:13px;
+}
+
+.bubble.pharmacist{
+  align-self:flex-end;
+  background:#3157d5;
+  color:white;
+  border-bottom-right-radius:5px;
+}
+
+.bubble.patient{
+  align-self:flex-start;
+  background:#f0f2f7;
+  color:#273047;
+  border-bottom-left-radius:5px;
+}
+
+.bubble-label{
+  font-size:10px;
+  opacity:.65;
+  display:block;
+  margin-bottom:3px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.case-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.case-number{
+  width:43px;
+  height:43px;
+  background:#edf1ff;
+  color:var(--blue);
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+}
+
+.case-details{
+  background:#f8f9fc;
+  padding:12px;
+  border-radius:13px;
+  margin:12px 0;
+}
+
+.case-details div{
+  display:flex;
+  gap:8px;
+  padding:4px 0;
+  font-size:13px;
+}
+
+.case-details strong{
+  min-width:105px;
+}
+
+textarea,
+input,
+select{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:12px;
+  background:white;
+  color:var(--text);
+  outline:none;
+}
+
+textarea{
+  min-height:120px;
   resize:vertical;
 }
 
-hr{
+textarea:focus,
+input:focus,
+select:focus{
+  border-color:#7c91e7;
+  box-shadow:0 0 0 3px rgba(49,87,213,.08);
+}
+
+.search{
+  position:relative;
+}
+
+.search input{
+  padding-left:38px;
+}
+
+.search-icon{
+  position:absolute;
+  left:13px;
+  top:12px;
+  color:var(--muted);
+}
+
+.nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(15px);
+  border-top:1px solid var(--border);
+  z-index:50;
+  padding:7px 7px calc(7px + env(safe-area-inset-bottom));
+}
+
+.nav-inner{
+  max-width:760px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:3px;
+}
+
+.nav button{
   border:0;
-  border-top:1px solid #e5e7eb;
-  margin:20px 0;
+  background:transparent;
+  padding:7px 2px;
+  color:#7b8496;
+  border-radius:12px;
+  font-size:10px;
+  font-weight:700;
+}
+
+.nav button .icon{
+  display:block;
+  font-size:19px;
+  margin-bottom:2px;
+}
+
+.nav button.active{
+  color:var(--blue);
+  background:#eef1ff;
+}
+
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(10,16,32,.55);
+  z-index:100;
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.modal-backdrop.show{
+  display:flex;
+}
+
+.modal{
+  width:min(760px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:white;
+  border-radius:25px 25px 0 0;
+  padding:19px;
+  animation:slideUp .22s ease;
+}
+
+@keyframes slideUp{
+  from{
+    transform:translateY(100%);
+  }
+  to{
+    transform:translateY(0);
+  }
+}
+
+.modal-close{
+  float:right;
+  border:0;
+  background:#eef1f5;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  font-size:20px;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:85px;
+  transform:translateX(-50%) translateY(20px);
+  background:#172033;
+  color:white;
+  padding:11px 15px;
+  border-radius:13px;
+  font-size:12px;
+  opacity:0;
+  pointer-events:none;
+  z-index:200;
+  transition:.2s;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+.locked-content{
+  position:relative;
+}
+
+.locked-overlay{
+  background:linear-gradient(180deg,rgba(255,255,255,.45),#fff 72%);
+  padding:40px 10px 5px;
+  text-align:center;
+}
+
+.heart{
+  color:#e34f67;
+}
+
+.success{
+  color:var(--green);
+}
+
+.center{
+  text-align:center;
+}
+
+.list{
+  padding-left:19px;
+}
+
+.list li{
+  margin:7px 0;
+  line-height:1.5;
 }
 
 table{
   width:100%;
   border-collapse:collapse;
-  margin:12px 0;
-  font-size:13px;
+  font-size:12px;
 }
 
-th,td{
-  border:1px solid #e5e7eb;
-  padding:10px;
+th,
+td{
   text-align:left;
+  padding:10px 7px;
+  border-bottom:1px solid var(--border);
   vertical-align:top;
 }
 
 th{
-  background:#f8fafc;
+  color:var(--muted);
+  font-size:11px;
 }
 
-.topic{
-  background:#f8fafc;
-  border-radius:14px;
-  padding:13px;
-  margin:9px 0;
+.price-card{
+  text-align:center;
+  position:relative;
 }
 
-.topic b{
+.price-card.highlight{
+  border:2px solid #e6ad2d;
+}
+
+.popular{
+  position:absolute;
+  right:12px;
+  top:12px;
+  background:#f4c542;
+  color:#4b3500;
+  font-size:10px;
+  font-weight:900;
+  padding:5px 8px;
+  border-radius:999px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.feature{
+  background:#f7f8fb;
+  padding:11px;
+  border-radius:12px;
+  font-size:12px;
+}
+
+.feature strong{
   display:block;
-  margin-bottom:4px;
+  margin-bottom:3px;
 }
 
-.score{
-  font-size:28px;
-  font-weight:800;
-  color:#4338ca;
-}
+@media(max-width:430px){
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
 
-@media(min-width:700px){
-  .grid{
-    grid-template-columns:repeat(3,1fr);
+  .top-actions{
+    display:none;
+  }
+
+  .hero h2{
+    font-size:24px;
   }
 }
 </style>
@@ -390,2807 +945,4956 @@ th{
 
 <div class="app">
 
-<header>
-  <div class="brand">FSP Apotheker</div>
-  <div class="sub">Deutsch für die Fachsprachenprüfung</div>
+<header class="topbar">
+  <div class="topbar-inner">
 
-  <div class="stats">
-    <span class="pill">⭐ <b id="xp">0</b></span>
-    <span class="pill">🔥 1</span>
-    <span class="pill">❤️ 5</span>
+    <div class="brand-row">
+      <div class="brand">
+        <div class="logo">💊</div>
+        <div>
+          <h1>FSP Apotheker</h1>
+          <p>Deutsch für die Fachsprachenprüfung</p>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <div class="stat-pill">⭐ <span id="topXP">0</span> XP</div>
+        <div class="stat-pill">🔥 <span id="topStreak">0</span></div>
+        <div class="stat-pill">❤️ <span id="topHearts">5</span></div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h2>Bereite dich professionell auf die FSP vor.</h2>
+      <p>
+        Patientengespräch, Fachgespräch, Dokumentation,
+        Fachsprache, Sprechen, Hörverständnis und Prüfungssimulation.
+      </p>
+    </div>
+
   </div>
 </header>
 
 <main id="main"></main>
 
 <nav class="nav">
-  <button data-p="home">🏠<br>Start</button>
-  <button data-p="path">🗺️<br>Lernpfad</button>
-  <button data-p="cases">💬<br>Fälle</button>
-  <button data-p="exam">🎓<br>Prüfung</button>
-  <button data-p="profile">👤<br>Profil</button>
+  <div class="nav-inner">
+    <button id="nav-home" onclick="navigate('home')">
+      <span class="icon">🏠</span>
+      Start
+    </button>
+
+    <button id="nav-lessons" onclick="navigate('lessons')">
+      <span class="icon">📚</span>
+      Lernpfad
+    </button>
+
+    <button id="nav-cases" onclick="navigate('cases')">
+      <span class="icon">🩺</span>
+      Praxisfälle
+    </button>
+
+    <button id="nav-exam" onclick="navigate('exam')">
+      <span class="icon">🎓</span>
+      Prüfung
+    </button>
+
+    <button id="nav-profile" onclick="navigate('profile')">
+      <span class="icon">👤</span>
+      Profil
+    </button>
+  </div>
 </nav>
 
-<div id="modal" class="modal">
-  <div class="sheet">
-    <button class="close" onclick="closeM()">×</button>
-    <div id="mb"></div>
-  </div>
+<div id="modalBackdrop" class="modal-backdrop" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal"></div>
 </div>
 
-</div>
+<div id="toast" class="toast"></div>
 
 <script>
 
-/* =====================================================
-   GRUNDLAGEN
-===================================================== */
+/* ============================================================
+   FSP APOTHEKER PREMIUM
+   ============================================================
 
-const L=[
-  ['Patientengespräch','Anamnese, Beschwerden und Beratung','🗣️'],
-  ['Fachgespräch','Kollegial und präzise kommunizieren','👩‍⚕️'],
-  ['Dokumentation','Strukturiert dokumentieren','📝'],
-  ['Fachbegriffe','Wichtige pharmazeutische Begriffe','📚'],
-  ['Sprechen & Formulieren','Sichere Formulierungen für die Prüfung','🎤'],
-  ['Hörverständnis','Gespräche und Anweisungen verstehen','🎧']
+   WICHTIG:
+   Diese Datei enthält das Frontend.
+   Für echte Premium-Zahlungen muss der Checkout mit einem
+   Zahlungsanbieter verbunden werden.
+
+   Für Stripe Payment Links:
+   1. Stripe-Konto erstellen
+   2. Produkt/Preis erstellen
+   3. Payment Link erstellen
+   4. PAYMENT_URL unten ersetzen
+
+   Eine echte Premium-Berechtigung sollte zusätzlich
+   serverseitig verifiziert werden.
+============================================================ */
+
+const PAYMENT_URL = "DEIN_STRIPE_PAYMENT_LINK_HIER";
+
+/*
+   DEMO-PREMIUM:
+   Für die Entwicklung kannst du Premium im Profil aktivieren.
+
+   Vor dem echten Verkauf:
+   DEMO_PREMIUM_ENABLED auf false setzen.
+*/
+const DEMO_PREMIUM_ENABLED = true;
+
+
+/* ============================================================
+   DATEN
+============================================================ */
+
+const LESSONS = [
+
+  {
+    id:1,
+    title:"Patientengespräch",
+    subtitle:"Professionell beraten, fragen, erklären und abschließen",
+    icon:"🗣️",
+    premium:false,
+    description:
+      "Die wichtigste Grundlage für die FSP: strukturiertes Patientengespräch mit professioneller Sprache."
+  },
+
+  {
+    id:2,
+    title:"Fachgespräch",
+    subtitle:"Kollegial, präzise und pharmazeutisch argumentieren",
+    icon:"👩‍⚕️",
+    premium:true,
+    description:
+      "Fachliche Kommunikation mit Kolleginnen und Kollegen, Medikationsanalyse und strukturierte Übergabe."
+  },
+
+  {
+    id:3,
+    title:"Dokumentation",
+    subtitle:"Beratung und pharmazeutische Intervention professionell dokumentieren",
+    icon:"📝",
+    premium:true,
+    description:
+      "Dokumentationssprache, SOAP-Struktur, objektive Formulierungen und pharmazeutische Interventionen."
+  },
+
+  {
+    id:4,
+    title:"Fachbegriffe",
+    subtitle:"Fachwort → verständliche Patientensprache",
+    icon:"📖",
+    premium:true,
+    description:
+      "Zentrale medizinische und pharmazeutische Begriffe sicher verstehen und patientengerecht erklären."
+  },
+
+  {
+    id:5,
+    title:"Sprechen & Formulieren",
+    subtitle:"Professionell, natürlich und sicher sprechen",
+    icon:"🎤",
+    premium:true,
+    description:
+      "Redemittel, höfliche Formulierungen, Rückfragen, Erklärungen und typische Prüfungssituationen."
+  },
+
+  {
+    id:6,
+    title:"Hörverständnis",
+    subtitle:"Gespräche verstehen und relevante Informationen erkennen",
+    icon:"🎧",
+    premium:true,
+    description:
+      "Simulierte Hörsituationen mit Vorlesefunktion, Verständnisfragen und Fachsprache."
+  }
+
 ];
 
-const C=[
-  ['Kopfschmerzen & Schmerzmittel','Patient möchte ein Schmerzmittel und berichtet über Begleitsymptome.'],
-  ['Metformin & Nierenfunktion','Patient fragt nach seiner Medikation und aktuellen Laborwerten.'],
-  ['Erkältung & Selbstmedikation','Patient sucht Rat bei Husten, Schnupfen und Fieber.'],
-  ['Schlafprobleme & pflanzliches Präparat','Patient wünscht eine pflanzliche Option gegen Schlafprobleme.'],
-  ['Fall dokumentieren','Du sollst ein Beratungsgespräch fachgerecht dokumentieren.'],
-  ['Kollegiales Übergabegespräch','Du übergibst einen pharmazeutischen Fall an eine Kollegin.']
+
+const QUESTIONS = {
+
+1:[
+ {
+  q:"Wie beginnen Sie ein professionelles Gespräch mit einem Patienten?",
+  options:[
+   "Was wollen Sie?",
+   "Guten Tag. Wie kann ich Ihnen helfen?",
+   "Sagen Sie schnell, was Sie brauchen.",
+   "Was haben Sie denn?"
+  ],
+  answer:1,
+  explanation:
+   "Eine höfliche Begrüßung und eine offene Einstiegsfrage schaffen eine professionelle Gesprächssituation."
+ },
+ {
+  q:"Welche Frage eignet sich am besten, um die Beschwerden zunächst offen zu erfassen?",
+  options:[
+   "Seit wann genau haben Sie 37,8 °C?",
+   "Sind die Schmerzen stechend?",
+   "Können Sie mir bitte beschreiben, was Ihnen Beschwerden macht?",
+   "Nehmen Sie Ibuprofen?"
+  ],
+  answer:2,
+  explanation:
+   "Zuerst sollte der Patient die Beschwerden möglichst frei schildern können."
+ },
+ {
+  q:"Welche Frage gehört zu den W-Fragen?",
+  options:[
+   "Haben Sie Fieber?",
+   "Wie lange bestehen die Beschwerden schon?",
+   "Nehmen Sie Tabletten?",
+   "Sind Sie allergisch?"
+  ],
+  answer:1,
+  explanation:
+   "W-Fragen helfen bei einer systematischen Anamnese."
+ },
+ {
+  q:"Wie fragen Sie professionell nach Allergien?",
+  options:[
+   "Sie haben doch keine Allergien, oder?",
+   "Allergien?",
+   "Sind bei Ihnen Allergien oder Unverträglichkeiten bekannt?",
+   "Sie vertragen alles?"
+  ],
+  answer:2,
+  explanation:
+   "Die Formulierung ist neutral und gibt dem Patienten die Möglichkeit, Allergien und Unverträglichkeiten zu nennen."
+ },
+ {
+  q:"Wie fragen Sie nach der aktuellen Medikation?",
+  options:[
+   "Welche Medikamente nehmen Sie derzeit regelmäßig oder bei Bedarf ein?",
+   "Sie nehmen bestimmt Medikamente.",
+   "Was schlucken Sie?",
+   "Haben Sie irgendwelche Pillen?"
+  ],
+  answer:0,
+  explanation:
+   "Die professionelle Formulierung erfasst sowohl regelmäßige als auch Bedarfsmedikation."
+ },
+ {
+  q:"Was sollten Sie bei einem neuen Arzneimittel besonders erklären?",
+  options:[
+   "Nur den Preis.",
+   "Nur den Namen.",
+   "Anwendung, Dosierung, Dauer, wichtige Risiken und was bei Problemen zu tun ist.",
+   "Nur die Farbe der Packung."
+  ],
+  answer:2,
+  explanation:
+   "Die Beratung soll für den Patienten praktisch nutzbar sein."
+ },
+ {
+  q:"Wie prüfen Sie, ob der Patient Ihre Erklärung verstanden hat?",
+  options:[
+   "Haben Sie alles verstanden?",
+   "Das war doch klar, oder?",
+   "Könnten Sie mir bitte kurz mit Ihren eigenen Worten sagen, wie Sie das Arzneimittel anwenden werden?",
+   "Sie wissen das jetzt."
+  ],
+  answer:2,
+  explanation:
+   "Die Teach-back-Methode prüft das Verständnis, ohne den Patienten unter Druck zu setzen."
+ },
+ {
+  q:"Wie sprechen Sie über mögliche Nebenwirkungen?",
+  options:[
+   "Das Medikament ist völlig ungefährlich.",
+   "Es kann zu bestimmten Nebenwirkungen kommen. Ich erkläre Ihnen, worauf Sie achten sollten.",
+   "Nebenwirkungen gibt es immer.",
+   "Das müssen Sie nicht wissen."
+  ],
+  answer:1,
+  explanation:
+   "Wichtige Nebenwirkungen sollten sachlich und verständlich erklärt werden."
+ },
+ {
+  q:"Wie fragen Sie nach der Einnahmehäufigkeit?",
+  options:[
+   "Wie oft nehmen Sie das Arzneimittel täglich ein?",
+   "Wie viele Pillen schlucken Sie?",
+   "Sie nehmen das dreimal, richtig?",
+   "Wann nehmen Sie irgendwas?"
+  ],
+  answer:0,
+  explanation:
+   "Die Frage ist präzise und professionell."
+ },
+ {
+  q:"Was bedeutet 'Kontraindikation' in patientengerechter Sprache?",
+  options:[
+   "Eine Krankheit.",
+   "Ein Grund, warum ein Arzneimittel nicht angewendet werden sollte.",
+   "Eine Dosierung.",
+   "Eine Nebenwirkung."
+  ],
+  answer:1,
+  explanation:
+   "Patientengerechte Sprache ersetzt den Fachbegriff durch eine verständliche Erklärung."
+ },
+ {
+  q:"Was bedeutet 'Applikation'?",
+  options:[
+   "Die Lagerung.",
+   "Die Anwendung bzw. Art der Verabreichung.",
+   "Der Preis.",
+   "Die Diagnose."
+  ],
+  answer:1,
+  explanation:
+   "Applikationsart beschreibt beispielsweise orale, topische oder inhalative Anwendung."
+ },
+ {
+  q:"Wie fragen Sie nach einer bekannten Nierenerkrankung?",
+  options:[
+   "Ihre Nieren sind okay?",
+   "Haben Sie Probleme mit den Nieren oder wurde bei Ihnen eine Nierenerkrankung festgestellt?",
+   "Sie haben keine Nierenprobleme.",
+   "Nieren?"
+  ],
+  answer:1,
+  explanation:
+   "Die Frage ist offen und respektvoll."
+ },
+ {
+  q:"Ein Patient fragt: 'Wie teuer ist das?' Was antworten Sie professionell?",
+  options:[
+   "Keine Ahnung.",
+   "Das kostet halt Geld.",
+   "Der aktuelle Preis beträgt beispielsweise X Euro; je nach Produkt und Packungsgröße kann der Preis variieren.",
+   "Das ist egal."
+  ],
+  answer:2,
+  explanation:
+   "Preisangaben sollten sachlich erfolgen. Im echten Apothekenbetrieb hängt der Preis vom konkreten Produkt und der Packungsgröße ab."
+ },
+ {
+  q:"Was ist bei der Beratung eines rezeptpflichtigen Arzneimittels wichtig?",
+  options:[
+   "Nur der Markenname.",
+   "Nur der Preis.",
+   "Verordnung, Dosierung, Anwendung, relevante Warnhinweise und Rückfragen des Patienten.",
+   "Nur die Farbe."
+  ],
+  answer:2,
+  explanation:
+   "Die Beratung muss sich an der konkreten Verordnung und Situation orientieren."
+ },
+ {
+  q:"Wie reagieren Sie, wenn ein Patient Sie nicht verstanden hat?",
+  options:[
+   "Das habe ich doch gerade erklärt.",
+   "Dann lesen Sie die Packungsbeilage.",
+   "Natürlich, ich erkläre es Ihnen noch einmal etwas einfacher.",
+   "Das ist nicht mein Problem."
+  ],
+  answer:2,
+  explanation:
+   "Eine professionelle Beratung passt die Sprache an den Patienten an."
+ },
+ {
+  q:"Welche Formulierung ist beim Gesprächsabschluss geeignet?",
+  options:[
+   "Dann sind wir fertig.",
+   "Haben Sie noch Fragen oder ist etwas unklar?",
+   "Gehen Sie jetzt.",
+   "Das war alles."
+  ],
+  answer:1,
+  explanation:
+   "Der Abschluss sollte eine letzte Möglichkeit für Fragen und Verständnisprobleme geben."
+ },
+ {
+  q:"Was bedeutet 'chronisch'?",
+  options:[
+   "Plötzlich.",
+   "Langandauernd bzw. über längere Zeit bestehend.",
+   "Ansteckend.",
+   "Schmerzhaft."
+  ],
+  answer:1,
+  explanation:
+   "Chronisch bezeichnet einen länger andauernden Verlauf."
+ },
+ {
+  q:"Wie fragen Sie nach der bisherigen Erfahrung mit einem Arzneimittel?",
+  options:[
+   "Hat es gewirkt?",
+   "Wie sind Sie bisher mit dem Arzneimittel zurechtgekommen?",
+   "Das Medikament war doch gut.",
+   "Warum nehmen Sie das überhaupt?"
+  ],
+  answer:1,
+  explanation:
+   "Die offene Frage ermöglicht Angaben zu Wirkung, Verträglichkeit und Anwendung."
+ },
+ {
+  q:"Welche Information ist bei einer Selbstmedikation besonders wichtig?",
+  options:[
+   "Nur die Lieblingsfarbe des Patienten.",
+   "Beschwerden, Dauer, Warnzeichen, Vorerkrankungen und aktuelle Medikamente.",
+   "Nur das Alter.",
+   "Nur der Preis."
+  ],
+  answer:1,
+  explanation:
+   "Bei Selbstmedikation muss zunächst geprüft werden, ob eine Selbstbehandlung angemessen ist."
+ }
+],
+
+
+2:[
+ {
+  q:"Welche Struktur eignet sich für eine strukturierte kollegiale Übergabe?",
+  options:[
+   "ISBAR",
+   "ABC ohne Inhalt",
+   "Nur der Medikamentenname",
+   "Eine möglichst lange freie Erzählung"
+  ],
+  answer:0,
+  explanation:"ISBAR steht für Identifikation, Situation, Background, Assessment und Recommendation."
+ },
+ {
+  q:"Was gehört in den 'Assessment'-Teil einer Übergabe?",
+  options:[
+   "Die eigene fachliche Einschätzung.",
+   "Nur der Name des Patienten.",
+   "Der Preis.",
+   "Die Öffnungszeiten."
+  ],
+  answer:0,
+  explanation:"Assessment beschreibt die fachliche Einschätzung der Situation."
+ },
+ {
+  q:"Wie formulieren Sie eine Empfehlung gegenüber einer Kollegin?",
+  options:[
+   "Du musst das so machen.",
+   "Ich würde vorschlagen, die Medikation noch einmal hinsichtlich der Nierenfunktion zu überprüfen.",
+   "Das ist falsch.",
+   "Mach einfach irgendwas."
+  ],
+  answer:1,
+  explanation:"Die Formulierung ist fachlich, respektvoll und begründet eine mögliche Intervention."
+ },
+ {
+  q:"Was ist bei einer Medikationsanalyse wichtig?",
+  options:[
+   "Nur die Anzahl der Packungen.",
+   "Indikation, Dosierung, Einnahme, Wirksamkeit, Verträglichkeit und mögliche Interaktionen.",
+   "Nur der Hersteller.",
+   "Nur die Farbe."
+  ],
+  answer:1,
+  explanation:"Eine strukturierte Medikationsanalyse betrachtet mehrere relevante Aspekte."
+ },
+ {
+  q:"Was bedeutet 'Adhärenz'?",
+  options:[
+   "Die gemeinsame Umsetzung einer Therapievereinbarung.",
+   "Eine Allergie.",
+   "Eine Dosierung.",
+   "Eine Lagerungsbedingung."
+  ],
+  answer:0,
+  explanation:"Adhärenz beschreibt die Übereinstimmung des Patientenverhaltens mit gemeinsam vereinbarten Therapieempfehlungen."
+ },
+ {
+  q:"Wie weisen Sie auf eine mögliche Interaktion hin?",
+  options:[
+   "Das geht gar nicht.",
+   "Ich sehe hier eine mögliche Wechselwirkung, die wir fachlich prüfen sollten.",
+   "Das Medikament ist gefährlich.",
+   "Du hast einen Fehler gemacht."
+  ],
+  answer:1,
+  explanation:"Eine sachliche Formulierung vermeidet unbegründete absolute Aussagen."
+ },
+ {
+  q:"Was ist bei einer fachlichen Empfehlung wichtig?",
+  options:[
+   "Sie sollte nachvollziehbar begründet sein.",
+   "Sie muss möglichst kompliziert klingen.",
+   "Sie sollte keine Begründung enthalten.",
+   "Sie darf keine Unsicherheit zeigen."
+  ],
+  answer:0,
+  explanation:"Fachliche Argumentation sollte nachvollziehbar und patientenbezogen sein."
+ },
+ {
+  q:"Welche Formulierung ist für eine Rückfrage geeignet?",
+  options:[
+   "Wie meinst du das?",
+   "Könntest du bitte noch einmal erläutern, welche Dosierung aktuell vorgesehen ist?",
+   "Was soll das?",
+   "Ich verstehe gar nichts."
+  ],
+  answer:1,
+  explanation:"Die Formulierung ist höflich und präzise."
+ },
+ {
+  q:"Was bedeutet 'pharmazeutische Intervention'?",
+  options:[
+   "Eine gezielte fachliche Maßnahme zur Optimierung der Arzneimitteltherapie.",
+   "Ein Verkaufsgespräch.",
+   "Eine Werbemaßnahme.",
+   "Eine Preisänderung."
+  ],
+  answer:0,
+  explanation:"Eine pharmazeutische Intervention kann beispielsweise eine Rücksprache, Beratung oder Anpassungsempfehlung umfassen."
+ },
+ {
+  q:"Was sollte eine gute Übergabe vermeiden?",
+  options:[
+   "Klare Fakten.",
+   "Unstrukturierte und irrelevante Informationen.",
+   "Konkrete Empfehlungen.",
+   "Rückfragen."
+  ],
+  answer:1,
+  explanation:"Eine strukturierte Übergabe trennt relevante Informationen von Nebensächlichkeiten."
+ },
+ {
+  q:"Wie sprechen Sie eine Unsicherheit professionell an?",
+  options:[
+   "Keine Ahnung.",
+   "Ich würde diesen Punkt gerne noch einmal überprüfen, bevor wir eine Entscheidung treffen.",
+   "Das weiß niemand.",
+   "Ist bestimmt richtig."
+  ],
+  answer:1,
+  explanation:"Professionelle Kommunikation darf Unsicherheit benennen und gleichzeitig einen nächsten Schritt anbieten."
+ },
+ {
+  q:"Was gehört zu einem guten Fachgespräch?",
+  options:[
+   "Fachbegriffe ohne Erklärung.",
+   "Klare Argumentation, Rückfragen und nachvollziehbare Begründungen.",
+   "Nur lange Sätze.",
+   "Möglichst schnelles Sprechen."
+  ],
+  answer:1,
+  explanation:"Fachlichkeit bedeutet nicht, möglichst kompliziert zu sprechen."
+ },
+ {
+  q:"Was sollte bei einer Dosierungsabweichung geprüft werden?",
+  options:[
+   "Nur der Preis.",
+   "Verordnung, Wirkstoff, Stärke, Dosierschema und Patientensituation.",
+   "Nur die Verpackung.",
+   "Nur die Farbe."
+  ],
+  answer:1,
+  explanation:"Eine Abweichung sollte systematisch und patientenbezogen geprüft werden."
+ },
+ {
+  q:"Welche Formulierung eignet sich für eine gemeinsame Entscheidung?",
+  options:[
+   "Wir sollten gemeinsam prüfen, welche Lösung für den Patienten fachlich sinnvoll ist.",
+   "Ich entscheide das.",
+   "Du machst das.",
+   "Das ist egal."
+  ],
+  answer:0,
+  explanation:"Die Formulierung unterstützt eine kollegiale und fachlich orientierte Kommunikation."
+ },
+ {
+  q:"Was bedeutet 'Retardpräparat'?",
+  options:[
+   "Ein Präparat mit verzögerter Wirkstofffreisetzung.",
+   "Ein Pulver.",
+   "Ein Antibiotikum.",
+   "Eine Salbe."
+  ],
+  answer:0,
+  explanation:"Retardpräparate geben den Wirkstoff kontrolliert bzw. verzögert frei."
+ }
+],
+
+
+3:[
+ {
+  q:"Wie sollte eine pharmazeutische Dokumentation grundsätzlich sein?",
+  options:[
+   "Subjektiv und emotional.",
+   "Sachlich, präzise, nachvollziehbar und relevant.",
+   "Möglichst unleserlich.",
+   "Sehr kurz, auch wenn Informationen fehlen."
+  ],
+  answer:1,
+  explanation:"Dokumentation soll nachvollziehbar und fachlich verwertbar sein."
+ },
+ {
+  q:"Was bedeutet das 'S' in SOAP?",
+  options:[
+   "Subjective / subjektive Angaben.",
+   "Solution.",
+   "Safety.",
+   "Standard."
+  ],
+  answer:0,
+  explanation:"S beschreibt die subjektiven Angaben des Patienten."
+ },
+ {
+  q:"Was gehört zum 'O' in SOAP?",
+  options:[
+   "Objektive Informationen.",
+   "Die Meinung des Patienten.",
+   "Die Empfehlung.",
+   "Der Preis."
+  ],
+  answer:0,
+  explanation:"O umfasst objektiv feststellbare Informationen."
+ },
+ {
+  q:"Was gehört zum 'A' in SOAP?",
+  options:[
+   "Assessment bzw. fachliche Einschätzung.",
+   "Adresse.",
+   "Arzneimittelpreis.",
+   "Anrede."
+  ],
+  answer:0,
+  explanation:"A enthält die fachliche Bewertung der Situation."
+ },
+ {
+  q:"Was bedeutet 'P' in SOAP?",
+  options:[
+   "Plan.",
+   "Patient.",
+   "Preis.",
+   "Packung."
+  ],
+  answer:0,
+  explanation:"P beschreibt den weiteren Plan bzw. die vereinbarten Maßnahmen."
+ },
+ {
+  q:"Welche Formulierung ist objektiv?",
+  options:[
+   "Patient ist schwierig.",
+   "Patient wirkte unfreundlich.",
+   "Patient gibt seit drei Tagen brennende Oberbauchbeschwerden an.",
+   "Patient ist nervig."
+  ],
+  answer:2,
+  explanation:"Die Formulierung beschreibt die Angabe konkret und vermeidet wertende Begriffe."
+ },
+ {
+  q:"Wie dokumentieren Sie eine Beratung?",
+  options:[
+   "Patient beraten.",
+   "Patient über Anwendung, Dosierung und wichtige Warnhinweise informiert; Verständnis mittels Rückfrage überprüft.",
+   "Alles erklärt.",
+   "OK."
+  ],
+  answer:1,
+  explanation:"Die zweite Variante ist konkret und nachvollziehbar."
+ },
+ {
+  q:"Was sollte vermieden werden?",
+  options:[
+   "Konkrete Angaben.",
+   "Unklare Abkürzungen und wertende Aussagen.",
+   "Zeitangaben.",
+   "Dokumentierte Empfehlungen."
+  ],
+  answer:1,
+  explanation:"Dokumentation muss auch für andere Fachpersonen verständlich sein."
+ },
+ {
+  q:"Warum ist der Zeitpunkt einer Intervention relevant?",
+  options:[
+   "Damit der Ablauf nachvollziehbar bleibt.",
+   "Nur wegen des Designs.",
+   "Er ist nie relevant.",
+   "Damit die Dokumentation länger wird."
+  ],
+  answer:0,
+  explanation:"Zeitangaben können für Verlauf und Nachvollziehbarkeit wichtig sein."
+ },
+ {
+  q:"Wie dokumentieren Sie eine Rücksprache mit dem Arzt?",
+  options:[
+   "Arzt angerufen.",
+   "Rücksprache mit behandelndem Arzt; Dosierung und weiteres Vorgehen besprochen.",
+   "Alles geklärt.",
+   "Arzt weiß Bescheid."
+  ],
+  answer:1,
+  explanation:"Dokumentieren Sie möglichst konkret, was besprochen und vereinbart wurde."
+ },
+ {
+  q:"Welche Information gehört in eine strukturierte Beratungsdokumentation?",
+  options:[
+   "Nur der Name des Patienten.",
+   "Anlass, relevante Informationen, Beratung, Empfehlung und Ergebnis.",
+   "Nur der Preis.",
+   "Nur die Uhrzeit."
+  ],
+  answer:1,
+  explanation:"Eine gute Dokumentation bildet den relevanten Beratungsverlauf ab."
+ },
+ {
+  q:"Was bedeutet 'nachvollziehbar'?",
+  options:[
+   "Eine andere Fachperson kann verstehen, was passiert ist und warum.",
+   "Niemand kann es lesen.",
+   "Es muss sehr lang sein.",
+   "Es muss kompliziert klingen."
+  ],
+  answer:0,
+  explanation:"Nachvollziehbarkeit ist ein zentrales Qualitätsmerkmal."
+ },
+ {
+  q:"Welche Aussage ist am professionellsten?",
+  options:[
+   "Patient wollte das nicht.",
+   "Patient lehnt die vorgeschlagene Maßnahme trotz Beratung ab.",
+   "Patient ist stur.",
+   "Patient versteht nichts."
+  ],
+  answer:1,
+  explanation:"Die Formulierung bleibt sachlich und dokumentiert das relevante Ereignis."
+ },
+ {
+  q:"Was sollte bei einer Medikationsänderung dokumentiert werden?",
+  options:[
+   "Nur dass etwas geändert wurde.",
+   "Relevante Änderung, Anlass bzw. Rücksprache und vereinbartes Vorgehen.",
+   "Nur die Farbe.",
+   "Nur der Preis."
+  ],
+  answer:1,
+  explanation:"Die wesentlichen fachlichen Informationen müssen nachvollziehbar sein."
+ },
+ {
+  q:"Warum sind vollständige Sätze nicht immer zwingend notwendig?",
+  options:[
+   "Dokumentationen dürfen strukturiert und knapp sein, solange sie eindeutig und verständlich bleiben.",
+   "Dokumentation ist egal.",
+   "Man darf alles weglassen.",
+   "Fachpersonen müssen raten."
+  ],
+  answer:0,
+  explanation:"Dokumentationsstil kann knapp sein, darf aber nicht unklar werden."
+ }
+]
+
+};
+
+
+/* ============================================================
+   FACHBEGRIFFE
+============================================================ */
+
+const TERMS = [
+
+ ["Hypertonie","Bluthochdruck","Eine dauerhaft erhöhte Blutdruckbelastung."],
+ ["Hypotonie","niedriger Blutdruck","Ein niedriger Blutdruck."],
+ ["Hyperglykämie","erhöhter Blutzucker","Zu viel Glukose im Blut."],
+ ["Hypoglykämie","Unterzuckerung","Ein zu niedriger Blutzuckerspiegel."],
+ ["Dyspnoe","Atemnot","Das Gefühl, nicht ausreichend Luft zu bekommen."],
+ ["Dysphagie","Schluckbeschwerden","Schwierigkeiten beim Schlucken."],
+ ["Dyspepsie","Verdauungsbeschwerden","Beschwerden im Oberbauch bzw. bei der Verdauung."],
+ ["Obstipation","Verstopfung","Erschwerte oder seltene Stuhlentleerung."],
+ ["Diarrhö","Durchfall","Häufiger bzw. dünnflüssiger Stuhl."],
+ ["Nausea","Übelkeit","Das Gefühl, sich erbrechen zu müssen."],
+ ["Emesis","Erbrechen","Das aktive Entleeren des Mageninhalts."],
+ ["Cephalgie","Kopfschmerzen","Schmerzen im Bereich des Kopfes."],
+ ["Myalgie","Muskelschmerzen","Schmerzen in den Muskeln."],
+ ["Arthralgie","Gelenkschmerzen","Schmerzen in einem oder mehreren Gelenken."],
+ ["Pruritus","Juckreiz","Unangenehmes Gefühl auf der Haut mit Verlangen zu kratzen."],
+ ["Exanthem","Hautausschlag","Veränderte Haut mit Ausschlag."],
+ ["Ödem","Schwellung durch Flüssigkeit","Ansammlung von Flüssigkeit im Gewebe."],
+ ["Insomnie","Schlafstörung","Schwierigkeiten beim Ein- oder Durchschlafen."],
+ ["Tachykardie","beschleunigter Herzschlag","Das Herz schlägt ungewöhnlich schnell."],
+ ["Bradykardie","verlangsamter Herzschlag","Das Herz schlägt ungewöhnlich langsam."],
+ ["Kontraindikation","Grund gegen die Anwendung","Eine Situation, in der ein Arzneimittel nicht angewendet werden sollte."],
+ ["Indikation","Grund für die Anwendung","Der medizinische Grund für eine Behandlung."],
+ ["Nebenwirkung","unerwünschte Wirkung","Eine zusätzliche, unerwünschte Wirkung eines Arzneimittels."],
+ ["Interaktion","Wechselwirkung","Arzneimittel oder andere Stoffe beeinflussen sich gegenseitig."],
+ ["Adhärenz","gemeinsame Therapietreue","Wie gut vereinbarte Therapieempfehlungen umgesetzt werden."],
+ ["Applikation","Anwendung","Wie ein Arzneimittel angewendet oder verabreicht wird."],
+ ["Dosierung","Menge und Einnahmeschema","Wie viel, wie oft und wann ein Arzneimittel angewendet wird."],
+ ["Retard","verzögerte Wirkstofffreisetzung","Der Wirkstoff wird kontrolliert bzw. verzögert freigesetzt."],
+ ["topisch","auf die Haut bzw. lokal angewendet","Ein Arzneimittel wird örtlich angewendet."],
+ ["oral","über den Mund","Ein Arzneimittel wird über den Mund eingenommen."],
+ ["subkutan","unter die Haut","Eine Injektion in das Unterhautfettgewebe."],
+ ["intravenös","in eine Vene","Eine Anwendung direkt in eine Vene."],
+ ["Prophylaxe","Vorbeugung","Eine Maßnahme, um eine Erkrankung oder ein Ereignis zu verhindern."],
+ ["Akut","plötzlich bzw. kurzfristig","Ein Problem tritt plötzlich auf oder besteht nur kurze Zeit."],
+ ["Chronisch","langandauernd","Ein Problem besteht über längere Zeit."],
+ ["Compliance","Befolgung einer Therapie","Älterer Begriff für das Befolgen ärztlicher Empfehlungen."],
+ ["Resorption","Aufnahme eines Wirkstoffs","Aufnahme des Wirkstoffs in den Körper."],
+ ["Bioverfügbarkeit","Anteil des Wirkstoffs im Körperkreislauf","Wie viel Wirkstoff systemisch verfügbar wird."],
+ ["Konstipation","Verstopfung","Erschwerte Stuhlentleerung."],
+ ["Sedierung","Beruhigung bzw. Dämpfung","Verminderte Wachheit oder Aktivität."],
+ ["Analgetikum","Schmerzmittel","Arzneimittel zur Behandlung von Schmerzen."],
+ ["Antipyretikum","Fiebermittel","Arzneimittel zur Senkung von Fieber."],
+ ["Antihistaminikum","Antiallergikum","Arzneimittel gegen allergische Beschwerden."],
+ ["Antazidum","Mittel gegen Magensäure","Arzneimittel, das Magensäure neutralisieren kann."],
+ ["Diuretikum","Entwässerungsmittel","Arzneimittel, das die Ausscheidung von Wasser fördern kann."],
+ ["Antikoagulanz","Gerinnungshemmer","Arzneimittel, das die Blutgerinnung hemmt."],
+ ["Bronchodilatation","Erweiterung der Bronchien","Die Atemwege werden weiter."],
+ ["Mukolytikum","Schleimlöser","Arzneimittel, das zähen Schleim verflüssigen kann."],
+ ["Expektoration","Abhusten","Das Abhusten von Sekret aus den Atemwegen."]
+
 ];
 
 
-/* =====================================================
-   SPEICHER
-===================================================== */
+/* ============================================================
+   PROFESSIONELLE FORMULIERUNGEN
+============================================================ */
 
-let xp=Number(localStorage.getItem('fspxp')||0);
+const PHRASES = [
 
-let progressData=JSON.parse(
-  localStorage.getItem('fspProgress')||'{}'
-);
+ ["Begrüßung","Guten Tag. Wie kann ich Ihnen helfen?"],
+ ["Offene Frage","Können Sie mir bitte beschreiben, welche Beschwerden Sie aktuell haben?"],
+ ["Dauer","Seit wann bestehen die Beschwerden?"],
+ ["Verlauf","Haben sich die Beschwerden im Verlauf verändert?"],
+ ["Intensität","Wie stark sind die Beschwerden auf einer Skala von null bis zehn?"],
+ ["Medikation","Welche Medikamente nehmen Sie derzeit regelmäßig oder bei Bedarf ein?"],
+ ["Allergien","Sind bei Ihnen Allergien oder Unverträglichkeiten bekannt?"],
+ ["Vorerkrankungen","Bestehen relevante Vorerkrankungen, von denen ich wissen sollte?"],
+ ["Anwendung","Wie wenden Sie das Arzneimittel derzeit an?"],
+ ["Verständnis","Könnten Sie mir bitte kurz mit Ihren eigenen Worten erklären, wie Sie das Arzneimittel anwenden werden?"],
+ ["Warnhinweis","Wenn diese Beschwerden auftreten oder sich deutlich verschlimmern, sollten Sie ärztliche Hilfe suchen."],
+ ["Nebenwirkung","Es kann zu Nebenwirkungen kommen. Ich erkläre Ihnen kurz, worauf Sie achten sollten."],
+ ["Unsicherheit","Diesen Punkt möchte ich sicherheitshalber noch einmal überprüfen."],
+ ["Rückfrage","Damit ich Sie richtig verstehe: Sie nehmen das Arzneimittel derzeit einmal täglich ein, richtig?"],
+ ["Preis","Der Preis hängt vom konkreten Präparat und der Packungsgröße ab. Ich kann den aktuellen Preis für Sie prüfen."],
+ ["Zuzahlung","Falls eine Zuzahlung anfällt, kann ich Ihnen die für dieses Präparat geltenden Informationen nennen."],
+ ["Abschluss","Haben Sie noch Fragen oder ist etwas unklar geblieben?"],
+ ["Verabschiedung","Vielen Dank. Ich wünsche Ihnen gute Besserung."]
+];
 
-function getProgress(lesson){
-  return Array.isArray(progressData[lesson])
-    ? progressData[lesson]
-    : [];
+
+/* ============================================================
+   PRAXISFÄLLE
+============================================================ */
+
+const CASES = [
+
+ {
+  id:1,
+  title:"Kopfschmerzen & Schmerzmittel",
+  level:"Basis",
+  premium:false,
+  icon:"🤕",
+  patient:"Frau M., 34 Jahre",
+  complaint:"Seit gestern Kopfschmerzen, heute stärker.",
+  medication:"Keine regelmäßige Medikation angegeben.",
+  allergies:"Keine bekannten Allergien.",
+  price:"Beispiel: 5,49 € für eine OTC-Packung – tatsächlichen Preis immer prüfen.",
+  tasks:[
+   "Beschwerden systematisch erfragen.",
+   "Warnzeichen ausschließen.",
+   "Medikation und Allergien erfragen.",
+   "Anwendung verständlich erklären.",
+   "Verständnis prüfen."
+  ],
+  solution:
+   "Beginnen Sie mit einer offenen Frage. Erfragen Sie Beginn, Verlauf, Intensität und Begleitsymptome. Danach folgen aktuelle Medikamente, Allergien und relevante Vorerkrankungen. Bei geeigneter Selbstmedikation erklären Sie Dosierung, Anwendung, maximale Anwendungsdauer und wichtige Warnzeichen. Zum Schluss nutzen Sie Teach-back."
+ },
+
+ {
+  id:2,
+  title:"Metformin & Nierenfunktion",
+  level:"Fortgeschritten",
+  premium:true,
+  icon:"🩸",
+  patient:"Herr K., 62 Jahre",
+  complaint:"Fragt nach seiner Dauermedikation und berichtet über neue Laborwerte.",
+  medication:"Metformin als Dauermedikation.",
+  allergies:"Keine Angaben.",
+  price:"Kein fester Trainingspreis – konkrete Arzneimittelpreise sind produktabhängig.",
+  tasks:[
+   "Dauermedikation erfassen.",
+   "Nach Nierenfunktion bzw. relevanten Laborwerten fragen.",
+   "Keine eigenständige Therapieänderung versprechen.",
+   "Bei Unklarheit fachliche Rücksprache empfehlen."
+  ],
+  solution:
+   "Im Gespräch sollten Sie strukturiert erfassen, welche Dosierung aktuell verordnet ist, wie das Arzneimittel eingenommen wird und welche relevanten Vorerkrankungen bestehen. Bei einer möglichen Einschränkung der Nierenfunktion sollte die Situation fachlich geprüft und gegebenenfalls Rücksprache mit dem behandelnden Arzt gehalten werden."
+ },
+
+ {
+  id:3,
+  title:"Erkältung & Selbstmedikation",
+  level:"Basis",
+  premium:false,
+  icon:"🤧",
+  patient:"Herr S., 29 Jahre",
+  complaint:"Seit drei Tagen Schnupfen, Husten und Halsschmerzen.",
+  medication:"Keine Dauermedikation.",
+  allergies:"Keine bekannten Allergien.",
+  price:"Beispielpreis abhängig vom gewählten Produkt.",
+  tasks:[
+   "Dauer und Schweregrad erfragen.",
+   "Fieber und relevante Begleitsymptome erfragen.",
+   "Aktuelle Arzneimittel prüfen.",
+   "Geeignete Selbstmedikation erklären."
+  ],
+  solution:
+   "Bei einer Erkältung ist zunächst die symptomatische Einordnung wichtig. Fragen Sie nach Dauer, Fieber, Atemnot, starken Schmerzen und weiteren Warnzeichen. Danach kann je nach Situation eine symptomorientierte Beratung erfolgen."
+ },
+
+ {
+  id:4,
+  title:"Schlafprobleme",
+  level:"Fortgeschritten",
+  premium:true,
+  icon:"🌙",
+  patient:"Frau L., 47 Jahre",
+  complaint:"Seit mehreren Wochen Einschlafprobleme.",
+  medication:"Abends gelegentlich andere Präparate.",
+  allergies:"Keine Angaben.",
+  price:"Produktpreis muss für das konkrete Präparat geprüft werden.",
+  tasks:[
+   "Dauer und Häufigkeit erfragen.",
+   "Weitere Medikamente erfassen.",
+   "Ursachen und Begleitumstände erfragen.",
+   "Nicht vorschnell ein Präparat empfehlen."
+  ],
+  solution:
+   "Bei länger bestehenden Schlafproblemen ist eine sorgfältige Anamnese besonders wichtig. Fragen Sie nach Dauer, Schlafrhythmus, Stress, Koffein, Alkohol, Medikamenten und weiteren Beschwerden. Je nach Situation kann eine ärztliche Abklärung sinnvoll sein."
+ },
+
+ {
+  id:5,
+  title:"Sodbrennen",
+  level:"Basis",
+  premium:false,
+  icon:"🔥",
+  patient:"Herr B., 41 Jahre",
+  complaint:"Brennen hinter dem Brustbein nach größeren Mahlzeiten.",
+  medication:"Keine Dauermedikation.",
+  allergies:"Keine bekannten Allergien.",
+  price:"Beispiel: OTC-Produkt – aktueller Preis muss geprüft werden.",
+  tasks:[
+   "Beschwerden genauer charakterisieren.",
+   "Häufigkeit und Dauer erfragen.",
+   "Warnzeichen erfragen.",
+   "Selbstmedikation nur bei geeigneter Situation beraten."
+  ],
+  solution:
+   "Fragen Sie unter anderem nach Häufigkeit, Dauer, Zusammenhang mit Mahlzeiten und Begleitsymptomen. Bei ungewöhnlich starken, neuen oder alarmierenden Beschwerden sollte eine ärztliche Abklärung erfolgen."
+ },
+
+ {
+  id:6,
+  title:"Kollegiales Übergabegespräch",
+  level:"Premium",
+  premium:true,
+  icon:"👩‍⚕️",
+  patient:"Interne Übergabe",
+  complaint:"Unklare Dosierung bei einem Dauermedikament.",
+  medication:"Mehrere Arzneimittel.",
+  allergies:"Nicht vollständig dokumentiert.",
+  price:"Nicht relevant.",
+  tasks:[
+   "Situation strukturiert zusammenfassen.",
+   "Relevante Hintergrundinformationen nennen.",
+   "Fachliche Einschätzung formulieren.",
+   "Konkrete Empfehlung aussprechen."
+  ],
+  solution:
+   "Verwenden Sie beispielsweise ISBAR: Identifikation, Situation, Background, Assessment und Recommendation. Vermeiden Sie unnötige Informationen und formulieren Sie Ihre Empfehlung nachvollziehbar."
+ },
+
+ {
+  id:7,
+  title:"Dokumentation einer Beratung",
+  level:"Premium",
+  premium:true,
+  icon:"📝",
+  patient:"Patient nach Beratung",
+  complaint:"Unsicherheit bei der Anwendung.",
+  medication:"Neues Arzneimittel.",
+  allergies:"Nicht relevant für die Übung.",
+  price:"Nicht relevant.",
+  tasks:[
+   "Anlass dokumentieren.",
+   "Beratung dokumentieren.",
+   "Verständnisprüfung dokumentieren.",
+   "Weiteres Vorgehen dokumentieren."
+  ],
+  solution:
+   "Beispiel: 'Patient zur Anwendung des neu verordneten Arzneimittels beraten. Dosierung, Einnahmezeitpunkt und relevante Warnhinweise erläutert. Verständnis durch Rückfrage überprüft; Patient konnte Anwendung korrekt wiedergeben.'"
+ },
+
+ {
+  id:8,
+  title:"Preisfrage in der Apotheke",
+  level:"Basis",
+  premium:false,
+  icon:"💶",
+  patient:"Frau R.",
+  complaint:"Möchte ein OTC-Arzneimittel kaufen und fragt nach dem Preis.",
+  medication:"Keine Angaben.",
+  allergies:"Keine Angaben.",
+  price:"Beispielpreis: 6,90 € – nur als Trainingswert.",
+  tasks:[
+   "Preis sachlich nennen.",
+   "Bei Bedarf Packungsgrößen erklären.",
+   "Keine erfundenen Erstattungsinformationen geben.",
+   "Bei Unsicherheit aktuellen Preis prüfen."
+  ],
+  solution:
+   "Professionell: 'Der aktuelle Preis für diese Packungsgröße beträgt beispielsweise 6,90 Euro. Wenn Sie möchten, kann ich Ihnen auch die anderen verfügbaren Packungsgrößen nennen.' In einer echten Apotheke muss selbstverständlich der aktuelle Preis des konkreten Produkts geprüft werden."
+ }
+
+];
+
+
+/* ============================================================
+   HÖRVERSTÄNDNIS
+============================================================ */
+
+const LISTENING = [
+
+ {
+  text:
+  "Guten Tag. Ich habe seit ungefähr einer Woche Probleme mit Sodbrennen. Besonders nach dem Abendessen wird es schlimmer. Ich nehme keine regelmäßigen Medikamente ein. Eine Allergie ist mir nicht bekannt.",
+  questions:[
+   ["Wie lange bestehen die Beschwerden?","Seit ungefähr einer Woche."],
+   ["Wann werden die Beschwerden stärker?","Besonders nach dem Abendessen."]
+  ]
+ },
+
+ {
+  text:
+  "Ich nehme morgens eine Tablette gegen Bluthochdruck. Seit einigen Tagen fühle ich mich allerdings häufiger schwindelig. Außerdem trinke ich deutlich weniger, weil mir die Arbeit momentan sehr stressig vorkommt.",
+  questions:[
+   ["Welche Dauermedikation wird erwähnt?","Eine Tablette gegen Bluthochdruck."],
+   ["Welches neue Symptom wird genannt?","Schwindel."]
+  ]
+ },
+
+ {
+  text:
+  "Das Arzneimittel wurde mir neu verschrieben. Ich bin mir aber nicht sicher, ob ich die Tablette vor oder nach dem Essen einnehmen soll. Können Sie mir das bitte noch einmal erklären?",
+  questions:[
+   ["Was ist das Problem des Patienten?","Er ist unsicher bezüglich des Einnahmezeitpunkts."],
+   ["Was bittet der Patient um Erklärung?","Ob die Tablette vor oder nach dem Essen eingenommen werden soll."]
+  ]
+ },
+
+ {
+  text:
+  "Ich habe das Medikament bisher immer abends genommen. Jetzt hat mein Arzt die Einnahme geändert und gesagt, dass ich es morgens nehmen soll. Ich möchte sicher sein, dass ich die Änderung richtig verstanden habe.",
+  questions:[
+   ["Was wurde geändert?","Der Einnahmezeitpunkt wurde von abends auf morgens geändert."],
+   ["Was möchte der Patient überprüfen?","Ob er die Änderung richtig verstanden hat."]
+  ]
+ }
+
+];
+
+
+/* ============================================================
+   APP STATE
+============================================================ */
+
+let state = {
+  xp:Number(localStorage.getItem("fspxp") || 0),
+
+  hearts:Number(localStorage.getItem("fsphearts") || 5),
+
+  streak:Number(localStorage.getItem("fspstreak") || 1),
+
+  premium:localStorage.getItem("fspPremium") === "true",
+
+  completed:{},
+
+  questionStats:{},
+
+  bonuses:{},
+
+  currentQuestion:0,
+
+  currentLesson:1,
+
+  examResults:{},
+
+  lastVisit:localStorage.getItem("fspLastVisit") || ""
+};
+
+try{
+  state.completed = JSON.parse(localStorage.getItem("fspCompleted") || "{}");
+}catch(e){
+  state.completed = {};
 }
 
-function setProgress(lesson,data){
-  progressData[lesson]=data;
-  localStorage.setItem(
-    'fspProgress',
-    JSON.stringify(progressData)
+try{
+  state.questionStats = JSON.parse(localStorage.getItem("fspQuestionStats") || "{}");
+}catch(e){
+  state.questionStats = {};
+}
+
+try{
+  state.bonuses = JSON.parse(localStorage.getItem("fspBonuses") || "{}");
+}catch(e){
+  state.bonuses = {};
+}
+
+let currentPage = "home";
+
+
+/* ============================================================
+   HELPERS
+============================================================ */
+
+function saveState(){
+  localStorage.setItem("fspxp",state.xp);
+  localStorage.setItem("fsphearts",state.hearts);
+  localStorage.setItem("fspstreak",state.streak);
+  localStorage.setItem("fspPremium",state.premium);
+  localStorage.setItem("fspCompleted",JSON.stringify(state.completed));
+  localStorage.setItem("fspQuestionStats",JSON.stringify(state.questionStats));
+  localStorage.setItem("fspBonuses",JSON.stringify(state.bonuses));
+  localStorage.setItem("fspLastVisit",state.lastVisit);
+}
+
+function esc(text){
+  return String(text)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function toast(message){
+  const el=document.getElementById("toast");
+  el.textContent=message;
+  el.classList.add("show");
+
+  setTimeout(()=>{
+    el.classList.remove("show");
+  },2600);
+}
+
+function addXP(amount,reason,key=null){
+
+  if(key && state.bonuses[key]){
+    return;
+  }
+
+  if(key){
+    state.bonuses[key]=true;
+  }
+
+  state.xp += amount;
+
+  saveState();
+
+  updateHeader();
+
+  toast("+"+amount+" XP"+(reason ? " · "+reason : ""));
+}
+
+function updateHeader(){
+
+  document.getElementById("topXP").textContent=state.xp;
+  document.getElementById("topStreak").textContent=state.streak;
+  document.getElementById("topHearts").textContent=state.hearts;
+
+}
+
+function isPremium(){
+  return state.premium;
+}
+
+function requirePremium(){
+
+  if(isPremium()){
+    return true;
+  }
+
+  showPremiumModal();
+
+  return false;
+}
+
+function navigate(page){
+
+  currentPage=page;
+
+  render();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+function setActiveNav(){
+
+  document.querySelectorAll(".nav button").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  const btn=document.getElementById("nav-"+currentPage);
+
+  if(btn){
+    btn.classList.add("active");
+  }
+}
+
+
+/* ============================================================
+   PREMIUM MODAL
+============================================================ */
+
+function showPremiumModal(){
+
+  const modal=document.getElementById("modal");
+
+  modal.innerHTML=`
+
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <div class="center" style="padding-top:8px">
+
+      <div style="font-size:46px">👑</div>
+
+      <h2>Premium freischalten</h2>
+
+      <p class="muted">
+        Dieser Bereich gehört zum vollständigen FSP-Apotheker-Kurs.
+      </p>
+
+    </div>
+
+    <div class="premium-banner" style="margin-top:16px">
+
+      <span class="badge premium">👑 PREMIUM</span>
+
+      <h2>Der vollständige FSP-Kurs</h2>
+
+      <p>
+        Zugriff auf alle Lektionen, Praxisfälle,
+        Prüfungssimulationen und umfangreichen Übungen.
+      </p>
+
+      <div style="margin-top:17px">
+        <span class="price">19,90 €</span>
+        <small> / Monat</small>
+      </div>
+
+    </div>
+
+    <ul class="feature-list">
+
+      <li>6 vollständige Lektionen</li>
+      <li>100+ interaktive Fragen und Übungen</li>
+      <li>Praxisfälle aus der Apotheke</li>
+      <li>Fachgespräch und kollegiale Kommunikation</li>
+      <li>Professionelle Dokumentation</li>
+      <li>Fachbegriffe mit Patientensprache</li>
+      <li>Hörverständnis mit Vorlesefunktion</li>
+      <li>Prüfungssimulation</li>
+      <li>Fortschritt, XP und Lernstatistik</li>
+
+    </ul>
+
+    <button
+      class="btn btn-premium btn-full"
+      onclick="startCheckout()"
+    >
+      👑 Premium kaufen
+    </button>
+
+    <p class="tiny muted center" style="margin-top:12px">
+      Sichere Zahlungsabwicklung sollte über deinen
+      Zahlungsanbieter erfolgen.
+    </p>
+
+    ${
+      DEMO_PREMIUM_ENABLED
+      ?
+      `
+      <div class="warning-box" style="margin-top:15px">
+        <strong>Entwickler-Demo</strong><br>
+        Für deine Tests kannst du Premium momentan kostenlos aktivieren.
+        Diese Option vor dem Verkauf deaktivieren.
+      </div>
+
+      <button
+        class="btn btn-secondary btn-full"
+        style="margin-top:8px"
+        onclick="activateDemoPremium()"
+      >
+        🧪 Premium-Demo aktivieren
+      </button>
+      `
+      :
+      ""
+    }
+
+  `;
+
+  openModal();
+
+}
+
+function activateDemoPremium(){
+
+  state.premium=true;
+
+  saveState();
+
+  closeModal();
+
+  toast("Premium-Demo wurde aktiviert 👑");
+
+  render();
+
+}
+
+function startCheckout(){
+
+  if(
+    !PAYMENT_URL ||
+    PAYMENT_URL === "DEIN_STRIPE_PAYMENT_LINK_HIER"
+  ){
+
+    closeModal();
+
+    showCheckoutSetup();
+
+    return;
+  }
+
+  window.location.href=PAYMENT_URL;
+
+}
+
+function showCheckoutSetup(){
+
+  openModal();
+
+  document.getElementById("modal").innerHTML=`
+
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <div class="center">
+
+      <div style="font-size:44px">💳</div>
+
+      <h2>Zahlung einrichten</h2>
+
+      <p class="muted">
+        Die Plattform ist bereits für einen externen
+        Checkout vorbereitet.
+      </p>
+
+    </div>
+
+    <div class="info-box">
+
+      <strong>Für deine echte Version:</strong>
+
+      <ol class="list">
+
+        <li>Bei Stripe ein Produkt anlegen.</li>
+
+        <li>Preis definieren, z. B. 19,90 € monatlich.</li>
+
+        <li>Stripe Payment Link erstellen.</li>
+
+        <li>
+          Den Payment-Link in der Variable
+          <strong>PAYMENT_URL</strong> eintragen.
+        </li>
+
+        <li>
+          Nach der Zahlung sollte dein Backend bzw.
+          Membership-System den Premium-Status verifizieren.
+        </li>
+
+      </ol>
+
+    </div>
+
+    <div class="danger-box">
+
+      <strong>Wichtig:</strong><br>
+      Nur <code>localStorage</code> als Premium-Schutz
+      ist für ein echtes Bezahlprodukt nicht sicher.
+      Ein Benutzer könnte den Wert im Browser verändern.
+
+    </div>
+
+  `;
+
+}
+
+
+/* ============================================================
+   MODAL
+============================================================ */
+
+function openModal(){
+
+  document.getElementById("modalBackdrop")
+    .classList.add("show");
+
+}
+
+function closeModal(){
+
+  document.getElementById("modalBackdrop")
+    .classList.remove("show");
+
+}
+
+function closeModalOutside(event){
+
+  if(event.target.id === "modalBackdrop"){
+    closeModal();
+  }
+
+}
+
+
+/* ============================================================
+   RENDER
+============================================================ */
+
+function render(){
+
+  updateHeader();
+
+  setActiveNav();
+
+  const main=document.getElementById("main");
+
+  if(currentPage==="home"){
+    main.innerHTML=renderHome();
+  }
+
+  else if(currentPage==="lessons"){
+    main.innerHTML=renderLessons();
+  }
+
+  else if(currentPage==="cases"){
+    main.innerHTML=renderCases();
+  }
+
+  else if(currentPage==="exam"){
+    main.innerHTML=renderExam();
+  }
+
+  else if(currentPage==="profile"){
+    main.innerHTML=renderProfile();
+  }
+
+}
+
+
+/* ============================================================
+   HOME
+============================================================ */
+
+function renderHome(){
+
+  const completedLessons=LESSONS.filter(
+    lesson=>state.completed["lesson"+lesson.id]
+  ).length;
+
+  const progress=Math.round(
+    completedLessons/LESSONS.length*100
   );
-}
 
-function addXP(amount){
-  xp+=amount;
-  localStorage.setItem('fspxp',xp);
-  $('xp').textContent=xp;
-}
+  return `
 
-function save(){
-  localStorage.setItem('fspxp',xp);
-  $('xp').textContent=xp;
-}
+  <div class="container">
 
-function $(id){
-  return document.getElementById(id);
-}
+    <div class="section">
 
+      <div class="premium-banner">
 
-/* =====================================================
-   FRAGEN – LEKTION 1
-===================================================== */
-
-const L1Q=[
-
-['Wie eröffnen Sie ein professionelles Patientengespräch?',
-'Guten Tag. Wie kann ich Ihnen behilflich sein?'],
-
-['Wie fragen Sie nach dem Beginn der Beschwerden?',
-'Seit wann bestehen Ihre Beschwerden?'],
-
-['Wie fragen Sie nach der Stärke der Beschwerden?',
-'Wie stark sind die Beschwerden auf einer Skala von 0 bis 10?'],
-
-['Wie fragen Sie nach weiteren Beschwerden?',
-'Treten zusätzlich noch andere Beschwerden auf?'],
-
-['Wie fragen Sie nach bereits eingenommenen Arzneimitteln?',
-'Haben Sie bereits etwas gegen die Beschwerden eingenommen?'],
-
-['Wie fragen Sie nach Allergien?',
-'Sind bei Ihnen Allergien oder Unverträglichkeiten bekannt?'],
-
-['Wie fragen Sie nach Vorerkrankungen?',
-'Leiden Sie an bekannten Vorerkrankungen?'],
-
-['Wie fragen Sie nach der aktuellen Medikation?',
-'Welche Arzneimittel nehmen Sie derzeit regelmäßig oder bei Bedarf ein?'],
-
-['Wie fragen Sie nach einer möglichen Schwangerschaft?',
-'Sind Sie schwanger oder besteht möglicherweise eine Schwangerschaft?'],
-
-['Wie erklären Sie die Einnahme?',
-'Bitte nehmen Sie das Arzneimittel zweimal täglich mit ausreichend Wasser ein.'],
-
-['Wie erklären Sie die Anwendungsdauer?',
-'Bitte wenden Sie das Arzneimittel für die empfohlene Dauer an.'],
-
-['Wie prüfen Sie, ob der Patient die Anwendung verstanden hat?',
-'Könnten Sie mir bitte kurz erklären, wie Sie das Arzneimittel anwenden werden?'],
-
-['Wie fragen Sie nach Nebenwirkungen?',
-'Sind bei Ihnen nach der Einnahme Nebenwirkungen aufgetreten?'],
-
-['Wie sprechen Sie eine mögliche Wechselwirkung an?',
-'Dieses Arzneimittel kann die Wirkung anderer Arzneimittel beeinflussen. Deshalb sollten wir Ihre gesamte Medikation berücksichtigen.'],
-
-['Wie reagieren Sie, wenn der Patient etwas nicht versteht?',
-'Natürlich. Ich erkläre es Ihnen gerne noch einmal in einfacheren Worten.'],
-
-['Wie reagieren Sie auf „Geben Sie mir einfach etwas Starkes“?',
-'Gerne. Damit ich Ihnen etwas Geeignetes empfehlen kann, möchte ich zunächst einige Fragen zu Ihren Beschwerden stellen.'],
-
-['Wie fragen Sie nach dem Grund für die Selbstmedikation?',
-'Was möchten Sie mit dem Arzneimittel behandeln?'],
-
-['Wie erklären Sie einen Fachbegriff patientengerecht?',
-'Ich würde den Fachbegriff vermeiden und die Bedeutung in verständlichen Worten erklären.'],
-
-['Wie schließen Sie das Gespräch professionell ab?',
-'Haben Sie noch Fragen? Wenn nicht, wünsche ich Ihnen gute Besserung.'],
-
-['Wie fragen Sie professionell nach Preis oder Zuzahlung?',
-'Möchten Sie wissen, welche Kosten beziehungsweise welche Zuzahlung für Sie anfällt?']
-
-];
-
-
-/* =====================================================
-   FRAGEN – LEKTION 2
-===================================================== */
-
-const L2Q=[
-
-['Wie beginnen Sie ein Fachgespräch mit einem Arzt?',
-'Guten Tag, ich habe eine pharmazeutische Rückfrage zu einer Verordnung.'],
-
-['Wie bitten Sie um eine kurze Rücksprache?',
-'Hätten Sie kurz Zeit für eine Rücksprache bezüglich dieses Patienten?'],
-
-['Wie sprechen Sie eine unklare Dosierung an?',
-'Ich möchte kurz die verordnete Dosierung mit Ihnen abstimmen, da mir diese ungewöhnlich erscheint.'],
-
-['Wie fragen Sie nach der Indikation?',
-'Darf ich kurz nachfragen, für welche Indikation das Arzneimittel vorgesehen ist?'],
-
-['Wie sprechen Sie eine mögliche Wechselwirkung an?',
-'Bei der aktuellen Medikation sehe ich eine mögliche Wechselwirkung, die ich gerne mit Ihnen abstimmen würde.'],
-
-['Wie sprechen Sie eine Kontraindikation an?',
-'Bei dem Patienten liegt möglicherweise eine Kontraindikation vor. Ich würde dies gerne mit Ihnen klären.'],
-
-['Wie sprechen Sie eine eingeschränkte Nierenfunktion an?',
-'Bei dem Patienten liegt eine eingeschränkte Nierenfunktion vor. Sollte die Dosierung entsprechend angepasst werden?'],
-
-['Wie fragen Sie nach einem Laborwert?',
-'Könnten Sie mir bitte den aktuellen relevanten Laborwert nennen?'],
-
-['Wie sprechen Sie einen auffälligen Laborwert an?',
-'Der vorliegende Wert erscheint mir relevant für die Arzneimitteltherapie. Ich würde ihn gerne kurz mit Ihnen besprechen.'],
-
-['Wie sprechen Sie eine mögliche Nebenwirkung an?',
-'Der Patient berichtet über eine mögliche unerwünschte Arzneimittelwirkung.'],
-
-['Wie fragen Sie nach einer Therapiealternative?',
-'Wäre aus Ihrer Sicht eine alternative Therapieoption möglich?'],
-
-['Wie sprechen Sie über einen Wirkstoff?',
-'Der Wirkstoff des Präparats ist …'],
-
-['Wie fragen Sie nach einem Handelsnamen?',
-'Unter welchem Handelsnamen wurde das Präparat bisher eingesetzt?'],
-
-['Wie formulieren Sie eine pharmazeutische Empfehlung?',
-'Aus pharmazeutischer Sicht würde ich folgende Vorgehensweise vorschlagen.'],
-
-['Wie übergeben Sie einen Fall an eine Kollegin?',
-'Ich möchte Ihnen kurz den Patienten und die aktuelle pharmazeutische Fragestellung vorstellen.'],
-
-['Wie fassen Sie ein Fachgespräch zusammen?',
-'Wenn ich Sie richtig verstanden habe, vereinbaren wir folgendes Vorgehen: …'],
-
-['Wie bitten Sie um Bestätigung?',
-'Könnten Sie mir bitte kurz bestätigen, ob dieses Vorgehen für Sie in Ordnung ist?'],
-
-['Wie reagieren Sie auf eine unklare ärztliche Aussage?',
-'Entschuldigen Sie bitte, könnten Sie das noch einmal genauer erläutern?'],
-
-['Wie sprechen Sie professionell über eine Verordnungsabweichung?',
-'Ich habe eine Abweichung festgestellt und würde die Verordnung gerne kurz mit Ihnen abstimmen.'],
-
-['Wie beenden Sie ein Fachgespräch?',
-'Vielen Dank für die Rücksprache. Ich dokumentiere die Vereinbarung entsprechend.']
-
-];
-
-
-/* =====================================================
-   FRAGEN – LEKTION 3
-===================================================== */
-
-const L3Q=[
-
-['Was sollte am Anfang einer Beratungsdokumentation stehen?',
-'Relevante Patientendaten beziehungsweise die zur Dokumentation erforderlichen Angaben.'],
-
-['Wie dokumentieren Sie den Grund des Patientenkontakts?',
-'Patient stellt sich aufgrund von … vor und bittet um Beratung bezüglich …'],
-
-['Wie dokumentieren Sie Beschwerden?',
-'Patient berichtet über seit drei Tagen bestehende Kopfschmerzen.'],
-
-['Wie dokumentieren Sie die aktuelle Medikation?',
-'Patient gibt folgende Dauermedikation an: …'],
-
-['Wie dokumentieren Sie eine Allergie?',
-'Patient gibt eine bekannte Allergie gegen … an.'],
-
-['Wie dokumentieren Sie eine pharmazeutische Intervention?',
-'Pharmazeutische Intervention erfolgte aufgrund von …'],
-
-['Wie dokumentieren Sie eine Rücksprache mit dem Arzt?',
-'Rücksprache mit dem behandelnden Arzt erfolgte am …'],
-
-['Wie dokumentieren Sie eine Vereinbarung?',
-'Es wurde vereinbart, dass …'],
-
-['Wie dokumentieren Sie eine Beratung zur Einnahme?',
-'Patient wurde über Dosierung, Einnahmezeitpunkt und Anwendungsdauer informiert.'],
-
-['Wie dokumentieren Sie die Verständniskontrolle?',
-'Patient konnte die Anwendung in eigenen Worten wiedergeben.'],
-
-['Wie dokumentieren Sie eine Nebenwirkung?',
-'Patient berichtet über … nach Beginn der Einnahme von …'],
-
-['Wie dokumentieren Sie eine mögliche Wechselwirkung?',
-'Mögliche Interaktion zwischen … und … wurde festgestellt und besprochen.'],
-
-['Wie dokumentieren Sie eine Empfehlung?',
-'Empfohlen wurde … unter Berücksichtigung von …'],
-
-['Wie dokumentieren Sie eine ärztliche Weiterleitung?',
-'Patient wurde aufgrund von … zur ärztlichen Abklärung verwiesen.'],
-
-['Wie sollte eine Dokumentation sprachlich sein?',
-'Sachlich, präzise, nachvollziehbar und möglichst objektiv.'],
-
-['Warum sollten wertende Formulierungen vermieden werden?',
-'Weil die Dokumentation nachvollziehbar und sachlich bleiben soll.'],
-
-['Wie dokumentieren Sie eine Patientenentscheidung?',
-'Patient wurde über … informiert und entschied sich für …'],
-
-['Wie dokumentieren Sie eine fehlende Zustimmung?',
-'Patient lehnte die vorgeschlagene Maßnahme nach Aufklärung ab.'],
-
-['Wie dokumentieren Sie eine Empfehlung zur Beobachtung?',
-'Patient wurde angewiesen, den weiteren Verlauf zu beobachten und bei Verschlechterung ärztlichen Rat einzuholen.'],
-
-['Wie schließen Sie eine Dokumentation ab?',
-'Beratung abgeschlossen; Patient erhielt die vereinbarten Informationen und Empfehlungen.']
-
-];
-
-
-/* =====================================================
-   FACHSprache
-===================================================== */
-
-const TERMS=[
-
-['Analgetikum','Schmerzmittel'],
-['Antipyretikum','Fieber senkendes Arzneimittel'],
-['Antazidum','Mittel zur Neutralisierung der Magensäure'],
-['Diarrhö','Durchfall'],
-['Obstipation','Verstopfung'],
-['Nausea','Übelkeit'],
-['Emesis','Erbrechen'],
-['Dyspnoe','Atemnot'],
-['Pruritus','Juckreiz'],
-['Ödem','Schwellung durch Flüssigkeitseinlagerung'],
-['Hypertonie','Bluthochdruck'],
-['Hypotonie','Niedriger Blutdruck'],
-['Tachykardie','Beschleunigter Herzschlag'],
-['Bradykardie','Verlangsamter Herzschlag'],
-['Kontraindikation','Grund, weshalb ein Arzneimittel nicht angewendet werden darf'],
-['Interaktion','Wechselwirkung zwischen Arzneimitteln'],
-['Applikation','Anwendung oder Verabreichung'],
-['Adhärenz','Zuverlässige Umsetzung der gemeinsam vereinbarten Therapie'],
-['Indikation','Grund beziehungsweise Erkrankung, für die ein Arzneimittel eingesetzt wird'],
-['Dosierung','Menge und Häufigkeit der Arzneimitteleinnahme'],
-['UAW','Unerwünschte Arzneimittelwirkung'],
-['Retardpräparat','Arzneimittel mit verzögerter Wirkstofffreisetzung'],
-['Compliance','Befolgen einer Behandlungsempfehlung'],
-['Prophylaxe','Vorbeugende Maßnahme'],
-['Symptom','Beschwerde oder Krankheitszeichen'],
-['Diagnose','Feststellung einer Erkrankung']
-
-];
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-function render(page='home'){
-
-  document.querySelectorAll('.nav button')
-    .forEach(b=>{
-      b.classList.toggle(
-        'active',
-        b.dataset.p===page
-      );
-    });
-
-  const m=$('main');
-
-  if(page==='home'){
-
-    const p1=Math.round(getProgress(1).length/20*100);
-    const p2=Math.round(getProgress(2).length/20*100);
-    const p3=Math.round(getProgress(3).length/20*100);
-
-    m.innerHTML=`
-
-      <section class="hero">
-
-        <h1>Bereit für die FSP?</h1>
-
-        <p>
-          Trainiere Patientengespräche, Fachgespräche
-          und pharmazeutische Dokumentation mit
-          realistischen Situationen aus dem
-          Apothekenalltag.
-        </p>
-
-        <button class="btn"
-          onclick="openLesson(1)">
-          Lernen starten →
-        </button>
-
-      </section>
-
-      <section class="section">
-
-        <h2>Dein Lernpfad</h2>
-
-        <div class="grid">
-
-          ${[
-            [1,'🗣️','Patientengespräch',p1],
-            [2,'👩‍⚕️','Fachgespräch',p2],
-            [3,'📝','Dokumentation',p3]
-          ].map(x=>`
-
-            <div class="card"
-              onclick="openLesson(${x[0]})">
-
-              <div class="icon">${x[1]}</div>
-
-              <h3>
-                Lektion ${x[0]} – ${x[2]}
-              </h3>
-
-              <div class="progress">
-                <div style="width:${x[3]}%"></div>
-              </div>
-
-              <p class="muted">
-                ${x[3]} % abgeschlossen
-              </p>
-
-            </div>
-
-          `).join('')}
-
-        </div>
-
-      </section>
-
-      <section class="section">
-
-        <div class="card">
-
-          <h3>⭐ Dein Fortschritt</h3>
-
-          <p class="muted">
-            ${xp} XP gesammelt
-          </p>
-
+        ${
+          isPremium()
+          ?
+          `
+          <span class="badge premium">👑 PREMIUM AKTIV</span>
+          <h2>Willkommen im vollständigen Kurs.</h2>
           <p>
-            Ziel: sichere, strukturierte und
-            professionelle Kommunikation in der FSP.
+            Du hast Zugriff auf alle Lernbereiche.
+            Arbeite dich systematisch durch den Lernpfad.
+          </p>
+          `
+          :
+          `
+          <span class="badge premium">⭐ FREE</span>
+          <h2>Starte deine FSP-Vorbereitung.</h2>
+          <p>
+            Lektion 1 und ausgewählte Praxisfälle sind kostenlos.
+            Für den vollständigen Kurs kannst du Premium freischalten.
           </p>
 
+          <button
+            class="btn btn-premium"
+            style="margin-top:10px"
+            onclick="showPremiumModal()"
+          >
+            👑 Premium ansehen
+          </button>
+          `
+        }
+
+      </div>
+
+    </div>
+
+
+    <div class="section">
+
+      <div class="section-title">
+        <h2>Dein Fortschritt</h2>
+        <span>${completedLessons}/6 Lektionen</span>
+      </div>
+
+      <div class="card">
+
+        <div class="progress-row">
+          <span>Gesamtfortschritt</span>
+          <strong>${progress}%</strong>
         </div>
 
-      </section>
+        <div class="progress">
+          <div
+            class="progress-bar"
+            style="width:${progress}%"
+          ></div>
+        </div>
 
-    `;
-  }
+        <div class="btn-row">
 
+          <button
+            class="btn btn-primary"
+            onclick="navigate('lessons')"
+          >
+            📚 Weiterlernen
+          </button>
 
-  if(page==='path'){
-
-    m.innerHTML=`
-
-      <h1>🗺️ Lernpfad</h1>
-
-      <p class="muted">
-        Arbeite dich Schritt für Schritt durch
-        die wichtigsten kommunikativen Aufgaben
-        für die FSP.
-      </p>
-
-      ${[1,2,3,4,5,6].map(i=>{
-
-        const x=L[i-1];
-
-        return `
-
-          <div class="lesson">
-
-            <div class="num">${i}</div>
-
-            <div>
-              <b>${x[2]} ${x[0]}</b>
-              <small>${x[1]}</small>
-            </div>
-
-            <button class="btn"
-              onclick="openLesson(${i})">
-              Öffnen
-            </button>
-
-          </div>
-
-        `;
-
-      }).join('')}
-
-    `;
-  }
-
-
-  if(page==='cases'){
-
-    m.innerHTML=`
-
-      <h1>💬 Praxisfälle</h1>
-
-      <p class="muted">
-        Realistische Situationen aus der Apotheke.
-      </p>
-
-      ${C.map((x,i)=>`
-
-        <div class="case">
-
-          <span class="tag">
-            FALL ${i+1}
-          </span>
-
-          <h3>${x[0]}</h3>
-
-          <p class="muted">
-            ${x[1]}
-          </p>
-
-          <button class="btn"
-            onclick="openCase(${i})">
-            Fall starten
+          <button
+            class="btn btn-secondary"
+            onclick="openRandomQuestion()"
+          >
+            🎲 Zufallsfrage
           </button>
 
         </div>
 
-      `).join('')}
+      </div>
 
-    `;
-  }
+    </div>
 
 
-  if(page==='exam'){
+    <div class="section">
 
-    m.innerHTML=`
+      <div class="section-title">
+        <h2>Heute lernen</h2>
+      </div>
 
-      <h1>🎓 Prüfungssimulation</h1>
+      ${renderLessonMini(1)}
 
-      <div class="card">
+      ${renderLessonMini(2)}
 
-        <span class="tag">
-          FSP-SIMULATION
-        </span>
+    </div>
 
-        <h2>Diabetes Typ 2</h2>
 
-        <p class="muted">
-          Ein Patient berichtet über seine
-          Medikation und fragt nach der Einnahme
-          und seinen Nierenwerten.
-        </p>
+    <div class="section">
 
-        <div class="dialogue">
-          <b>Patient:</b><br>
-          „Ich nehme Metformin. Mein Arzt hat
-          gesagt, dass meine Nierenwerte kontrolliert
-          werden müssen. Was bedeutet das für mich?“
+      <div class="section-title">
+        <h2>Was dich erwartet</h2>
+      </div>
+
+      <div class="feature-grid">
+
+        <div class="feature">
+          <strong>🗣️ Patientengespräch</strong>
+          Anamnese, Beratung und Abschluss.
         </div>
 
-        <textarea id="examAnswer"
-          placeholder="Formuliere Anamnese, Beratung, mögliche Rücksprache und Abschluss..."></textarea>
+        <div class="feature">
+          <strong>👩‍⚕️ Fachgespräch</strong>
+          Kollegiale pharmazeutische Kommunikation.
+        </div>
 
-        <br><br>
+        <div class="feature">
+          <strong>📝 Dokumentation</strong>
+          Präzise und nachvollziehbare Einträge.
+        </div>
 
-        <button class="btn"
-          onclick="evaluateExam()">
-          Antwort auswerten
-        </button>
+        <div class="feature">
+          <strong>📖 Fachsprache</strong>
+          Fachbegriffe sicher erklären.
+        </div>
 
-        <div id="examResult"></div>
+        <div class="feature">
+          <strong>🎤 Sprechen</strong>
+          Professionelle Redemittel.
+        </div>
 
-      </div>
-
-    `;
-  }
-
-
-  if(page==='profile'){
-
-    const p1=getProgress(1).length;
-    const p2=getProgress(2).length;
-    const p3=getProgress(3).length;
-
-    m.innerHTML=`
-
-      <h1>👤 Profil</h1>
-
-      <div class="card">
-
-        <h2>FSP-Lernprofil</h2>
-
-        <p class="muted">
-          ${xp} XP auf diesem Gerät gespeichert.
-        </p>
-
-        <hr>
-
-        <p>
-          🗣️ Patientengespräch:
-          <b>${p1}/20</b>
-        </p>
-
-        <p>
-          👩‍⚕️ Fachgespräch:
-          <b>${p2}/20</b>
-        </p>
-
-        <p>
-          📝 Dokumentation:
-          <b>${p3}/20</b>
-        </p>
-
-        <hr>
-
-        <button class="btn"
-          onclick="resetAll()">
-          Fortschritt zurücksetzen
-        </button>
+        <div class="feature">
+          <strong>🎧 Hörverständnis</strong>
+          Gespräche hören und verstehen.
+        </div>
 
       </div>
 
-    `;
-  }
-}
-
-
-/* =====================================================
-   LEKTION ÖFFNEN
-===================================================== */
-
-function openLesson(n){
-
-  if(n===1){
-    lesson1Menu();
-    return;
-  }
-
-  if(n===2){
-    lesson2Menu();
-    return;
-  }
-
-  if(n===3){
-    lesson3Menu();
-    return;
-  }
-
-  $('mb').innerHTML=`
-
-    <span class="tag">
-      LEKTION ${n}
-    </span>
-
-    <h2>
-      ${L[n-1][2]} ${L[n-1][0]}
-    </h2>
-
-    <p>
-      ${L[n-1][1]}
-    </p>
-
-    <div class="info">
-      Diese Lektion ist als nächster
-      Lernbereich vorbereitet.
     </div>
 
-    <button class="btn"
-      onclick="closeM()">
-      Schließen
-    </button>
+  </div>
 
   `;
 
-  $('modal').style.display='flex';
 }
 
+function renderLessonMini(id){
 
-/* =====================================================
-   LEKTION 1 MENÜ
-===================================================== */
+  const lesson=LESSONS.find(x=>x.id===id);
 
-function lesson1Menu(){
+  const locked=lesson.premium && !isPremium();
 
-  const done=getProgress(1).length;
-  const percent=Math.round(done/20*100);
+  return `
 
-  $('mb').innerHTML=`
+  <div class="card lesson-card ${locked ? "premium-locked" : ""}">
 
-    <span class="tag">
-      LEKTION 1
-    </span>
+    <div class="lesson-top">
 
-    <h2>🗣️ Patientengespräch</h2>
-
-    <p class="muted">
-      Anamnese, Beratung, Arzneimittel,
-      Preis, Zuzahlung und professioneller
-      Gesprächsabschluss.
-    </p>
-
-    <div class="progress">
-      <div style="width:${percent}%"></div>
-    </div>
-
-    <p class="small">
-      ${done}/20 Fragen abgeschlossen
-    </p>
-
-    <button class="option"
-      onclick="questionLesson(1,0)">
-      🧠 20 interaktive Fragen
-    </button>
-
-    <button class="option"
-      onclick="priceSection()">
-      💶 Preis & Zuzahlung
-    </button>
-
-    <button class="option"
-      onclick="termsSection()">
-      📚 Fachbegriffe → Patientensprache
-    </button>
-
-    <button class="option"
-      onclick="formulationsSection()">
-      🗣️ Professionelle Formulierungen
-    </button>
-
-    <button class="option"
-      onclick="patientDialogue()">
-      💬 Vollständiger Beispieldialog
-    </button>
-
-    <button class="option"
-      onclick="difficultPatients()">
-      ⚠️ Schwierige Situationen
-    </button>
-
-    <button class="option"
-      onclick="miniExam1()">
-      🎓 Mini-Prüfung
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   LEKTION 1 FRAGEN
-===================================================== */
-
-function questionLesson(lesson,n){
-
-  const questions=L1Q;
-
-  if(n>=questions.length){
-
-    const key='l1bonus';
-
-    if(localStorage.getItem(key)!=='1'){
-
-      addXP(50);
-
-      localStorage.setItem(key,'1');
-    }
-
-    $('mb').innerHTML=`
-
-      <span class="tag">GESCHAFFT</span>
-
-      <h2>🎉 Lektion 1 abgeschlossen!</h2>
-
-      <div class="success">
-        Du hast alle 20 Fragen bearbeitet.
-        <br><br>
-        ${localStorage.getItem(key)==='1'
-          ? 'Dein Lernfortschritt wurde gespeichert.'
-          : '+50 XP Bonus!'}
+      <div class="lesson-number">
+        ${lesson.icon}
       </div>
 
-      <button class="option"
-        onclick="priceSection()">
-        💶 Preis & Zuzahlung
-      </button>
+      <div class="lesson-info">
 
-      <button class="option"
-        onclick="patientDialogue()">
-        💬 Beispieldialog
-      </button>
+        <h3>
+          Lektion ${lesson.id}: ${esc(lesson.title)}
+        </h3>
 
-      <button class="btn"
-        onclick="lesson1Menu()">
-        Zur Lektion
-      </button>
+        <p>${esc(lesson.subtitle)}</p>
 
-    `;
-
-    return;
-  }
-
-  const q=questions[n];
-  const done=getProgress(1).includes(n);
-
-  $('mb').innerHTML=`
-
-    <span class="tag">
-      LEKTION 1 · FRAGE ${n+1}/20
-    </span>
-
-    <h2>${q[0]}</h2>
-
-    <div class="progress">
-      <div style="width:${n/20*100}%"></div>
-    </div>
-
-    <p class="muted">
-      Überlege zuerst selbst, wie du die Frage
-      in der FSP beantworten würdest.
-    </p>
-
-    <button class="option"
-      onclick="revealLessonAnswer(1,${n})">
-      👁️ Musterantwort anzeigen
-    </button>
-
-    <div id="lessonAnswer"></div>
-
-    ${n>0
-      ? `<button class="option"
-          onclick="questionLesson(1,${n-1})">
-          ← Vorherige Frage
-        </button>`
-      : ''}
-
-    <button class="option"
-      onclick="questionLesson(1,${n+1})">
-      Nächste Frage →
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   LEKTION 2 MENÜ
-===================================================== */
-
-function lesson2Menu(){
-
-  const done=getProgress(2).length;
-  const percent=Math.round(done/20*100);
-
-  $('mb').innerHTML=`
-
-    <span class="tag">
-      LEKTION 2
-    </span>
-
-    <h2>👩‍⚕️ Fachgespräch</h2>
-
-    <p class="muted">
-      Kollegiale Kommunikation, Rücksprache,
-      Arzneimitteltherapie, Interaktionen,
-      Dosierung und pharmazeutische Intervention.
-    </p>
-
-    <div class="progress">
-      <div style="width:${percent}%"></div>
-    </div>
-
-    <p class="small">
-      ${done}/20 Fragen abgeschlossen
-    </p>
-
-    <button class="option"
-      onclick="questionLesson(2,0)">
-      🧠 20 Fachgespräch-Fragen
-    </button>
-
-    <button class="option"
-      onclick="doctorConversation()">
-      👨‍⚕️ Fachgespräch mit dem Arzt
-    </button>
-
-    <button class="option"
-      onclick="colleagueConversation()">
-      👩‍⚕️ Übergabegespräch mit Kollegin
-    </button>
-
-    <button class="option"
-      onclick="pharmaIntervention()">
-      💊 Pharmazeutische Intervention
-    </button>
-
-    <button class="option"
-      onclick="labAndKidney()">
-      🧪 Laborwerte & Nierenfunktion
-    </button>
-
-    <button class="option"
-      onclick="fachTerms()">
-      📚 Fachsprache im Fachgespräch
-    </button>
-
-    <button class="option"
-      onclick="difficultFach()">
-      ⚠️ Schwierige Fachgespräche
-    </button>
-
-    <button class="option"
-      onclick="miniExam2()">
-      🎓 Mini-Prüfung
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   LEKTION 3 MENÜ
-===================================================== */
-
-function lesson3Menu(){
-
-  const done=getProgress(3).length;
-  const percent=Math.round(done/20*100);
-
-  $('mb').innerHTML=`
-
-    <span class="tag">
-      LEKTION 3
-    </span>
-
-    <h2>📝 Dokumentation</h2>
-
-    <p class="muted">
-      Sachlich, strukturiert und nachvollziehbar
-      dokumentieren.
-    </p>
-
-    <div class="progress">
-      <div style="width:${percent}%"></div>
-    </div>
-
-    <p class="small">
-      ${done}/20 Fragen abgeschlossen
-    </p>
-
-    <button class="option"
-      onclick="questionLesson(3,0)">
-      🧠 20 Dokumentations-Fragen
-    </button>
-
-    <button class="option"
-      onclick="documentationBasics()">
-      📝 Grundlagen der Dokumentation
-    </button>
-
-    <button class="option"
-      onclick="soapSection()">
-      📋 SOAP-Struktur
-    </button>
-
-    <button class="option"
-      onclick="badGoodDocumentation()">
-      🔍 Fehler erkennen & verbessern
-    </button>
-
-    <button class="option"
-      onclick="documentationCase1()">
-      📄 Fall 1: Patientengespräch dokumentieren
-    </button>
-
-    <button class="option"
-      onclick="documentationCase2()">
-      📄 Fall 2: Nebenwirkung dokumentieren
-    </button>
-
-    <button class="option"
-      onclick="documentationCase3()">
-      📄 Fall 3: Interaktion & Arztkontakt
-    </button>
-
-    <button class="option"
-      onclick="miniExam3()">
-      🎓 Mini-Prüfung
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   ALLGEMEINE FRAGEN-FUNKTION
-===================================================== */
-
-function revealLessonAnswer(lesson,n){
-
-  const questions=
-    lesson===1 ? L1Q :
-    lesson===2 ? L2Q :
-    L3Q;
-
-  const q=questions[n];
-  const done=getProgress(lesson).includes(n);
-
-  $('lessonAnswer').innerHTML=`
-
-    <div class="answer correct">
-
-      <b>✅ Musterantwort</b>
-
-      <p>${q[1]}</p>
+      </div>
 
       ${
-        done
-        ? `<span class="small">
-             Bereits abgeschlossen.
-           </span>`
-        : `<button class="btn"
-             onclick="completeLessonQuestion(${lesson},${n})">
-             ✓ Als gelernt markieren
-           </button>`
+        locked
+        ? `<span class="badge premium">🔒</span>`
+        : `<span class="badge green">✓</span>`
       }
 
     </div>
-  `;
-}
 
-function completeLessonQuestion(lesson,n){
+    <div class="btn-row">
 
-  let data=getProgress(lesson);
+      <button
+        class="btn ${locked ? "btn-premium" : "btn-primary"}"
+        onclick="${
+          locked
+          ? "showPremiumModal()"
+          : "openLesson("+lesson.id+")"
+        }"
+      >
+        ${locked ? "👑 Premium freischalten" : "Lernen"}
+      </button>
 
-  if(!data.includes(n)){
-
-    data.push(n);
-
-    setProgress(lesson,data);
-
-    addXP(10);
-  }
-
-  questionLesson(lesson,n+1);
-}
-
-
-/* =====================================================
-   PREIS
-===================================================== */
-
-function priceSection(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">
-      PREIS & ZUZAHLUNG
-    </span>
-
-    <h2>💶 Preis richtig erklären</h2>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      „Was kostet dieses Medikament?“
     </div>
 
-    <p>
-      Welche Antwort ist professionell?
-    </p>
-
-    <button class="option"
-      onclick="priceAnswer(true)">
-      „Ich prüfe gerne den Preis beziehungsweise
-      die für Sie relevante Zuzahlung.“
-    </button>
-
-    <button class="option"
-      onclick="priceAnswer(false)">
-      „Das kostet einfach fünf Euro.“
-    </button>
-
-    <button class="option"
-      onclick="priceAnswer(false)">
-      „Das müssen Sie selbst herausfinden.“
-    </button>
-
-    <div id="priceResult"></div>
-
-    <hr>
-
-    <div class="topic">
-      <b>🧾 Patient fragt nach der Zuzahlung</b>
-      „Ich kann gerne prüfen, welche Zuzahlung
-      für Sie anfällt.“
-    </div>
-
-    <div class="topic">
-      <b>💳 Patient ist Selbstzahler</b>
-      „Ich nenne Ihnen gerne den aktuellen
-      Verkaufspreis des Arzneimittels.“
-    </div>
-
-    <div class="topic">
-      <b>🔄 Patient möchte es günstiger</b>
-      „Ich kann gerne prüfen, ob eine geeignete
-      wirkstoffgleiche Alternative verfügbar ist.“
-    </div>
-
-    <div class="topic">
-      <b>🗣️ Gute FSP-Formulierung</b>
-      „Möchten Sie wissen, welche Kosten beziehungsweise
-      welche Zuzahlung für Sie anfällt?“
-    </div>
-
-    <button class="btn"
-      onclick="lesson1Menu()">
-      ← Zurück
-    </button>
+  </div>
 
   `;
 
-  $('modal').style.display='flex';
 }
 
-function priceAnswer(correct){
 
-  const r=$('priceResult');
+/* ============================================================
+   LESSONS
+============================================================ */
 
-  if(correct){
+function renderLessons(){
 
-    if(localStorage.getItem('priceBonus')!=='1'){
-      addXP(10);
-      localStorage.setItem('priceBonus','1');
-    }
+  return `
 
-    r.innerHTML=`
+  <div class="container">
 
-      <div class="success">
-        ✅ Richtig.
-        <br><br>
-        Frage zuerst, was der Patient genau wissen
-        möchte: Verkaufspreis, Zuzahlung oder
-        mögliche Erstattung.
+    <div class="section">
+
+      <div class="section-title">
+
+        <div>
+          <h2>Lernpfad</h2>
+          <span>Vom Patientengespräch bis zur Prüfung</span>
+        </div>
+
       </div>
 
-    `;
+    </div>
 
-  }else{
 
-    r.innerHTML=`
+    ${LESSONS.map(lesson=>{
 
-      <div class="wrong">
-        ❌ Nicht optimal.
-        <br><br>
-        Preis und Zuzahlung sollten nicht
-        automatisch gleichgesetzt werden.
+      const locked=lesson.premium && !isPremium();
+
+      const done=state.completed["lesson"+lesson.id];
+
+      return `
+
+      <div class="card lesson-card ${locked ? "premium-locked" : ""}">
+
+        <div class="lesson-top">
+
+          <div class="lesson-number">
+            ${lesson.icon}
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              ${lesson.id}. ${esc(lesson.title)}
+            </h3>
+
+            <p>${esc(lesson.subtitle)}</p>
+
+            <div style="margin-top:8px">
+
+              ${
+                lesson.premium
+                ?
+                `<span class="badge premium">👑 PREMIUM</span>`
+                :
+                `<span class="badge green">🆓 FREE</span>`
+              }
+
+              ${
+                done
+                ?
+                `<span class="badge green">✓ Abgeschlossen</span>`
+                :
+                ""
+              }
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="muted" style="font-size:13px">
+          ${esc(lesson.description)}
+        </p>
+
+        ${
+          locked
+          ?
+          `
+          <div class="lock">
+            🔒 Diese Lektion ist Teil des Premium-Kurses.
+          </div>
+
+          <button
+            class="btn btn-premium btn-full"
+            style="margin-top:10px"
+            onclick="showPremiumModal()"
+          >
+            👑 Premium freischalten
+          </button>
+          `
+          :
+          `
+          <button
+            class="btn btn-primary btn-full"
+            style="margin-top:8px"
+            onclick="openLesson(${lesson.id})"
+          >
+            ${done ? "↩ Lektion wiederholen" : "▶ Lektion starten"}
+          </button>
+          `
+        }
+
       </div>
 
-    `;
+      `;
+
+    }).join("")}
+
+
+    <div class="premium-banner">
+
+      <h2>👑 Warum Premium?</h2>
+
+      <p>
+        Die kostenlose Version zeigt dir das Konzept.
+        Premium enthält den vollständigen Lernumfang.
+      </p>
+
+      <button
+        class="btn btn-premium"
+        style="margin-top:10px"
+        onclick="showPremiumModal()"
+      >
+        Premium ansehen
+      </button>
+
+    </div>
+
+  </div>
+
+  `;
+
+}
+
+
+/* ============================================================
+   OPEN LESSON
+============================================================ */
+
+function openLesson(id){
+
+  const lesson=LESSONS.find(x=>x.id===id);
+
+  if(!lesson){
+    return;
   }
+
+  if(lesson.premium && !requirePremium()){
+    return;
+  }
+
+  state.currentLesson=id;
+
+  showLessonMenu(id);
+
 }
 
 
-/* =====================================================
-   FACHSprache
-===================================================== */
+/* ============================================================
+   LESSON MENU
+============================================================ */
 
-function termsSection(){
+function showLessonMenu(id){
 
-  $('mb').innerHTML=`
+  const lesson=LESSONS.find(x=>x.id===id);
 
-    <span class="tag">FACHSprache</span>
+  let html="";
 
-    <h2>📚 Fachbegriff → Patientensprache</h2>
+  if(id===1){
+    html=renderLesson1Menu();
+  }
+
+  else if(id===2){
+    html=renderLesson2Menu();
+  }
+
+  else if(id===3){
+    html=renderLesson3Menu();
+  }
+
+  else if(id===4){
+    html=renderLesson4Menu();
+  }
+
+  else if(id===5){
+    html=renderLesson5Menu();
+  }
+
+  else if(id===6){
+    html=renderLesson6Menu();
+  }
+
+  document.getElementById("main").innerHTML=`
+
+    <div class="container">
+
+      <div class="section">
+
+        <button
+          class="btn btn-secondary"
+          onclick="navigate('lessons')"
+        >
+          ← Lernpfad
+        </button>
+
+      </div>
+
+      ${html}
+
+    </div>
+
+  `;
+
+  window.scrollTo({top:0,behavior:"smooth"});
+
+}
+
+
+/* ============================================================
+   LESSON 1
+============================================================ */
+
+function renderLesson1Menu(){
+
+  return `
+
+  <div class="card">
+
+    <span class="badge green">🆓 FREE</span>
+
+    <h2 style="margin:9px 0 5px">
+      Lektion 1: Patientengespräch
+    </h2>
 
     <p class="muted">
-      Du musst Fachbegriffe erkennen und erklären
-      können. Im Patientengespräch solltest du
-      möglichst verständliche Sprache verwenden.
+      Professionelle Kommunikation mit Patientinnen und Patienten.
     </p>
 
-    <table>
+    <div class="progress-row" style="margin-top:15px">
+      <span>Lektionsbonus</span>
+      <span>+100 XP</span>
+    </div>
 
-      <tr>
-        <th>Fachbegriff</th>
-        <th>Patientensprache</th>
-      </tr>
+  </div>
 
-      ${TERMS.map(t=>`
 
-        <tr>
-          <td><b>${t[0]}</b></td>
-          <td>${t[1]}</td>
-        </tr>
+  <div class="section-title">
+    <h2>Lernbereiche</h2>
+  </div>
 
-      `).join('')}
 
-    </table>
+  <div class="grid">
 
-    <button class="btn"
-      onclick="lesson1Menu()">
-      ← Zurück
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson1Goals()">
+      <h3>🎯 1. Lernziele</h3>
+      <p class="muted">Was du nach dieser Lektion sicher können sollst.</p>
     </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="startQuestionLesson(1)">
+      <h3>❓ 2. 20 Fragen</h3>
+      <p class="muted">Interaktives FSP-Training mit Lösungen.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson1Medication()">
+      <h3>💊 3. Arzneimittelberatung</h3>
+      <p class="muted">Dosierung, Anwendung, Dauer und Warnhinweise.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson1Price()">
+      <h3>💶 4. Preis & Zahlungsgespräch</h3>
+      <p class="muted">Wie du professionell auf Preisfragen reagierst.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson1Terms()">
+      <h3>📖 5. Fachsprache → Patientensprache</h3>
+      <p class="muted">Wichtige Begriffe verständlich erklären.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson1Phrases()">
+      <h3>🗣️ 6. Professionelle Formulierungen</h3>
+      <p class="muted">Redemittel für die Prüfung.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson1Dialogue()">
+      <h3>🎭 7. Vollständiger Dialog</h3>
+      <p class="muted">Kopfschmerzen – vom Anfang bis zum Abschluss.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson1Difficult()">
+      <h3>⚠️ 8. Schwierige Situationen</h3>
+      <p class="muted">Unzufriedene Patienten, Unsicherheit und Rückfragen.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson1Cases()">
+      <h3>🩺 9. 3 vollständige Fälle</h3>
+      <p class="muted">Mit Aufgaben und Musterlösungen.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson1Exam()">
+      <h3>🎓 10. Mini-Prüfung</h3>
+      <p class="muted">Sodbrennen – wie in einer Prüfungssituation.</p>
+    </button>
+
+  </div>
 
   `;
 
-  $('modal').style.display='flex';
-}
-
-function fachTerms(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">FACHGESPRÄCH</span>
-
-    <h2>📚 Fachsprache im Kollegengespräch</h2>
-
-    <div class="topic">
-      <b>Indikation</b>
-      Grund beziehungsweise Erkrankung,
-      für die ein Arzneimittel eingesetzt wird.
-    </div>
-
-    <div class="topic">
-      <b>Kontraindikation</b>
-      Umstand, bei dem ein Arzneimittel
-      nicht angewendet werden darf.
-    </div>
-
-    <div class="topic">
-      <b>Interaktion</b>
-      Wechselwirkung zwischen Arzneimitteln
-      oder anderen Faktoren.
-    </div>
-
-    <div class="topic">
-      <b>UAW</b>
-      Unerwünschte Arzneimittelwirkung.
-    </div>
-
-    <div class="topic">
-      <b>Adhärenz</b>
-      Wie zuverlässig ein Patient eine gemeinsam
-      vereinbarte Therapie umsetzt.
-    </div>
-
-    <div class="topic">
-      <b>pharmazeutische Intervention</b>
-      Gezielte pharmazeutische Maßnahme zur
-      Verbesserung oder Sicherung der Arzneimitteltherapie.
-    </div>
-
-    <button class="btn"
-      onclick="lesson2Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
 }
 
 
-/* =====================================================
-   PATIENTENDIALOG
-===================================================== */
+/* ============================================================
+   LESSON 1 GOALS
+============================================================ */
 
-function patientDialogue(){
+function lesson1Goals(){
 
-  $('mb').innerHTML=`
+  showContentPage(`
 
-    <span class="tag">BEISPIELDIALOG</span>
+    <div class="card">
 
-    <h2>💬 Kopfschmerzen & Schmerzmittel</h2>
+      <span class="badge green">Lernziele</span>
 
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Guten Tag. Wie kann ich Ihnen behilflich sein?
-    </div>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      Ich habe seit gestern starke Kopfschmerzen
-      und brauche etwas dagegen.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Seit wann bestehen die Beschwerden genau?
-    </div>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      Seit gestern Nachmittag.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Wie stark sind die Schmerzen auf einer
-      Skala von 0 bis 10?
-    </div>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      Ungefähr sieben.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Treten zusätzlich Fieber, Übelkeit,
-      Sehstörungen oder andere Beschwerden auf?
-    </div>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      Nein.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Haben Sie bereits ein Arzneimittel
-      eingenommen?
-    </div>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      Nein.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Welche Arzneimittel nehmen Sie regelmäßig?
-    </div>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      Ein Medikament gegen Bluthochdruck.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Sind bei Ihnen Allergien oder
-      Unverträglichkeiten bekannt?
-    </div>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      Nein.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Danke. Ich prüfe nun, welches Arzneimittel
-      für Sie geeignet ist und erkläre Ihnen
-      anschließend die Anwendung.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Haben Sie noch Fragen?
-    </div>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      Nein, danke.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Sehr gerne. Gute Besserung!
-    </div>
-
-    <button class="btn"
-      onclick="lesson1Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   FORMULIERUNGEN
-===================================================== */
-
-function formulationsSection(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">FORMULIERUNGEN</span>
-
-    <h2>🗣️ Professionelle Formulierungen</h2>
-
-    <div class="case">
-      <b>Beginn</b>
-      <p>
-        „Seit wann bestehen Ihre Beschwerden?“
-      </p>
-    </div>
-
-    <div class="case">
-      <b>Beschwerden</b>
-      <p>
-        „Welche Beschwerden haben Sie aktuell?“
-      </p>
-    </div>
-
-    <div class="case">
-      <b>Medikation</b>
-      <p>
-        „Welche Arzneimittel nehmen Sie derzeit
-        regelmäßig oder bei Bedarf ein?“
-      </p>
-    </div>
-
-    <div class="case">
-      <b>Allergien</b>
-      <p>
-        „Sind bei Ihnen Allergien oder
-        Unverträglichkeiten bekannt?“
-      </p>
-    </div>
-
-    <div class="case">
-      <b>Anwendung</b>
-      <p>
-        „Bitte nehmen Sie das Arzneimittel
-        entsprechend der empfohlenen Dosierung ein.“
-      </p>
-    </div>
-
-    <div class="case">
-      <b>Verständnis</b>
-      <p>
-        „Könnten Sie mir bitte kurz erklären,
-        wie Sie das Arzneimittel anwenden werden?“
-      </p>
-    </div>
-
-    <div class="case">
-      <b>Abschluss</b>
-      <p>
-        „Haben Sie noch Fragen? Wenn nicht,
-        wünsche ich Ihnen gute Besserung.“
-      </p>
-    </div>
-
-    <button class="btn"
-      onclick="lesson1Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   SCHWIERIGE PATIENTEN
-===================================================== */
-
-function difficultPatients(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">SCHWIERIGE SITUATIONEN</span>
-
-    <h2>⚠️ Patientensituationen</h2>
-
-    <div class="case">
-      <h3>„Geben Sie mir einfach etwas Starkes!“</h3>
-      <p>
-        „Gerne. Damit ich Ihnen etwas Geeignetes
-        empfehlen kann, möchte ich zunächst einige
-        Fragen zu Ihren Beschwerden stellen.“
-      </p>
-    </div>
-
-    <div class="case">
-      <h3>„Ich habe keine Zeit für Fragen.“</h3>
-      <p>
-        „Ich verstehe. Die Fragen helfen mir,
-        die für Sie geeignete und sichere
-        Empfehlung zu treffen.“
-      </p>
-    </div>
-
-    <div class="case">
-      <h3>Patient versteht die Erklärung nicht.</h3>
-      <p>
-        „Natürlich. Ich erkläre es Ihnen gerne
-        noch einmal Schritt für Schritt.“
-      </p>
-    </div>
-
-    <div class="case">
-      <h3>Patient möchte unbedingt ein bestimmtes Präparat.</h3>
-      <p>
-        „Ich verstehe. Ich würde zunächst gerne
-        prüfen, ob dieses Präparat für Ihre
-        Situation geeignet ist.“
-      </p>
-    </div>
-
-    <div class="case">
-      <h3>Patient fragt nur nach dem Preis.</h3>
-      <p>
-        „Gerne prüfe ich den Preis für Sie.
-        Möchten Sie auch wissen, ob eine
-        Zuzahlung anfällt?“
-      </p>
-    </div>
-
-    <button class="btn"
-      onclick="lesson1Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   MINI-PRÜFUNG 1
-===================================================== */
-
-function miniExam1(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">MINI-PRÜFUNG</span>
-
-    <h2>🎓 Sodbrennen</h2>
-
-    <div class="dialogue">
-      <b>Patient:</b><br>
-      „Ich habe seit einigen Tagen Sodbrennen.
-      Können Sie mir etwas empfehlen?“
-    </div>
-
-    <p>
-      Formuliere ein vollständiges Patientengespräch.
-      Denke an:
-    </p>
-
-    <ul>
-      <li>Beginn</li>
-      <li>Häufigkeit</li>
-      <li>Begleitsymptome</li>
-      <li>bisherige Behandlung</li>
-      <li>Medikation</li>
-      <li>Warnzeichen</li>
-      <li>Beratung</li>
-      <li>Abschluss</li>
-    </ul>
-
-    <textarea id="mini1"
-      placeholder="Deine Antwort..."></textarea>
-
-    <br><br>
-
-    <button class="btn"
-      onclick="mini1Solution()">
-      Lösung anzeigen
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-function mini1Solution(){
-
-  const value=
-    ($('mini1')?.value||'').trim();
-
-  if(value.length<30){
-
-    alert(
-      'Bitte schreibe zuerst eine ausführlichere Antwort.'
-    );
-
-    return;
-  }
-
-  if(localStorage.getItem('mini1done')!=='1'){
-
-    addXP(20);
-
-    localStorage.setItem('mini1done','1');
-  }
-
-  $('mb').innerHTML=`
-
-    <span class="tag">MUSTERLÖSUNG</span>
-
-    <h2>Beispiel für eine strukturierte Antwort</h2>
-
-    <div class="dialogue">
-      „Guten Tag. Seit wann bestehen Ihre
-      Beschwerden und wie häufig treten sie auf?“
-    </div>
-
-    <div class="dialogue">
-      „Treten zusätzlich Schluckbeschwerden,
-      starke Schmerzen, Erbrechen oder andere
-      ungewöhnliche Beschwerden auf?“
-    </div>
-
-    <div class="dialogue">
-      „Haben Sie bereits etwas gegen das
-      Sodbrennen eingenommen?“
-    </div>
-
-    <div class="dialogue">
-      „Welche Arzneimittel nehmen Sie derzeit
-      regelmäßig ein?“
-    </div>
-
-    <div class="dialogue">
-      „Aufgrund Ihrer Angaben kann ich Ihnen
-      erklären, welche Möglichkeiten infrage
-      kommen. Bei Warnzeichen oder anhaltenden
-      Beschwerden sollte eine ärztliche Abklärung
-      erfolgen.“
-    </div>
-
-    <div class="dialogue">
-      „Haben Sie noch Fragen? Wenn nicht,
-      wünsche ich Ihnen gute Besserung.“
-    </div>
-
-    <div class="success">
-      🎉 Mini-Prüfung abgeschlossen. +20 XP
-    </div>
-
-    <button class="btn"
-      onclick="lesson1Menu()">
-      ← Zurück
-    </button>
-
-  `;
-}
-
-
-/* =====================================================
-   LEKTION 2 – ARZT
-===================================================== */
-
-function doctorConversation(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">FACHGESPRÄCH</span>
-
-    <h2>👨‍⚕️ Apotheke ↔ Arzt</h2>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Guten Tag, ich habe eine pharmazeutische
-      Rückfrage zu einer Verordnung.
-    </div>
-
-    <div class="dialogue">
-      <b>Arzt:</b><br>
-      Ja, worum geht es?
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Bei dem Patienten besteht eine eingeschränkte
-      Nierenfunktion. Ich möchte daher die Dosierung
-      kurz mit Ihnen abstimmen.
-    </div>
-
-    <div class="dialogue">
-      <b>Arzt:</b><br>
-      Welcher Laborwert liegt vor?
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Der aktuelle relevante Wert liegt bei …
-      Ich wollte klären, ob die derzeitige Dosierung
-      beibehalten werden soll.
-    </div>
-
-    <div class="dialogue">
-      <b>Arzt:</b><br>
-      Bitte setzen Sie die bisherige Therapie
-      zunächst fort.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Vielen Dank. Wenn ich Sie richtig verstanden
-      habe, soll die aktuelle Dosierung zunächst
-      beibehalten werden.
-    </div>
-
-    <div class="dialogue">
-      <b>Arzt:</b><br>
-      Genau.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Vielen Dank für die Rücksprache. Ich
-      dokumentiere die Vereinbarung entsprechend.
-    </div>
-
-    <button class="btn"
-      onclick="lesson2Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   LEKTION 2 – KOLLEGIN
-===================================================== */
-
-function colleagueConversation(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">ÜBERGABE</span>
-
-    <h2>👩‍⚕️ Kollegiales Fachgespräch</h2>
-
-    <p>
-      Eine gute Übergabe sollte kurz, strukturiert
-      und nachvollziehbar sein.
-    </p>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Ich möchte dir kurz einen Patientenfall
-      übergeben.
-    </div>
-
-    <div class="dialogue">
-      <b>Kollegin:</b><br>
-      Gerne.
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Der Patient nimmt mehrere Arzneimittel
-      dauerhaft ein und berichtet seit Beginn
-      der neuen Therapie über Schwindel.
-    </div>
-
-    <div class="dialogue">
-      <b>Kollegin:</b><br>
-      Wurde bereits eine mögliche Ursache geprüft?
-    </div>
-
-    <div class="dialogue">
-      <b>Apotheker:</b><br>
-      Ich habe die Medikation geprüft und eine
-      mögliche Wechselwirkung festgestellt.
-      Eine ärztliche Rücksprache ist vorgesehen.
-    </div>
-
-    <div class="info">
-      Merke:
-      Wer? Was? Seit wann? Welche Arzneimittel?
-      Welche Auffälligkeit? Was wurde bereits
-      gemacht? Was ist der nächste Schritt?
-    </div>
-
-    <button class="btn"
-      onclick="lesson2Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   PHARMAZEUTISCHE INTERVENTION
-===================================================== */
-
-function pharmaIntervention(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">INTERVENTION</span>
-
-    <h2>💊 Pharmazeutische Intervention</h2>
-
-    <p>
-      Eine pharmazeutische Intervention sollte
-      nachvollziehbar, sachlich und lösungsorientiert
-      kommuniziert werden.
-    </p>
-
-    <div class="topic">
-      <b>1. Problem benennen</b>
-      „Bei der aktuellen Medikation besteht
-      möglicherweise ein arzneimittelbezogenes Problem.“
-    </div>
-
-    <div class="topic">
-      <b>2. Relevante Information nennen</b>
-      „Der Patient berichtet über …“
-    </div>
-
-    <div class="topic">
-      <b>3. Pharmazeutische Einschätzung</b>
-      „Aus pharmazeutischer Sicht könnte
-      eine Wechselwirkung beziehungsweise
-      ein Anwendungsproblem vorliegen.“
-    </div>
-
-    <div class="topic">
-      <b>4. Lösung vorschlagen</b>
-      „Ich würde eine Rücksprache mit dem
-      behandelnden Arzt empfehlen.“
-    </div>
-
-    <div class="topic">
-      <b>5. Vereinbarung dokumentieren</b>
-      „Die getroffene Vereinbarung wird
-      anschließend dokumentiert.“
-    </div>
-
-    <button class="btn"
-      onclick="lesson2Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   LABOR & NIEREN
-===================================================== */
-
-function labAndKidney(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">LABOR</span>
-
-    <h2>🧪 Laborwerte & Nierenfunktion</h2>
-
-    <div class="info">
-      Bei einem Fachgespräch solltest du nicht
-      nur einen Laborwert nennen, sondern erklären,
-      warum er für die Arzneimitteltherapie relevant
-      sein kann.
-    </div>
-
-    <div class="topic">
-      <b>Nierenfunktion</b>
-      Kann für die Dosierung oder Auswahl bestimmter
-      Arzneimittel relevant sein.
-    </div>
-
-    <div class="topic">
-      <b>Leberfunktion</b>
-      Kann bei Arzneimitteln mit relevanter
-      hepatischer Verstoffwechselung berücksichtigt
-      werden.
-    </div>
-
-    <div class="topic">
-      <b>Professionelle Frage</b>
-      „Könnten Sie mir bitte den aktuellen
-      relevanten Laborwert nennen?“
-    </div>
-
-    <div class="topic">
-      <b>Rücksprache</b>
-      „Sollte die Dosierung aufgrund der aktuellen
-      Nierenfunktion angepasst werden?“
-    </div>
-
-    <button class="btn"
-      onclick="lesson2Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   SCHWIERIGE FACHGESPRÄCHE
-===================================================== */
-
-function difficultFach(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">SCHWIERIGE SITUATIONEN</span>
-
-    <h2>⚠️ Fachgespräch sicher führen</h2>
-
-    <div class="case">
-      <h3>Arzt hat keine Zeit</h3>
-      <p>
-        „Ich verstehe. Es geht um eine kurze
-        pharmazeutische Rückfrage zu einer
-        Verordnung.“
-      </p>
-    </div>
-
-    <div class="case">
-      <h3>Du hast etwas nicht verstanden</h3>
-      <p>
-        „Entschuldigen Sie bitte. Könnten Sie
-        den letzten Punkt noch einmal erläutern?“
-      </p>
-    </div>
-
-    <div class="case">
-      <h3>Du bist mit einer Entscheidung nicht sicher</h3>
-      <p>
-        „Ich würde diesen Punkt gerne noch einmal
-        überprüfen, bevor wir die weitere Vorgehensweise
-        festlegen.“
-      </p>
-    </div>
-
-    <div class="case">
-      <h3>Du möchtest eine Empfehlung machen</h3>
-      <p>
-        „Aus pharmazeutischer Sicht würde ich
-        folgende Vorgehensweise vorschlagen.“
-      </p>
-    </div>
-
-    <div class="case">
-      <h3>Gespräch zusammenfassen</h3>
-      <p>
-        „Wenn ich Sie richtig verstanden habe,
-        vereinbaren wir folgendes Vorgehen: …“
-      </p>
-    </div>
-
-    <button class="btn"
-      onclick="lesson2Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   MINI PRÜFUNG 2
-===================================================== */
-
-function miniExam2(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">MINI-PRÜFUNG</span>
-
-    <h2>🎓 Fachgespräch – Dosierung</h2>
-
-    <div class="dialogue">
-      <b>Situation:</b><br>
-      Du stellst bei einer Verordnung eine
-      möglicherweise ungewöhnliche Dosierung fest.
-      Der Patient hat außerdem eine eingeschränkte
-      Nierenfunktion.
-    </div>
-
-    <p>
-      Formuliere eine professionelle Rücksprache
-      mit dem Arzt.
-    </p>
-
-    <textarea id="mini2"
-      placeholder="Deine Formulierung..."></textarea>
-
-    <br><br>
-
-    <button class="btn"
-      onclick="mini2Solution()">
-      Lösung anzeigen
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-function mini2Solution(){
-
-  const value=
-    ($('mini2')?.value||'').trim();
-
-  if(value.length<30){
-
-    alert(
-      'Bitte formuliere mindestens einige vollständige Sätze.'
-    );
-
-    return;
-  }
-
-  if(localStorage.getItem('mini2done')!=='1'){
-
-    addXP(20);
-
-    localStorage.setItem('mini2done','1');
-  }
-
-  $('mb').innerHTML=`
-
-    <span class="tag">MUSTERLÖSUNG</span>
-
-    <h2>Professionelle Rücksprache</h2>
-
-    <div class="dialogue">
-      „Guten Tag, ich habe eine pharmazeutische
-      Rückfrage zu einer Verordnung.“
-    </div>
-
-    <div class="dialogue">
-      „Bei dem Patienten besteht eine eingeschränkte
-      Nierenfunktion. Gleichzeitig erscheint mir
-      die verordnete Dosierung überprüfungsbedürftig.“
-    </div>
-
-    <div class="dialogue">
-      „Könnten Sie bitte bestätigen, ob die
-      derzeitige Dosierung beibehalten werden soll
-      oder eine Anpassung vorgesehen ist?“
-    </div>
-
-    <div class="dialogue">
-      „Vielen Dank für die Rücksprache. Ich
-      dokumentiere die Vereinbarung entsprechend.“
-    </div>
-
-    <div class="success">
-      🎉 Mini-Prüfung abgeschlossen. +20 XP
-    </div>
-
-    <button class="btn"
-      onclick="lesson2Menu()">
-      ← Zurück
-    </button>
-
-  `;
-}
-
-
-/* =====================================================
-   DOKUMENTATION – GRUNDLAGEN
-===================================================== */
-
-function documentationBasics(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">DOKUMENTATION</span>
-
-    <h2>📝 Grundlagen</h2>
-
-    <p>
-      Eine gute pharmazeutische Dokumentation sollte
-      sachlich, strukturiert, nachvollziehbar und
-      möglichst objektiv formuliert sein.
-    </p>
-
-    <div class="topic">
-      <b>Wer?</b>
-      Relevante Patientendaten.
-    </div>
-
-    <div class="topic">
-      <b>Warum?</b>
-      Grund des Kontakts beziehungsweise
-      pharmazeutische Fragestellung.
-    </div>
-
-    <div class="topic">
-      <b>Was?</b>
-      Beschwerden, Medikation, relevante Informationen.
-    </div>
-
-    <div class="topic">
-      <b>Was wurde gemacht?</b>
-      Beratung, Intervention, Rücksprache,
-      Empfehlung.
-    </div>
-
-    <div class="topic">
-      <b>Was wurde vereinbart?</b>
-      Konkretes weiteres Vorgehen.
-    </div>
-
-    <div class="topic">
-      <b>Was ist zu beachten?</b>
-      Warnzeichen, Kontrolle oder weitere Maßnahmen.
-    </div>
-
-    <button class="btn"
-      onclick="lesson3Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   SOAP
-===================================================== */
-
-function soapSection(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">STRUKTUR</span>
-
-    <h2>📋 SOAP-Methode</h2>
-
-    <div class="topic">
-      <b>S – Subjective</b>
-      Angaben und Beschwerden des Patienten.
-      <br><br>
-      Beispiel:
-      „Patient berichtet über seit drei Tagen
-      bestehende Kopfschmerzen.“
-    </div>
-
-    <div class="topic">
-      <b>O – Objective</b>
-      Objektiv feststellbare beziehungsweise
-      relevante Informationen.
-      <br><br>
-      Beispiel:
-      „Aktuelle Medikation laut Patient: …“
-    </div>
-
-    <div class="topic">
-      <b>A – Assessment</b>
-      Pharmazeutische Einschätzung.
-      <br><br>
-      Beispiel:
-      „Möglicherweise arzneimittelbezogenes Problem.“
-    </div>
-
-    <div class="topic">
-      <b>P – Plan</b>
-      Weiteres Vorgehen.
-      <br><br>
-      Beispiel:
-      „Ärztliche Rücksprache empfohlen;
-      Patient über weiteres Vorgehen informiert.“
-    </div>
-
-    <div class="info">
-      Für die FSP ist vor allem wichtig,
-      dass du Informationen logisch ordnest
-      und sachlich formulierst.
-    </div>
-
-    <button class="btn"
-      onclick="lesson3Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   SCHLECHT / GUT
-===================================================== */
-
-function badGoodDocumentation(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">FEHLERTRAINING</span>
-
-    <h2>🔍 Schlechte vs. gute Dokumentation</h2>
-
-    <div class="case">
-
-      <h3>❌ Zu umgangssprachlich</h3>
+      <h2>Patientengespräch</h2>
 
       <p>
-        „Patient hatte total schlimme Kopfschmerzen
-        und wollte unbedingt eine Tablette.“
-      </p>
-
-      <h3>✅ Professioneller</h3>
-
-      <p>
-        „Patient berichtet über starke
-        Kopfschmerzen und bittet um Beratung
-        zur Selbstmedikation.“
+        Nach dieser Lektion sollst du ein pharmazeutisches
+        Patientengespräch strukturiert und professionell führen können.
       </p>
 
     </div>
 
-    <div class="case">
 
-      <h3>❌ Unpräzise</h3>
+    <div class="card">
+
+      <h3>🎯 Du kannst danach:</h3>
+
+      <ul class="list">
+
+        <li>ein Gespräch professionell eröffnen</li>
+        <li>Beschwerden mit offenen Fragen erfassen</li>
+        <li>gezielte W-Fragen stellen</li>
+        <li>aktuelle Medikamente erfragen</li>
+        <li>Allergien und Unverträglichkeiten erfragen</li>
+        <li>relevante Vorerkrankungen erfassen</li>
+        <li>Dosierung und Anwendung erklären</li>
+        <li>Therapiedauer erklären</li>
+        <li>Nebenwirkungen verständlich erklären</li>
+        <li>Warnzeichen erkennen und ansprechen</li>
+        <li>Wechselwirkungen thematisieren</li>
+        <li>Fachbegriffe in Alltagssprache übersetzen</li>
+        <li>das Verständnis des Patienten überprüfen</li>
+        <li>professionell auf Preisfragen reagieren</li>
+        <li>ein Gespräch sauber abschließen</li>
 
-      <p>
-        „Patient nimmt viele Medikamente.“
-      </p>
-
-      <h3>✅ Präziser</h3>
-
-      <p>
-        „Patient gibt folgende Dauermedikation an:
-        …“
-      </p>
-
-    </div>
-
-    <div class="case">
-
-      <h3>❌ Wertend</h3>
-
-      <p>
-        „Patient ist schwierig und hört nicht zu.“
-      </p>
-
-      <h3>✅ Sachlich</h3>
-
-      <p>
-        „Patient konnte die erste Erklärung nicht
-        wiedergeben; Anwendung wurde erneut erklärt.“
-      </p>
-
-    </div>
-
-    <div class="case">
-
-      <h3>❌ Unvollständig</h3>
-
-      <p>
-        „Arzt angerufen.“
-      </p>
-
-      <h3>✅ Nachvollziehbar</h3>
-
-      <p>
-        „Rücksprache mit dem behandelnden Arzt
-        erfolgte bezüglich der Dosierung.
-        Vereinbart wurde …“
-      </p>
-
-    </div>
-
-    <button class="btn"
-      onclick="lesson3Menu()">
-      ← Zurück
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-
-/* =====================================================
-   DOKUMENTATIONSFALL 1
-===================================================== */
-
-function documentationCase1(){
-
-  documentationCase(
-    1,
-    'Patientengespräch dokumentieren',
-    `Patient kommt wegen seit zwei Tagen bestehender
-    Kopfschmerzen. Er möchte ein Schmerzmittel.
-    Er nimmt regelmäßig ein Arzneimittel gegen
-    Bluthochdruck. Keine bekannten Allergien.
-    Es wurden Rückfragen zu Begleitsymptomen und
-    bisheriger Einnahme gestellt.`
-  );
-
-}
-
-
-/* =====================================================
-   DOKUMENTATIONSFALL 2
-===================================================== */
-
-function documentationCase2(){
-
-  documentationCase(
-    2,
-    'Mögliche Nebenwirkung dokumentieren',
-    `Patient berichtet über Schwindel seit Beginn
-    einer neuen Arzneimitteltherapie. Er möchte
-    wissen, ob die Beschwerden damit zusammenhängen
-    könnten. Die aktuelle Medikation wurde erfragt.`
-  );
-
-}
-
-
-/* =====================================================
-   DOKUMENTATIONSFALL 3
-===================================================== */
-
-function documentationCase3(){
-
-  documentationCase(
-    3,
-    'Interaktion & Arztkontakt',
-    `Bei einem Patienten mit mehreren Arzneimitteln
-    wurde eine mögliche Wechselwirkung festgestellt.
-    Es erfolgte eine Rücksprache mit dem behandelnden
-    Arzt. Das weitere Vorgehen wurde gemeinsam
-    abgestimmt.`
-  );
-
-}
-
-
-/* =====================================================
-   GENERISCHER DOKUMENTATIONSFALL
-===================================================== */
-
-function documentationCase(n,title,description){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">
-      DOKUMENTATIONSFALL ${n}
-    </span>
-
-    <h2>📝 ${title}</h2>
-
-    <div class="info">
-      <b>Ausgangssituation:</b><br>
-      ${description}
-    </div>
-
-    <p>
-      Schreibe eine kurze, sachliche und
-      nachvollziehbare Dokumentation.
-    </p>
-
-    <textarea id="docAnswer"
-      placeholder="Deine Dokumentation..."></textarea>
-
-    <br><br>
-
-    <button class="btn"
-      onclick="evaluateDocumentation(${n})">
-      Dokumentation prüfen
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-function evaluateDocumentation(n){
-
-  const text=
-    ($('docAnswer')?.value||'').trim();
-
-  if(text.length<40){
-
-    alert(
-      'Bitte schreibe eine ausführlichere Dokumentation.'
-    );
-
-    return;
-  }
-
-  addXP(15);
-
-  $('mb').innerHTML=`
-
-    <span class="tag">
-      AUSWERTUNG
-    </span>
-
-    <h2>📝 Dokumentation abgeschlossen</h2>
-
-    <div class="success">
-      +15 XP
-    </div>
-
-    <h3>Kontrolliere deine Dokumentation:</h3>
-
-    <ul>
-      <li>Ist der Anlass des Kontakts klar?</li>
-      <li>Sind relevante Beschwerden enthalten?</li>
-      <li>Ist die Medikation berücksichtigt?</li>
-      <li>Ist die Intervention beschrieben?</li>
-      <li>Ist die Empfehlung nachvollziehbar?</li>
-      <li>Ist das weitere Vorgehen dokumentiert?</li>
-      <li>Ist die Sprache sachlich?</li>
-      <li>Hast du wertende Formulierungen vermieden?</li>
-    </ul>
-
-    <button class="btn"
-      onclick="lesson3Menu()">
-      ← Zurück
-    </button>
-
-  `;
-}
-
-
-/* =====================================================
-   MINI PRÜFUNG 3
-===================================================== */
-
-function miniExam3(){
-
-  $('mb').innerHTML=`
-
-    <span class="tag">MINI-PRÜFUNG</span>
-
-    <h2>🎓 Dokumentation</h2>
-
-    <div class="dialogue">
-
-      <b>Fall:</b><br>
-
-      Eine Patientin berichtet über Übelkeit
-      nach Beginn eines neuen Arzneimittels.
-      Sie nimmt außerdem mehrere Dauermedikamente.
-      Du führst ein Beratungsgespräch und empfiehlst
-      eine ärztliche Abklärung.
-
-    </div>
-
-    <p>
-      Dokumentiere den Fall sachlich und strukturiert.
-    </p>
-
-    <textarea id="mini3"
-      placeholder="Deine Dokumentation..."></textarea>
-
-    <br><br>
-
-    <button class="btn"
-      onclick="mini3Solution()">
-      Lösung anzeigen
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-function mini3Solution(){
-
-  const value=
-    ($('mini3')?.value||'').trim();
-
-  if(value.length<40){
-
-    alert(
-      'Bitte schreibe zunächst eine ausführliche Dokumentation.'
-    );
-
-    return;
-  }
-
-  if(localStorage.getItem('mini3done')!=='1'){
-
-    addXP(20);
-
-    localStorage.setItem('mini3done','1');
-  }
-
-  $('mb').innerHTML=`
-
-    <span class="tag">MUSTERLÖSUNG</span>
-
-    <h2>📝 Beispiel einer Dokumentation</h2>
-
-    <div class="answer">
-
-      <p>
-        Patientin berichtet über Übelkeit seit Beginn
-        einer neuen Arzneimitteltherapie.
-        Aktuelle Dauermedikation wurde erfragt.
-      </p>
-
-      <p>
-        Patientin wurde zu zeitlichem Zusammenhang,
-        weiteren Beschwerden und bisherigen Maßnahmen
-        befragt.
-      </p>
-
-      <p>
-        Aufgrund der Beschwerden wurde eine ärztliche
-        Abklärung empfohlen. Patientin wurde über
-        das weitere Vorgehen informiert.
-      </p>
-
-    </div>
-
-    <div class="success">
-      🎉 Mini-Prüfung abgeschlossen. +20 XP
-    </div>
-
-    <button class="btn"
-      onclick="lesson3Menu()">
-      ← Zurück
-    </button>
-
-  `;
-}
-
-
-/* =====================================================
-   FALLBEREICH
-===================================================== */
-
-function openCase(i){
-
-  const extra=[
-
-    `
-    <h3>Anamnese</h3>
-    <p>
-      Frage nach Beginn, Stärke, Begleitsymptomen,
-      bisheriger Einnahme, Medikation und Allergien.
-    </p>
-    `,
-
-    `
-    <h3>Medikation</h3>
-    <p>
-      Erfrage aktuelle Arzneimittel und relevante
-      Informationen zur Nierenfunktion.
-    </p>
-    `,
-
-    `
-    <h3>Selbstmedikation</h3>
-    <p>
-      Erhebe Beschwerden, Dauer, Warnzeichen,
-      bisherige Maßnahmen und relevante
-      Begleitmedikation.
-    </p>
-    `,
-
-    `
-    <h3>Schlafprobleme</h3>
-    <p>
-      Erfrage Dauer, Häufigkeit, Ursachen,
-      Begleitmedikation und Erwartungen.
-    </p>
-    `,
-
-    `
-    <h3>Dokumentation</h3>
-    <p>
-      Formuliere eine sachliche Dokumentation
-      des Beratungsgesprächs.
-    </p>
-    `,
-
-    `
-    <h3>Übergabe</h3>
-    <p>
-      Übergib den Fall strukturiert an eine
-      Kollegin oder einen Kollegen.
-    </p>
-    `
-
-  ];
-
-  $('mb').innerHTML=`
-
-    <span class="tag">
-      FALL ${i+1}
-    </span>
-
-    <h2>${C[i][0]}</h2>
-
-    <p>${C[i][1]}</p>
-
-    ${extra[i]}
-
-    <textarea id="caseText"
-      placeholder="Formuliere deine fachsprachliche Antwort..."></textarea>
-
-    <br><br>
-
-    <button class="btn"
-      onclick="finishCase()">
-      Fall auswerten
-    </button>
-
-  `;
-
-  $('modal').style.display='flex';
-}
-
-function finishCase(){
-
-  const value=
-    ($('caseText')?.value||'').trim();
-
-  if(value.length<30){
-
-    alert(
-      'Bitte formuliere mindestens einige vollständige Sätze.'
-    );
-
-    return;
-  }
-
-  addXP(15);
-
-  $('mb').innerHTML=`
-
-    <div class="success">
-      ✅ Fall bearbeitet. +15 XP
-    </div>
-
-    <h3>FSP-Checkliste</h3>
-
-    <ul>
-      <li>professioneller Einstieg</li>
-      <li>strukturierte Anamnese</li>
-      <li>relevante Arzneimittel</li>
-      <li>Allergien / Unverträglichkeiten</li>
-      <li>Beratung</li>
-      <li>Warnzeichen</li>
-      <li>Verständnisprüfung</li>
-      <li>Abschluss</li>
-    </ul>
-
-    <button class="btn"
-      onclick="closeM()">
-      Schließen
-    </button>
-
-  `;
-}
-
-
-/* =====================================================
-   PRÜFUNG
-===================================================== */
-
-function evaluateExam(){
-
-  const text=
-    ($('examAnswer')?.value||'').trim();
-
-  if(text.length<60){
-
-    $('examResult').innerHTML=`
-
-      <div class="warning">
-        Deine Antwort ist noch sehr kurz.
-        Versuche, eine vollständige strukturierte
-        Antwort zu formulieren.
-      </div>
-
-    `;
-
-    return;
-  }
-
-  const t=text.toLowerCase();
-
-  let points=0;
-
-  if(t.includes('metformin')) points++;
-  if(t.includes('niere')) points++;
-  if(t.includes('medikation')) points++;
-  if(t.includes('einnahme')||t.includes('dos')) points++;
-  if(t.includes('arzt')||t.includes('ärzt')) points++;
-
-  addXP(20);
-
-  $('examResult').innerHTML=`
-
-    <div class="success">
-      ✅ Prüfungsteil abgeschlossen.
-      <br><br>
-      +20 XP
-    </div>
-
-    <div class="answer">
-
-      <b>Automatischer Themencheck:</b>
-
-      <p>
-        Erkannte Kernpunkte:
-        <strong>${points}/5</strong>
-      </p>
-
-      <ul>
-        <li>Medikation</li>
-        <li>Nierenfunktion</li>
-        <li>Dosierung / Einnahme</li>
-        <li>Beratung</li>
-        <li>ärztliche Rücksprache</li>
       </ul>
 
     </div>
 
-  `;
+
+    <div class="card">
+
+      <h3>🧠 Merkhilfe: F-A-M-I-L-I-E</h3>
+
+      <div class="phrase">
+        <strong>F – Freie Schilderung</strong>
+        Lassen Sie den Patienten zunächst erzählen.
+      </div>
+
+      <div class="phrase">
+        <strong>A – Allgemeine Beschwerden</strong>
+        Beginn, Dauer, Verlauf, Intensität und Begleitsymptome.
+      </div>
+
+      <div class="phrase">
+        <strong>M – Medikamente</strong>
+        Dauermedikation und Bedarfsmedikation.
+      </div>
+
+      <div class="phrase">
+        <strong>I – Intoleranzen</strong>
+        Allergien und Unverträglichkeiten.
+      </div>
+
+      <div class="phrase">
+        <strong>L – Lebensumstände</strong>
+        Relevante Gewohnheiten und Alltagssituation.
+      </div>
+
+      <div class="phrase">
+        <strong>I – Information</strong>
+        Anwendung, Dosierung, Wirkung und Warnhinweise erklären.
+      </div>
+
+      <div class="phrase">
+        <strong>E – Ende</strong>
+        Verständnis prüfen, Fragen ermöglichen und verabschieden.
+      </div>
+
+    </div>
+
+  `);
+
 }
 
 
-/* =====================================================
-   MODAL
-===================================================== */
+/* ============================================================
+   QUESTIONS
+============================================================ */
 
-function closeM(){
-  $('modal').style.display='none';
+function startQuestionLesson(id){
+
+  state.currentQuestion=0;
+
+  renderQuestion(id);
+
 }
 
-$('modal').addEventListener(
-  'click',
-  function(e){
-    if(e.target===$('modal')){
-      closeM();
-    }
+function renderQuestion(id){
+
+  const questions=QUESTIONS[id];
+
+  const index=state.currentQuestion;
+
+  const item=questions[index];
+
+  const answered=state.questionStats["l"+id+"q"+index];
+
+  const progress=Math.round(
+    (index/questions.length)*100
+  );
+
+  showContentPage(`
+
+    <div class="card">
+
+      <div class="progress-row">
+        <span>Lektion ${id}</span>
+        <strong>${index+1}/${questions.length}</strong>
+      </div>
+
+      <div class="progress">
+        <div
+          class="progress-bar"
+          style="width:${progress}%"
+        ></div>
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="question-number">
+        FRAGE ${index+1} VON ${questions.length}
+      </div>
+
+      <div class="question-text">
+        ${esc(item.q)}
+      </div>
+
+      <div id="questionOptions">
+
+        ${item.options.map((option,i)=>`
+
+          <button
+            class="option"
+            id="option-${i}"
+            onclick="answerQuestion(${id},${index},${i})"
+          >
+            ${String.fromCharCode(65+i)}. ${esc(option)}
+          </button>
+
+        `).join("")}
+
+      </div>
+
+      <div id="questionExplanation"></div>
+
+    </div>
+
+    <div class="card">
+
+      <button
+        class="btn btn-secondary"
+        onclick="randomQuestion(${id})"
+      >
+        🎲 Zufällige Frage
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        onclick="showLessonMenu(${id})"
+      >
+        ☰ Lektionsmenü
+      </button>
+
+    </div>
+
+  `);
+
+  if(answered){
+
+    document.querySelectorAll(".option").forEach((button,i)=>{
+
+      button.disabled=true;
+
+      if(i===item.answer){
+        button.classList.add("correct");
+      }
+
+    });
+
+    document.getElementById("questionExplanation").innerHTML=`
+
+      <div class="explanation">
+        <strong>Bereits beantwortet.</strong><br>
+        ${esc(item.explanation)}
+      </div>
+
+    `;
+
   }
-);
 
+}
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+function answerQuestion(id,index,choice){
 
-document
-  .querySelectorAll('.nav button')
-  .forEach(button=>{
-    button.onclick=()=>{
-      render(button.dataset.p);
-    };
+  const key="l"+id+"q"+index;
+
+  if(state.questionStats[key]){
+    return;
+  }
+
+  const item=QUESTIONS[id][index];
+
+  document.querySelectorAll(".option").forEach(button=>{
+    button.disabled=true;
   });
 
+  const selected=document.getElementById("option-"+choice);
+  const correct=document.getElementById("option-"+item.answer);
 
-/* =====================================================
-   RESET
-===================================================== */
+  if(choice===item.answer){
 
-function resetAll(){
+    selected.classList.add("correct");
+
+    state.questionStats[key]="correct";
+
+    addXP(
+      10,
+      "Richtige Antwort",
+      "xp_"+key
+    );
+
+  }else{
+
+    selected.classList.add("wrong");
+    correct.classList.add("correct");
+
+    state.questionStats[key]="wrong";
+
+    state.hearts=Math.max(0,state.hearts-1);
+
+    saveState();
+
+    updateHeader();
+
+    toast("Nicht ganz. Die richtige Antwort ist markiert.");
+
+  }
+
+  document.getElementById("questionExplanation").innerHTML=`
+
+    <div class="explanation">
+
+      <strong>
+        ${choice===item.answer ? "✓ Richtig!" : "ℹ Erklärung"}
+      </strong>
+
+      <br>
+
+      ${esc(item.explanation)}
+
+    </div>
+
+    <button
+      class="btn btn-primary btn-full"
+      style="margin-top:10px"
+      onclick="nextQuestion(${id})"
+    >
+      ${index+1<QUESTIONS[id].length ? "Nächste Frage →" : "Lektion abschließen 🎉"}
+    </button>
+
+  `;
+
+}
+
+function nextQuestion(id){
+
+  if(state.currentQuestion < QUESTIONS[id].length-1){
+
+    state.currentQuestion++;
+
+    renderQuestion(id);
+
+  }else{
+
+    state.completed["lesson"+id]=true;
+
+    saveState();
+
+    addXP(
+      100,
+      "Lektion abgeschlossen",
+      "lesson_complete_"+id
+    );
+
+    showCompletion(id);
+
+  }
+
+}
+
+function randomQuestion(id){
+
+  state.currentQuestion=
+    Math.floor(Math.random()*QUESTIONS[id].length);
+
+  renderQuestion(id);
+
+}
+
+function openRandomQuestion(){
+
+  const available=[];
+
+  QUESTIONS[1].forEach((_,i)=>available.push([1,i]));
+
+  QUESTIONS[2].forEach((_,i)=>available.push([2,i]));
+
+  QUESTIONS[3].forEach((_,i)=>available.push([3,i]));
+
+  const selected=
+    available[Math.floor(Math.random()*available.length)];
+
+  if(selected[0]>1 && !isPremium()){
+
+    showPremiumModal();
+
+    return;
+
+  }
+
+  state.currentQuestion=selected[1];
+
+  renderQuestion(selected[0]);
+
+}
+
+function showCompletion(id){
+
+  showContentPage(`
+
+    <div class="card center">
+
+      <div style="font-size:55px">🎉</div>
+
+      <h2>Lektion abgeschlossen!</h2>
+
+      <p class="muted">
+        Sehr gut. Du hast den Fragenbereich abgeschlossen.
+      </p>
+
+      <div class="xp-number">+100 XP</div>
+
+      <div class="btn-row" style="justify-content:center">
+
+        <button
+          class="btn btn-primary"
+          onclick="showLessonMenu(${id})"
+        >
+          Zur Lektion
+        </button>
+
+        <button
+          class="btn btn-secondary"
+          onclick="navigate('lessons')"
+        >
+          Lernpfad
+        </button>
+
+      </div>
+
+    </div>
+
+  `);
+
+}
+
+
+/* ============================================================
+   MEDIKAMENTENBERATUNG
+============================================================ */
+
+function lesson1Medication(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <span class="badge">💊 Beratung</span>
+
+      <h2>Arzneimittel richtig erklären</h2>
+
+      <p class="muted">
+        In der FSP zählt nicht nur medizinisches Wissen,
+        sondern auch verständliche Kommunikation.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>1. Erstmalige Verordnung</h3>
+
+      <p>
+        Bei einer erstmaligen Verordnung sollten Sie nicht
+        davon ausgehen, dass der Patient bereits weiß,
+        wie das Arzneimittel angewendet wird.
+      </p>
+
+      <div class="answer-box">
+        <strong>Professionell:</strong><br>
+        „Ist Ihnen dieses Arzneimittel bereits bekannt oder
+        wenden Sie es heute zum ersten Mal an?“
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>2. Wiederholungsrezept</h3>
+
+      <p>
+        Auch bei einem bekannten Arzneimittel kann eine
+        kurze Überprüfung sinnvoll sein.
+      </p>
+
+      <div class="answer-box">
+        „Nehmen Sie das Arzneimittel weiterhin wie bisher ein
+        und kommen Sie damit gut zurecht?“
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>3. Dosierung</h3>
+
+      <div class="phrase">
+        <strong>Fachlich:</strong>
+        „1 Tablette zweimal täglich.“
+      </div>
+
+      <div class="phrase">
+        <strong>Patientengerecht:</strong>
+        „Sie nehmen jeweils morgens und abends eine Tablette ein.“
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>4. Einnahmezeitpunkt</h3>
+
+      <ul class="list">
+
+        <li>morgens</li>
+        <li>abends</li>
+        <li>vor dem Essen</li>
+        <li>nach dem Essen</li>
+        <li>unabhängig von den Mahlzeiten</li>
+        <li>zu einem möglichst gleichbleibenden Zeitpunkt</li>
+
+      </ul>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>5. Dauer</h3>
+
+      <p>
+        Erklären Sie die vorgesehene Anwendungsdauer
+        entsprechend der konkreten Verordnung bzw. Beratung.
+      </p>
+
+      <div class="answer-box">
+        „Wenden Sie das Präparat entsprechend der
+        ärztlichen Verordnung an. Wenn die Beschwerden
+        nicht besser werden oder sich verschlimmern,
+        sollte eine ärztliche Abklärung erfolgen.“
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>6. Nebenwirkungen</h3>
+
+      <p>
+        Nennen Sie insbesondere relevante oder häufige
+        Nebenwirkungen und erklären Sie, was der Patient
+        bei ernsthaften Beschwerden tun soll.
+      </p>
+
+      <div class="warning-box">
+        <strong>Prüfungsformulierung:</strong><br>
+        „Es kann zu bestimmten Nebenwirkungen kommen.
+        Ich möchte Sie kurz darüber informieren, worauf
+        Sie achten sollten.“
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>7. Teach-back</h3>
+
+      <p>
+        Statt einfach zu fragen „Haben Sie das verstanden?“,
+        lassen Sie den Patienten die Anwendung kurz wiederholen.
+      </p>
+
+      <div class="answer-box">
+        „Damit ich sicher bin, dass ich es verständlich
+        erklärt habe: Können Sie mir bitte kurz sagen,
+        wie Sie das Arzneimittel anwenden werden?“
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>8. Wechselwirkungen</h3>
+
+      <p>
+        Erfragen Sie relevante weitere Arzneimittel,
+        bevor Sie eine Beratung abschließen.
+      </p>
+
+      <div class="answer-box">
+        „Nehmen Sie außer diesem Arzneimittel noch
+        andere Medikamente oder Nahrungsergänzungsmittel ein?“
+      </div>
+
+    </div>
+
+  `);
+
+}
+
+
+/* ============================================================
+   PREIS / ZAHLUNGSGESPRÄCH
+============================================================ */
+
+function lesson1Price(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <span class="badge orange">💶 Preisfrage</span>
+
+      <h2>Wie spricht man professionell über den Preis?</h2>
+
+      <p>
+        Preisfragen können auch in einer FSP-Situation vorkommen.
+        Wichtig ist eine sachliche und klare Antwort.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Patient:</h3>
+
+      <div class="bubble patient">
+        „Was kostet das Medikament?“
+      </div>
+
+      <h3 style="margin-top:15px">Apotheker:</h3>
+
+      <div class="bubble pharmacist">
+        „Der aktuelle Preis hängt vom konkreten Präparat
+        und der Packungsgröße ab. Ich kann den aktuellen
+        Preis gerne für Sie prüfen.“
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Weitere Formulierungen</h3>
+
+      ${[
+        "„Der aktuelle Preis für diese Packungsgröße beträgt … Euro.“",
+        "„Wenn Sie möchten, kann ich Ihnen auch eine andere Packungsgröße zeigen.“",
+        "„Ich prüfe den aktuellen Preis gerne für Sie.“",
+        "„Bei diesem Präparat kann eine Zuzahlung anfallen; ich prüfe gerne die konkreten Informationen.“",
+        "„Der Preis kann je nach Produkt und Packungsgröße unterschiedlich sein.“"
+      ].map(x=>`
+        <div class="phrase">${x}</div>
+      `).join("")}
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>⚠️ Wichtig für deine App</h3>
+
+      <p>
+        Die hier genannten Beträge sind nur Trainingsbeispiele.
+        Ein echter Apothekenpreis sollte nicht aus dieser Lernseite
+        übernommen werden.
+      </p>
+
+      <div class="warning-box">
+        <strong>Für die FSP:</strong><br>
+        Wenn der Patient nach dem Preis fragt, antworte
+        professionell und sachlich. Erfinde keine Preise,
+        wenn dir kein konkreter Preis gegeben wurde.
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Mini-Übung</h3>
+
+      <p>
+        Patient: „Ich habe zwei Packungen gesehen.
+        Warum sind die Preise unterschiedlich?“
+      </p>
+
+      <div class="answer-box">
+        <strong>Musterantwort:</strong><br>
+        „Das kann beispielsweise an der Packungsgröße,
+        dem konkreten Produkt oder unterschiedlichen
+        Produktvarianten liegen. Ich kann die beiden
+        Packungen gerne miteinander vergleichen.“
+      </div>
+
+    </div>
+
+  `);
+
+}
+
+
+/* ============================================================
+   TERMS
+============================================================ */
+
+function lesson1Terms(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>Fachsprache → Patientensprache</h2>
+
+      <p class="muted">
+        Ein wichtiger Teil der FSP ist, medizinische Begriffe
+        verständlich erklären zu können.
+      </p>
+
+    </div>
+
+
+    <div class="search">
+
+      <span class="search-icon">🔎</span>
+
+      <input
+        id="termSearch"
+        placeholder="Begriff suchen..."
+        oninput="filterTerms()"
+      >
+
+    </div>
+
+
+    <div class="card" id="termsList">
+
+      ${renderTerms()}
+
+    </div>
+
+  `);
+
+}
+
+function renderTerms(filter=""){
+
+  const f=filter.toLowerCase().trim();
+
+  const filtered=TERMS.filter(item=>
+    item[0].toLowerCase().includes(f) ||
+    item[1].toLowerCase().includes(f)
+  );
+
+  return filtered.map(item=>`
+
+    <div class="term">
+
+      <div>
+
+        <strong>${esc(item[0])}</strong>
+
+        <div class="translation">
+          ${esc(item[1])}
+        </div>
+
+        <div class="tiny muted">
+          ${esc(item[2])}
+        </div>
+
+      </div>
+
+      <button
+        class="btn btn-secondary"
+        onclick="speakText('${esc(item[1]).replaceAll("'","\\'")}')"
+      >
+        🔊
+      </button>
+
+    </div>
+
+  `).join("") || `
+
+    <p class="muted center">
+      Kein Begriff gefunden.
+    </p>
+
+  `;
+
+}
+
+function filterTerms(){
+
+  const value=document.getElementById("termSearch").value;
+
+  document.getElementById("termsList").innerHTML=
+    renderTerms(value);
+
+}
+
+
+/* ============================================================
+   PHRASES
+============================================================ */
+
+function lesson1Phrases(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>Professionelle Formulierungen</h2>
+
+      <p class="muted">
+        Diese Formulierungen kannst du aktiv für die FSP trainieren.
+      </p>
+
+    </div>
+
+    ${PHRASES.map(item=>`
+
+      <div class="phrase">
+
+        <strong>${esc(item[0])}</strong>
+
+        ${esc(item[1])}
+
+        <button
+          class="btn btn-secondary"
+          style="margin-top:7px"
+          onclick="speakText('${esc(item[1]).replaceAll("'","\\'")}')"
+        >
+          🔊 Vorlesen
+        </button>
+
+      </div>
+
+    `).join("")}
+
+  `);
+
+}
+
+
+/* ============================================================
+   FULL DIALOGUE
+============================================================ */
+
+function lesson1Dialogue(){
+
+  const dialogue=[
+
+   ["patient","Guten Tag. Ich habe seit gestern starke Kopfschmerzen."],
+
+   ["pharmacist","Guten Tag. Wie kann ich Ihnen helfen? Können Sie mir bitte etwas genauer beschreiben, wie sich die Kopfschmerzen äußern?"],
+
+   ["patient","Es fühlt sich eher drückend an. Heute ist es etwas stärker geworden."],
+
+   ["pharmacist","Seit wann genau bestehen die Beschwerden?"],
+
+   ["patient","Seit gestern Nachmittag."],
+
+   ["pharmacist","Sind die Schmerzen dauerhaft vorhanden oder treten sie phasenweise auf?"],
+
+   ["patient","Eigentlich fast dauerhaft."],
+
+   ["pharmacist","Haben Sie zusätzlich Fieber, Sehstörungen, Übelkeit oder andere Beschwerden?"],
+
+   ["patient","Nein, eigentlich nicht."],
+
+   ["pharmacist","Haben Sie in letzter Zeit etwas Ähnliches schon einmal gehabt?"],
+
+   ["patient","Manchmal habe ich Kopfschmerzen, aber nicht so stark."],
+
+   ["pharmacist","Nehmen Sie derzeit regelmäßig Medikamente oder haben Sie bereits etwas gegen die Kopfschmerzen eingenommen?"],
+
+   ["patient","Ich nehme keine regelmäßigen Medikamente. Heute Morgen habe ich eine Tablette genommen, aber ich weiß den Namen nicht mehr genau."],
+
+   ["pharmacist","Kein Problem. Wissen Sie noch, wie die Packung aussieht oder welches Präparat es war?"],
+
+   ["patient","Ich glaube, es war Ibuprofen."],
+
+   ["pharmacist","Sind bei Ihnen Allergien oder Unverträglichkeiten bekannt?"],
+
+   ["patient","Nein."],
+
+   ["pharmacist","Bestehen relevante Vorerkrankungen?"],
+
+   ["patient","Nein."],
+
+   ["pharmacist","Vielen Dank. Ich würde Ihnen zunächst die Anwendung des Präparats erklären. Bitte beachten Sie die Dosierung auf der Packung beziehungsweise die konkrete Empfehlung. Wenn die Beschwerden ungewöhnlich stark werden, neue neurologische Symptome auftreten oder sich die Situation deutlich verschlechtert, sollte eine ärztliche Abklärung erfolgen."],
+
+   ["patient","Okay."],
+
+   ["pharmacist","Damit ich sicher bin, dass ich es verständlich erklärt habe: Können Sie mir bitte kurz sagen, wie Sie das Präparat anwenden werden?"],
+
+   ["patient","Ich nehme es so, wie Sie es mir erklärt haben, und achte auf die Dosierung."],
+
+   ["pharmacist","Genau. Haben Sie noch Fragen oder ist etwas unklar geblieben?"],
+
+   ["patient","Nein, danke."],
+
+   ["pharmacist","Sehr gerne. Ich wünsche Ihnen gute Besserung."]
+
+  ];
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>🎭 Vollständiges Patientengespräch</h2>
+
+      <p class="muted">
+        Lies den Dialog laut mit und achte auf die Struktur.
+      </p>
+
+      <button
+        class="btn btn-primary"
+        onclick="speakDialogue()"
+      >
+        🔊 Dialog vorlesen
+      </button>
+
+    </div>
+
+    <div class="card dialogue">
+
+      ${dialogue.map(item=>`
+
+        <div class="bubble ${item[0]==="patient" ? "patient" : "pharmacist"}">
+
+          <span class="bubble-label">
+            ${item[0]==="patient" ? "Patient" : "Apotheker"}
+          </span>
+
+          ${esc(item[1])}
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+    <div class="card">
+
+      <h3>🧠 Struktur des Gesprächs</h3>
+
+      <ol class="list">
+
+        <li>Begrüßung</li>
+        <li>Offene Frage</li>
+        <li>Beschwerden</li>
+        <li>Dauer und Verlauf</li>
+        <li>Begleitsymptome</li>
+        <li>Medikation</li>
+        <li>Allergien</li>
+        <li>Vorerkrankungen</li>
+        <li>Beratung</li>
+        <li>Warnzeichen</li>
+        <li>Teach-back</li>
+        <li>Abschluss</li>
+
+      </ol>
+
+    </div>
+
+  `);
+
+}
+
+
+/* ============================================================
+   DIFFICULT SITUATIONS
+============================================================ */
+
+function lesson1Difficult(){
+
+  const situations=[
+
+   [
+    "😠 Unzufriedener Patient",
+    "„Das dauert mir alles viel zu lange!“",
+    "„Ich verstehe, dass Sie es eilig haben. Ich möchte die wichtigsten Informationen trotzdem kurz mit Ihnen durchgehen, damit Sie das Arzneimittel sicher anwenden können.“"
+   ],
+
+   [
+    "🤔 Patient versteht Begriff nicht",
+    "„Was bedeutet Kontraindikation?“",
+    "„Damit ist ein Grund gemeint, warum ein bestimmtes Arzneimittel in einer bestimmten Situation nicht angewendet werden sollte.“"
+   ],
+
+   [
+    "❓ Apotheker kennt Antwort nicht sofort",
+    "„Kann ich dieses Präparat mit meinem anderen Medikament kombinieren?“",
+    "„Ich möchte das sicherheitshalber überprüfen. Geben Sie mir bitte kurz den Namen Ihres anderen Arzneimittels.“"
+   ],
+
+   [
+    "💶 Patient fragt nur nach dem Preis",
+    "„Wie viel kostet das?“",
+    "„Ich prüfe gerne den aktuellen Preis für die gewünschte Packungsgröße. Wenn Sie möchten, kann ich Ihnen anschließend auch die Anwendung kurz erklären.“"
+   ],
+
+   [
+    "🗣️ Patient erzählt sehr viel",
+    "Der Patient wechselt ständig das Thema.",
+    "„Damit ich Ihre Situation richtig einschätzen kann, würde ich gerne noch einmal auf Ihre aktuellen Beschwerden zurückkommen.“"
+   ],
+
+   [
+    "🔁 Patient wiederholt dieselbe Frage",
+    "„Aber wann nehme ich es jetzt?“",
+    "„Natürlich. Sie nehmen es morgens und abends jeweils zu dem angegebenen Zeitpunkt ein. Ich kann Ihnen das gerne noch einmal zusammenfassen.“"
+   ]
+
+  ];
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>⚠️ Schwierige Situationen</h2>
+
+      <p class="muted">
+        Entscheidend ist: ruhig bleiben, professionell formulieren
+        und das Gespräch strukturiert führen.
+      </p>
+
+    </div>
+
+    ${situations.map(item=>`
+
+      <div class="card">
+
+        <h3>${esc(item[0])}</h3>
+
+        <div class="bubble patient">
+          ${esc(item[1])}
+        </div>
+
+        <div class="answer-box" style="margin-top:9px">
+          <strong>Mögliche Antwort:</strong><br>
+          ${esc(item[2])}
+        </div>
+
+      </div>
+
+    `).join("")}
+
+  `);
+
+}
+
+
+/* ============================================================
+   LESSON 1 CASES
+============================================================ */
+
+function lesson1Cases(){
+
+  const cases=CASES.filter(c=>[1,3,5].includes(c.id));
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>🩺 Drei vollständige Übungsfälle</h2>
+
+      <p class="muted">
+        Arbeite jeden Fall zuerst selbst durch und öffne
+        danach die Musterlösung.
+      </p>
+
+    </div>
+
+    ${cases.map(c=>renderCaseCard(c,true)).join("")}
+
+  `);
+
+}
+
+
+/* ============================================================
+   MINI EXAM
+============================================================ */
+
+function lesson1Exam(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <span class="badge orange">🎓 MINI-PRÜFUNG</span>
+
+      <h2>Sodbrennen – Patientengespräch</h2>
+
+      <p>
+        Du hast einen Patienten mit wiederkehrendem Sodbrennen.
+        Formuliere, wie du das Gespräch führen würdest.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Situation</h3>
+
+      <div class="case-details">
+
+        <div>
+          <strong>Patient:</strong>
+          Herr B., 41 Jahre
+        </div>
+
+        <div>
+          <strong>Beschwerde:</strong>
+          Brennen hinter dem Brustbein
+        </div>
+
+        <div>
+          <strong>Dauer:</strong>
+          Seit einigen Tagen
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Aufgabe 1</h3>
+
+      <p>
+        Wie eröffnest du das Gespräch?
+      </p>
+
+      <textarea
+        id="mini1"
+        placeholder="Schreibe deine Antwort..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Aufgabe 2</h3>
+
+      <p>
+        Welche wichtigen Fragen stellst du?
+      </p>
+
+      <textarea
+        id="mini2"
+        placeholder="Schreibe deine Fragen..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Aufgabe 3</h3>
+
+      <p>
+        Wie prüfst du am Ende das Verständnis?
+      </p>
+
+      <textarea
+        id="mini3"
+        placeholder="Formuliere deine Antwort..."
+      ></textarea>
+
+      <button
+        class="btn btn-primary btn-full"
+        style="margin-top:10px"
+        onclick="showMiniSolution()"
+      >
+        Lösung anzeigen
+      </button>
+
+    </div>
+
+    <div id="miniSolution"></div>
+
+  `);
+
+}
+
+function showMiniSolution(){
+
+  const solution=`
+
+    <div class="card">
+
+      <h3>✅ Musterlösung</h3>
+
+      <div class="answer-box">
+
+        <strong>Gesprächsbeginn:</strong><br>
+        „Guten Tag. Wie kann ich Ihnen helfen? Können Sie mir
+        bitte genauer beschreiben, welche Beschwerden Sie haben?“
+
+        <br><br>
+
+        <strong>Wichtige Fragen:</strong><br>
+        Seit wann bestehen die Beschwerden?
+        Wie häufig treten sie auf?
+        Gibt es einen Zusammenhang mit Mahlzeiten?
+        Treten weitere Beschwerden auf?
+        Welche Medikamente nehmen Sie?
+        Sind Allergien oder relevante Vorerkrankungen bekannt?
+
+        <br><br>
+
+        <strong>Verständniskontrolle:</strong><br>
+        „Damit ich sicher bin, dass ich es verständlich erklärt habe:
+        Können Sie mir bitte kurz sagen, wie Sie das Präparat
+        anwenden werden?“
+
+      </div>
+
+    </div>
+
+  `;
+
+  document.getElementById("miniSolution").innerHTML=solution;
+
+  addXP(
+    20,
+    "Mini-Prüfung bearbeitet",
+    "lesson1_mini_exam"
+  );
+
+}
+
+
+/* ============================================================
+   LESSON 2
+============================================================ */
+
+function renderLesson2Menu(){
+
+  return `
+
+  <div class="card">
+
+    <span class="badge premium">👑 PREMIUM</span>
+
+    <h2>2. Fachgespräch</h2>
+
+    <p class="muted">
+      Kollegiale Kommunikation, Medikationsanalyse und
+      pharmazeutische Argumentation.
+    </p>
+
+  </div>
+
+  <div class="grid">
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson2Intro()">
+      <h3>🎯 Lernziele</h3>
+      <p class="muted">Was du im Fachgespräch können musst.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="startQuestionLesson(2)">
+      <h3>❓ 15 Fachfragen</h3>
+      <p class="muted">Interaktives Fragen-Training.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson2ISBAR()">
+      <h3>📋 ISBAR-Struktur</h3>
+      <p class="muted">Eine klare Struktur für Übergaben.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson2Dialogue()">
+      <h3>🗣️ Kollegialer Dialog</h3>
+      <p class="muted">Beispiel für ein Fachgespräch.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson2Medication()">
+      <h3>💊 Medikationsanalyse</h3>
+      <p class="muted">Systematisch Medikamente beurteilen.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson2Exam()">
+      <h3>🎓 Fachgespräch-Prüfung</h3>
+      <p class="muted">Fall mit eigener Antwort.</p>
+    </button>
+
+  </div>
+
+  `;
+
+}
+
+function lesson2Intro(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>Fachgespräch</h2>
+
+      <p>
+        Im Fachgespräch sollst du zeigen, dass du fachliche
+        Informationen strukturiert, präzise und verständlich
+        mit anderen Fachpersonen kommunizieren kannst.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>🎯 Kernkompetenzen</h3>
+
+      <ul class="list">
+
+        <li>fachliche Informationen zusammenfassen</li>
+        <li>relevante Fakten priorisieren</li>
+        <li>Medikationsprobleme erkennen</li>
+        <li>mögliche Interaktionen ansprechen</li>
+        <li>Rückfragen stellen</li>
+        <li>Empfehlungen begründen</li>
+        <li>Unsicherheiten professionell kommunizieren</li>
+        <li>kollegial bleiben</li>
+
+      </ul>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Professionelle Sprache</h3>
+
+      ${[
+       "„Ich sehe hier einen Punkt, den wir noch einmal überprüfen sollten.“",
+       "„Aus pharmazeutischer Sicht wäre es sinnvoll, …“",
+       "„Könnten Sie bitte noch einmal erläutern, …?“",
+       "„Ich würde vorschlagen, …“",
+       "„Zur Sicherheit würde ich diese Information noch einmal verifizieren.“",
+       "„Welche weiteren Medikamente nimmt der Patient aktuell ein?“"
+      ].map(x=>`<div class="phrase">${x}</div>`).join("")}
+
+    </div>
+
+  `);
+
+}
+
+function lesson2ISBAR(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>📋 ISBAR</h2>
+
+      <p>
+        Eine strukturierte Übergabe verhindert, dass wichtige
+        Informationen verloren gehen.
+      </p>
+
+    </div>
+
+    ${[
+      ["I – Identification","Wer bin ich? Um welchen Patienten bzw. Fall geht es?"],
+      ["S – Situation","Was ist aktuell das Problem?"],
+      ["B – Background","Welche relevanten Hintergrundinformationen gibt es?"],
+      ["A – Assessment","Wie schätze ich die Situation fachlich ein?"],
+      ["R – Recommendation","Was schlage ich als nächsten Schritt vor?"]
+    ].map(x=>`
+
+      <div class="card">
+
+        <h3>${esc(x[0])}</h3>
+
+        <p>${esc(x[1])}</p>
+
+      </div>
+
+    `).join("")}
+
+    <div class="card">
+
+      <h3>Beispiel</h3>
+
+      <div class="answer-box">
+
+        <strong>Identification:</strong>
+        „Ich bin die zuständige Apothekerin aus der Offizin.“
+
+        <br><br>
+
+        <strong>Situation:</strong>
+        „Ich habe eine Unklarheit bei der aktuellen Dosierung.“
+
+        <br><br>
+
+        <strong>Background:</strong>
+        „Der Patient nimmt mehrere Dauermedikamente.“
+
+        <br><br>
+
+        <strong>Assessment:</strong>
+        „Die aktuelle Dosierung sollte anhand der Verordnung
+        und der Patientendaten überprüft werden.“
+
+        <br><br>
+
+        <strong>Recommendation:</strong>
+        „Ich würde eine Rücksprache mit dem behandelnden
+        Arzt empfehlen.“
+
+      </div>
+
+    </div>
+
+  `);
+
+}
+
+function lesson2Dialogue(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>🗣️ Kollegialer Dialog</h2>
+
+    </div>
+
+    <div class="card dialogue">
+
+      <div class="bubble pharmacist">
+        <span class="bubble-label">Apotheker A</span>
+        Ich möchte kurz einen Fall mit dir besprechen.
+        Bei einem Patienten ist die aktuelle Dosierung
+        eines Dauermedikaments nicht eindeutig.
+      </div>
+
+      <div class="bubble patient">
+        <span class="bubble-label">Kollegin</span>
+        Welche Dosierung ist aktuell auf der Verordnung angegeben?
+      </div>
+
+      <div class="bubble pharmacist">
+        <span class="bubble-label">Apotheker A</span>
+        Auf dem aktuellen Plan steht eine andere Dosierung
+        als in der vorherigen Dokumentation.
+      </div>
+
+      <div class="bubble patient">
+        <span class="bubble-label">Kollegin</span>
+        Dann würde ich die Verordnung und die bisherige
+        Medikation noch einmal vergleichen.
+      </div>
+
+      <div class="bubble pharmacist">
+        <span class="bubble-label">Apotheker A</span>
+        Das sehe ich genauso. Zusätzlich würde ich die
+        aktuelle Patientensituation berücksichtigen und
+        bei Bedarf Rücksprache halten.
+      </div>
+
+    </div>
+
+  `);
+
+}
+
+function lesson2Medication(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>💊 Medikationsanalyse</h2>
+
+      <p>
+        Prüfe Medikamente systematisch statt nur einzelne
+        Wirkstoffe isoliert zu betrachten.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Checkliste</h3>
+
+      <ol class="list">
+
+        <li>Welche Medikamente werden eingenommen?</li>
+        <li>Welche Indikation liegt vor?</li>
+        <li>Welche Dosierung wurde verordnet?</li>
+        <li>Wie wird das Arzneimittel angewendet?</li>
+        <li>Ist die Anwendung nachvollziehbar?</li>
+        <li>Gibt es mögliche Wechselwirkungen?</li>
+        <li>Gibt es Kontraindikationen oder relevante Risiken?</li>
+        <li>Ist die Verträglichkeit problematisch?</li>
+        <li>Wie ist die Adhärenz?</li>
+        <li>Welche pharmazeutische Intervention ist sinnvoll?</li>
+
+      </ol>
+
+    </div>
+
+  `);
+
+}
+
+function lesson2Exam(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <span class="badge premium">👑 PREMIUM</span>
+
+      <h2>Fachgespräch – Prüfungssimulation</h2>
+
+      <p>
+        Ein Patient nimmt mehrere Arzneimittel.
+        In der Dokumentation finden Sie eine unklare Dosierung.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Aufgabe</h3>
+
+      <p>
+        Formuliere eine kurze kollegiale Übergabe.
+        Verwende möglichst die ISBAR-Struktur.
+      </p>
+
+      <textarea
+        id="lesson2ExamText"
+        placeholder="Formuliere deine Übergabe..."
+      ></textarea>
+
+      <button
+        class="btn btn-primary btn-full"
+        style="margin-top:10px"
+        onclick="revealLesson2Solution()"
+      >
+        Musterlösung anzeigen
+      </button>
+
+    </div>
+
+    <div id="lesson2Solution"></div>
+
+  `);
+
+}
+
+function revealLesson2Solution(){
+
+  document.getElementById("lesson2Solution").innerHTML=`
+
+    <div class="card">
+
+      <h3>✅ Beispiel</h3>
+
+      <div class="answer-box">
+
+        „Ich möchte kurz einen Patientenfall besprechen.
+        Aktuell besteht eine Unklarheit hinsichtlich der
+        Dosierung eines Dauermedikaments. In der aktuellen
+        Dokumentation findet sich eine andere Angabe als
+        in der vorherigen Dokumentation. Ich würde daher
+        empfehlen, die aktuelle Verordnung zu überprüfen
+        und bei Bedarf Rücksprache mit dem behandelnden
+        Arzt zu halten.“
+
+      </div>
+
+    </div>
+
+  `;
+
+  addXP(
+    25,
+    "Fachgespräch bearbeitet",
+    "lesson2_exam"
+  );
+
+}
+
+
+/* ============================================================
+   LESSON 3
+============================================================ */
+
+function renderLesson3Menu(){
+
+  return `
+
+  <div class="card">
+
+    <span class="badge premium">👑 PREMIUM</span>
+
+    <h2>3. Dokumentation</h2>
+
+    <p class="muted">
+      Sachlich, präzise und nachvollziehbar dokumentieren.
+    </p>
+
+  </div>
+
+  <div class="grid">
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson3Intro()">
+      <h3>🎯 Grundlagen</h3>
+      <p class="muted">Was gute Dokumentation ausmacht.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="startQuestionLesson(3)">
+      <h3>❓ 15 Fragen</h3>
+      <p class="muted">Dokumentations-Quiz.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson3SOAP()">
+      <h3>📋 SOAP</h3>
+      <p class="muted">Eine strukturierte Dokumentationsmethode.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson3Examples()">
+      <h3>✍️ Gute vs. schlechte Formulierungen</h3>
+      <p class="muted">Typische Fehler erkennen.</p>
+    </button>
+
+    <button class="card" style="text-align:left;border:0"
+      onclick="lesson3Exam()">
+      <h3>🎓 Dokumentationsprüfung</h3>
+      <p class="muted">Eigene Dokumentation schreiben.</p>
+    </button>
+
+  </div>
+
+  `;
+
+}
+
+function lesson3Intro(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>📝 Grundlagen der Dokumentation</h2>
+
+      <p>
+        Eine gute Dokumentation sollte sachlich, präzise,
+        nachvollziehbar und auf die relevanten Informationen
+        konzentriert sein.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Vier Grundregeln</h3>
+
+      <div class="feature-grid">
+
+        <div class="feature">
+          <strong>1. Sachlich</strong>
+          Keine unnötigen Bewertungen.
+        </div>
+
+        <div class="feature">
+          <strong>2. Präzise</strong>
+          Konkrete Angaben statt „alles erklärt“.
+        </div>
+
+        <div class="feature">
+          <strong>3. Relevant</strong>
+          Nur Informationen dokumentieren, die für den Fall wichtig sind.
+        </div>
+
+        <div class="feature">
+          <strong>4. Nachvollziehbar</strong>
+          Andere Fachpersonen müssen den Verlauf verstehen können.
+        </div>
+
+      </div>
+
+    </div>
+
+  `);
+
+}
+
+function lesson3SOAP(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>📋 SOAP-Methode</h2>
+
+      <p>
+        SOAP kann helfen, einen Fall logisch zu strukturieren.
+      </p>
+
+    </div>
+
+    ${[
+      ["S – Subjective","Was berichtet der Patient?"],
+      ["O – Objective","Welche objektiven Informationen liegen vor?"],
+      ["A – Assessment","Wie lautet die fachliche Einschätzung?"],
+      ["P – Plan","Was wird als nächster Schritt vereinbart?"]
+    ].map(x=>`
+
+      <div class="card">
+
+        <h3>${esc(x[0])}</h3>
+
+        <p>${esc(x[1])}</p>
+
+      </div>
+
+    `).join("")}
+
+    <div class="card">
+
+      <h3>Beispiel</h3>
+
+      <div class="answer-box">
+
+        <strong>S:</strong>
+        Patient berichtet über Unsicherheit bei der Anwendung.
+
+        <br><br>
+
+        <strong>O:</strong>
+        Patient kann die Dosierung zunächst nicht korrekt wiedergeben.
+
+        <br><br>
+
+        <strong>A:</strong>
+        Beratungsbedarf hinsichtlich Dosierung und Anwendung.
+
+        <br><br>
+
+        <strong>P:</strong>
+        Anwendung erneut erklärt und Verständnis durch Rückfrage überprüft.
+
+      </div>
+
+    </div>
+
+  `);
+
+}
+
+function lesson3Examples(){
+
+  const examples=[
+
+   [
+    "❌",
+    "Patient ist schwierig.",
+    "Patient äußert wiederholt Bedenken hinsichtlich der vorgeschlagenen Anwendung."
+   ],
+
+   [
+    "❌",
+    "Alles erklärt.",
+    "Dosierung, Einnahmezeitpunkt und relevante Warnhinweise erläutert."
+   ],
+
+   [
+    "❌",
+    "Patient wollte das nicht.",
+    "Patient lehnt die vorgeschlagene Maßnahme nach erfolgter Beratung ab."
+   ],
+
+   [
+    "❌",
+    "Arzt weiß Bescheid.",
+    "Rücksprache mit behandelndem Arzt erfolgt; weiteres Vorgehen besprochen."
+   ],
+
+   [
+    "❌",
+    "Medikament passt nicht.",
+    "Anwendung bzw. Medikation sollte aufgrund der vorliegenden Informationen fachlich überprüft werden."
+   ]
+
+  ];
+
+  showContentPage(`
+
+    <div class="card">
+
+      <h2>✍️ Formulierungen verbessern</h2>
+
+      <p class="muted">
+        In der FSP sollte deine Sprache sachlich und professionell sein.
+      </p>
+
+    </div>
+
+    ${examples.map(x=>`
+
+      <div class="card">
+
+        <div class="danger-box">
+          <strong>${x[0]} Ungünstig:</strong><br>
+          ${esc(x[1])}
+        </div>
+
+        <div class="answer-box" style="margin-top:9px">
+          <strong>✓ Professioneller:</strong><br>
+          ${esc(x[2])}
+        </div>
+
+      </div>
+
+    `).join("")}
+
+  `);
+
+}
+
+function lesson3Exam(){
+
+  showContentPage(`
+
+    <div class="card">
+
+      <span class="badge premium">👑 PREMIUM</span>
+
+      <h2>Dokumentationsprüfung</h2>
+
+      <p>
+        Ein Patient erhält eine Beratung zu einem neuen Arzneimittel.
+        Formuliere einen kurzen Dokumentationseintrag.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Deine Dokumentation</h3>
+
+      <textarea
+        id="docExam"
+        placeholder="Dokumentiere den Fall professionell..."
+      ></textarea>
+
+      <button
+        class="btn btn-primary btn-full"
+        style="margin-top:10px"
+        onclick="revealDocSolution()"
+      >
+        Musterlösung anzeigen
+      </button>
+
+    </div>
+
+    <div id="docSolution"></div>
+
+  `);
+
+}
+
+function revealDocSolution(){
+
+  document.getElementById("docSolution").innerHTML=`
+
+    <div class="card">
+
+      <h3>✅ Musterlösung</h3>
+
+      <div class="answer-box">
+
+        „Patient zur Anwendung des neu verordneten
+        Arzneimittels beraten. Dosierung, Einnahmezeitpunkt
+        und relevante Warnhinweise erläutert. Verständnis
+        durch Rückfrage überprüft; Patient konnte die
+        Anwendung korrekt wiedergeben. Keine weiteren
+        Fragen.“
+
+      </div>
+
+    </div>
+
+  `;
+
+  addXP(
+    25,
+    "Dokumentationsübung bearbeitet",
+    "doc_exam"
+  );
+
+}
+
+
+/* ============================================================
+   LESSON 4
+============================================================ */
+
+function renderLesson4Menu(){
+
+  return `
+
+  <div class="card">
+
+    <span class="badge premium">👑 PREMIUM</span>
+
+    <h2>4. Fachbegriffe</h2>
+
+    <p class="muted">
+      Fachbegriffe verstehen, aussprechen und patientengerecht erklären.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <div class="search">
+
+      <span class="search-icon">🔎</span>
+
+      <input
+        id="globalTermSearch"
+        placeholder="Fachbegriff suchen..."
+        oninput="filterGlobalTerms()"
+      >
+
+    </div>
+
+  </div>
+
+  <div class="card" id="globalTerms">
+
+    ${renderTerms()}
+
+  </div>
+
+  <div class="card">
+
+    <h3>🧠 Lernstrategie</h3>
+
+    <p>
+      Lerne Fachbegriffe nicht isoliert. Übe immer die
+      Kombination:
+    </p>
+
+    <div class="phrase">
+      <strong>Fachbegriff</strong>
+      Hypertonie
+    </div>
+
+    <div class="phrase">
+      <strong>Patientensprache</strong>
+      Bluthochdruck
+    </div>
+
+    <div class="phrase">
+      <strong>Erklärung</strong>
+      „Damit ist ein dauerhaft erhöhter Blutdruck gemeint.“
+    </div>
+
+  </div>
+
+  `;
+
+}
+
+function filterGlobalTerms(){
+
+  const value=document.getElementById("globalTermSearch").value;
+
+  document.getElementById("globalTerms").innerHTML=
+    renderTerms(value);
+
+}
+
+
+/* ============================================================
+   LESSON 5
+============================================================ */
+
+function renderLesson5Menu(){
+
+  return `
+
+  <div class="card">
+
+    <span class="badge premium">👑 PREMIUM</span>
+
+    <h2>5. Sprechen & Formulieren</h2>
+
+    <p class="muted">
+      Professionelle Sprache aktiv trainieren.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h3>🗣️ Redemittel</h3>
+
+    ${PHRASES.map(x=>`
+
+      <div class="phrase">
+
+        <strong>${esc(x[0])}</strong>
+
+        ${esc(x[1])}
+
+      </div>
+
+    `).join("")}
+
+  </div>
+
+  <div class="card">
+
+    <h3>🔄 Ungünstig → professionell</h3>
+
+    <div class="phrase">
+      <strong>Ungünstig:</strong>
+      „Was wollen Sie?“
+      <br><br>
+      <strong>Professionell:</strong>
+      „Wie kann ich Ihnen helfen?“
+    </div>
+
+    <div class="phrase">
+      <strong>Ungünstig:</strong>
+      „Das weiß ich nicht.“
+      <br><br>
+      <strong>Professionell:</strong>
+      „Diesen Punkt möchte ich sicherheitshalber noch einmal überprüfen.“
+    </div>
+
+    <div class="phrase">
+      <strong>Ungünstig:</strong>
+      „Das müssen Sie so machen.“
+      <br><br>
+      <strong>Professionell:</strong>
+      „Ich empfehle Ihnen, das Arzneimittel entsprechend der
+      angegebenen Anwendung einzunehmen.“
+    </div>
+
+    <div class="phrase">
+      <strong>Ungünstig:</strong>
+      „Haben Sie das verstanden?“
+      <br><br>
+      <strong>Professionell:</strong>
+      „Könnten Sie mir bitte kurz mit Ihren eigenen Worten
+      wiedergeben, wie Sie das Arzneimittel anwenden werden?“
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h3>🎤 Sprechübung</h3>
+
+    <p>
+      Lies die folgenden Sätze laut vor:
+    </p>
+
+    ${[
+      "Guten Tag. Wie kann ich Ihnen helfen?",
+      "Können Sie mir bitte Ihre Beschwerden genauer beschreiben?",
+      "Welche Medikamente nehmen Sie derzeit ein?",
+      "Sind bei Ihnen Allergien oder Unverträglichkeiten bekannt?",
+      "Ich erkläre Ihnen nun die Anwendung.",
+      "Damit ich sicher bin, dass ich mich verständlich ausgedrückt habe, möchte ich kurz überprüfen, ob alles klar ist.",
+      "Haben Sie noch Fragen oder ist etwas unklar geblieben?"
+    ].map(x=>`
+
+      <div class="phrase">
+
+        ${esc(x)}
+
+        <br>
+
+        <button
+          class="btn btn-secondary"
+          onclick="speakText('${esc(x).replaceAll("'","\\'")}')"
+        >
+          🔊 Vorlesen
+        </button>
+
+      </div>
+
+    `).join("")}
+
+  </div>
+
+  `;
+
+}
+
+
+/* ============================================================
+   LESSON 6
+============================================================ */
+
+function renderLesson6Menu(){
+
+  return `
+
+  <div class="card">
+
+    <span class="badge premium">👑 PREMIUM</span>
+
+    <h2>6. Hörverständnis</h2>
+
+    <p class="muted">
+      Höre simulierte Patientengespräche und erkenne
+      die relevanten Informationen.
+    </p>
+
+  </div>
+
+  ${LISTENING.map((item,i)=>`
+
+    <div class="card">
+
+      <h3>🎧 Hörtext ${i+1}</h3>
+
+      <button
+        class="btn btn-primary"
+        onclick="speakText('${esc(item.text).replaceAll("'","\\'")}')"
+      >
+        ▶ Vorlesen
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        onclick="toggleListeningText(${i})"
+      >
+        Text anzeigen
+      </button>
+
+      <div
+        id="listenText${i}"
+        style="display:none;margin-top:12px"
+        class="info-box"
+      >
+        ${esc(item.text)}
+      </div>
+
+      <div style="margin-top:14px">
+
+        ${item.questions.map((q,j)=>`
+
+          <div class="phrase">
+
+            <strong>${esc(q[0])}</strong>
+
+            <button
+              class="btn btn-secondary"
+              onclick="showListeningAnswer(${i},${j})"
+            >
+              Lösung
+            </button>
+
+            <div
+              id="listenAnswer${i}_${j}"
+              style="display:none;margin-top:7px"
+              class="answer-box"
+            >
+              ${esc(q[1])}
+            </div>
+
+          </div>
+
+        `).join("")}
+
+      </div>
+
+    </div>
+
+  `).join("")}
+
+  `;
+
+}
+
+function toggleListeningText(i){
+
+  const el=document.getElementById("listenText"+i);
+
+  el.style.display=
+    el.style.display==="none" ? "block" : "none";
+
+}
+
+function showListeningAnswer(i,j){
+
+  const el=document.getElementById(
+    "listenAnswer"+i+"_"+j
+  );
+
+  el.style.display=
+    el.style.display==="none" ? "block" : "none";
+
+  addXP(
+    3,
+    "Hörverständnis",
+    "listen_"+i+"_"+j
+  );
+
+}
+
+
+/* ============================================================
+   CASES
+============================================================ */
+
+function renderCases(){
+
+  return `
+
+  <div class="container">
+
+    <div class="card">
+
+      <h2>🩺 Praxisfälle</h2>
+
+      <p class="muted">
+        Realistische Übungssituationen für die FSP.
+      </p>
+
+    </div>
+
+    ${CASES.map(c=>renderCaseCard(c,false)).join("")}
+
+  </div>
+
+  `;
+
+}
+
+function renderCaseCard(c,compact){
+
+  const locked=c.premium && !isPremium();
+
+  return `
+
+  <div class="card">
+
+    <div class="case-header">
+
+      <div style="display:flex;gap:11px">
+
+        <div class="case-number">
+          ${c.icon}
+        </div>
+
+        <div>
+
+          <h3>${esc(c.title)}</h3>
+
+          <span class="badge">
+            ${esc(c.level)}
+          </span>
+
+          ${
+            c.premium
+            ?
+            `<span class="badge premium">👑 PREMIUM</span>`
+            :
+            `<span class="badge green">FREE</span>`
+          }
+
+        </div>
+
+      </div>
+
+    </div>
+
+    ${
+      locked
+      ?
+      `
+      <div class="lock" style="margin-top:13px">
+        🔒 Dieser Praxisfall ist Teil von Premium.
+      </div>
+
+      <button
+        class="btn btn-premium btn-full"
+        style="margin-top:9px"
+        onclick="showPremiumModal()"
+      >
+        👑 Premium freischalten
+      </button>
+      `
+      :
+      `
+
+      <div class="case-details">
+
+        <div>
+          <strong>Patient:</strong>
+          ${esc(c.patient)}
+        </div>
+
+        <div>
+          <strong>Beschwerde:</strong>
+          ${esc(c.complaint)}
+        </div>
+
+        <div>
+          <strong>Medikation:</strong>
+          ${esc(c.medication)}
+        </div>
+
+        <div>
+          <strong>Allergien:</strong>
+          ${esc(c.allergies)}
+        </div>
+
+        <div>
+          <strong>Preis:</strong>
+          ${esc(c.price)}
+        </div>
+
+      </div>
+
+      <h4>Aufgaben</h4>
+
+      <ul class="list">
+
+        ${c.tasks.map(t=>`
+          <li>${esc(t)}</li>
+        `).join("")}
+
+      </ul>
+
+      <button
+        class="btn btn-primary"
+        onclick="toggleCaseSolution(${c.id})"
+      >
+        Musterlösung anzeigen
+      </button>
+
+      <div
+        id="caseSolution${c.id}"
+        style="display:none;margin-top:11px"
+        class="answer-box"
+      >
+        <strong>Musterlösung:</strong><br>
+        ${esc(c.solution)}
+      </div>
+
+      `
+    }
+
+  </div>
+
+  `;
+
+}
+
+function toggleCaseSolution(id){
+
+  const el=document.getElementById("caseSolution"+id);
+
+  el.style.display=
+    el.style.display==="none" ? "block" : "none";
+
+  if(el.style.display==="block"){
+
+    addXP(
+      5,
+      "Praxisfall bearbeitet",
+      "case_"+id
+    );
+
+  }
+
+}
+
+
+/* ============================================================
+   EXAM
+============================================================ */
+
+function renderExam(){
+
+  return `
+
+  <div class="container">
+
+    <div class="card premium-banner">
+
+      ${
+        isPremium()
+        ? `<span class="badge premium">👑 PREMIUM</span>`
+        : `<span class="badge premium">⭐ FREE DEMO</span>`
+      }
+
+      <h2>🎓 FSP-Prüfungssimulation</h2>
+
+      <p>
+        Trainiere Patientengespräch, Fachgespräch,
+        Dokumentation und freie Formulierung.
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Teil 1 – Patientengespräch</h3>
+
+      <p>
+        Patient: „Ich habe seit einigen Tagen Sodbrennen.
+        Was können Sie mir empfehlen?“
+      </p>
+
+      <textarea
+        id="examPatient"
+        placeholder="Formuliere deinen Gesprächseinstieg und deine Fragen..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Teil 2 – Fachgespräch</h3>
+
+      <p>
+        Ein Patient nimmt mehrere Dauermedikamente.
+        Bei der Medikationsprüfung fällt eine mögliche
+        Unklarheit auf.
+      </p>
+
+      <textarea
+        id="examFach"
+        placeholder="Wie würdest du die Situation kollegial ansprechen?"
+      ></textarea>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Teil 3 – Dokumentation</h3>
+
+      <textarea
+        id="examDoc"
+        placeholder="Formuliere einen kurzen Dokumentationseintrag..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Teil 4 – Fachsprache</h3>
+
+      <p>
+        Erkläre dem Patienten:
+        <strong>„Hypertonie“</strong>
+      </p>
+
+      <textarea
+        id="examTerm"
+        placeholder="Erkläre den Begriff patientengerecht..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="card">
+
+      <button
+        class="btn btn-primary btn-full"
+        onclick="evaluateExam()"
+      >
+        Prüfung auswerten
+      </button>
+
+    </div>
+
+    <div id="examResult"></div>
+
+  </div>
+
+  `;
+
+}
+
+function evaluateExam(){
+
+  const patient=
+    document.getElementById("examPatient").value.toLowerCase();
+
+  const fach=
+    document.getElementById("examFach").value.toLowerCase();
+
+  const doc=
+    document.getElementById("examDoc").value.toLowerCase();
+
+  const term=
+    document.getElementById("examTerm").value.toLowerCase();
+
+  let score=0;
+  let feedback=[];
+
+  const patientKeywords=[
+    "wie",
+    "seit",
+    "beschwerden",
+    "medikament",
+    "allerg",
+    "fragen"
+  ];
+
+  const fachKeywords=[
+    "prüfen",
+    "rücksprache",
+    "dosierung",
+    "patient",
+    "empfehlen"
+  ];
+
+  const docKeywords=[
+    "patient",
+    "beratung",
+    "erklärt",
+    "dosierung",
+    "anwendung"
+  ];
+
+  const termKeywords=[
+    "blutdruck",
+    "hoch",
+    "erhöht"
+  ];
+
+  const check=(text,keywords)=>{
+
+    return keywords.filter(k=>text.includes(k)).length;
+
+  };
+
+  const p=check(patient,patientKeywords);
+  const f=check(fach,fachKeywords);
+  const d=check(doc,docKeywords);
+  const t=check(term,termKeywords);
+
+  score=p+f+d+t;
+
+  if(p>=3){
+    feedback.push("✓ Patientengespräch enthält wichtige Anamnesefragen.");
+  }else{
+    feedback.push("→ Ergänze mehr strukturierte Fragen zum Patientengespräch.");
+  }
+
+  if(f>=3){
+    feedback.push("✓ Fachgespräch enthält fachliche Handlungsschritte.");
+  }else{
+    feedback.push("→ Begründe deine fachliche Empfehlung stärker.");
+  }
+
+  if(d>=3){
+    feedback.push("✓ Dokumentation enthält mehrere relevante Angaben.");
+  }else{
+    feedback.push("→ Dokumentiere konkreter: Anlass, Beratung und Ergebnis.");
+  }
+
+  if(t>=2){
+    feedback.push("✓ Hypertonie wurde verständlich erklärt.");
+  }else{
+    feedback.push("→ Erkläre Hypertonie beispielsweise als erhöhten Blutdruck.");
+  }
+
+  const max=18;
+  const percent=Math.min(100,Math.round(score/max*100));
+
+  document.getElementById("examResult").innerHTML=`
+
+    <div class="card">
+
+      <div class="center">
+
+        <div style="font-size:45px">
+          ${percent>=70 ? "🎉" : "📚"}
+        </div>
+
+        <h2>${percent}% Trainingsstand</h2>
+
+        <p class="muted">
+          Diese automatische Auswertung ist nur ein
+          Lernwerkzeug und keine offizielle FSP-Bewertung.
+        </p>
+
+      </div>
+
+      ${feedback.map(x=>`
+
+        <div class="phrase">
+          ${esc(x)}
+        </div>
+
+      `).join("")}
+
+    </div>
+
+  `;
+
+  addXP(
+    30,
+    "Prüfungssimulation",
+    "full_exam"
+  );
+
+}
+
+
+/* ============================================================
+   PROFILE
+============================================================ */
+
+function renderProfile(){
+
+  const completed=Object.keys(state.completed).length;
+
+  const totalQuestions=
+    Object.keys(state.questionStats).length;
+
+  return `
+
+  <div class="container">
+
+    <div class="card center">
+
+      <div style="font-size:50px">👤</div>
+
+      <h2>Mein Lernprofil</h2>
+
+      ${
+        isPremium()
+        ?
+        `<span class="badge premium">👑 PREMIUM AKTIV</span>`
+        :
+        `<span class="badge">⭐ FREE</span>`
+      }
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="xp-box">
+
+        <div>
+
+          <div class="muted small">Gesammelte XP</div>
+
+          <div class="xp-number">
+            ${state.xp}
+          </div>
+
+        </div>
+
+        <div style="text-align:right">
+
+          <div class="muted small">🔥 Streak</div>
+
+          <strong style="font-size:25px">
+            ${state.streak}
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="grid grid-2">
+
+      <div class="card center">
+
+        <div style="font-size:27px">📚</div>
+
+        <strong>${completed}/6</strong>
+
+        <div class="small muted">Lektionen</div>
+
+      </div>
+
+      <div class="card center">
+
+        <div style="font-size:27px">❓</div>
+
+        <strong>${totalQuestions}</strong>
+
+        <div class="small muted">Fragen bearbeitet</div>
+
+      </div>
+
+    </div>
+
+
+    ${
+      !isPremium()
+      ?
+      `
+      <div class="premium-banner">
+
+        <h2>👑 Vollzugang freischalten</h2>
+
+        <p>
+          Schalte alle Premium-Lektionen und Prüfungsmaterialien frei.
+        </p>
+
+        <button
+          class="btn btn-premium"
+          onclick="showPremiumModal()"
+        >
+          Premium ansehen
+        </button>
+
+      </div>
+      `
+      :
+      `
+      <div class="card">
+
+        <h3>👑 Premium</h3>
+
+        <p class="success">
+          Dein Premium-Zugang ist aktiviert.
+        </p>
+
+        <button
+          class="btn btn-secondary"
+          onclick="disableDemoPremium()"
+        >
+          Premium-Demo zurücksetzen
+        </button>
+
+      </div>
+      `
+    }
+
+
+    <div class="card">
+
+      <h3>⚙️ Einstellungen</h3>
+
+      <button
+        class="btn btn-secondary btn-full"
+        onclick="resetProgress()"
+      >
+        Fortschritt zurücksetzen
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>ℹ️ Über diese Version</h3>
+
+      <p class="small muted">
+        FSP Apotheker ist eine Lernplattform zur Vorbereitung
+        auf die deutsche Fachsprachprüfung für Apothekerinnen
+        und Apotheker.
+      </p>
+
+      <p class="tiny muted">
+        Lerninhalte dienen der Prüfungsvorbereitung und ersetzen
+        keine individuelle medizinische oder pharmazeutische Beratung.
+      </p>
+
+    </div>
+
+  </div>
+
+  `;
+
+}
+
+function disableDemoPremium(){
+
+  if(!confirm("Premium-Demo wirklich deaktivieren?")){
+    return;
+  }
+
+  state.premium=false;
+
+  saveState();
+
+  render();
+
+  toast("Premium-Demo deaktiviert.");
+
+}
+
+function resetProgress(){
 
   if(!confirm(
-    'Möchtest du wirklich deinen gesamten Lernfortschritt löschen?'
+    "Wirklich den gesamten Lernfortschritt löschen?"
   )){
     return;
   }
 
-  xp=0;
-  progressData={};
+  localStorage.removeItem("fspxp");
+  localStorage.removeItem("fsphearts");
+  localStorage.removeItem("fspstreak");
+  localStorage.removeItem("fspCompleted");
+  localStorage.removeItem("fspQuestionStats");
+  localStorage.removeItem("fspBonuses");
 
-  localStorage.removeItem('fspxp');
-  localStorage.removeItem('fspProgress');
+  state={
+    ...state,
+    xp:0,
+    hearts:5,
+    streak:1,
+    completed:{},
+    questionStats:{},
+    bonuses:{}
+  };
 
-  localStorage.removeItem('l1bonus');
-  localStorage.removeItem('priceBonus');
-  localStorage.removeItem('mini1done');
-  localStorage.removeItem('mini2done');
-  localStorage.removeItem('mini3done');
+  saveState();
 
-  save();
+  render();
 
-  render('profile');
+  toast("Lernfortschritt wurde zurückgesetzt.");
+
 }
 
 
-/* =====================================================
-   START
-===================================================== */
+/* ============================================================
+   GENERIC CONTENT PAGE
+============================================================ */
 
-save();
-render('home');
+function showContentPage(content){
+
+  document.getElementById("main").innerHTML=`
+
+    <div class="container">
+
+      <div class="section">
+
+        <button
+          class="btn btn-secondary"
+          onclick="showLessonMenu(${state.currentLesson})"
+        >
+          ← Zurück zur Lektion
+        </button>
+
+      </div>
+
+      ${content}
+
+    </div>
+
+  `;
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ============================================================
+   SPEECH SYNTHESIS
+============================================================ */
+
+function speakText(text){
+
+  if(!("speechSynthesis" in window)){
+
+    toast("Die Vorlesefunktion wird von diesem Browser nicht unterstützt.");
+
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance=
+    new SpeechSynthesisUtterance(text);
+
+  utterance.lang="de-DE";
+  utterance.rate=.9;
+  utterance.pitch=1;
+
+  window.speechSynthesis.speak(utterance);
+
+}
+
+function speakDialogue(){
+
+  const text=
+    "Apotheker: Guten Tag. Wie kann ich Ihnen helfen? " +
+    "Patient: Ich habe seit gestern starke Kopfschmerzen. " +
+    "Apotheker: Können Sie mir bitte genauer beschreiben, wie sich die Kopfschmerzen äußern? " +
+    "Patient: Es fühlt sich eher drückend an. " +
+    "Apotheker: Seit wann genau bestehen die Beschwerden? " +
+    "Patient: Seit gestern Nachmittag. " +
+    "Apotheker: Nehmen Sie derzeit regelmäßig Medikamente ein? " +
+    "Patient: Nein. " +
+    "Apotheker: Sind bei Ihnen Allergien oder Unverträglichkeiten bekannt? " +
+    "Patient: Nein. " +
+    "Apotheker: Haben Sie noch Fragen oder ist etwas unklar geblieben? " +
+    "Patient: Nein, danke. " +
+    "Apotheker: Sehr gerne. Ich wünsche Ihnen gute Besserung.";
+
+  speakText(text);
+
+}
+
+
+/* ============================================================
+   DAILY STREAK
+============================================================ */
+
+function updateStreak(){
+
+  const today=
+    new Date().toISOString().slice(0,10);
+
+  if(!state.lastVisit){
+
+    state.lastVisit=today;
+
+    saveState();
+
+    return;
+  }
+
+  if(state.lastVisit===today){
+    return;
+  }
+
+  const previous=
+    new Date(state.lastVisit);
+
+  const current=
+    new Date(today);
+
+  const difference=
+    Math.round(
+      (current-previous)/(1000*60*60*24)
+    );
+
+  if(difference===1){
+
+    state.streak++;
+
+  }else if(difference>1){
+
+    state.streak=1;
+
+  }
+
+  state.lastVisit=today;
+
+  saveState();
+
+}
+
+
+/* ============================================================
+   INITIALISIERUNG
+============================================================ */
+
+updateStreak();
+
+render();
 
 </script>
 
