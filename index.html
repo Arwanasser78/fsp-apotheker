@@ -1,93 +1,838 @@
-<!-- ANMELDEN -->
-<div id="loginBox" class="login-box">
+/* =========================================================
+   KENNTNISPRÜFUNG – LERNEN & ÜBEN
+   ========================================================= */
 
-  <h2>👤 Anmelden</h2>
-  <p>Melde dich an, um deine Lernfortschritte zu speichern.</p>
+const kpThemen = [
 
-  <input
-    type="email"
-    id="email"
-    placeholder="E-Mail-Adresse"
-  >
+  {
+    titel: "Arzneimittelformen und Anwendung",
+    kategorie: "Grundlagen",
 
-  <input
-    type="password"
-    id="password"
-    placeholder="Passwort"
-  >
+    definition:
+      "Arzneimittelformen bestimmen, wie ein Wirkstoff verabreicht, freigesetzt und im Körper aufgenommen wird.",
 
-  <button onclick="login()">
-    Anmelden
-  </button>
+    fachbegriffe: [
+      ["Tablette", "Feste Arzneiform zur Einnahme."],
+      ["Kapsel", "Arzneiform mit einer festen oder flüssigen Füllung."],
+      ["Retardtablette", "Gibt den Wirkstoff verzögert bzw. über einen längeren Zeitraum frei."],
+      ["Salbe", "Halbfeste Arzneiform zur äußerlichen Anwendung."],
+      ["Inhalation", "Aufnahme eines Wirkstoffs über die Atemwege."]
+    ],
 
-  <p id="loginMessage"></p>
+    wissen: [
+      "Retardpräparate setzen den Wirkstoff kontrolliert bzw. verzögert frei.",
+      "Retardtabletten dürfen nicht grundsätzlich geteilt, zerdrückt oder zerkaut werden.",
+      "Bei Inhalativa ist die korrekte Anwendungstechnik entscheidend.",
+      "Bei äußerlichen Arzneiformen muss die betroffene Hautstelle berücksichtigt werden."
+    ],
 
-</div>
+    beratung: [
+      "Wie wenden Sie das Arzneimittel an?",
+      "Wie oft soll es angewendet werden?",
+      "Soll das Arzneimittel mit Wasser eingenommen werden?",
+      "Darf die Tablette geteilt oder zerkaut werden?"
+    ],
 
-<script>
-function login() {
+    fall: {
+      patient: "Ich kann die Tablette nicht schlucken. Darf ich sie zerdrücken?",
+      aufgabe:
+        "Wie reagieren Sie als Apotheker?"
+    },
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const message = document.getElementById("loginMessage");
+    frage: {
+      frage: "Was ist das Besondere an einer Retardtablette?",
+      antwort:
+        "Eine Retardtablette gibt den Wirkstoff verzögert bzw. kontrolliert über einen längeren Zeitraum frei. Sie darf deshalb nicht ohne Prüfung zerkaut oder zerdrückt werden."
+    },
 
-  if (!email || !password) {
-    message.innerText = "Bitte E-Mail und Passwort eingeben.";
-    message.style.color = "red";
-    return;
+    quiz: [
+      {
+        frage: "Was bedeutet 'Retard'?",
+        optionen: [
+          "Sofortige Wirkstofffreisetzung",
+          "Verzögerte Wirkstofffreisetzung",
+          "Äußerliche Anwendung",
+          "Flüssige Arzneiform"
+        ],
+        richtig: 1
+      },
+      {
+        frage: "Warum ist die Inhalationstechnik wichtig?",
+        optionen: [
+          "Sie beeinflusst die Wirkstoffaufnahme",
+          "Sie verändert die Farbe des Arzneimittels",
+          "Sie verhindert grundsätzlich Nebenwirkungen",
+          "Sie ist nur bei Kindern wichtig"
+        ],
+        richtig: 0
+      }
+    ],
+
+    merksatz:
+      "Retard bedeutet verzögerte Wirkstofffreisetzung – deshalb nicht einfach zerkauen."
+  },
+
+
+  {
+    titel: "Dosierung und Einnahmehinweise",
+    kategorie: "Grundlagen",
+
+    definition:
+      "Die Dosierung beschreibt, wie viel eines Arzneimittels in welcher Häufigkeit und über welchen Zeitraum angewendet wird.",
+
+    fachbegriffe: [
+      ["Einzeldosis", "Menge eines Arzneimittels bei einer Einnahme."],
+      ["Tagesdosis", "Gesamtmenge eines Wirkstoffs innerhalb eines Tages."],
+      ["Maximaldosis", "Höchste vorgesehene Dosis unter den entsprechenden Bedingungen."],
+      ["Dosierungsintervall", "Zeitlicher Abstand zwischen den Einnahmen."]
+    ],
+
+    wissen: [
+      "Die Dosierung kann von Alter, Körpergewicht, Erkrankung und Organfunktion abhängen.",
+      "Bei Kindern ist die Dosierung häufig gewichtsabhängig.",
+      "Eine vergessene Einnahme darf nicht automatisch durch eine doppelte Dosis ausgeglichen werden.",
+      "Die Dosierungsanweisung sollte für den Patienten eindeutig sein."
+    ],
+
+    beratung: [
+      "Wie oft sollen Sie das Arzneimittel einnehmen?",
+      "Wann soll die Einnahme erfolgen?",
+      "Soll es mit oder ohne Nahrung eingenommen werden?",
+      "Was machen Sie, wenn Sie eine Einnahme vergessen?"
+    ],
+
+    fall: {
+      patient:
+        "Ich habe gestern Abend meine Tablette vergessen. Soll ich heute zwei nehmen?",
+      aufgabe:
+        "Welche Informationen müssen Sie prüfen, bevor Sie eine Empfehlung geben?"
+    },
+
+    frage: {
+      frage:
+        "Welche Faktoren können die Dosierung eines Arzneimittels beeinflussen?",
+      antwort:
+        "Unter anderem Wirkstoff, Indikation, Alter, Körpergewicht, Nierenfunktion, Leberfunktion und Begleitmedikation."
+    },
+
+    quiz: [
+      {
+        frage: "Was beschreibt die Einzeldosis?",
+        optionen: [
+          "Die gesamte Monatsmenge",
+          "Die Menge bei einer Einnahme",
+          "Die Therapiedauer",
+          "Die maximale Packungsgröße"
+        ],
+        richtig: 1
+      }
+    ],
+
+    merksatz:
+      "Dosierung bedeutet: wie viel, wie oft und wie lange."
+  },
+
+
+  {
+    titel: "Pharmakokinetik",
+    kategorie: "Pharmakologie",
+
+    definition:
+      "Die Pharmakokinetik beschreibt, was der Körper mit einem Arzneistoff macht.",
+
+    fachbegriffe: [
+      ["Absorption", "Aufnahme des Wirkstoffs in den Körper."],
+      ["Distribution", "Verteilung des Wirkstoffs im Körper."],
+      ["Metabolismus", "Biochemische Umwandlung eines Wirkstoffs."],
+      ["Elimination", "Entfernung des Wirkstoffs bzw. seiner Metaboliten aus dem Körper."],
+      ["Halbwertszeit", "Zeit, in der die Konzentration eines Wirkstoffs ungefähr auf die Hälfte sinkt."]
+    ],
+
+    wissen: [
+      "ADME steht für Absorption, Distribution, Metabolismus und Elimination.",
+      "Die Leber spielt bei vielen Arzneistoffen eine wichtige Rolle beim Metabolismus.",
+      "Die Nieren sind für die Ausscheidung vieler Wirkstoffe und Metaboliten wichtig.",
+      "Eine eingeschränkte Organfunktion kann die Arzneistoffkonzentration verändern."
+    ],
+
+    fall: {
+      patient:
+        "Mein Arzt hat gesagt, dass meine Nierenwerte schlecht sind. Warum ist das für meine Medikamente wichtig?",
+      aufgabe:
+        "Erklären Sie dem Patienten die Bedeutung der Nierenfunktion."
+    },
+
+    frage: {
+      frage: "Was bedeutet ADME?",
+      antwort:
+        "Absorption, Distribution, Metabolismus und Elimination."
+    },
+
+    quiz: [
+      {
+        frage: "Was bedeutet Pharmakokinetik?",
+        optionen: [
+          "Was das Arzneimittel mit dem Körper macht",
+          "Was der Körper mit dem Arzneimittel macht",
+          "Nur die Nebenwirkungen",
+          "Nur die Dosierung"
+        ],
+        richtig: 1
+      },
+      {
+        frage: "Welches Organ ist besonders wichtig für die Ausscheidung vieler Wirkstoffe?",
+        optionen: [
+          "Niere",
+          "Haut",
+          "Milz",
+          "Schilddrüse"
+        ],
+        richtig: 0
+      }
+    ],
+
+    merksatz:
+      "Pharmakokinetik = Was macht der Körper mit dem Arzneistoff?"
+  },
+
+
+  {
+    titel: "Pharmakodynamik",
+    kategorie: "Pharmakologie",
+
+    definition:
+      "Die Pharmakodynamik beschreibt, was ein Arzneistoff im Körper bewirkt.",
+
+    fachbegriffe: [
+      ["Rezeptor", "Struktur, an die bestimmte Wirkstoffe binden können."],
+      ["Agonist", "Wirkstoff, der einen Rezeptor aktiviert."],
+      ["Antagonist", "Wirkstoff, der eine Rezeptorwirkung blockiert oder hemmt."],
+      ["Wirkmechanismus", "Art und Weise, wie ein Arzneistoff seine Wirkung entfaltet."]
+    ],
+
+    wissen: [
+      "Agonisten aktivieren bestimmte Rezeptoren.",
+      "Antagonisten blockieren bzw. hemmen Rezeptorwirkungen.",
+      "Die Wirkung hängt unter anderem von Dosis und Rezeptorbindung ab."
+    ],
+
+    frage: {
+      frage: "Was ist der Unterschied zwischen Agonist und Antagonist?",
+      antwort:
+        "Ein Agonist aktiviert einen Rezeptor. Ein Antagonist blockiert bzw. hemmt dessen Wirkung."
+    },
+
+    quiz: [
+      {
+        frage: "Was macht ein Agonist?",
+        optionen: [
+          "Er aktiviert einen Rezeptor",
+          "Er zerstört einen Rezeptor",
+          "Er verhindert jede Arzneimittelwirkung",
+          "Er wird immer ausgeschieden"
+        ],
+        richtig: 0
+      }
+    ],
+
+    merksatz:
+      "Agonist aktiviert – Antagonist blockiert."
+  },
+
+
+  {
+    titel: "Arzneimittelwechselwirkungen",
+    kategorie: "Arzneimittelsicherheit",
+
+    definition:
+      "Eine Arzneimittelwechselwirkung liegt vor, wenn ein Arzneimittel die Wirkung eines anderen Arzneimittels oder Stoffes beeinflusst.",
+
+    fachbegriffe: [
+      ["Interaktion", "Wechselwirkung zwischen Arzneimitteln oder anderen Stoffen."],
+      ["Enzymhemmung", "Verringerung der Aktivität eines Enzyms."],
+      ["Enzyminduktion", "Steigerung der Enzymaktivität."],
+      ["Pharmakokinetische Interaktion", "Wechselwirkung bei Aufnahme, Verteilung, Metabolismus oder Elimination."]
+    ],
+
+    wissen: [
+      "Wechselwirkungen können die Wirkung verstärken oder abschwächen.",
+      "Auch OTC-Arzneimittel können relevante Wechselwirkungen verursachen.",
+      "Nahrungsergänzungsmittel und pflanzliche Präparate sollten ebenfalls erfragt werden.",
+      "Eine vollständige Medikationsanamnese ist deshalb wichtig."
+    ],
+
+    beratung: [
+      "Welche Medikamente nehmen Sie regelmäßig?",
+      "Nehmen Sie zusätzlich frei verkäufliche Medikamente?",
+      "Verwenden Sie Nahrungsergänzungsmittel?",
+      "Welche Medikamente haben Sie heute bereits eingenommen?"
+    ],
+
+    fall: {
+      patient:
+        "Ich nehme noch ein pflanzliches Präparat. Das muss ich doch nicht erwähnen, oder?",
+      aufgabe:
+        "Erklären Sie, warum auch pflanzliche Präparate relevant sein können."
+    },
+
+    frage: {
+      frage:
+        "Warum ist eine vollständige Medikationsanamnese wichtig?",
+      antwort:
+        "Damit mögliche Wechselwirkungen, Doppelmedikationen und andere arzneimittelbezogene Probleme erkannt werden können."
+    },
+
+    quiz: [
+      {
+        frage: "Was sollte bei einer Medikationsanamnese berücksichtigt werden?",
+        optionen: [
+          "Nur verschreibungspflichtige Arzneimittel",
+          "Nur die aktuellen Rezepte",
+          "Auch OTC- und pflanzliche Präparate",
+          "Nur Nahrungsergänzungsmittel"
+        ],
+        richtig: 2
+      }
+    ],
+
+    merksatz:
+      "Immer die gesamte Medikation betrachten – nicht nur das aktuelle Rezept."
+  },
+
+
+  {
+    titel: "Diabetes mellitus",
+    kategorie: "Erkrankungen",
+
+    definition:
+      "Diabetes mellitus ist eine Stoffwechselerkrankung, die durch einen chronisch erhöhten Blutzuckerspiegel gekennzeichnet ist.",
+
+    fachbegriffe: [
+      ["Hyperglykämie", "Erhöhter Blutzuckerspiegel."],
+      ["Hypoglykämie", "Zu niedriger Blutzuckerspiegel."],
+      ["Insulin", "Hormon, das unter anderem die Aufnahme von Glukose in Zellen ermöglicht."],
+      ["HbA1c", "Langzeitparameter zur Beurteilung der Blutzuckereinstellung."]
+    ],
+
+    wissen: [
+      "Typ-1-Diabetes ist durch einen absoluten Insulinmangel gekennzeichnet.",
+      "Beim Typ-2-Diabetes spielen unter anderem Insulinresistenz und eine gestörte Insulinsekretion eine Rolle.",
+      "Eine Hypoglykämie kann sich unter anderem durch Zittern, Schwitzen, Herzklopfen und Verwirrtheit äußern.",
+      "Bei insulinbehandelten Patienten ist die korrekte Anwendung besonders wichtig."
+    ],
+
+    beratung: [
+      "Wie messen Sie Ihren Blutzucker?",
+      "Welche Medikamente verwenden Sie?",
+      "Wie wenden Sie Ihr Insulin an?",
+      "Kennen Sie die Anzeichen einer Unterzuckerung?"
+    ],
+
+    fall: {
+      patient:
+        "Ich zittere, schwitze und fühle mich plötzlich sehr schwach. Was soll ich machen?",
+      aufgabe:
+        "Welche Situation könnte vorliegen und welche Informationen benötigen Sie?"
+    },
+
+    frage: {
+      frage:
+        "Welche Symptome können auf eine Hypoglykämie hinweisen?",
+      antwort:
+        "Zum Beispiel Zittern, Schwitzen, Herzklopfen, Heißhunger, Konzentrationsstörungen oder Verwirrtheit."
+    },
+
+    quiz: [
+      {
+        frage: "Was bedeutet Hypoglykämie?",
+        optionen: [
+          "Erhöhter Blutdruck",
+          "Erhöhter Blutzucker",
+          "Niedriger Blutzucker",
+          "Niedriger Blutdruck"
+        ],
+        richtig: 2
+      },
+      {
+        frage: "Was ist HbA1c?",
+        optionen: [
+          "Ein Langzeitparameter der Blutzuckereinstellung",
+          "Ein Blutdruckmedikament",
+          "Ein Antibiotikum",
+          "Ein Schmerzmittel"
+        ],
+        richtig: 0
+      }
+    ],
+
+    merksatz:
+      "Hypoglykämie = Unterzuckerung – sie kann akut gefährlich werden."
   }
 
-  /*
-   * DEMO-LOGIN
-   * Dieser Login ist nur für die Oberfläche.
-   * Er speichert keine echten Benutzerkonten.
-   */
+];
 
-  localStorage.setItem("userEmail", email);
 
-  message.innerText = "✅ Erfolgreich angemeldet!";
-  message.style.color = "green";
+/* =========================================================
+   KENNTNISPRÜFUNG ÖFFNEN
+   ========================================================= */
 
-  setTimeout(() => {
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("userArea").style.display = "block";
-    document.getElementById("userEmail").innerText = email;
-  }, 500);
+function kenntnisprüfung() {
+
+  openModal(`
+    <div class="kp-container">
+
+      <div class="kp-header">
+
+        <span class="premium-label">PREMIUM</span>
+
+        <h2>🎓 Kenntnisprüfung</h2>
+
+        <p>
+          Lerne 49 wichtige Themen für die pharmazeutische
+          Kenntnisprüfung und trainiere anschließend mit
+          Fällen und Prüfungsfragen.
+        </p>
+
+      </div>
+
+      <div class="kp-progress">
+
+        <div>
+          <strong>Dein Lernfortschritt</strong>
+          <span id="kp-progress-text">0 %</span>
+        </div>
+
+        <div class="progress-bar">
+          <div
+            id="kp-progress-fill"
+            style="width:0%"
+          ></div>
+        </div>
+
+      </div>
+
+      <div class="kp-grid">
+
+        ${kpThemen.map((thema, index) => `
+
+          <button
+            class="kp-topic"
+            onclick="kpThemaOeffnen(${index})"
+          >
+
+            <span class="kp-number">
+              ${index + 1}
+            </span>
+
+            <span class="kp-topic-content">
+
+              <strong>
+                ${thema.titel}
+              </strong>
+
+              <small>
+                ${thema.kategorie}
+              </small>
+
+            </span>
+
+            <span class="kp-arrow">
+              →
+            </span>
+
+          </button>
+
+        `).join("")}
+
+      </div>
+
+    </div>
+  `);
+
 }
 
-function logout() {
 
-  localStorage.removeItem("userEmail");
+/* =========================================================
+   THEMA ÖFFNEN
+   ========================================================= */
 
-  document.getElementById("loginBox").style.display = "block";
-  document.getElementById("userArea").style.display = "none";
+function kpThemaOeffnen(index) {
+
+  const thema = kpThemen[index];
+
+  if (!thema) return;
+
+  openModal(`
+
+    <div class="kp-lesson">
+
+      <button
+        class="kp-back"
+        onclick="kenntnisprüfung()"
+      >
+        ← Alle Themen
+      </button>
+
+
+      <div class="lesson-header">
+
+        <span class="premium-label">
+          ${thema.kategorie}
+        </span>
+
+        <h2>
+          ${thema.titel}
+        </h2>
+
+        <p>
+          Lerne die wichtigsten Inhalte und
+          trainiere anschließend dein Wissen.
+        </p>
+
+      </div>
+
+
+      <!-- DEFINITION -->
+
+      ${thema.definition ? `
+
+        <section class="lesson-card">
+
+          <h3>📖 Definition</h3>
+
+          <p>
+            ${thema.definition}
+          </p>
+
+        </section>
+
+      ` : ""}
+
+
+      <!-- FACHBEGRIFFE -->
+
+      ${thema.fachbegriffe ? `
+
+        <section class="lesson-card">
+
+          <h3>🧠 Fachbegriffe</h3>
+
+          <div class="fachbegriffe">
+
+            ${thema.fachbegriffe.map(item => `
+
+              <div class="fachbegriff">
+
+                <strong>
+                  ${Array.isArray(item) ? item[0] : item}
+                </strong>
+
+                ${
+                  Array.isArray(item)
+                    ? `<span>${item[1]}</span>`
+                    : ""
+                }
+
+              </div>
+
+            `).join("")}
+
+          </div>
+
+        </section>
+
+      ` : ""}
+
+
+      <!-- PRÜFUNGSWISSEN -->
+
+      ${thema.wissen ? `
+
+        <section class="lesson-card">
+
+          <h3>📚 Prüfungswissen</h3>
+
+          <ul>
+
+            ${thema.wissen.map(x => `
+              <li>${x}</li>
+            `).join("")}
+
+          </ul>
+
+        </section>
+
+      ` : ""}
+
+
+      <!-- PATIENTENBERATUNG -->
+
+      ${thema.beratung ? `
+
+        <section class="lesson-card beratung-card">
+
+          <h3>🗣️ Patientenberatung</h3>
+
+          <p>
+            Typische Fragen im FSP-Gespräch:
+          </p>
+
+          <ul>
+
+            ${thema.beratung.map(x => `
+              <li>${x}</li>
+            `).join("")}
+
+          </ul>
+
+        </section>
+
+      ` : ""}
+
+
+      <!-- FALLBEISPIEL -->
+
+      ${thema.fall ? `
+
+        <section class="case-card">
+
+          <div class="case-label">
+            🩺 FSP-FALL
+          </div>
+
+          <h3>Patient sagt:</h3>
+
+          <p class="patient-speech">
+            „${thema.fall.patient}“
+          </p>
+
+          <h3>Deine Aufgabe:</h3>
+
+          <p>
+            ${thema.fall.aufgabe}
+          </p>
+
+          <button
+            class="show-answer"
+            onclick="this.nextElementSibling.classList.toggle('visible')"
+          >
+            💡 Lösungshinweise anzeigen
+          </button>
+
+          <div class="hidden-answer">
+
+            <p>
+              Strukturiere deine Antwort:
+            </p>
+
+            <ol>
+              <li>Patientenproblem erfassen</li>
+              <li>Gezielt nachfragen</li>
+              <li>Arzneimittel und Medikation prüfen</li>
+              <li>Risiken erkennen</li>
+              <li>Verständlich beraten</li>
+            </ol>
+
+          </div>
+
+        </section>
+
+      ` : ""}
+
+
+      <!-- PRÜFUNGSFRAGE -->
+
+      ${thema.frage ? `
+
+        <section class="exam-card">
+
+          <div class="exam-label">
+            🎓 KENNTNISPRÜFUNG
+          </div>
+
+          <h3>
+            ${thema.frage.frage}
+          </h3>
+
+          <button
+            class="show-answer"
+            onclick="this.nextElementSibling.classList.toggle('visible')"
+          >
+            Antwort anzeigen
+          </button>
+
+          <div class="hidden-answer">
+
+            <p>
+              ${thema.frage.antwort}
+            </p>
+
+          </div>
+
+        </section>
+
+      ` : ""}
+
+
+      <!-- QUIZ -->
+
+      ${thema.quiz ? `
+
+        <section class="quiz-card">
+
+          <div class="quiz-label">
+            🧠 WISSENSTEST
+          </div>
+
+          <h3>
+            Teste dein Wissen
+          </h3>
+
+          <div id="quiz-${index}">
+
+            ${thema.quiz.map((q, qi) => `
+
+              <div
+                class="quiz-question"
+                data-answer="${q.richtig}"
+              >
+
+                <strong>
+                  ${qi + 1}. ${q.frage}
+                </strong>
+
+                <div class="quiz-options">
+
+                  ${q.optionen.map((option, oi) => `
+
+                    <button
+                      onclick="quizAntwort(
+                        this,
+                        ${oi},
+                        ${q.richtig}
+                      )"
+                    >
+                      ${option}
+                    </button>
+
+                  `).join("")}
+
+                </div>
+
+                <div class="quiz-result"></div>
+
+              </div>
+
+            `).join("")}
+
+          </div>
+
+        </section>
+
+      ` : ""}
+
+
+      <!-- MERKSATZ -->
+
+      ${thema.merksatz ? `
+
+        <section class="merksatz-card">
+
+          <span>
+            💡 MERKSATZ
+          </span>
+
+          <p>
+            ${thema.merksatz}
+          </p>
+
+        </section>
+
+      ` : ""}
+
+
+      <button
+        class="complete-topic"
+        onclick="kpAlsGelernt(${index})"
+      >
+        ✓ Thema als gelernt markieren
+      </button>
+
+
+    </div>
+
+  `);
+
 }
 
-window.onload = function() {
 
-  const email = localStorage.getItem("userEmail");
+/* =========================================================
+   QUIZ
+   ========================================================= */
 
-  if (email) {
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("userArea").style.display = "block";
-    document.getElementById("userEmail").innerText = email;
+function quizAntwort(button, gewaehlteAntwort, richtigeAntwort) {
+
+  const container = button.closest(".quiz-question");
+
+  const buttons = container.querySelectorAll(
+    ".quiz-options button"
+  );
+
+  const result = container.querySelector(
+    ".quiz-result"
+  );
+
+  buttons.forEach(btn => {
+    btn.disabled = true;
+  });
+
+  if (gewaehlteAntwort === richtigeAntwort) {
+
+    button.classList.add("correct");
+
+    result.innerHTML =
+      "✅ Richtig! Sehr gut.";
+
+  } else {
+
+    button.classList.add("wrong");
+
+    buttons[richtigeAntwort].classList.add(
+      "correct"
+    );
+
+    result.innerHTML =
+      "❌ Nicht ganz. Die grün markierte Antwort ist richtig.";
+
   }
-};
-</script>
+
+}
 
 
-<!-- BENUTZERBEREICH -->
-<div id="userArea" style="display:none;">
+/* =========================================================
+   ALS GELERNT MARKIEREN
+   ========================================================= */
 
-  <h2>👋 Willkommen!</h2>
+function kpAlsGelernt(index) {
 
-  <p>
-    Angemeldet als:
-    <strong id="userEmail"></strong>
-  </p>
+  let gelernt =
+    JSON.parse(
+      localStorage.getItem("kpGelernt") || "[]"
+    );
 
-  <button onclick="logout()">
-    Abmelden
-  </button>
+  if (!gelernt.includes(index)) {
 
-</div>
+    gelernt.push(index);
+
+    localStorage.setItem(
+      "kpGelernt",
+      JSON.stringify(gelernt)
+    );
+
+  }
+
+  alert(
+    "✅ Thema wurde als gelernt markiert!"
+  );
+
+}
