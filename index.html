@@ -1,1125 +1,745 @@
-    /* =========================================================
-       FSP PHARMA – KENNTNISPRÜFUNG
-       49 THEMEN + LERNINHALT + FSP + QUIZ
-       ========================================================= */
-
-    const kpThemen = [
-      "Arzneimittelformen und Anwendung",
-      "Dosierung und Einnahmehinweise",
-      "Pharmakokinetik",
-      "Pharmakodynamik",
-      "Arzneimittelwechselwirkungen",
-      "Kontraindikationen",
-      "Nebenwirkungen",
-      "Warnhinweise",
-      "Rezeptprüfung",
-      "Betäubungsmittel",
-      "Dokumentation in der Apotheke",
-      "Patientenberatung",
-      "Kommunikation mit Patienten",
-      "Fachbegriffe erklären",
-      "Diabetes mellitus",
-      "Hypertonie",
-      "Herzinsuffizienz",
-      "Asthma bronchiale",
-      "COPD",
-      "Allergien",
-      "Schmerzen und Analgetika",
-      "Fieber",
-      "Erkältung",
-      "Infektionen",
-      "Antibiotika",
-      "Magen-Darm-Erkrankungen",
-      "Reflux",
-      "Übelkeit und Erbrechen",
-      "Verstopfung",
-      "Durchfall",
-      "Hauterkrankungen",
-      "Ekzeme",
-      "Desinfektion",
-      "Impfungen",
-      "Vitamine und Mineralstoffe",
-      "Nahrungsergänzungsmittel",
-      "Schwangerschaft",
-      "Stillzeit",
-      "Kinderarzneimittel",
-      "Arzneimittel bei älteren Menschen",
-      "Nierenfunktion",
-      "Leberfunktion",
-      "Laborwerte verstehen",
-      "Blutgerinnung",
-      "Psychische Erkrankungen",
-      "Schlafstörungen",
-      "Neurologische Erkrankungen",
-      "Notfallsituationen"
-    ];
-
-
-    /* =========================================================
-       LERNINHALTE
-       ========================================================= */
-
-    const kpInhalte = {
-
-    "Arzneimittelformen und Anwendung": {
-      icon:"💊",
-      kurz:"Arzneiformen beeinflussen Anwendung, Wirkstofffreisetzung und Aufnahme.",
-      wissen:[
-        "Tabletten und Kapseln werden häufig oral angewendet.",
-        "Retardierte Arzneiformen geben den Wirkstoff verzögert bzw. kontrolliert frei.",
-        "Bei Inhalativa ist die richtige Anwendungstechnik besonders wichtig.",
-        "Äußerliche Arzneiformen werden auf Haut oder Schleimhaut angewendet."
-      ],
-      fachbegriffe:[
-        "Tablette",
-        "Kapsel",
-        "Retardtablette",
-        "Salbe",
-        "Creme",
-        "Inhalation"
-      ],
-      fsp:"Ein Patient fragt: „Darf ich diese Tablette einfach zerdrücken?“ Erklären Sie ihm, warum Sie zuerst die genaue Arzneiform prüfen müssen.",
-      frage:"Was bedeutet „Retard“?",
-      antwort:"Retard bedeutet eine verzögerte bzw. kontrollierte Wirkstofffreisetzung."
-    },
-
-    "Dosierung und Einnahmehinweise": {
-      icon:"⏱️",
-      kurz:"Dosierung beschreibt Menge, Häufigkeit und Dauer der Arzneimittelanwendung.",
-      wissen:[
-        "Die Dosierung hängt unter anderem von Wirkstoff, Indikation und Patient ab.",
-        "Alter, Körpergewicht sowie Nieren- und Leberfunktion können relevant sein.",
-        "Einnahmezeiten sollten für den Patienten eindeutig erklärt werden.",
-        "Eine vergessene Dosis sollte nicht automatisch verdoppelt werden."
-      ],
-      fachbegriffe:[
-        "Einzeldosis",
-        "Tagesdosis",
-        "Maximaldosis",
-        "Dosierungsintervall"
-      ],
-      fsp:"Der Patient sagt: „Ich habe gestern meine Tablette vergessen. Soll ich heute zwei nehmen?“",
-      frage:"Welche Faktoren können die Dosierung beeinflussen?",
-      antwort:"Zum Beispiel Alter, Körpergewicht, Indikation, Nierenfunktion, Leberfunktion und Begleitmedikation."
-    },
-
-    "Pharmakokinetik": {
-      icon:"🔬",
-      kurz:"Pharmakokinetik beschreibt, was der Körper mit einem Arzneistoff macht.",
-      wissen:[
-        "ADME steht für Absorption, Distribution, Metabolismus und Elimination.",
-        "Die Leber ist an der Metabolisierung vieler Arzneistoffe beteiligt.",
-        "Die Nieren spielen bei der Ausscheidung vieler Wirkstoffe eine wichtige Rolle.",
-        "Die Halbwertszeit beschreibt die Zeit, in der die Konzentration eines Wirkstoffs ungefähr auf die Hälfte sinkt."
-      ],
-      fachbegriffe:[
-        "Absorption",
-        "Distribution",
-        "Metabolismus",
-        "Elimination",
-        "Halbwertszeit"
-      ],
-      fsp:"Ein Patient mit eingeschränkter Nierenfunktion fragt, warum seine Medikamente angepasst werden müssen.",
-      frage:"Was bedeutet ADME?",
-      antwort:"Absorption, Distribution, Metabolismus und Elimination."
-    },
-
-    "Pharmakodynamik": {
-      icon:"🧬",
-      kurz:"Pharmakodynamik beschreibt, was ein Arzneistoff im Körper bewirkt.",
-      wissen:[
-        "Arzneistoffe können beispielsweise an Rezeptoren binden.",
-        "Agonisten aktivieren Rezeptoren.",
-        "Antagonisten blockieren bzw. hemmen Rezeptorwirkungen.",
-        "Die Wirkung kann von Dosis und Wirkstoffkonzentration abhängen."
-      ],
-      fachbegriffe:[
-        "Rezeptor",
-        "Agonist",
-        "Antagonist",
-        "Wirkmechanismus"
-      ],
-      fsp:"Erklären Sie einem Patienten in einfachen Worten, was ein Wirkstoff im Körper bewirkt.",
-      frage:"Was ist der Unterschied zwischen Agonist und Antagonist?",
-      antwort:"Ein Agonist aktiviert einen Rezeptor; ein Antagonist blockiert bzw. hemmt dessen Wirkung."
-    },
-
-    "Arzneimittelwechselwirkungen": {
-      icon:"🔄",
-      kurz:"Wechselwirkungen können die Wirkung oder Sicherheit einer Arzneimitteltherapie verändern.",
-      wissen:[
-        "Wechselwirkungen können Wirkungen verstärken oder abschwächen.",
-        "Auch frei verkäufliche Arzneimittel müssen berücksichtigt werden.",
-        "Pflanzliche Präparate und Nahrungsergänzungsmittel können ebenfalls relevant sein.",
-        "Eine vollständige Medikationsanamnese ist deshalb wichtig."
-      ],
-      fachbegriffe:[
-        "Interaktion",
-        "Enzymhemmung",
-        "Enzyminduktion",
-        "Medikationsanamnese"
-      ],
-      fsp:"Der Patient sagt: „Mein pflanzliches Präparat muss ich doch nicht erwähnen, oder?“",
-      frage:"Warum sollte die gesamte Medikation erfasst werden?",
-      antwort:"Damit mögliche Wechselwirkungen, Doppelmedikationen und andere arzneimittelbezogene Probleme erkannt werden können."
-    },
-
-    "Kontraindikationen": {
-      icon:"🚫",
-      kurz:"Kontraindikationen sind Situationen, in denen ein Arzneimittel nicht oder nur unter besonderen Bedingungen angewendet werden darf.",
-      wissen:[
-        "Kontraindikationen können absolut oder relativ sein.",
-        "Alter, Schwangerschaft, Erkrankungen und Begleitmedikation können relevant sein.",
-        "Vor der Abgabe müssen relevante Gegenanzeigen geprüft werden.",
-        "Bei Unsicherheit sollte die Fachinformation bzw. ärztliche Rücksprache herangezogen werden."
-      ],
-      fachbegriffe:[
-        "Kontraindikation",
-        "absolute Kontraindikation",
-        "relative Kontraindikation"
-      ],
-      fsp:"Ein Patient nennt eine chronische Erkrankung, die für sein neues Medikament relevant sein könnte.",
-      frage:"Was bedeutet Kontraindikation?",
-      antwort:"Eine Kontraindikation ist ein Umstand, bei dem ein Arzneimittel nicht oder nur unter bestimmten Bedingungen angewendet werden sollte."
-    },
-
-    "Nebenwirkungen": {
-      icon:"⚠️",
-      kurz:"Nebenwirkungen sind unerwünschte Reaktionen, die bei Arzneimittelanwendung auftreten können.",
-      wissen:[
-        "Nebenwirkungen unterscheiden sich in Häufigkeit und Schwere.",
-        "Patienten sollten über relevante und wichtige Warnzeichen informiert werden.",
-        "Bei schweren oder ungewöhnlichen Beschwerden muss die Situation medizinisch abgeklärt werden.",
-        "Die Fachinformation enthält wichtige Angaben zum Sicherheitsprofil."
-      ],
-      fachbegriffe:[
-        "Nebenwirkung",
-        "unerwünschte Arzneimittelwirkung",
-        "schwerwiegende Nebenwirkung"
-      ],
-      fsp:"Ein Patient berichtet über eine neue Beschwerde nach Beginn einer Arzneimitteltherapie.",
-      frage:"Was sollten Sie bei einer möglichen Nebenwirkung zunächst klären?",
-      antwort:"Welches Arzneimittel eingenommen wurde, wann die Beschwerden begonnen haben, welche Symptome bestehen und welche weiteren Medikamente verwendet werden."
-    },
-
-    "Warnhinweise": {
-      icon:"🚨",
-      kurz:"Warnhinweise helfen, besondere Risiken einer Arzneimitteltherapie zu erkennen.",
-      wissen:[
-        "Warnhinweise können sich auf Erkrankungen, Begleitmedikation oder besondere Lebenssituationen beziehen.",
-        "Bei bestimmten Symptomen ist eine sofortige medizinische Abklärung erforderlich.",
-        "Patienten sollten relevante Warnzeichen verständlich erklärt bekommen."
-      ],
-      fachbegriffe:[
-        "Warnhinweis",
-        "Vorsichtsmaßnahme",
-        "Risikofaktor"
-      ],
-      fsp:"Erklären Sie dem Patienten, bei welchen Beschwerden er nicht abwarten sollte.",
-      frage:"Warum sind Warnhinweise Bestandteil der Patientenberatung?",
-      antwort:"Sie helfen, relevante Risiken frühzeitig zu erkennen und angemessen darauf zu reagieren."
-    },
-
-    "Rezeptprüfung": {
-      icon:"📋",
-      kurz:"Bei der Rezeptprüfung werden formale und arzneimittelbezogene Angaben kontrolliert.",
-      wissen:[
-        "Patient, Arzneimittel, Stärke, Darreichungsform und Dosierung müssen geprüft werden.",
-        "Auch formale Anforderungen des jeweiligen Rezepttyps sind relevant.",
-        "Unklare oder fehlerhafte Angaben müssen geklärt werden.",
-        "Bei Unsicherheit darf nicht einfach geraten werden."
-      ],
-      fachbegriffe:[
-        "Verordnung",
-        "Dosierung",
-        "Darreichungsform",
-        "Rezeptprüfung"
-      ],
-      fsp:"Auf dem Rezept ist eine Angabe unklar. Wie gehen Sie vor?",
-      frage:"Was tun Sie bei einer unklaren Verordnung?",
-      antwort:"Die Unklarheit muss vor der Abgabe geklärt werden, gegebenenfalls durch Rücksprache mit der verordnenden Stelle."
-    },
-
-    "Betäubungsmittel": {
-      icon:"🔐",
-      kurz:"Betäubungsmittel unterliegen besonderen gesetzlichen Anforderungen.",
-      wissen:[
-        "Bei Betäubungsmitteln gelten besondere Vorgaben für Verordnung, Abgabe und Dokumentation.",
-        "Formale Anforderungen müssen sorgfältig geprüft werden.",
-        "Bestände und Abgaben müssen entsprechend den gesetzlichen Vorgaben dokumentiert werden."
-      ],
-      fachbegriffe:[
-        "BtM",
-        "Betäubungsmittelrezept",
-        "Dokumentation",
-        "Abgabe"
-      ],
-      fsp:"Ein Patient möchte ein verordnetes Betäubungsmittel abholen. Welche Prüfungen führen Sie durch?",
-      frage:"Warum ist bei Betäubungsmitteln eine besonders sorgfältige Prüfung erforderlich?",
-      antwort:"Weil für diese Arzneimittel besondere gesetzliche Anforderungen an Verordnung, Abgabe und Dokumentation gelten."
-    },
-
-    "Dokumentation in der Apotheke": {
-      icon:"📝",
-      kurz:"Eine nachvollziehbare Dokumentation unterstützt Qualität, Sicherheit und rechtssicheres Arbeiten.",
-      wissen:[
-        "Relevante Vorgänge müssen entsprechend den gesetzlichen und betrieblichen Vorgaben dokumentiert werden.",
-        "Dokumentation sollte nachvollziehbar und vollständig sein.",
-        "Bei besonderen Arzneimitteln gelten zusätzliche Anforderungen."
-      ],
-      fachbegriffe:[
-        "Dokumentation",
-        "Nachvollziehbarkeit",
-        "Qualitätssicherung"
-      ],
-      fsp:"Erklären Sie einem Kollegen, warum eine bestimmte Abgabe dokumentiert werden muss.",
-      frage:"Was ist das Ziel einer guten Dokumentation?",
-      antwort:"Sie soll relevante Vorgänge nachvollziehbar, vollständig und prüfbar machen."
-    },
-
-    "Patientenberatung": {
-      icon:"🗣️",
-      kurz:"Eine gute Beratung verbindet Arzneimittelsicherheit mit verständlicher Kommunikation.",
-      wissen:[
-        "Zuerst sollte das Anliegen des Patienten geklärt werden.",
-        "Wichtige Informationen sind Anwendung, Dosierung, Dauer und relevante Warnhinweise.",
-        "Offene Fragen helfen, Beratungsbedarf zu erkennen.",
-        "Am Ende sollte überprüft werden, ob der Patient die Information verstanden hat."
-      ],
-      fachbegriffe:[
-        "Anamnese",
-        "Compliance",
-        "Adhärenz",
-        "Beratungsgespräch"
-      ],
-      fsp:"Führen Sie ein strukturiertes Beratungsgespräch mit einem Patienten.",
-      frage:"Welche Punkte gehören grundsätzlich zu einer Arzneimittelberatung?",
-      antwort:"Anwendung, Dosierung, Einnahme, relevante Risiken und Hinweise zur sicheren Anwendung."
-    },
-
-    "Kommunikation mit Patienten": {
-      icon:"💬",
-      kurz:"Professionelle Kommunikation ist ein zentraler Bestandteil der FSP.",
-      wissen:[
-        "Verwenden Sie klare und patientengerechte Sprache.",
-        "Fachbegriffe sollten bei Bedarf erklärt werden.",
-        "Aktives Zuhören hilft, Missverständnisse zu vermeiden.",
-        "Bei Sprachproblemen können Rückfragen und Wiederholungen helfen."
-      ],
-      fachbegriffe:[
-        "aktives Zuhören",
-        "offene Frage",
-        "Rückfrage",
-        "patientengerechte Sprache"
-      ],
-      fsp:"Der Patient versteht einen medizinischen Fachbegriff nicht. Erklären Sie ihn in Alltagssprache.",
-      frage:"Warum sollte man Fachbegriffe erklären?",
-      antwort:"Damit der Patient die Beratung versteht und Arzneimittel sicher anwenden kann."
-    },
-
-    "Fachbegriffe erklären": {
-      icon:"📚",
-      kurz:"In der FSP müssen medizinische Fachbegriffe verständlich erklärt werden können.",
-      wissen:[
-        "Hypertonie = Bluthochdruck.",
-        "Hypoglykämie = Unterzuckerung.",
-        "Dyspnoe = Atemnot.",
-        "Ödem = Flüssigkeitsansammlung im Gewebe."
-      ],
-      fachbegriffe:[
-        "Hypertonie",
-        "Hypoglykämie",
-        "Dyspnoe",
-        "Ödem"
-      ],
-      fsp:"Erklären Sie „Hypertonie“ so, dass ein Patient ohne medizinische Ausbildung es versteht.",
-      frage:"Was bedeutet Hypertonie?",
-      antwort:"Hypertonie bedeutet dauerhaft erhöhter Blutdruck."
-    },
-
-    "Diabetes mellitus": {
-      icon:"🩸",
-      kurz:"Diabetes mellitus ist eine Stoffwechselerkrankung mit chronisch erhöhtem Blutzucker.",
-      wissen:[
-        "Typ-1-Diabetes ist durch einen absoluten Insulinmangel gekennzeichnet.",
-        "Beim Typ-2-Diabetes spielen unter anderem Insulinresistenz und eine gestörte Insulinsekretion eine Rolle.",
-        "Hypoglykämie bedeutet zu niedriger Blutzucker.",
-        "HbA1c ist ein wichtiger Langzeitparameter der Blutzuckereinstellung."
-      ],
-      fachbegriffe:[
-        "Hyperglykämie",
-        "Hypoglykämie",
-        "Insulin",
-        "HbA1c"
-      ],
-      fsp:"Ein Patient berichtet über Zittern, Schwitzen und Schwäche. Was fragen Sie?",
-      frage:"Was bedeutet Hypoglykämie?",
-      antwort:"Hypoglykämie bedeutet einen zu niedrigen Blutzuckerspiegel."
-    },
-
-    "Hypertonie": {
-      icon:"❤️",
-      kurz:"Hypertonie bezeichnet einen dauerhaft erhöhten Blutdruck.",
-      wissen:[
-        "Bluthochdruck kann lange ohne deutliche Beschwerden bestehen.",
-        "Zur Therapie gehören je nach Situation Lebensstilmaßnahmen und Arzneimittel.",
-        "Wichtige Arzneimittelgruppen sind unter anderem ACE-Hemmer, AT1-Blocker, Calciumkanalblocker und Diuretika."
-      ],
-      fachbegriffe:[
-        "Blutdruck",
-        "systolisch",
-        "diastolisch",
-        "Antihypertensivum"
-      ],
-      fsp:"Ein Patient fragt, warum er sein Blutdruckmedikament regelmäßig einnehmen soll, obwohl er sich gut fühlt.",
-      frage:"Was bedeutet Hypertonie?",
-      antwort:"Hypertonie bedeutet dauerhaft erhöhter Blutdruck."
-    },
-
-    "Herzinsuffizienz": {
-      icon:"🫀",
-      kurz:"Herzinsuffizienz bedeutet, dass das Herz den Körper nicht ausreichend mit Blut versorgen kann.",
-      wissen:[
-        "Typische Beschwerden können Atemnot, Leistungsminderung und Ödeme sein.",
-        "Die Therapie richtet sich nach Ursache und Form der Herzinsuffizienz.",
-        "Patienten sollten ihre Arzneimittel regelmäßig und nach ärztlicher Verordnung anwenden."
-      ],
-      fachbegriffe:[
-        "Herzinsuffizienz",
-        "Ödem",
-        "Dyspnoe",
-        "Belastungsdyspnoe"
-      ],
-      fsp:"Ein Patient berichtet über zunehmende Atemnot und geschwollene Beine.",
-      frage:"Welche Beschwerden können bei Herzinsuffizienz auftreten?",
-      antwort:"Zum Beispiel Atemnot, Leistungsminderung und Flüssigkeitseinlagerungen."
-    },
-
-    "Asthma bronchiale": {
-      icon:"🫁",
-      kurz:"Asthma ist eine chronisch entzündliche Atemwegserkrankung mit variabler Atemwegsverengung.",
-      wissen:[
-        "Typische Beschwerden sind Atemnot, Husten und pfeifende Atmung.",
-        "Inhalativa spielen eine wichtige Rolle.",
-        "Die korrekte Inhalationstechnik sollte regelmäßig überprüft werden.",
-        "Bedarfs- und Dauertherapie müssen unterschieden werden."
-      ],
-      fachbegriffe:[
-        "Bronchospasmus",
-        "Dyspnoe",
-        "Inhalation",
-        "Bedarfsmedikation"
-      ],
-      fsp:"Der Patient benutzt sein Inhalationsgerät falsch. Erklären Sie die Bedeutung der korrekten Anwendung.",
-      frage:"Warum ist die Inhalationstechnik wichtig?",
-      antwort:"Weil die korrekte Anwendung entscheidend dafür ist, dass der Wirkstoff die Atemwege ausreichend erreicht."
-    },
-
-    "COPD": {
-      icon:"🫁",
-      kurz:"COPD ist eine chronische Atemwegserkrankung mit anhaltender Atemflusslimitierung.",
-      wissen:[
-        "Häufige Symptome sind chronischer Husten, Auswurf und Atemnot.",
-        "Rauchen ist ein wichtiger Risikofaktor.",
-        "Inhalative Arzneimittel gehören zu den wichtigen Therapieoptionen.",
-        "Inhalationstechnik und regelmäßige Anwendung sind wichtige Beratungsthemen."
-      ],
-      fachbegriffe:[
-        "COPD",
-        "Exazerbation",
-        "Dyspnoe",
-        "Inhalator"
-      ],
-      fsp:"Ein COPD-Patient berichtet über deutlich zunehmende Atemnot.",
-      frage:"Was bedeutet Exazerbation?",
-      antwort:"Eine Exazerbation ist eine akute Verschlechterung der Erkrankungssymptomatik."
-    },
-
-    "Allergien": {
-      icon:"🤧",
-      kurz:"Allergien sind Überempfindlichkeitsreaktionen des Immunsystems auf bestimmte Stoffe.",
-      wissen:[
-        "Typische Symptome können Niesen, Juckreiz, Hautreaktionen oder tränende Augen sein.",
-        "Antihistaminika werden häufig zur symptomatischen Behandlung eingesetzt.",
-        "Bei schweren allergischen Reaktionen ist eine sofortige medizinische Versorgung erforderlich."
-      ],
-      fachbegriffe:[
-        "Allergen",
-        "Histamin",
-        "Antihistaminikum",
-        "Anaphylaxie"
-      ],
-      fsp:"Der Patient berichtet nach einem neuen Medikament über Schwellungen und Atemnot.",
-      frage:"Warum kann Atemnot bei einer allergischen Reaktion ein Warnzeichen sein?",
-      antwort:"Sie kann auf eine schwere allergische Reaktion hinweisen und erfordert eine dringende medizinische Beurteilung."
-    },
-
-    "Schmerzen und Analgetika": {
-      icon:"💊",
-      kurz:"Schmerzen können unterschiedliche Ursachen haben und müssen entsprechend beurteilt werden.",
-      wissen:[
-        "Analgetika unterscheiden sich in Wirkmechanismus und Nebenwirkungsprofil.",
-        "Bei länger dauernden oder starken Schmerzen sollte die Ursache ärztlich abgeklärt werden.",
-        "Bei Selbstmedikation müssen Kontraindikationen und Begleitmedikation berücksichtigt werden."
-      ],
-      fachbegriffe:[
-        "Analgetikum",
-        "NSAR",
-        "Opioid",
-        "Schmerzintensität"
-      ],
-      fsp:"Ein Patient möchte ein Schmerzmittel und nimmt bereits mehrere Medikamente.",
-      frage:"Was sollte vor der Abgabe eines Schmerzmittels erfragt werden?",
-      antwort:"Unter anderem Art und Dauer der Schmerzen, Alter, Vorerkrankungen, andere Medikamente und mögliche Gegenanzeigen."
-    },
-
-    "Fieber": {
-      icon:"🌡️",
-      kurz:"Fieber ist eine erhöhte Körpertemperatur als Reaktion des Körpers, häufig im Rahmen von Infektionen.",
-      wissen:[
-        "Bei der Beratung sollten Alter, Dauer und Begleitsymptome berücksichtigt werden.",
-        "Ausreichende Flüssigkeitszufuhr kann je nach Situation wichtig sein.",
-        "Bei Säuglingen, schwerem Krankheitsgefühl oder Warnzeichen ist eine medizinische Abklärung erforderlich."
-      ],
-      fachbegriffe:[
-        "Fieber",
-        "Körpertemperatur",
-        "Antipyretikum"
-      ],
-      fsp:"Ein Elternteil fragt wegen Fieber bei einem Kind.",
-      frage:"Welche Informationen benötigen Sie vor einer Beratung?",
-      antwort:"Insbesondere Alter, Temperatur, Dauer, Allgemeinzustand und weitere Symptome."
-    },
-
-    "Erkältung": {
-      icon:"🤧",
-      kurz:"Eine Erkältung ist meist eine selbstlimitierende Infektion der oberen Atemwege.",
-      wissen:[
-        "Typische Beschwerden sind Schnupfen, Husten und Halsschmerzen.",
-        "Die Behandlung erfolgt überwiegend symptomorientiert.",
-        "Bei ungewöhnlich schweren, lang anhaltenden oder sich verschlechternden Beschwerden sollte ärztlich abgeklärt werden."
-      ],
-      fachbegriffe:[
-        "Rhinitis",
-        "Pharyngitis",
-        "Husten",
-        "symptomatische Therapie"
-      ],
-      fsp:"Ein Patient möchte ein Medikament gegen eine Erkältung.",
-      frage:"Warum ist die Unterscheidung zwischen symptomatischer Behandlung und Antibiotikatherapie wichtig?",
-      antwort:"Weil viele Erkältungen viral bedingt sind und Antibiotika gegen Viren nicht wirken."
-    },
-
-    "Infektionen": {
-      icon:"🦠",
-      kurz:"Infektionen können durch unterschiedliche Erreger verursacht werden.",
-      wissen:[
-        "Bakterien und Viren unterscheiden sich biologisch und therapeutisch.",
-        "Nicht jede Infektion benötigt ein Antibiotikum.",
-        "Bei schweren Symptomen oder Verschlechterung muss eine ärztliche Beurteilung erfolgen."
-      ],
-      fachbegriffe:[
-        "Infektion",
-        "Virus",
-        "Bakterium",
-        "Erreger"
-      ],
-      fsp:"Ein Patient verlangt wegen einer Erkältung ein Antibiotikum.",
-      frage:"Wirken Antibiotika gegen Viren?",
-      antwort:"Nein. Antibiotika wirken gegen bestimmte bakterielle Erreger, nicht gegen Viren."
-    },
-
-    "Antibiotika": {
-      icon:"🦠",
-      kurz:"Antibiotika werden zur Behandlung bestimmter bakterieller Infektionen eingesetzt.",
-      wissen:[
-        "Antibiotika wirken nicht gegen Viren.",
-        "Die Einnahme muss entsprechend der ärztlichen Verordnung erfolgen.",
-        "Nebenwirkungen und Wechselwirkungen müssen berücksichtigt werden.",
-        "Unnötige Antibiotikaanwendung fördert Resistenzentwicklung."
-      ],
-      fachbegriffe:[
-        "Antibiotikum",
-        "Resistenz",
-        "bakterielle Infektion",
-        "Therapietreue"
-      ],
-      fsp:"Der Patient möchte sein Antibiotikum absetzen, weil es ihm besser geht.",
-      frage:"Warum sollte ein Antibiotikum genau nach der ärztlichen Anweisung angewendet werden?",
-      antwort:"Damit die verordnete Therapie korrekt durchgeführt wird und das Risiko von Therapieproblemen und Resistenzentwicklung reduziert wird."
-    },
-
-    "Magen-Darm-Erkrankungen": {
-      icon:"🩺",
-      kurz:"Magen-Darm-Beschwerden können viele unterschiedliche Ursachen haben.",
-      wissen:[
-        "Anamnese und Begleitsymptome sind für die Beratung wichtig.",
-        "Dauer und Schwere der Beschwerden müssen berücksichtigt werden.",
-        "Blut im Stuhl, starke Schmerzen oder deutliche Verschlechterung sind Warnzeichen."
-      ],
-      fachbegriffe:[
-        "Gastrointestinal",
-        "Abdominalschmerz",
-        "Übelkeit",
-        "Diarrhö"
-      ],
-      fsp:"Ein Patient berichtet über seit mehreren Tagen bestehende Magen-Darm-Beschwerden.",
-      frage:"Welche Informationen sollten Sie erfragen?",
-      antwort:"Beginn, Dauer, Art der Beschwerden, Begleitsymptome, Medikamente, Ernährung und relevante Vorerkrankungen."
-    },
-
-    "Reflux": {
-      icon:"🔥",
-      kurz:"Beim gastroösophagealen Reflux gelangt Mageninhalt in die Speiseröhre zurück.",
-      wissen:[
-        "Typisch ist Sodbrennen.",
-        "Lebensstilfaktoren können Beschwerden beeinflussen.",
-        "Bei häufigen oder anhaltenden Beschwerden sollte ärztlich abgeklärt werden.",
-        "Protonenpumpenhemmer werden bei bestimmten Indikationen eingesetzt."
-      ],
-      fachbegriffe:[
-        "Reflux",
-        "Sodbrennen",
-        "Ösophagus",
-        "Protonenpumpenhemmer"
-      ],
-      fsp:"Ein Patient fragt nach einem Mittel gegen häufiges Sodbrennen.",
-      frage:"Was ist ein typisches Symptom bei Reflux?",
-      antwort:"Sodbrennen ist ein typisches Symptom."
-    },
-
-    "Übelkeit und Erbrechen": {
-      icon:"🤢",
-      kurz:"Übelkeit und Erbrechen können viele verschiedene Ursachen haben.",
-      wissen:[
-        "Dauer, Häufigkeit und Ursache sollten möglichst geklärt werden.",
-        "Flüssigkeitsverlust ist besonders bei längerem Erbrechen relevant.",
-        "Bei starken Beschwerden, Blutbeimengungen oder deutlicher Verschlechterung ist medizinische Abklärung erforderlich."
-      ],
-      fachbegriffe:[
-        "Übelkeit",
-        "Erbrechen",
-        "Dehydratation",
-        "Antiemetikum"
-      ],
-      fsp:"Der Patient erbricht seit dem Morgen mehrfach.",
-      frage:"Welche wichtige Komplikation kann bei längerem Erbrechen entstehen?",
-      antwort:"Flüssigkeits- und Elektrolytverlust bzw. Dehydratation."
-    },
-
-    "Verstopfung": {
-      icon:"🥗",
-      kurz:"Verstopfung bedeutet erschwerte, seltene oder unvollständige Darmentleerung.",
-      wissen:[
-        "Ausreichende Flüssigkeit und Bewegung können je nach Situation hilfreich sein.",
-        "Ballaststoffzufuhr kann eine Rolle spielen.",
-        "Bei neu aufgetretener starker oder ungewöhnlicher Obstipation müssen Warnzeichen berücksichtigt werden."
-      ],
-      fachbegriffe:[
-        "Obstipation",
-        "Laxans",
-        "Ballaststoffe"
-      ],
-      fsp:"Ein Patient möchte regelmäßig ein Abführmittel verwenden.",
-      frage:"Was sollte vor einer Empfehlung eines Laxans geklärt werden?",
-      antwort:"Dauer und Ursache der Beschwerden, Begleitsymptome, bisherige Maßnahmen und relevante Erkrankungen."
-    },
-
-    "Durchfall": {
-      icon:"💧",
-      kurz:"Durchfall kann zu Flüssigkeits- und Elektrolytverlust führen.",
-      wissen:[
-        "Die Flüssigkeitszufuhr ist ein wichtiger Bestandteil der Beratung.",
-        "Dauer und Begleitsymptome müssen berücksichtigt werden.",
-        "Blut im Stuhl, hohes Fieber oder schwere Verschlechterung sind Warnzeichen."
-      ],
-      fachbegriffe:[
-        "Diarrhö",
-        "Dehydratation",
-        "Elektrolyte"
-      ],
-      fsp:"Ein Patient berichtet über starken Durchfall seit zwei Tagen.",
-      frage:"Welche Komplikation ist besonders zu beachten?",
-      antwort:"Flüssigkeits- und Elektrolytverlust."
-    },
-
-    "Hauterkrankungen": {
-      icon:"🧴",
-      kurz:"Hauterkrankungen benötigen eine gezielte Anamnese und passende lokale Therapie.",
-      wissen:[
-        "Aussehen, Lokalisation und Dauer der Hautveränderung sind wichtige Informationen.",
-        "Auch Allergien und bisherige Behandlung sollten erfragt werden.",
-        "Bei unklaren oder schweren Hautveränderungen ist ärztliche Abklärung wichtig."
-      ],
-      fachbegriffe:[
-        "Dermatologie",
-        "Läsion",
-        "Erythem",
-        "Juckreiz"
-      ],
-      fsp:"Der Patient zeigt eine unbekannte Hautveränderung.",
-      frage:"Welche Informationen benötigen Sie?",
-      antwort:"Lokalisation, Dauer, Aussehen, Beschwerden, Auslöser und bisherige Behandlung."
-    },
-
-    "Ekzeme": {
-      icon:"🧴",
-      kurz:"Ekzeme sind entzündliche Hautveränderungen, häufig mit Rötung und Juckreiz.",
-      wissen:[
-        "Die Hautpflege ist ein wichtiger Bestandteil der Behandlung.",
-        "Auslöser und irritierende Stoffe sollten möglichst vermieden werden.",
-        "Bei unklaren oder ausgeprägten Veränderungen sollte ärztlich abgeklärt werden."
-      ],
-      fachbegriffe:[
-        "Ekzem",
-        "Erythem",
-        "Pruritus",
-        "Dermatitis"
-      ],
-      fsp:"Ein Patient klagt über trockene, gerötete und juckende Haut.",
-      frage:"Was bedeutet Pruritus?",
-      antwort:"Pruritus bedeutet Juckreiz."
-    },
-
-    "Desinfektion": {
-      icon:"🧼",
-      kurz:"Desinfektion reduziert die Zahl krankmachender Mikroorganismen.",
-      wissen:[
-        "Desinfektion ist von Reinigung und Sterilisation zu unterscheiden.",
-        "Das verwendete Mittel muss für den vorgesehenen Zweck geeignet sein.",
-        "Einwirkzeit und Anwendungshinweise müssen beachtet werden."
-      ],
-      fachbegriffe:[
-        "Desinfektion",
-        "Sterilisation",
-        "Einwirkzeit",
-        "Antiseptik"
-      ],
-      fsp:"Ein Mitarbeiter fragt, warum die vorgeschriebene Einwirkzeit eingehalten werden muss.",
-      frage:"Was ist der Unterschied zwischen Desinfektion und Sterilisation?",
-      antwort:"Desinfektion reduziert krankmachende Mikroorganismen; Sterilisation zielt auf die vollständige Entfernung bzw. Inaktivierung vermehrungsfähiger Mikroorganismen."
-    },
-
-    "Impfungen": {
-      icon:"💉",
-      kurz:"Impfungen dienen dem Schutz vor bestimmten Infektionskrankheiten.",
-      wissen:[
-        "Impfempfehlungen richten sich nach Alter, Situation und Indikation.",
-        "Vor einer Impfung müssen relevante Informationen und mögliche Gegenanzeigen berücksichtigt werden.",
-        "Aktuelle Empfehlungen sollten anhand der gültigen STIKO-Empfehlungen geprüft werden."
-      ],
-      fachbegriffe:[
-        "Impfung",
-        "Immunisierung",
-        "STIKO",
-        "Impfreaktion"
-      ],
-      fsp:"Ein Patient fragt: „Welche Impfungen brauche ich eigentlich?“",
-      frage:"Wo sollten aktuelle Impfempfehlungen in Deutschland geprüft werden?",
-      antwort:"Bei der STIKO bzw. anhand der jeweils aktuellen offiziellen Empfehlungen."
-    },
-
-    "Vitamine und Mineralstoffe": {
-      icon:"🍊",
-      kurz:"Vitamine und Mineralstoffe erfüllen wichtige physiologische Funktionen.",
-      wissen:[
-        "Eine ausreichende Versorgung ist grundsätzlich wichtig.",
-        "Eine zusätzliche Einnahme ist nicht automatisch für jeden Menschen erforderlich.",
-        "Hohe Dosierungen können je nach Stoff und Situation problematisch sein."
-      ],
-      fachbegriffe:[
-        "Vitamin",
-        "Mineralstoff",
-        "Mangel",
-        "Referenzbereich"
-      ],
-      fsp:"Ein Patient möchte mehrere Vitaminpräparate gleichzeitig einnehmen.",
-      frage:"Was sollte vor der Empfehlung geprüft werden?",
-      antwort:"Ernährung, bestehende Medikamente, bereits eingenommene Präparate, mögliche Mängel und die Dosierungen."
-    },
-
-    "Nahrungsergänzungsmittel": {
-      icon:"🌿",
-      kurz:"Nahrungsergänzungsmittel sind Lebensmittel und keine Arzneimittel.",
-      wissen:[
-        "Sie sollten nicht pauschal mit Arzneimitteln gleichgesetzt werden.",
-        "Inhaltsstoffe und Dosierungen müssen betrachtet werden.",
-        "Mögliche Wechselwirkungen sollten berücksichtigt werden."
-      ],
-      fachbegriffe:[
-        "Nahrungsergänzungsmittel",
-        "Supplement",
-        "Mikronährstoff"
-      ],
-      fsp:"Der Patient nimmt fünf verschiedene Nahrungsergänzungsmittel und mehrere Arzneimittel.",
-      frage:"Warum sollte die gesamte Einnahme erfasst werden?",
-      antwort:"Damit Doppelungen, hohe Zufuhrmengen und mögliche Wechselwirkungen erkannt werden können."
-    },
-
-    "Schwangerschaft": {
-      icon:"🤰",
-      kurz:"In der Schwangerschaft müssen Arzneimittel besonders sorgfältig bewertet werden.",
-      wissen:[
-        "Nicht jedes Arzneimittel ist für Schwangere geeignet.",
-        "Selbstmedikation sollte in der Schwangerschaft besonders kritisch geprüft werden.",
-        "Bei Unsicherheit müssen zuverlässige Fachinformationen und geeignete Beratungsquellen verwendet werden."
-      ],
-      fachbegriffe:[
-        "Schwangerschaft",
-        "Embryotoxizität",
-        "Fachinformation",
-        "Risiko-Nutzen-Abwägung"
-      ],
-      fsp:"Eine Schwangere fragt nach einem frei verkäuflichen Arzneimittel.",
-      frage:"Warum ist bei Arzneimitteln in der Schwangerschaft besondere Vorsicht erforderlich?",
-      antwort:"Weil Wirkstoffe die Schwangerschaft bzw. den Fötus beeinflussen können und die Auswahl deshalb sorgfältig geprüft werden muss."
-    },
-
-    "Stillzeit": {
-      icon:"🍼",
-      kurz:"Bei Arzneimitteln in der Stillzeit muss die mögliche Exposition des Säuglings berücksichtigt werden.",
-      wissen:[
-        "Nicht jeder Wirkstoff geht in relevantem Ausmaß in die Muttermilch über.",
-        "Wirkstoff, Dosis und Alter des Säuglings können relevant sein.",
-        "Bei Unsicherheit sollte eine zuverlässige Fachquelle konsultiert werden."
-      ],
-      fachbegriffe:[
-        "Stillzeit",
-        "Muttermilch",
-        "Säugling",
-        "Exposition"
-      ],
-      fsp:"Eine stillende Mutter benötigt ein Arzneimittel gegen Schmerzen.",
-      frage:"Was muss bei der Arzneimittelberatung in der Stillzeit berücksichtigt werden?",
-      antwort:"Unter anderem Wirkstoff, Dosis, mögliche Übertragung in die Muttermilch und das Alter bzw. die Situation des Säuglings."
-    },
-
-    "Kinderarzneimittel": {
-      icon:"👶",
-      kurz:"Bei Kindern müssen Arzneimittel alters- und situationsgerecht angewendet werden.",
-      wissen:[
-        "Dosierungen können vom Körpergewicht abhängen.",
-        "Darreichungsform und Konzentration müssen sorgfältig geprüft werden.",
-        "Eltern benötigen klare Anweisungen zur Anwendung."
-      ],
-      fachbegriffe:[
-        "pädiatrisch",
-        "Körpergewicht",
-        "Dosierung",
-        "Säugling"
-      ],
-      fsp:"Ein Elternteil fragt nach der Dosierung eines Arzneimittels für ein Kind.",
-      frage:"Warum ist das Körpergewicht bei Kindern häufig relevant?",
-      antwort:"Weil die Dosierung vieler Arzneimittel bei Kindern anhand von Gewicht und Alter bestimmt wird."
-    },
-
-    "Arzneimittel bei älteren Menschen": {
-      icon:"👵",
-      kurz:"Bei älteren Menschen können Mehrfachmedikation und veränderte Organfunktionen die Arzneimitteltherapie beeinflussen.",
-      wissen:[
-        "Polypharmazie erhöht die Wahrscheinlichkeit arzneimittelbezogener Probleme.",
-        "Nieren- und Leberfunktion können verändert sein.",
-        "Schwindel und Sturzrisiko müssen bei geeigneten Arzneimitteln berücksichtigt werden.",
-        "Eine strukturierte Medikationsprüfung kann hilfreich sein."
-      ],
-      fachbegriffe:[
-        "Geriatrie",
-        "Polypharmazie",
-        "Adhärenz",
-        "Sturzrisiko"
-      ],
-      fsp:"Ein älterer Patient nimmt täglich viele verschiedene Medikamente.",
-      frage:"Warum ist Polypharmazie problematisch?",
-      antwort:"Sie kann unter anderem das Risiko von Wechselwirkungen, Nebenwirkungen und Anwendungsfehlern erhöhen."
-    },
-
-    "Nierenfunktion": {
-      icon:"🫘",
-      kurz:"Die Nieren sind für die Ausscheidung vieler Arzneistoffe wichtig.",
-      wissen:[
-        "Eine eingeschränkte Nierenfunktion kann die Arzneistoffexposition verändern.",
-        "Bei bestimmten Arzneimitteln können Dosisanpassungen erforderlich sein.",
-        "Laborwerte und klinische Situation müssen im Zusammenhang betrachtet werden."
-      ],
-      fachbegriffe:[
-        "Nierenfunktion",
-        "Kreatinin",
-        "eGFR",
-        "renale Elimination"
-      ],
-      fsp:"Der Patient fragt, warum der Arzt seine Nierenwerte kontrolliert.",
-      frage:"Warum kann die Nierenfunktion für Arzneimittel relevant sein?",
-      antwort:"Weil viele Arzneistoffe oder Metaboliten über die Nieren ausgeschieden werden."
-    },
-
-    "Leberfunktion": {
-      icon:"🫀",
-      kurz:"Die Leber spielt eine wichtige Rolle beim Metabolismus vieler Arzneistoffe.",
-      wissen:[
-        "Eine eingeschränkte Leberfunktion kann den Arzneistoffabbau beeinflussen.",
-        "Bei bestimmten Arzneimitteln ist besondere Vorsicht erforderlich.",
-        "Leberwerte müssen im klinischen Kontext beurteilt werden."
-      ],
-      fachbegriffe:[
-        "Leberfunktion",
-        "Metabolismus",
-        "Transaminasen",
-        "Hepatotoxizität"
-      ],
-      fsp:"Ein Patient mit einer Lebererkrankung fragt nach einem neuen Medikament.",
-      frage:"Warum kann eine Lebererkrankung die Arzneimitteltherapie beeinflussen?",
-      antwort:"Weil die Leber an der Metabolisierung vieler Arzneistoffe beteiligt ist."
-    },
-
-    "Laborwerte verstehen": {
-      icon:"🧪",
-      kurz:"Laborwerte liefern Informationen über Körperfunktionen und Krankheitsprozesse.",
-      wissen:[
-        "Laborwerte müssen immer im klinischen Zusammenhang interpretiert werden.",
-        "Referenzbereiche können vom Labor und von der untersuchten Person abhängen.",
-        "Ein einzelner Wert reicht häufig nicht für eine Diagnose."
-      ],
-      fachbegriffe:[
-        "Referenzbereich",
-        "Kreatinin",
-        "HbA1c",
-        "Transaminasen"
-      ],
-      fsp:"Ein Patient zeigt Ihnen einen Laborbefund und möchte wissen, ob ein Wert gefährlich ist.",
-      frage:"Warum darf ein einzelner Laborwert nicht isoliert interpretiert werden?",
-      antwort:"Weil Symptome, Referenzbereich, weitere Laborwerte und die klinische Situation berücksichtigt werden müssen."
-    },
-
-    "Blutgerinnung": {
-      icon:"🩸",
-      kurz:"Die Blutgerinnung verhindert übermäßige Blutverluste und wird durch verschiedene Faktoren und Medikamente beeinflusst.",
-      wissen:[
-        "Antikoagulanzien reduzieren die Blutgerinnung.",
-        "Thrombozytenaggregationshemmer beeinflussen die Funktion der Blutplättchen.",
-        "Blutungszeichen müssen ernst genommen werden.",
-        "Bei bestimmten Therapien sind regelmäßige Kontrollen erforderlich."
-      ],
-      fachbegriffe:[
-        "Antikoagulans",
-        "Thrombozytenaggregationshemmer",
-        "INR",
-        "Blutungsrisiko"
-      ],
-      fsp:"Ein Patient unter gerinnungshemmender Therapie berichtet über ungewöhnliche Blutungen.",
-      frage:"Was ist bei ungewöhnlichen Blutungen unter Antikoagulation wichtig?",
-      antwort:"Die Beschwerden müssen ernst genommen und je nach Ausmaß zeitnah medizinisch abgeklärt werden."
-    },
-
-    "Psychische Erkrankungen": {
-      icon:"🧠",
-      kurz:"Psychische Erkrankungen können Stimmung, Denken, Verhalten und Alltag erheblich beeinflussen.",
-      wissen:[
-        "Eine respektvolle und nicht wertende Kommunikation ist wichtig.",
-        "Psychopharmaka sollten entsprechend der Verordnung regelmäßig angewendet werden.",
-        "Bei akuter Selbst- oder Fremdgefährdung ist sofortige professionelle Hilfe erforderlich."
-      ],
-      fachbegriffe:[
-        "Depression",
-        "Angststörung",
-        "Psychopharmakon",
-        "Adhärenz"
-      ],
-      fsp:"Ein Patient berichtet über starke psychische Belastung.",
-      frage:"Wie sollte ein sensibles Beratungsgespräch geführt werden?",
-      antwort:"Ruhig, respektvoll, empathisch und ohne wertende Sprache; bei Warnzeichen muss professionelle Hilfe vermittelt werden."
-    },
-
-    "Schlafstörungen": {
-      icon:"🌙",
-      kurz:"Schlafstörungen können verschiedene körperliche, psychische oder verhaltensbezogene Ursachen haben.",
-      wissen:[
-        "Schlafgewohnheiten und Dauer der Beschwerden sollten erfragt werden.",
-        "Schlafhygiene kann Bestandteil der Beratung sein.",
-        "Bei länger anhaltenden oder ausgeprägten Schlafproblemen sollte ärztliche Abklärung erfolgen.",
-        "Sedierende Arzneimittel können die Verkehrstüchtigkeit beeinflussen."
-      ],
-      fachbegriffe:[
-        "Insomnie",
-        "Schlafhygiene",
-        "Sedierung"
-      ],
-      fsp:"Ein Patient möchte regelmäßig ein Schlafmittel verwenden.",
-      frage:"Was sollte vor einer Empfehlung geklärt werden?",
-      antwort:"Dauer und Ursache der Schlafprobleme, andere Medikamente, Erkrankungen und mögliche Risiken."
-    },
-
-    "Neurologische Erkrankungen": {
-      icon:"🧠",
-      kurz:"Neurologische Erkrankungen betreffen Gehirn, Rückenmark oder periphere Nerven.",
-      wissen:[
-        "Zu den Beschwerden können Schmerzen, Bewegungsstörungen oder Sensibilitätsstörungen gehören.",
-        "Die Arzneimitteltherapie richtet sich nach der konkreten Erkrankung.",
-        "Adhärenz und korrekte Einnahme können besonders wichtig sein."
-      ],
-      fachbegriffe:[
-        "neurologisch",
-        "Epilepsie",
-        "Parkinson",
-        "Neuropathie"
-      ],
-      fsp:"Ein Patient mit einer neurologischen Erkrankung hat Fragen zu seiner Dauermedikation.",
-      frage:"Warum ist regelmäßige Einnahme bei vielen neurologischen Therapien wichtig?",
-      antwort:"Weil Schwankungen der Arzneistoffkonzentration die Krankheitskontrolle und das Nebenwirkungsprofil beeinflussen können."
-    },
-
-    "Notfallsituationen": {
-      icon:"🚑",
-      kurz:"In Notfallsituationen muss eine gefährliche Situation schnell erkannt und angemessen gehandelt werden.",
-      wissen:[
-        "Bewusstsein, Atmung und Kreislauf müssen bei einem Notfall beurteilt werden.",
-        "Bei lebensbedrohlichen Situationen muss der Rettungsdienst alarmiert werden.",
-        "Eine schnelle und strukturierte Reaktion ist entscheidend.",
-        "Bei Unsicherheit sollte lieber frühzeitig professionelle Hilfe angefordert werden."
-      ],
-      fachbegriffe:[
-        "Notfall",
-        "Bewusstsein",
-        "Atmung",
-        "Kreislauf"
-      ],
-      fsp:"Eine Person bricht in der Apotheke zusammen und reagiert nicht normal.",
-      frage:"Was ist bei einem möglichen medizinischen Notfall besonders wichtig?",
-      antwort:"Die Situation schnell einschätzen, Hilfe organisieren und bei Lebensgefahr unverzüglich den Rettungsdienst alarmieren."
-    }
-
-    };
-
-
-    /* =========================================================
-       FALLBACK FÜR JEDES THEMA
-       ========================================================= */
-
-    function kpDaten(thema){
-
-      return kpInhalte[thema] || {
-        icon:"📚",
-        kurz:"Prüfungsrelevante Grundlagen für Apothekerinnen und Apotheker.",
-        wissen:[
-          "Grundlagen des Themas verstehen.",
-          "Relevante Arzneimittel und Fachbegriffe kennen.",
-          "Patienten verständlich beraten können.",
-          "Warnzeichen und Beratungsbedarf erkennen."
-        ],
-        fachbegriffe:[
-          "Grundbegriff",
-          "Fachbegriff",
-          "Therapie",
-          "Beratung"
-        ],
-        fsp:"Erklären Sie das Thema einem Patienten in verständlicher Sprache.",
-        frage:"Was ist bei diesem Thema für die Patientenberatung besonders wichtig?",
-        antwort:"Eine strukturierte Anamnese, sichere Arzneimittelanwendung und verständliche Beratung."
-      };
-
-    }
-
-
-    /* =========================================================
-       LERNFORTSCHRITT
-       ========================================================= */
-
-    function kpGelernt(){
-
-      try{
-        return JSON.parse(
-          localStorage.getItem("fsp_kp_gelernt") || "[]"
-        );
-      }catch(e){
-        return [];
-      }
-
-    }
-
-    function kpSpeichern(arr){
-
-      localStorage.setItem(
-        "fsp_kp_gelernt",
-        JSON.stringify(arr)
-      );
-
-    }
-
-
-    /* =========================================================
-       KENNTNISPRÜFUNG ÖFFNEN
-       ========================================================= */
-
-    function kenntnisprüfung(){
-
-      const gelernt = kpGelernt();
-
-      const prozent = Math.round(
-        (gelernt.length / kpThemen.length) * 100
-      );
-
-      openModal(`
-
-        <div class="kp-app">
-
-          <div class="kp-hero">
-
-            <div class="kp-badge">
-              PREMIUM · KENNTNISPRÜFUNG
-            </div>
-
-            <h2>🎓 Kenntnisprüfung</h2>
-
-            <p>
-              Lerne, wiederhole und übe die wichtigsten
-              pharmazeutischen Themen für deine Prüfung.
-            </p>
-
+<!-- ===== KENNTNISPRÜFUNG ===== -->
+
+<style>
+.kp-box {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.kp-header {
+  background: linear-gradient(135deg,#4f46e5,#7c3aed);
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.kp-header h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
+}
+
+.kp-header p {
+  margin: 0;
+  opacity: .9;
+}
+
+.kp-progress-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.kp-progress {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.kp-progress-bar {
+  height: 100%;
+  background: #4f46e5;
+  width: 0%;
+}
+
+.kp-topic {
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 17px;
+  margin-bottom: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.kp-topic:hover {
+  border-color: #4f46e5;
+  background: #f8f7ff;
+}
+
+.kp-topic-number {
+  display: inline-block;
+  background: #ede9fe;
+  color: #5b21b6;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.kp-topic-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.kp-content {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.kp-back {
+  background: none;
+  border: none;
+  color: #4f46e5;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.kp-card {
+  background: #f8fafc;
+  padding: 18px;
+  border-radius: 14px;
+  margin: 15px 0;
+}
+
+.kp-card h3 {
+  margin-top: 0;
+  color: #4f46e5;
+}
+
+.kp-question {
+  background: #eef2ff;
+  padding: 18px;
+  border-radius: 14px;
+  margin-top: 15px;
+}
+
+.kp-answer {
+  display: none;
+  background: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.kp-btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.kp-complete {
+  width: 100%;
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
+</style>
+
+<script>
+
+const kpThemen = [
+
+{
+titel:"Arzneimittelformen und Anwendung",
+inhalt:"Arzneimittel können als Tabletten, Kapseln, Tropfen, Säfte, Salben, Cremes, Zäpfchen oder Inhalativa angewendet werden.",
+wichtig:[
+"Darreichungsform beachten",
+"Anwendung genau erklären",
+"Retardtabletten nicht ohne Prüfung teilen oder zerdrücken",
+"Bei Inhalativa die Anwendungstechnik kontrollieren"
+],
+fsp:"Der Patient fragt: Darf ich diese Tablette zerdrücken?",
+frage:"Was bedeutet Retard?",
+antwort:"Retard bedeutet, dass der Wirkstoff verzögert bzw. kontrolliert freigesetzt wird."
+},
+
+{
+titel:"Dosierung und Einnahmehinweise",
+inhalt:"Die Dosierung beschreibt, wie viel von einem Arzneimittel, wie häufig und wie lange angewendet werden soll.",
+wichtig:[
+"Einzeldosis beachten",
+"Tagesdosis beachten",
+"Einnahmezeiten erklären",
+"Vergessene Einnahmen richtig besprechen"
+],
+fsp:"Der Patient sagt: Ich habe gestern meine Tablette vergessen. Soll ich heute zwei nehmen?",
+frage:"Welche Faktoren können die Dosierung beeinflussen?",
+antwort:"Zum Beispiel Alter, Körpergewicht, Nierenfunktion, Leberfunktion, Erkrankung und Begleitmedikation."
+},
+
+{
+titel:"Pharmakokinetik",
+inhalt:"Die Pharmakokinetik beschreibt, was der Körper mit einem Arzneistoff macht.",
+wichtig:[
+"Absorption",
+"Distribution",
+"Metabolismus",
+"Elimination",
+"Halbwertszeit"
+],
+fsp:"Der Patient fragt, warum seine Nierenwerte für seine Medikamente wichtig sind.",
+frage:"Was bedeutet ADME?",
+antwort:"ADME steht für Absorption, Distribution, Metabolismus und Elimination."
+},
+
+{
+titel:"Pharmakodynamik",
+inhalt:"Die Pharmakodynamik beschreibt, was ein Arzneistoff im Körper bewirkt.",
+wichtig:[
+"Wirkmechanismus",
+"Rezeptoren",
+"Agonisten",
+"Antagonisten"
+],
+fsp:"Erklären Sie einem Patienten, wie sein Medikament wirkt.",
+frage:"Was macht ein Agonist?",
+antwort:"Ein Agonist aktiviert einen entsprechenden Rezeptor."
+},
+
+{
+titel:"Arzneimittelwechselwirkungen",
+inhalt:"Arzneimittel können sich gegenseitig in ihrer Wirkung oder Verträglichkeit beeinflussen.",
+wichtig:[
+"Alle Medikamente erfassen",
+"Auch Selbstmedikation berücksichtigen",
+"Nahrungsergänzungsmittel erfragen",
+"Mögliche Interaktionen prüfen"
+],
+fsp:"Der Patient sagt: Mein pflanzliches Präparat muss ich nicht erwähnen, oder?",
+frage:"Warum sollte die gesamte Medikation erfasst werden?",
+antwort:"Damit Wechselwirkungen, Doppelmedikationen und andere arzneimittelbezogene Probleme erkannt werden können."
+},
+
+{
+titel:"Kontraindikationen",
+inhalt:"Eine Kontraindikation ist ein Umstand, bei dem ein Arzneimittel nicht oder nur unter bestimmten Bedingungen angewendet werden darf.",
+wichtig:[
+"Vorerkrankungen beachten",
+"Alter berücksichtigen",
+"Schwangerschaft beachten",
+"Begleitmedikation prüfen"
+],
+fsp:"Der Patient nennt eine Vorerkrankung und möchte ein neues Medikament.",
+frage:"Was bedeutet Kontraindikation?",
+antwort:"Eine Kontraindikation ist ein Grund, weshalb ein Arzneimittel nicht oder nur unter bestimmten Bedingungen angewendet werden darf."
+},
+
+{
+titel:"Nebenwirkungen",
+inhalt:"Nebenwirkungen sind unerwünschte Reaktionen, die während einer Arzneimitteltherapie auftreten können.",
+wichtig:[
+"Beschwerden ernst nehmen",
+"Zeitpunkt des Auftretens erfragen",
+"Begleitmedikation prüfen",
+"Bei schweren Beschwerden medizinische Abklärung"
+],
+fsp:"Der Patient berichtet über eine neue Beschwerde nach Beginn eines Medikaments.",
+frage:"Was sollten Sie bei einer möglichen Nebenwirkung erfragen?",
+antwort:"Arzneimittel, Dosis, Zeitpunkt des Beginns, Symptome und weitere Medikamente."
+},
+
+{
+titel:"Patientenberatung",
+inhalt:"Eine gute Patientenberatung erklärt die sichere und richtige Anwendung eines Arzneimittels.",
+wichtig:[
+"Patientenbedarf erfragen",
+"Dosierung erklären",
+"Anwendung erklären",
+"Wichtige Warnhinweise nennen",
+"Verständnis überprüfen"
+],
+fsp:"Beraten Sie einen Patienten zu einem neu verordneten Medikament.",
+frage:"Welche Punkte gehören zu einer guten Arzneimittelberatung?",
+antwort:"Anwendung, Dosierung, Einnahme, relevante Risiken und wichtige Warnhinweise."
+},
+
+{
+titel:"Diabetes mellitus",
+inhalt:"Diabetes mellitus ist eine Stoffwechselerkrankung mit erhöhtem Blutzucker.",
+wichtig:[
+"Typ-1-Diabetes",
+"Typ-2-Diabetes",
+"Insulin",
+"Hypoglykämie",
+"HbA1c"
+],
+fsp:"Der Patient berichtet über Zittern, Schwitzen und Schwäche.",
+frage:"Was bedeutet Hypoglykämie?",
+antwort:"Hypoglykämie bedeutet einen zu niedrigen Blutzuckerspiegel."
+},
+
+{
+titel:"Hypertonie",
+inhalt:"Hypertonie bedeutet dauerhaft erhöhter Blutdruck.",
+wichtig:[
+"Blutdruck kontrollieren",
+"Regelmäßige Einnahme",
+"Lebensstil berücksichtigen",
+"Therapietreue fördern"
+],
+fsp:"Der Patient fühlt sich gesund und möchte sein Blutdruckmedikament absetzen.",
+frage:"Warum sollte das Medikament regelmäßig eingenommen werden?",
+antwort:"Weil eine Hypertonie häufig lange ohne Beschwerden bestehen kann und die Behandlung der Blutdruckkontrolle dient."
+},
+
+{
+titel:"Asthma bronchiale",
+inhalt:"Asthma ist eine chronisch entzündliche Atemwegserkrankung mit variabler Atemwegsverengung.",
+wichtig:[
+"Inhalationstechnik",
+"Bedarfsmedikation",
+"Dauermedikation",
+"Atemnot"
+],
+fsp:"Der Patient benutzt seinen Inhalator falsch.",
+frage:"Warum ist die richtige Inhalationstechnik wichtig?",
+antwort:"Damit der Wirkstoff korrekt in die Atemwege gelangt."
+},
+
+{
+titel:"COPD",
+inhalt:"COPD ist eine chronische Atemwegserkrankung mit anhaltender Atemflusslimitierung.",
+wichtig:[
+"Husten",
+"Auswurf",
+"Atemnot",
+"Inhalationstechnik",
+"Exazerbation"
+],
+fsp:"Der Patient berichtet über deutlich zunehmende Atemnot.",
+frage:"Was bedeutet Exazerbation?",
+antwort:"Eine Exazerbation ist eine akute Verschlechterung der Erkrankung."
+},
+
+{
+titel:"Antibiotika",
+inhalt:"Antibiotika werden zur Behandlung bestimmter bakterieller Infektionen eingesetzt.",
+wichtig:[
+"Wirken nicht gegen Viren",
+"Verordnung beachten",
+"Resistenzentwicklung",
+"Nebenwirkungen"
+],
+fsp:"Der Patient möchte sein Antibiotikum absetzen, weil es ihm besser geht.",
+frage:"Wirken Antibiotika gegen Viren?",
+antwort:"Nein. Antibiotika wirken gegen bestimmte bakterielle Erreger."
+},
+
+{
+titel:"Reflux",
+inhalt:"Beim Reflux gelangt Mageninhalt zurück in die Speiseröhre.",
+wichtig:[
+"Sodbrennen",
+"Lebensstil",
+"Protonenpumpenhemmer",
+"Warnzeichen beachten"
+],
+fsp:"Der Patient berichtet über häufiges Sodbrennen.",
+frage:"Was ist ein typisches Symptom von Reflux?",
+antwort:"Sodbrennen ist ein typisches Symptom."
+},
+
+{
+titel:"Verstopfung",
+inhalt:"Verstopfung wird auch Obstipation genannt und kann verschiedene Ursachen haben.",
+wichtig:[
+"Flüssigkeit",
+"Bewegung",
+"Ballaststoffe",
+"Medikamente prüfen"
+],
+fsp:"Der Patient möchte regelmäßig ein Abführmittel verwenden.",
+frage:"Was sollte vor der Empfehlung eines Abführmittels geklärt werden?",
+antwort:"Dauer, Ursache, Begleitsymptome, Medikamente und relevante Erkrankungen."
+},
+
+{
+titel:"Durchfall",
+inhalt:"Durchfall kann zu Flüssigkeits- und Elektrolytverlust führen.",
+wichtig:[
+"Flüssigkeit",
+"Elektrolyte",
+"Dauer erfragen",
+"Warnzeichen beachten"
+],
+fsp:"Der Patient hat seit zwei Tagen starken Durchfall.",
+frage:"Welche Komplikation muss besonders beachtet werden?",
+antwort:"Flüssigkeits- und Elektrolytverlust."
+},
+
+{
+titel:"Schwangerschaft",
+inhalt:"In der Schwangerschaft müssen Arzneimittel besonders sorgfältig ausgewählt werden.",
+wichtig:[
+"Selbstmedikation vermeiden",
+"Wirkstoff prüfen",
+"Risiko-Nutzen-Abwägung",
+"Fachinformationen verwenden"
+],
+fsp:"Eine Schwangere fragt nach einem frei verkäuflichen Arzneimittel.",
+frage:"Warum ist besondere Vorsicht notwendig?",
+antwort:"Weil bestimmte Wirkstoffe die Schwangerschaft oder den Fötus beeinflussen können."
+},
+
+{
+titel:"Kinderarzneimittel",
+inhalt:"Bei Kindern müssen Alter, Gewicht und geeignete Darreichungsform berücksichtigt werden.",
+wichtig:[
+"Körpergewicht",
+"Alter",
+"Dosierung",
+"Darreichungsform"
+],
+fsp:"Ein Elternteil fragt nach der Dosierung für sein Kind.",
+frage:"Warum ist das Körpergewicht wichtig?",
+antwort:"Weil die Dosierung vieler Arzneimittel bei Kindern vom Körpergewicht abhängt."
+},
+
+{
+titel:"Arzneimittel bei älteren Menschen",
+inhalt:"Bei älteren Menschen können Mehrfachmedikation und veränderte Organfunktionen relevant sein.",
+wichtig:[
+"Polypharmazie",
+"Wechselwirkungen",
+"Nierenfunktion",
+"Sturzrisiko"
+],
+fsp:"Ein älterer Patient nimmt täglich viele Medikamente.",
+frage:"Was bedeutet Polypharmazie?",
+antwort:"Die gleichzeitige Anwendung mehrerer Arzneimittel."
+},
+
+{
+titel:"Notfallsituationen",
+inhalt:"Bei einem medizinischen Notfall muss die Situation schnell erkannt und Hilfe organisiert werden.",
+wichtig:[
+"Bewusstsein prüfen",
+"Atmung beachten",
+"Hilfe holen",
+"Rettungsdienst alarmieren"
+],
+fsp:"Eine Person bricht in der Apotheke zusammen.",
+frage:"Was ist bei einem medizinischen Notfall wichtig?",
+antwort:"Die Situation schnell einschätzen, Hilfe organisieren und bei Lebensgefahr unverzüglich den Rettungsdienst alarmieren."
+}
+
+];
+
+
+/* ===== RESTLICHE THEMEN AUTOMATISCH ===== */
+
+const weitereThemen = [
+"Warnhinweise",
+"Rezeptprüfung",
+"Betäubungsmittel",
+"Dokumentation in der Apotheke",
+"Kommunikation mit Patienten",
+"Fachbegriffe erklären",
+"Herzinsuffizienz",
+"Allergien",
+"Schmerzen und Analgetika",
+"Fieber",
+"Erkältung",
+"Infektionen",
+"Magen-Darm-Erkrankungen",
+"Übelkeit und Erbrechen",
+"Hauterkrankungen",
+"Ekzeme",
+"Desinfektion",
+"Impfungen",
+"Vitamine und Mineralstoffe",
+"Nahrungsergänzungsmittel",
+"Stillzeit",
+"Nierenfunktion",
+"Leberfunktion",
+"Laborwerte verstehen",
+"Blutgerinnung",
+"Psychische Erkrankungen",
+"Schlafstörungen",
+"Neurologische Erkrankungen"
+];
+
+weitereThemen.forEach(t => {
+
+  if(!kpThemen.find(x => x.titel === t)) {
+
+    kpThemen.push({
+      titel:t,
+      inhalt:
+        "Hier lernst du die wichtigsten Grundlagen dieses Themas für die pharmazeutische Prüfung.",
+      wichtig:[
+        "Grundlagen verstehen",
+        "Fachbegriffe lernen",
+        "Arzneimittel und Therapie kennen",
+        "Patienten verständlich beraten"
+      ],
+      fsp:
+        "Erklären Sie einem Patienten die wichtigsten Punkte dieses Themas in verständlicher Sprache.",
+      frage:
+        "Was ist bei diesem Thema für die Patientenberatung besonders wichtig?",
+      antwort:
+        "Eine strukturierte Beratung, sichere Arzneimittelanwendung und das Erkennen relevanter Warnzeichen."
+    });
+
+  }
+
+});
+
+
+/* ===== FORTSCHRITT ===== */
+
+function kpGelernt(){
+
+  return JSON.parse(
+    localStorage.getItem("kp_gelernt") || "[]"
+  );
+
+}
+
+
+function kpSpeichern(arr){
+
+  localStorage.setItem(
+    "kp_gelernt",
+    JSON.stringify(arr)
+  );
+
+}
+
+
+/* ===== STARTSEITE ===== */
+
+function kenntnisprüfung(){
+
+  const gelernt = kpGelernt();
+
+  const prozent =
+    Math.round((gelernt.length / kpThemen.length) * 100);
+
+  openModal(`
+
+    <div class="kp-box">
+
+      <div class="kp-header">
+
+        <h2>🎓 Kenntnisprüfung</h2>
+
+        <p>
+          Lerne 49 wichtige Themen mit Lernstoff,
+          FSP-Übungen und Prüfungsfragen.
+        </p>
+
+      </div>
+
+
+      <div class="kp-progress-box">
+
+        <strong>
+          Lernfortschritt: ${prozent}%
+        </strong>
+
+        <div class="kp-progress">
+
+          <div
+            class="kp-progress-bar"
+            style="width:${prozent}%">
           </div>
 
+        </div>
 
-          <div class="kp-progress-card">
+        <small>
+          ${gelernt.length} von ${kpThemen.length} Themen gelernt
+        </small>
 
-            <div class="kp-progress-top">
-
-              <strong>Dein Lernfortschritt</strong>
-
-              <strong>${prozent}%</strong>
-
-            </div>
-
-            <div class="kp-progress">
-
-              <div style="width:${prozent}%"></div>
-
-            </div>
-
-            <small>
-              ${gelernt.length} von ${kpThemen.length} Themen gelernt
-            </small>
-
-          </div>
+      </div>
 
 
-          <div class="kp-stats">
+      ${kpThemen.map((t,i)=>`
 
-            <div>
-              <strong>${kpThemen.length}</strong>
-              <span>Themen</span>
-            </div>
+        <button
+          class="kp-topic"
+          onclick="kpThema(${i})">
 
-            <div>
-              <strong>🧠</strong>
-              <span>Quiz</span>
-            </div>
+          <span class="kp-topic-number">
+            ${i+1}
+          </span>
 
-            <div>
-              <strong>🗣️</strong>
-              <span>FSP-Fälle</span>
-            </div>
+          <span class="kp-topic-title">
+            ${t.titel}
+          </span>
 
-          </div>
+          ${gelernt.includes(i) ? " ✓" : " →"}
+
+        </button>
+
+      `).join("")}
+
+    </div>
+
+  `);
+
+}
 
 
-          <div class="kp-topic
+/* ===== THEMA ===== */
 
-Chat with ChatGPT
+function kpThema(index){
+
+  const t = kpThemen[index];
+
+  const gelernt = kpGelernt();
+
+  const erledigt = gelernt.includes(index);
+
+  openModal(`
+
+    <div class="kp-content">
+
+      <button
+        class="kp-back"
+        onclick="kenntnisprüfung()">
+
+        ← Zurück zu den Themen
+
+      </button>
+
+
+      <h2>
+        ${index+1}. ${t.titel}
+      </h2>
+
+
+      <div class="kp-card">
+
+        <h3>📖 Lerninhalt</h3>
+
+        <p>
+          ${t.inhalt}
+        </p>
+
+      </div>
+
+
+      <div class="kp-card">
+
+        <h3>🧠 Das musst du wissen</h3>
+
+        <ul>
+
+          ${t.wichtig.map(x=>`
+            <li>${x}</li>
+          `).join("")}
+
+        </ul>
+
+      </div>
+
+
+      <div class="kp-card">
+
+        <h3>🗣️ FSP-Übung</h3>
+
+        <p>
+          <strong>Patient:</strong>
+        </p>
+
+        <p>
+          „${t.fsp}“
+        </p>
+
+        <p>
+          <strong>Deine Aufgabe:</strong>
+          Antworte wie in einem echten Patientengespräch.
+        </p>
+
+        <textarea
+          placeholder="Deine Antwort..."
+          style="width:100%;min-height:100px;padding:12px;box-sizing:border-box;border-radius:10px;border:1px solid #ccc;">
+        </textarea>
+
+      </div>
+
+
+      <div class="kp-question">
+
+        <h3>🎓 Prüfungsfrage</h3>
+
+        <p>
+          <strong>${t.frage}</strong>
+        </p>
+
+        <button
+          class="kp-btn"
+          onclick="document.getElementById('answer${index}').style.display='block'">
+
+          💡 Antwort anzeigen
+
+        </button>
+
+        <div
+          id="answer${index}"
+          class="kp-answer">
+
+          <strong>Musterantwort:</strong>
+
+          <p>
+            ${t.antwort}
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="kp-complete"
+        onclick="kpFertig(${index})">
+
+        ${erledigt
+          ? "✓ Als gelernt markiert"
+          : "✓ Thema als gelernt markieren"}
+
+      </button>
+
+    </div>
+
+  `);
+
+}
+
+
+/* ===== ALS GELERNT MARKIEREN ===== */
+
+function kpFertig(index){
+
+  let gelernt = kpGelernt();
+
+  if(!gelernt.includes(index)){
+
+    gelernt.push(index);
+
+  }
+
+  kpSpeichern(gelernt);
+
+  kpThema(index);
+
+}
+
+
+/* ===== START ===== */
+
+</script>
