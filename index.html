@@ -1420,36 +1420,3 @@ function premiumStatus(){
 
 
 return premium ?
-
-`
-<span class="tag">
-⭐ PREMIUM AKTIV
-</span>
-`
-
-:
-
-`
-<span class="tag">
-STANDARD
-</span>
-`
-
-}
-
-
-
-/* ===== RESET TEST ===== */
-
-
-function resetApp(){
-
-if(confirm("Alle Daten löschen?")){
-
-localStorage.clear();
-
-location.reload();
-
-}
-
-}
