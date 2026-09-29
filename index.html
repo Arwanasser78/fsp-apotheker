@@ -1,4141 +1,1455 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#2563eb">
-<meta name="description" content="FSP Pharma – Lernplattform für Fachsprachenprüfung und Kenntnisprüfung für Apotheker.">
-<title>FSP Pharma – FSP & Kenntnisprüfung</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>FSP Pharma Premium</title>
 
 <style>
-:root{
-  --blue:#2563eb;
-  --blue-dark:#1d4ed8;
-  --purple:#7c3aed;
-  --green:#16a34a;
-  --orange:#f59e0b;
-  --red:#dc2626;
-  --ink:#172033;
-  --muted:#64748b;
-  --bg:#f6f8fc;
-  --card:#ffffff;
-  --line:#e2e8f0;
-  --soft:#eef4ff;
-  --shadow:0 10px 30px rgba(15,23,42,.08);
-  --radius:20px;
-  --nav-height:74px;
-}
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
+box-sizing:border-box
 }
 
 body{
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Arial,
-    sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  min-height:100vh;
-}
-
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  border:0;
-  cursor:pointer;
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+background:#f5f7fb;
+color:#172033
 }
 
 .app{
-  width:100%;
-  max-width:820px;
-  margin:0 auto;
-  min-height:100vh;
-  padding-bottom:calc(var(--nav-height) + 25px);
+max-width:760px;
+margin:auto;
+min-height:100vh
 }
 
-/* HEADER */
 
 header{
-  color:#fff;
-  padding:18px;
-  background:
-    radial-gradient(circle at 90% 5%,rgba(255,255,255,.20),transparent 30%),
-    linear-gradient(135deg,#2563eb,#4f46e5 55%,#7c3aed);
-  border-radius:0 0 28px 28px;
-  box-shadow:0 12px 30px rgba(37,99,235,.18);
-}
-
-.header-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
+background:white;
+padding:18px;
+border-bottom:1px solid #e5e7eb;
+position:sticky;
+top:0;
+z-index:5
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
+font-size:22px;
+font-weight:900;
+color:#312e81
 }
 
-.brand-icon{
-  width:48px;
-  height:48px;
-  border-radius:15px;
-  background:rgba(255,255,255,.15);
-  display:grid;
-  place-items:center;
-  font-size:24px;
+.sub{
+font-size:12px;
+color:#718096
 }
 
-.brand h1{
-  font-size:23px;
-  line-height:1;
-}
-
-.brand p{
-  font-size:11px;
-  opacity:.85;
-  margin-top:5px;
-}
-
-.header-badge{
-  background:rgba(255,255,255,.14);
-  border:1px solid rgba(255,255,255,.2);
-  padding:7px 10px;
-  border-radius:999px;
-  font-size:9px;
-  font-weight:900;
-  white-space:nowrap;
-}
 
 .stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-top:16px;
+position:absolute;
+right:14px;
+top:18px;
+display:flex;
+gap:6px
 }
 
-.stat{
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:14px;
-  text-align:center;
-  padding:8px;
+
+.pill{
+background:#eef2ff;
+padding:7px 10px;
+border-radius:99px;
+font-size:12px;
+font-weight:800
 }
 
-.stat strong{
-  display:block;
-  font-size:16px;
-}
-
-.stat span{
-  font-size:9px;
-  opacity:.8;
-}
-
-/* MAIN */
 
 main{
-  padding:18px;
+padding:18px 16px 90px
 }
 
-.page{
-  display:none;
-  animation:fade .2s ease;
-}
-
-.page.active{
-  display:block;
-}
-
-@keyframes fade{
-  from{
-    opacity:0;
-    transform:translateY(5px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-/* GENERAL */
 
 .hero{
-  color:#fff;
-  padding:22px;
-  border-radius:24px;
-  background:linear-gradient(135deg,#0f4fd7,#4f46e5);
-  box-shadow:0 14px 34px rgba(37,99,235,.18);
-  margin-bottom:16px;
+
+background:linear-gradient(135deg,#2563eb,#4338ca);
+color:white;
+padding:24px;
+border-radius:22px;
+
 }
 
-.hero .eyebrow{
-  text-transform:uppercase;
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:.8px;
-  opacity:.75;
+
+.hero h1{
+margin:0 0 10px
 }
 
-.hero h2{
-  font-size:25px;
-  margin:7px 0;
-}
-
-.hero p{
-  font-size:12px;
-  line-height:1.6;
-  opacity:.9;
-}
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:15px;
-}
 
 .btn{
-  padding:11px 14px;
-  border-radius:13px;
-  font-size:12px;
-  font-weight:800;
-  transition:.15s;
+
+background:#4338ca;
+color:white;
+border:0;
+padding:11px 16px;
+border-radius:12px;
+font-weight:800;
+cursor:pointer
+
 }
 
-.btn:active{
-  transform:scale(.98);
+
+.hero .btn{
+
+background:white;
+color:#312e81
+
 }
 
-.primary{
-  background:var(--blue);
-  color:#fff;
+
+.card,
+.lesson,
+.case{
+
+background:white;
+border:1px solid #e5e7eb;
+border-radius:18px;
+padding:16px;
+margin:12px 0
+
 }
 
-.white{
-  background:#fff;
-  color:var(--blue);
+
+.card h2,
+.card h3{
+
+margin-top:5px
+
 }
 
-.soft{
-  background:var(--soft);
-  color:var(--blue);
+
+.lesson{
+
+display:flex;
+align-items:center;
+gap:12px
+
 }
 
-.green{
-  background:var(--green);
-  color:#fff;
+
+.lesson div:nth-child(2){
+
+flex:1
+
 }
 
-.purple{
-  background:var(--purple);
-  color:#fff;
-}
-
-.dark{
-  background:#111827;
-  color:#fff;
-}
-
-.red{
-  background:#fee2e2;
-  color:#991b1b;
-}
-
-.disabled{
-  opacity:.5;
-  cursor:not-allowed;
-}
-
-.btn-full{
-  width:100%;
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:16px;
-  box-shadow:var(--shadow);
-  margin-bottom:13px;
-}
-
-.section{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin:8px 0 11px;
-}
-
-.section h2{
-  font-size:18px;
-}
-
-.section p{
-  font-size:11px;
-  color:var(--muted);
-  margin-top:3px;
-}
-
-.grid2{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-}
-
-.feature{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:17px;
-  padding:15px;
-  cursor:pointer;
-}
-
-.feature:hover{
-  box-shadow:var(--shadow);
-}
-
-.feature .icon{
-  font-size:22px;
-  margin-bottom:7px;
-}
-
-.feature b{
-  display:block;
-  font-size:13px;
-}
-
-.feature span{
-  display:block;
-  color:var(--muted);
-  font-size:10px;
-  line-height:1.45;
-  margin-top:4px;
-}
-
-.list{
-  display:grid;
-  gap:10px;
-}
-
-.rowcard{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:14px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  cursor:pointer;
-}
-
-.rowcard:hover{
-  box-shadow:var(--shadow);
-}
 
 .num{
-  width:43px;
-  height:43px;
-  flex:0 0 43px;
-  border-radius:14px;
-  background:#edf3ff;
-  color:var(--blue);
-  display:grid;
-  place-items:center;
-  font-weight:900;
+
+width:40px;
+height:40px;
+border-radius:12px;
+background:#eef2ff;
+color:#4338ca;
+display:grid;
+place-items:center;
+font-weight:900
+
 }
 
-.rowcard h3{
-  font-size:14px;
+
+.lock{
+
+background:#fef3c7;
+color:#92400e
+
 }
 
-.rowcard p{
-  font-size:10px;
-  color:var(--muted);
-  margin-top:3px;
-  line-height:1.4;
-}
-
-.grow{
-  flex:1;
-}
 
 .tag{
-  display:inline-block;
-  padding:5px 8px;
-  border-radius:999px;
-  background:#f1f5f9;
-  color:#475569;
-  font-size:9px;
-  font-weight:800;
-  margin:3px 3px 0 0;
+
+display:inline-block;
+background:#eef2ff;
+color:#4338ca;
+padding:5px 10px;
+border-radius:99px;
+font-size:12px;
+font-weight:900
+
 }
 
-.tag.free{
-  background:#dcfce7;
-  color:#15803d;
+
+.premium{
+
+background:#fff7ed;
+border-color:#fdba74
+
 }
 
-.tag.premium{
-  background:#f3e8ff;
-  color:#7e22ce;
+
+.muted{
+
+color:#64748b
+
 }
 
-.badge{
-  font-size:9px;
-  font-weight:900;
-  padding:5px 8px;
-  border-radius:999px;
-  background:#f3e8ff;
-  color:#7e22ce;
-}
 
-/* PROGRESS */
-
-.progressline{
-  display:flex;
-  justify-content:space-between;
-  font-size:10px;
-  color:var(--muted);
-  margin:7px 0 5px;
-}
-
-.progress{
-  height:8px;
-  background:#e9eef5;
-  border-radius:99px;
-  overflow:hidden;
-}
-
-.progress i{
-  display:block;
-  height:100%;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  border-radius:inherit;
-  width:0;
-}
-
-/* TABS */
-
-.tabs{
-  display:flex;
-  gap:7px;
-  overflow:auto;
-  margin-bottom:12px;
-  padding-bottom:3px;
-}
-
-.tabs button{
-  white-space:nowrap;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:8px 11px;
-  font-size:10px;
-  font-weight:800;
-  color:var(--muted);
-}
-
-.tabs button.active{
-  background:#eaf1ff;
-  color:var(--blue);
-  border-color:#c9dcff;
-}
-
-/* QUESTIONS */
-
-.question{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:18px;
-}
-
-.meta{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  color:var(--muted);
-  font-size:10px;
-  margin-bottom:12px;
-}
-
-.question h3{
-  font-size:17px;
-  line-height:1.4;
-  margin-bottom:14px;
-}
-
-.answers{
-  display:grid;
-  gap:8px;
-}
-
-.answer{
-  text-align:left;
-  background:#fbfdff;
-  border:1px solid var(--line);
-  padding:12px;
-  border-radius:13px;
-  font-size:11px;
-  line-height:1.45;
-}
-
-.answer:hover{
-  border-color:#b8cdfc;
-}
-
-.answer.correct{
-  background:#f0fdf4;
-  border-color:#86efac;
-}
-
-.answer.wrong{
-  background:#fef2f2;
-  border-color:#fca5a5;
-}
-
-.answer.lock{
-  pointer-events:none;
-}
-
-.solution{
-  display:none;
-  background:#f0f7ff;
-  border-left:4px solid var(--blue);
-  padding:12px;
-  border-radius:12px;
-  margin-top:12px;
-  font-size:11px;
-  line-height:1.55;
-}
-
-.solution.show{
-  display:block;
-}
-
-/* PREMIUM */
-
-.premium-box{
-  color:#fff;
-  background:linear-gradient(135deg,#1e1b4b,#4c1d95);
-  border-radius:23px;
-  padding:20px;
-  box-shadow:0 14px 32px rgba(76,29,149,.18);
-}
-
-.premium-box h2{
-  font-size:21px;
-}
-
-.premium-box p{
-  font-size:11px;
-  line-height:1.55;
-  opacity:.82;
-  margin:6px 0 14px;
-}
-
-.price{
-  font-size:31px;
-  font-weight:900;
-}
-
-.price small{
-  font-size:11px;
-  font-weight:600;
-  opacity:.75;
-}
-
-.checks{
-  list-style:none;
-  display:grid;
-  gap:8px;
-  margin:13px 0 17px;
-}
-
-.checks li{
-  font-size:11px;
-}
-
-/* CASES */
-
-.case{
-  position:relative;
-  overflow:hidden;
-}
-
-.case.premium-case:after{
-  content:"PREMIUM";
-  position:absolute;
-  right:-30px;
-  top:12px;
-  transform:rotate(38deg);
-  background:var(--purple);
-  color:#fff;
-  font-size:8px;
-  font-weight:900;
-  padding:4px 30px;
-}
-
-.case h3{
-  font-size:15px;
-  margin:4px 0;
-}
-
-.case p{
-  font-size:11px;
-  color:var(--muted);
-  line-height:1.5;
-}
-
-/* TABLE */
-
-.tablewrap{
-  overflow:auto;
-  border:1px solid var(--line);
-  border-radius:14px;
-}
-
-table{
-  border-collapse:collapse;
-  width:100%;
-  min-width:600px;
-}
-
-th,
-td{
-  padding:10px;
-  border-bottom:1px solid var(--line);
-  font-size:10px;
-  line-height:1.5;
-  text-align:left;
-  vertical-align:top;
-}
-
-th{
-  background:#f8fafc;
-}
-
-/* EXAM */
-
-.exam{
-  background:linear-gradient(135deg,#111827,#312e81);
-  color:#fff;
-  border-radius:22px;
-  padding:19px;
-}
-
-.exam h2{
-  font-size:20px;
-}
-
-.exam p{
-  font-size:11px;
-  line-height:1.5;
-  opacity:.8;
-  margin-top:5px;
-}
-
-.input{
-  width:100%;
-  border:1px solid var(--line);
-  border-radius:13px;
-  padding:12px;
-  margin-top:10px;
-  min-height:140px;
-  resize:vertical;
-  outline:none;
-}
-
-.input:focus{
-  border-color:#93b4ff;
-  box-shadow:0 0 0 3px #dbeafe;
-}
-
-/* NOTICE */
-
-.notice{
-  padding:11px;
-  border-radius:13px;
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  color:#9a3412;
-  font-size:10px;
-  line-height:1.5;
-}
-
-.success{
-  padding:11px;
-  border-radius:13px;
-  background:#f0fdf4;
-  border:1px solid #bbf7d0;
-  color:#166534;
-  font-size:10px;
-  line-height:1.5;
-}
-
-/* MODAL */
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:100;
-  background:rgba(15,23,42,.58);
-  align-items:flex-end;
-  justify-content:center;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.sheet{
-  width:100%;
-  max-width:820px;
-  max-height:88vh;
-  overflow:auto;
-  background:#fff;
-  border-radius:25px 25px 0 0;
-  padding:20px;
-}
-
-.sheet h2{
-  font-size:20px;
-  margin-bottom:7px;
-}
-
-.sheet p{
-  font-size:11px;
-  color:var(--muted);
-  line-height:1.55;
-}
-
-.close{
-  float:right;
-  background:#f1f5f9;
-  border-radius:50%;
-  width:32px;
-  height:32px;
-  font-weight:900;
-}
-
-/* TOAST */
-
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:90px;
-  transform:translateX(-50%);
-  background:#111827;
-  color:#fff;
-  padding:10px 14px;
-  border-radius:999px;
-  font-size:11px;
-  z-index:200;
-  display:none;
-}
-
-.toast.show{
-  display:block;
-}
-
-/* BOTTOM NAV */
-
-.bottom{
-  position:fixed;
-  z-index:80;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:820px;
-  height:var(--nav-height);
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(15px);
-  border-top:1px solid var(--line);
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  padding:7px 7px max(7px,env(safe-area-inset-bottom));
-}
 
 .nav{
-  background:transparent;
-  color:#94a3b8;
-  border-radius:13px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:3px;
-  font-size:9px;
-  font-weight:800;
+
+position:fixed;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:100%;
+max-width:760px;
+background:white;
+border-top:1px solid #ddd;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+padding:8px;
+z-index:10
+
 }
 
-.nav b{
-  font-size:20px;
+
+.nav button{
+
+border:0;
+background:none;
+font-size:11px;
+color:#64748b
+
 }
 
-.nav.active{
-  color:var(--blue);
-  background:#eef4ff;
+
+.nav button.active{
+
+color:#4338ca;
+font-weight:900
+
 }
 
-/* MOBILE */
 
-@media(max-width:520px){
-  main{
-    padding:14px;
-  }
 
-  .grid2{
-    grid-template-columns:1fr;
-  }
+.modal{
 
-  .hero h2{
-    font-size:22px;
-  }
+display:none;
+position:fixed;
+inset:0;
+background:#0008;
+align-items:flex-end;
+z-index:20
 
-  .brand h1{
-    font-size:20px;
-  }
-
-  .header-badge{
-    font-size:8px;
-  }
-
-  .rowcard{
-    padding:12px;
-  }
 }
+
+
+.sheet{
+
+background:white;
+width:100%;
+max-width:760px;
+margin:auto;
+border-radius:24px 24px 0 0;
+padding:22px;
+max-height:85vh;
+overflow:auto
+
+}
+
+
+.close{
+
+float:right;
+border:0;
+border-radius:50%;
+width:35px;
+height:35px
+
+}
+
+
+.option{
+
+width:100%;
+text-align:left;
+border:0;
+background:#f1f5f9;
+padding:13px;
+border-radius:12px;
+margin:7px 0;
+cursor:pointer
+
+}
+
+
+textarea{
+
+width:100%;
+min-height:150px;
+border-radius:14px;
+padding:12px;
+border:1px solid #ddd;
+font:inherit
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="app">
 
-<!-- HEADER -->
+
 <header>
-  <div class="header-row">
 
-    <div class="brand">
-      <div class="brand-icon">⚕️</div>
+<div class="brand">
+⭐ FSP Pharma Premium
+</div>
 
-      <div>
-        <h1>FSP Pharma</h1>
-        <p>FSP & Kenntnisprüfung für Apotheker</p>
-      </div>
-    </div>
+<div class="sub">
+Deutsch für Fachsprachenprüfung & Kenntnisprüfung
+</div>
 
-    <div class="header-badge">
-      PREMIUM BEREIT
-    </div>
 
-  </div>
+<div class="stats">
 
-  <div class="stats">
+<span class="pill">
+⭐ <b id="xp">0</b> XP
+</span>
 
-    <div class="stat">
-      <strong id="xp">0</strong>
-      <span>XP</span>
-    </div>
 
-    <div class="stat">
-      <strong id="streak">0</strong>
-      <span>Tage-Serie</span>
-    </div>
+<span class="pill">
+<span id="premiumIcon">🔒</span>
+</span>
 
-    <div class="stat">
-      <strong id="overallProgress">0%</strong>
-      <span>Fortschritt</span>
-    </div>
 
-  </div>
+</div>
+
+
 </header>
 
 
-<main>
+<main id="main"></main>
 
-<!-- ================= HOME ================= -->
 
-<section id="home" class="page active">
 
-  <div class="hero">
+<nav class="nav">
 
-    <div class="eyebrow">
-      Deine pharmazeutische Lernplattform
-    </div>
+<button data-page="home">
+🏠<br>Start
+</button>
 
-    <h2>
-      FSP Pharma – systematisch lernen.
-    </h2>
 
-    <p>
-      Bereite dich auf die Fachsprachenprüfung und zusätzlich
-      auf die Kenntnisprüfung vor – mit Fragen, Fällen,
-      Erklärungen und Prüfungssimulationen.
-    </p>
+<button data-page="path">
+📚<br>Lernen
+</button>
 
-    <div class="actions">
 
-      <button class="btn white" onclick="showPage('path')">
-        🇩🇪 FSP lernen
-      </button>
+<button data-page="cases">
+💬<br>Fälle
+</button>
 
-      <button class="btn white" onclick="showPage('knowledge')">
-        🎓 Kenntnisprüfung
-      </button>
 
-    </div>
+<button data-page="exam">
+🎓<br>Prüfung
+</button>
 
-  </div>
 
+<button data-page="profile">
+👤<br>Profil
+</button>
 
-  <div class="section">
-
-    <div>
-      <h2>Deine Lernbereiche</h2>
-      <p>FSP und Kenntnisprüfung in einer App</p>
-    </div>
-
-  </div>
-
-
-  <div class="grid2">
-
-    <div class="feature" onclick="showPage('path')">
-
-      <div class="icon">🇩🇪</div>
-
-      <b>Fachsprachenprüfung</b>
-
-      <span>
-        Patientengespräch, Fachgespräch, Dokumentation,
-        Fachbegriffe, Fälle und Prüfungstraining.
-      </span>
-
-    </div>
-
-
-    <div class="feature" onclick="showPage('knowledge')">
-
-      <div class="icon">🎓</div>
-
-      <b>Kenntnisprüfung</b>
-
-      <span>
-        Pharmakologie, klinische Pharmazie, Recht,
-        Chemie, Galenik und weitere Fachbereiche.
-      </span>
-
-    </div>
-
-
-    <div class="feature" onclick="showPage('cases')">
-
-      <div class="icon">🩺</div>
-
-      <b>Praxisfälle</b>
-
-      <span>
-        Realistische pharmazeutische Situationen
-        mit strukturierten Aufgaben.
-      </span>
-
-    </div>
-
-
-    <div class="feature" onclick="showPage('premium')">
-
-      <div class="icon">💎</div>
-
-      <b>Premium</b>
-
-      <span>
-        Kenntnisprüfung Premium für
-        39 € / Monat.
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="section">
-
-      <div>
-        <h2>Weiterlernen</h2>
-        <p id="continueText">
-          Starte mit Patientengespräch.
-        </p>
-      </div>
-
-      <span class="badge">
-        FSP
-      </span>
-
-    </div>
-
-    <button class="btn primary" onclick="openLesson(0)">
-      ▶ Patientengespräch öffnen
-    </button>
-
-  </div>
-
-
-  <!-- PREMIUM HOME -->
-
-  <div class="premium-box">
-
-    <div class="eyebrow">
-      FSP PHARMA PREMIUM
-    </div>
-
-    <h2>
-      🎓 Kenntnisprüfung Premium
-    </h2>
-
-    <div class="price">
-      39 € <small>/ Monat</small>
-    </div>
-
-    <p>
-      Umfangreicher Premium-Bereich für die spätere
-      Kenntnisprüfung. Die Zahlung ist aktuell noch
-      nicht aktiviert.
-    </p>
-
-    <button class="btn white" onclick="showPage('premium')">
-      Premium ansehen
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ================= FSP PATH ================= -->
-
-<section id="path" class="page">
-
-  <div class="section">
-
-    <div>
-      <h2>🇩🇪 FSP Lernpfad</h2>
-      <p>Fachsprachenprüfung Schritt für Schritt</p>
-    </div>
-
-  </div>
-
-  <div id="lessonList" class="list"></div>
-
-</section>
-
-
-<!-- ================= KNOWLEDGE ================= -->
-
-<section id="knowledge" class="page">
-
-  <div class="hero">
-
-    <div class="eyebrow">
-      🎓 Kenntnisprüfung
-    </div>
-
-    <h2>
-      Pharmazeutisches Wissen trainieren.
-    </h2>
-
-    <p>
-      Ein umfangreicher Bereich mit Fachgebieten,
-      Multiple-Choice-Fragen, klinischen Fällen,
-      Wiederholung und Prüfungssimulation.
-    </p>
-
-    <div class="actions">
-
-      <button class="btn white" onclick="startKnowledgePreview()">
-        ▶ Quiz testen
-      </button>
-
-      <button class="btn white" onclick="showPage('premium')">
-        💎 Premium ansehen
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="section">
-
-      <div>
-        <h2>Dein Fortschritt</h2>
-        <p id="knowledgeProgressText">
-          0 Fragen beantwortet
-        </p>
-      </div>
-
-      <b id="knowledgeProgressPercent">
-        0%
-      </b>
-
-    </div>
-
-    <div class="progress">
-      <i id="knowledgeProgressBar"></i>
-    </div>
-
-  </div>
-
-
-  <div class="section">
-
-    <div>
-      <h2>Fachbereiche</h2>
-      <p>Die geplante Premium-Struktur</p>
-    </div>
-
-  </div>
-
-
-  <div id="knowledgeSubjects" class="list"></div>
-
-</section>
-
-
-<!-- ================= KNOWLEDGE QUIZ ================= -->
-
-<section id="knowledgeQuiz" class="page">
-
-  <div class="section">
-
-    <div>
-      <h2>🎓 Kenntnisprüfung</h2>
-      <p id="knowledgeQuizMeta">
-        Frage
-      </p>
-    </div>
-
-    <button class="btn soft" onclick="showPage('knowledge')">
-      Zurück
-    </button>
-
-  </div>
-
-  <div id="knowledgeQuestion"></div>
-
-</section>
-
-
-<!-- ================= CASES ================= -->
-
-<section id="cases" class="page">
-
-  <div class="section">
-
-    <div>
-      <h2>🩺 Praxisfälle</h2>
-      <p>FSP- und pharmazeutische Fälle</p>
-    </div>
-
-  </div>
-
-  <div id="caseList" class="list"></div>
-
-</section>
-
-
-<!-- ================= PREMIUM ================= -->
-
-<section id="premium" class="page">
-
-  <div class="premium-box">
-
-    <div class="eyebrow">
-      FSP PHARMA PREMIUM
-    </div>
-
-    <h2>
-      🎓 Kenntnisprüfung Premium
-    </h2>
-
-    <div class="price">
-      39 € <small>/ Monat</small>
-    </div>
-
-    <p>
-      Vollständiger geplanter Premium-Zugang
-      zur Kenntnisprüfung.
-    </p>
-
-
-    <ul class="checks">
-
-      <li>
-        ✓ 2.000+ Fragen als langfristiger Zielumfang
-      </li>
-
-      <li>
-        ✓ 11 Fachbereiche
-      </li>
-
-      <li>
-        ✓ 50+ komplexe Patientenfälle als Zielumfang
-      </li>
-
-      <li>
-        ✓ 50- und 100-Fragen-Prüfungen
-      </li>
-
-      <li>
-        ✓ Prüfungssimulationen
-      </li>
-
-      <li>
-        ✓ Fehlertraining
-      </li>
-
-      <li>
-        ✓ persönliche Lernstatistik
-      </li>
-
-      <li>
-        ✓ regelmäßige neue Inhalte
-      </li>
-
-    </ul>
-
-
-    <button
-      class="btn white btn-full"
-      onclick="openPremiumInfo()"
-    >
-      🔒 Premium freischalten
-    </button>
-
-
-    <button
-      class="btn btn-full"
-      style="margin-top:8px;background:rgba(255,255,255,.12);color:#fff"
-      onclick="openPayPalPreview()"
-    >
-      🅿️ PayPal – bald verfügbar
-    </button>
-
-  </div>
-
-
-  <div class="notice" style="margin-top:12px">
-
-    <b>Testversion:</b>
-    Premium und PayPal sind aktuell
-    <b>nicht aktiv</b>.
-    Es wird keine Zahlung ausgelöst.
-
-  </div>
-
-
-  <div class="card" style="margin-top:13px">
-
-    <div class="section">
-
-      <div>
-        <h2>Premium-Fachbereiche</h2>
-        <p>Geplante vollständige Struktur</p>
-      </div>
-
-    </div>
-
-
-    <div class="grid2">
-
-      <div class="feature">
-        <div class="icon">💊</div>
-        <b>Pharmakologie</b>
-        <span>
-          Wirkmechanismen, Arzneistoffgruppen,
-          Pharmakokinetik und Therapieprinzipien.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">🧪</div>
-        <b>Pharmazeutische Chemie</b>
-        <span>
-          Struktur, Eigenschaften, Stabilität
-          und chemische Grundlagen.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">🌿</div>
-        <b>Pharmakognosie</b>
-        <span>
-          Arzneidrogen, Naturstoffe,
-          Inhaltsstoffe und Qualität.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">🩺</div>
-        <b>Klinische Pharmazie</b>
-        <span>
-          Therapie, Monitoring,
-          Interaktionen und Adhärenz.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">📋</div>
-        <b>Arzneimittelrecht</b>
-        <span>
-          Rechtliche Grundlagen und
-          pharmazeutische Verantwortung.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">🧴</div>
-        <b>Galenik & Herstellung</b>
-        <span>
-          Darreichungsformen, Rezeptur,
-          Herstellung und Qualität.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">🔬</div>
-        <b>Analytik</b>
-        <span>
-          Analytische Methoden,
-          Qualitätsprüfung und Grundlagen.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">🫀</div>
-        <b>Pathophysiologie</b>
-        <span>
-          Erkrankungen und therapeutische
-          Zusammenhänge.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">⚠️</div>
-        <b>Interaktionen</b>
-        <span>
-          Nebenwirkungen,
-          Kontraindikationen und Risiken.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">🏪</div>
-        <b>Apothekenpraxis</b>
-        <span>
-          Beratung, Abgabe,
-          Selbstmedikation und Praxis.
-        </span>
-      </div>
-
-
-      <div class="feature">
-        <div class="icon">🇩🇪</div>
-        <b>Gesundheitswesen</b>
-        <span>
-          Strukturen des deutschen
-          Gesundheitswesens.
-        </span>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= LESSON ================= -->
-
-<section id="lesson" class="page">
-
-  <div id="lessonContent"></div>
-
-</section>
-
-
-<!-- ================= EXAM ================= -->
-
-<section id="exam" class="page">
-
-  <div class="exam">
-
-    <div style="font-size:10px;font-weight:900;opacity:.7">
-      PRÜFUNGSTRAINING
-    </div>
-
-    <h2 style="margin-top:5px">
-      📝 FSP Mini-Prüfung
-    </h2>
-
-    <p>
-      Trainiere eine strukturierte pharmazeutische
-      Beratung und formuliere professionell.
-    </p>
-
-  </div>
-
-
-  <div class="card">
-
-    <b>
-      Fall: Sodbrennen
-    </b>
-
-    <p style="
-      font-size:11px;
-      color:var(--muted);
-      line-height:1.5;
-      margin-top:5px;
-    ">
-      Ein Patient fragt nach einem frei verkäuflichen
-      Mittel gegen Sodbrennen. Formuliere deine Beratung:
-      Gesprächseröffnung, W-Fragen, Warnzeichen,
-      Medikation, Anwendung und Abschluss.
-    </p>
-
-
-    <textarea
-      id="examText"
-      class="input"
-      placeholder="Deine Antwort..."
-    ></textarea>
-
-
-    <button
-      class="btn primary"
-      style="margin-top:9px"
-      onclick="evaluateExam()"
-    >
-      Antwort auswerten
-    </button>
-
-
-    <div id="examResult"></div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= PROFILE ================= -->
-
-<section id="profile" class="page">
-
-  <div class="card" style="text-align:center">
-
-    <div style="font-size:38px">
-      👨‍⚕️
-    </div>
-
-    <h2 style="font-size:20px;margin-top:7px">
-      FSP Pharma Lernprofil
-    </h2>
-
-    <p style="
-      font-size:11px;
-      color:var(--muted);
-      margin-top:4px;
-    ">
-      Dein Fortschritt wird lokal auf diesem Gerät gespeichert.
-    </p>
-
-
-    <div class="grid2" style="margin-top:15px">
-
-      <div class="feature">
-        <b id="profileXp">0</b>
-        <span>XP</span>
-      </div>
-
-      <div class="feature">
-        <b id="profileQuestions">0</b>
-        <span>Fragen beantwortet</span>
-      </div>
-
-      <div class="feature">
-        <b id="profileCorrect">0</b>
-        <span>Richtig</span>
-      </div>
-
-      <div class="feature">
-        <b id="profileCases">0</b>
-        <span>Fälle abgeschlossen</span>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="section">
-
-      <div>
-        <h2>💎 Premium</h2>
-        <p>Kenntnisprüfung</p>
-      </div>
-
-      <span class="badge">
-        39 €/Monat
-      </span>
-
-    </div>
-
-    <p style="
-      font-size:11px;
-      color:var(--muted);
-      line-height:1.5;
-    ">
-      Premium ist aktuell nicht aktiviert.
-      Die Oberfläche ist für eine spätere
-      Zahlungsintegration vorbereitet.
-    </p>
-
-    <button
-      class="btn purple"
-      style="margin-top:10px"
-      onclick="showPage('premium')"
-    >
-      Premium ansehen
-    </button>
-
-  </div>
-
-
-  <button
-    class="btn red btn-full"
-    onclick="resetProgress()"
-  >
-    Fortschritt zurücksetzen
-  </button>
-
-</section>
-
-</main>
-
-
-<!-- ================= BOTTOM NAV ================= -->
-
-<nav class="bottom">
-
-  <button
-    class="nav active"
-    data-page="home"
-    onclick="showPage('home')"
-  >
-    <b>⌂</b>
-    Home
-  </button>
-
-
-  <button
-    class="nav"
-    data-page="path"
-    onclick="showPage('path')"
-  >
-    <b>📚</b>
-    FSP
-  </button>
-
-
-  <button
-    class="nav"
-    data-page="knowledge"
-    onclick="showPage('knowledge')"
-  >
-    <b>🎓</b>
-    Kenntnis
-  </button>
-
-
-  <button
-    class="nav"
-    data-page="cases"
-    onclick="showPage('cases')"
-  >
-    <b>🩺</b>
-    Fälle
-  </button>
-
-
-  <button
-    class="nav"
-    data-page="profile"
-    onclick="showPage('profile')"
-  >
-    <b>👤</b>
-    Profil
-  </button>
 
 </nav>
 
+
+
+<div class="modal" id="modal">
+
+<div class="sheet">
+
+<button class="close" onclick="closeModal()">×</button>
+
+<div id="modalBody"></div>
+
+
 </div>
-
-
-<!-- ================= MODAL ================= -->
-
-<div
-  id="modal"
-  class="modal"
-  onclick="if(event.target===this)closeModal()"
->
-
-  <div class="sheet">
-
-    <button
-      class="close"
-      onclick="closeModal()"
-    >
-      ×
-    </button>
-
-    <div id="modalBody"></div>
-
-  </div>
 
 </div>
 
 
-<div id="toast" class="toast"></div>
+
+</div>
+
 
 
 <script>
 
-/* =========================================================
-   FSP PHARMA
-   PREMIUM IST NOCH NICHT AKTIV
-========================================================= */
 
-const APP_NAME = "FSP Pharma";
-
-/*
-  WICHTIG:
-  false = Premium/PayPal noch nicht aktiv.
-  Später kann hier eine echte Backend-/Payment-Logik
-  angebunden werden.
-*/
-const PREMIUM_ACTIVE = false;
+let xp =
+Number(localStorage.getItem("fspxp")||0);
 
 
-/* =========================================================
-   LOCAL STORAGE
-========================================================= */
+let premium =
+localStorage.getItem("fsppremium")==="true";
 
-const defaultState = {
-  xp:0,
-  streak:0,
-  answered:0,
-  correct:0,
-  casesDone:0,
-  examDone:0,
-  lastDay:"",
-  lessonQuestions:[],
-  knowledgeAnswered:[],
-  knowledgeCorrect:[],
-  completedCases:[]
-};
-
-
-function loadState(){
-
-  try{
-
-    const saved =
-      JSON.parse(
-        localStorage.getItem("fspPharmaState")
-      );
-
-    if(saved){
-
-      return {
-        ...defaultState,
-        ...saved
-      };
-
-    }
-
-  }catch(e){
-
-    console.log("State konnte nicht geladen werden.");
-
-  }
-
-  return {...defaultState};
-
-}
-
-
-let state = loadState();
 
 
 function save(){
 
-  localStorage.setItem(
-    "fspPharmaState",
-    JSON.stringify(state)
-  );
+localStorage.setItem("fspxp",xp);
 
-  updateUI();
+localStorage.setItem("fsppremium",premium);
 
-}
+document.getElementById("xp").textContent=xp;
 
-
-/* =========================================================
-   HELPERS
-========================================================= */
-
-function today(){
-
-  return new Date()
-    .toISOString()
-    .slice(0,10);
+document.getElementById("premiumIcon").textContent=
+premium ? "⭐" : "🔒";
 
 }
 
 
-function updateStreak(){
 
-  const current = today();
+function activatePremium(){
 
-  if(state.lastDay === current){
-    return;
-  }
+premium=true;
 
-  if(!state.lastDay){
+xp+=50;
 
-    state.streak = 1;
+save();
 
-  }else{
+alert(
+"⭐ FSP Pharma Premium Test aktiviert!"
+);
 
-    const oldDate =
-      new Date(state.lastDay);
-
-    const newDate =
-      new Date(current);
-
-    const difference =
-      Math.round(
-        (newDate-oldDate)/86400000
-      );
-
-    if(difference === 1){
-
-      state.streak++;
-
-    }else{
-
-      state.streak = 1;
-
-    }
-
-  }
-
-  state.lastDay = current;
+render("path");
 
 }
 
-
-function showToast(message){
-
-  const toast =
-    document.getElementById("toast");
-
-  toast.textContent = message;
-
-  toast.classList.add("show");
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer =
-    setTimeout(
-      ()=>{
-        toast.classList.remove("show");
-      },
-      1700
-    );
-
-}
-
-
-function addXP(amount){
-
-  state.xp += amount;
-
-  save();
-
-  showToast("+" + amount + " XP");
-
-}
-
-
-function openModal(html){
-
-  document.getElementById(
-    "modalBody"
-  ).innerHTML = html;
-
-  document.getElementById(
-    "modal"
-  ).classList.add("show");
-
-}
 
 
 function closeModal(){
 
-  document.getElementById(
-    "modal"
-  ).classList.remove("show");
+document.getElementById("modal").style.display="none";
 
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
 
-function showPage(id){
+function openModal(html){
 
-  document
-    .querySelectorAll(".page")
-    .forEach(page=>{
-      page.classList.remove("active");
-    });
+document.getElementById("modalBody").innerHTML=html;
 
-  const target =
-    document.getElementById(id);
-
-  if(target){
-    target.classList.add("active");
-  }
-
-  document
-    .querySelectorAll(".nav")
-    .forEach(nav=>{
-      nav.classList.toggle(
-        "active",
-        nav.dataset.page === id
-      );
-    });
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-  updateUI();
+document.getElementById("modal").style.display="flex";
 
 }
 
 
-/* =========================================================
-   LESSONS
-========================================================= */
 
-const lessons = [
+const lessons=[
 
-  {
-    title:"Patientengespräch",
-    icon:"💬",
-    description:
-      "Professionelle Eröffnung, W-Fragen, Medikamente, Allergien, Anwendung, Nebenwirkungen und Abschluss."
-  },
+{
+title:"Patientengespräch",
+desc:"Anamnese, Beratung und professionelle Kommunikation",
+free:true
+},
 
-  {
-    title:"Fachgespräch",
-    icon:"🧪",
-    description:
-      "Pharmazeutische Fachsprache, Wirkmechanismen und kollegiale Kommunikation."
-  },
+{
+title:"Fachgespräch",
+desc:"Kollegial und präzise kommunizieren",
+free:false
+},
 
-  {
-    title:"Dokumentation",
-    icon:"📋",
-    description:
-      "Strukturierte Dokumentation, pharmazeutische Probleme und Beratung."
-  },
+{
+title:"Dokumentation",
+desc:"Patientenfälle strukturiert dokumentieren",
+free:false
+},
 
-  {
-    title:"Fachbegriffe",
-    icon:"📚",
-    description:
-      "Fachbegriffe erkennen und verständlich in Patientensprache übertragen."
-  },
+{
+title:"Fachbegriffe",
+desc:"Pharmazeutische Begriffe erklären",
+free:false
+},
 
-  {
-    title:"Sprechen & Formulieren",
-    icon:"🗣️",
-    description:
-      "Professionelle Redemittel für Prüfung und Apothekenalltag."
-  },
-
-  {
-    title:"Hörverständnis",
-    icon:"🎧",
-    description:
-      "Pharmazeutische Gespräche verstehen und wichtige Informationen erkennen."
-  }
+{
+title:"Kenntnisprüfung",
+desc:"49 Prüfungsthemen",
+free:false
+}
 
 ];
 
 
-function renderLessons(){
 
-  const container =
-    document.getElementById(
-      "lessonList"
-    );
+const cases=[
 
-  container.innerHTML = "";
+"Kopfschmerzen und Schmerzmittel",
 
-  lessons.forEach((lesson,index)=>{
+"Diabetes Typ 2 und Metformin",
 
-    const isFree =
-      index === 0;
+"Erkältung und Selbstmedikation",
 
-    const progress =
-      isFree
-        ? Math.round(
-            state.lessonQuestions.length /
-            questions.length *
-            100
-          )
-        : 0;
-
-    container.innerHTML += `
-
-      <div
-        class="rowcard"
-        onclick="openLesson(${index})"
-      >
-
-        <div class="num">
-          ${lesson.icon}
-        </div>
-
-        <div class="grow">
-
-          <h3>
-            ${index+1}. ${lesson.title}
-          </h3>
-
-          <p>
-            ${lesson.description}
-          </p>
-
-          <span class="tag ${isFree?"free":"premium"}">
-            ${isFree?"VERFÜGBAR":"PREMIUM"}
-          </span>
-
-        </div>
-
-        <b style="font-size:10px;color:#64748b">
-          ${isFree ? progress+"%" : "🔒"}
-        </b>
-
-      </div>
-
-    `;
-
-  });
-
-}
-
-
-let currentLesson = 0;
-let currentFspQuestion = 0;
-let fspAnswered = false;
-
-
-function openLesson(index){
-
-  currentLesson = index;
-
-  showPage("lesson");
-
-  if(index !== 0){
-
-    document.getElementById(
-      "lessonContent"
-    ).innerHTML = `
-
-      <div class="premium-box">
-
-        <h2>
-          🔒 ${lessons[index].icon}
-          ${lessons[index].title}
-        </h2>
-
-        <p>
-          Dieser Bereich gehört zur geplanten
-          Premium-Erweiterung von FSP Pharma.
-        </p>
-
-        <div class="price">
-          39 € <small>/ Monat</small>
-        </div>
-
-        <button
-          class="btn white"
-          style="margin-top:12px"
-          onclick="showPage('premium')"
-        >
-          Premium ansehen
-        </button>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-  renderLesson1("goals");
-
-}
-
-
-/* =========================================================
-   FSP LESSON 1
-========================================================= */
-
-const questions = [
-
-  [
-    "Wie eröffnen Sie ein professionelles Beratungsgespräch?",
-    "Guten Tag, was kann ich für Sie tun?",
-    "Was haben Sie da?",
-    "Nehmen Sie irgendetwas?",
-    "Warum sind Sie hier?",
-    0,
-    "Eine offene, höfliche Begrüßung schafft einen professionellen Gesprächseinstieg."
-  ],
-
-  [
-    "Welche Frage eignet sich zur Erfassung der Beschwerden?",
-    "Seit wann bestehen die Beschwerden?",
-    "Wie teuer ist das Arzneimittel?",
-    "Welche Farbe hat die Packung?",
-    "Haben Sie die Werbung gesehen?",
-    0,
-    "Zeitlicher Beginn und Verlauf gehören zu den wichtigen W-Fragen."
-  ],
-
-  [
-    "Was ist bei einem erstmaligen Arzneimittelwunsch besonders wichtig?",
-    "Indikation, Anwendung und Sicherheitsaspekte klären.",
-    "Nur den Preis nennen.",
-    "Nur die Packungsgröße nennen.",
-    "Sofort das teuerste Präparat anbieten.",
-    0,
-    "Bei einem Erstkauf sollte die pharmazeutische Beratung die Anwendung und relevante Risiken einschließen."
-  ],
-
-  [
-    "Welche Frage prüft die aktuelle Medikation?",
-    "Welche Arzneimittel nehmen Sie derzeit regelmäßig ein?",
-    "Welche Apotheke besuchen Sie?",
-    "Wie oft lesen Sie den Beipackzettel?",
-    "Welche Farbe mögen Sie?",
-    0,
-    "Die aktuelle Medikation ist für Wechselwirkungs- und Sicherheitsfragen relevant."
-  ],
-
-  [
-    "Welche Frage gehört zur Allergieanamnese?",
-    "Sind bei Ihnen Allergien oder Unverträglichkeiten bekannt?",
-    "Sind Sie heute ausgeschlafen?",
-    "Welche Marke kaufen Sie normalerweise?",
-    "Wie weit wohnen Sie entfernt?",
-    0,
-    "Allergien und Unverträglichkeiten müssen vor einer Arzneimittelberatung berücksichtigt werden."
-  ],
-
-  [
-    "Was ist bei der Dosierungsberatung wichtig?",
-    "Dosierung, Zeitpunkt, Art der Anwendung und Dauer verständlich erklären.",
-    "Nur den Wirkstoff nennen.",
-    "Nur auf den Preis hinweisen.",
-    "Nur die Tablettenfarbe beschreiben.",
-    0,
-    "Eine vollständige Anwendungserklärung umfasst die für den Patienten relevanten praktischen Informationen."
-  ],
-
-  [
-    "Wie prüfen Sie das Verständnis?",
-    "Können Sie mir kurz sagen, wie Sie das Arzneimittel anwenden werden?",
-    "Haben Sie alles gehört?",
-    "Verstehen Sie Deutsch?",
-    "Sie wissen das doch, oder?",
-    0,
-    "Die Teach-back-Methode prüft das Verständnis ohne den Patienten bloßzustellen."
-  ],
-
-  [
-    "Welche Formulierung ist patientengerecht?",
-    "Das Arzneimittel kann den Blutdruck senken.",
-    "Es verursacht eine antihypertensive Wirkung.",
-    "Es moduliert hämodynamische Parameter.",
-    "Es wirkt kardiovaskulär.",
-    0,
-    "Die erste Formulierung ist einfacher und verständlicher."
-  ],
-
-  [
-    "Was sollten Sie bei einem Warnzeichen tun?",
-    "Die Situation medizinisch abklären lassen und bei Bedarf weiterverweisen.",
-    "Das Warnzeichen ignorieren.",
-    "Ein beliebiges OTC-Arzneimittel empfehlen.",
-    "Nur die Packungsgröße wechseln.",
-    0,
-    "Warnzeichen können eine ärztliche Abklärung erforderlich machen."
-  ],
-
-  [
-    "Was ist bei Wechselwirkungen zu beachten?",
-    "Weitere Arzneimittel, Nahrungsergänzungsmittel und relevante Selbstmedikation erfragen.",
-    "Nur verschreibungspflichtige Medikamente beachten.",
-    "Nur den Preis vergleichen.",
-    "Wechselwirkungen sind immer harmlos.",
-    0,
-    "Auch OTC-Präparate und andere Mittel können relevant sein."
-  ],
-
-  [
-    "Was gehört zu einem professionellen Gesprächsabschluss?",
-    "Zusammenfassen, Verständnis prüfen und für Rückfragen zur Verfügung stehen.",
-    "Sofort das Gespräch beenden.",
-    "Nur die Quittung übergeben.",
-    "Den Patienten ohne Hinweis gehen lassen.",
-    0,
-    "Eine kurze Zusammenfassung und ein Sicherheitsnetz runden das Gespräch ab."
-  ],
-
-  [
-    "Welche Frage hilft bei der Selbstmedikation?",
-    "Was haben Sie bisher gegen die Beschwerden unternommen?",
-    "Welche Zeitung lesen Sie?",
-    "Welche Farbe hat Ihr Handy?",
-    "Wie oft gehen Sie einkaufen?",
-    0,
-    "Bisherige Maßnahmen und deren Wirkung sind für die Beratung relevant."
-  ],
-
-  [
-    "Was bedeutet Kontraindikation patientengerecht?",
-    "Ein Grund, warum ein Arzneimittel nicht angewendet werden soll.",
-    "Eine besonders starke Wirkung.",
-    "Ein Medikament ohne Nebenwirkungen.",
-    "Eine besondere Tablettenform.",
-    0,
-    "Kontraindikation kann als Grund erklärt werden, weshalb ein Arzneimittel nicht angewendet werden soll."
-  ],
-
-  [
-    "Wie erklären Sie eine Einnahme 'nüchtern'?",
-    "Das Arzneimittel wird entsprechend der Produktinformation vor dem Essen bzw. mit dem vorgesehenen zeitlichen Abstand eingenommen.",
-    "Immer direkt nach dem Essen.",
-    "Nur nachts.",
-    "Nur zusammen mit Milch.",
-    0,
-    "Die konkrete Erklärung sollte sich am jeweiligen Arzneimittel und seinen Anwendungshinweisen orientieren."
-  ],
-
-  [
-    "Welche Information ist bei Nebenwirkungen sinnvoll?",
-    "Welche Beschwerden auftreten können und wann medizinische Hilfe nötig ist.",
-    "Dass Nebenwirkungen nie auftreten.",
-    "Dass jede Nebenwirkung sofort gefährlich ist.",
-    "Nur der Preis.",
-    0,
-    "Nebenwirkungen sollten realistisch und mit einem klaren Sicherheitsnetz erklärt werden."
-  ],
-
-  [
-    "Was ist eine gute offene Frage?",
-    "Was ist Ihnen bei der Anwendung besonders wichtig?",
-    "Sie nehmen es morgens, richtig?",
-    "Ist alles klar?",
-    "Sie haben keine Allergie, oder?",
-    0,
-    "Offene Fragen fördern vollständige Antworten."
-  ],
-
-  [
-    "Wie reagieren Sie auf Unsicherheit des Patienten?",
-    "Ich erkläre es Ihnen gern noch einmal und wir gehen die Anwendung gemeinsam durch.",
-    "Das steht doch im Beipackzettel.",
-    "Dann nehmen Sie es einfach nicht.",
-    "Das müssen Sie selbst wissen.",
-    0,
-    "Geduldige, wertschätzende Kommunikation ist professionell."
-  ],
-
-  [
-    "Was ist bei einer Dauermedikation sinnvoll?",
-    "Adhärenz, Anwendung, Wirkung, Nebenwirkungen und relevante Änderungen erfragen.",
-    "Nur die Farbe der Packung prüfen.",
-    "Keine Fragen stellen.",
-    "Nur den Preis nennen.",
-    0,
-    "Bei Dauermedikation ist eine strukturierte Verlaufskontrolle sinnvoll."
-  ],
-
-  [
-    "Welche Aussage ist für die Beratung am besten?",
-    "Ich möchte zunächst ein paar Fragen stellen, damit wir prüfen können, ob das Arzneimittel für Sie geeignet ist.",
-    "Ich gebe Ihnen einfach etwas.",
-    "Das wird schon passen.",
-    "Nehmen Sie irgendwas gegen die Beschwerden.",
-    0,
-    "Eine strukturierte Anamnese vor der Empfehlung ist professionell."
-  ],
-
-  [
-    "Wie formulieren Sie einen Sicherheits-Hinweis?",
-    "Wenn sich die Beschwerden verschlimmern oder neue Warnzeichen auftreten, lassen Sie dies bitte ärztlich abklären.",
-    "Wenn es schlimmer wird, ist das normal.",
-    "Sie müssen nicht wiederkommen.",
-    "Das ist garantiert harmlos.",
-    0,
-    "Ein konkretes Sicherheitsnetz gibt dem Patienten klare nächste Schritte."
-  ]
+"Bluthochdruck Beratung"
 
 ];
 
 
-const terms = [
-
-  ["Hypertonie","Bluthochdruck"],
-  ["Hypotonie","niedriger Blutdruck"],
-  ["Dyspnoe","Atemnot"],
-  ["Ödem","Schwellung durch Flüssigkeitseinlagerung"],
-  ["Pruritus","Juckreiz"],
-  ["Nausea","Übelkeit"],
-  ["Emesis","Erbrechen"],
-  ["Obstipation","Verstopfung"],
-  ["Diarrhö","Durchfall"],
-  ["Dyspepsie","Verdauungsbeschwerden"],
-  ["Kontraindikation","Grund, warum ein Arzneimittel nicht angewendet werden soll"],
-  ["Interaktion","Wechselwirkung zwischen Arzneimitteln oder anderen Stoffen"],
-  ["Adhärenz","regelmäßige und vereinbarte Anwendung"],
-  ["Topisch","auf der Haut bzw. örtlich angewendet"],
-  ["Oral","über den Mund eingenommen"],
-  ["Subkutan","unter die Haut"],
-  ["Tachykardie","beschleunigter Herzschlag"],
-  ["Bradykardie","verlangsamter Herzschlag"],
-  ["Insomnie","Schlafstörung"],
-  ["Rhinitis","Entzündung der Nasenschleimhaut"]
-
-];
-
-
-function renderLesson1(tab){
-
-  document.getElementById(
-    "lessonContent"
-  ).innerHTML = `
-
-    <div class="card">
-
-      <button
-        class="btn soft"
-        onclick="showPage('path')"
-      >
-        ← Lernpfad
-      </button>
-
-      <h2 style="font-size:22px;margin-top:10px">
-        💬 Patientengespräch
-      </h2>
-
-      <p style="
-        font-size:11px;
-        color:var(--muted);
-        line-height:1.5;
-        margin-top:4px;
-      ">
-        Professionell eröffnen, systematisch fragen,
-        verständlich beraten und sicher abschließen.
-      </p>
-
-    </div>
-
-
-    <div class="tabs">
-
-      <button
-        class="${tab==="goals"?"active":""}"
-        onclick="renderLesson1('goals')"
-      >
-        Ziele
-      </button>
-
-      <button
-        class="${tab==="questions"?"active":""}"
-        onclick="renderLesson1('questions')"
-      >
-        20 Fragen
-      </button>
-
-      <button
-        class="${tab==="terms"?"active":""}"
-        onclick="renderLesson1('terms')"
-      >
-        Fachbegriffe
-      </button>
 
-      <button
-        class="${tab==="phrases"?"active":""}"
-        onclick="renderLesson1('phrases')"
-      >
-        Formulierungen
-      </button>
+function render(page="home"){
 
-      <button
-        class="${tab==="dialogue"?"active":""}"
-        onclick="renderLesson1('dialogue')"
-      >
-        Dialog
-      </button>
 
-      <button
-        class="${tab==="exam"?"active":""}"
-        onclick="renderLesson1('exam')"
-      >
-        Mini-Prüfung
-      </button>
+document.querySelectorAll(".nav button")
+.forEach(b=>{
 
-    </div>
+b.classList.toggle(
+"active",
+b.dataset.page===page
+);
 
-    <div id="lessonTab"></div>
+});
 
-  `;
 
 
-  const container =
-    document.getElementById("lessonTab");
+let main=document.getElementById("main");
 
 
-  /* ZIELE */
 
-  if(tab==="goals"){
+if(page==="home"){
 
-    container.innerHTML = `
 
-      <div class="card">
+main.innerHTML=`
 
-        <ul style="
-          list-style:none;
-          display:grid;
-          gap:9px;
-        ">
+<section class="hero">
 
-          <li style="font-size:12px">
-            ✓ Professionelle Gesprächseröffnung
-          </li>
+<h1>
+Bereit für die FSP?
+</h1>
 
-          <li style="font-size:12px">
-            ✓ W-Fragen und systematische Anamnese
-          </li>
+<p>
+Trainiere Patientengespräche,
+Fachbegriffe und Kenntnisprüfung
+mit FSP Pharma.
+</p>
 
-          <li style="font-size:12px">
-            ✓ Erst- und Wiederholungsrezept unterscheiden
-          </li>
 
-          <li style="font-size:12px">
-            ✓ Dosierung, Anwendung und Dauer erklären
-          </li>
+<button class="btn"
+onclick="render('path')">
 
-          <li style="font-size:12px">
-            ✓ Allergien, Komorbiditäten und Medikation erfassen
-          </li>
+Lernen starten →
 
-          <li style="font-size:12px">
-            ✓ Nebenwirkungen und Warnzeichen ansprechen
-          </li>
+</button>
 
-          <li style="font-size:12px">
-            ✓ Wechselwirkungen berücksichtigen
-          </li>
 
-          <li style="font-size:12px">
-            ✓ Fachbegriffe in Patientensprache übertragen
-          </li>
+</section>
 
-          <li style="font-size:12px">
-            ✓ Verständnis mit Teach-back prüfen
-          </li>
 
-          <li style="font-size:12px">
-            ✓ Gespräch strukturiert abschließen
-          </li>
+<div class="card premium">
 
-        </ul>
+<span class="tag">
+PREMIUM
+</span>
 
-      </div>
+<h2>
+FSP Pharma Premium
+</h2>
 
-    `;
+<h3>
+39 € / Monat
+</h3>
 
-  }
+<p>
+49 Kenntnisprüfung-Themen,
+umfangreiche Fälle,
+Prüfungstraining und Fachsprache.
+</p>
 
 
-  /* FRAGEN */
+${premium?
 
-  if(tab==="questions"){
+"<b>⭐ Premium aktiv</b>"
 
-    currentFspQuestion =
-      Math.min(
-        currentFspQuestion,
-        questions.length-1
-      );
+:
 
-    renderFspQuestion();
-
-  }
-
-
-  /* FACHBEGRIFFE */
-
-  if(tab==="terms"){
-
-    container.innerHTML = `
-
-      <div class="tablewrap">
-
-        <table>
-
-          <thead>
-            <tr>
-              <th>Fachbegriff</th>
-              <th>Patientensprache</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-            ${terms.map(term=>`
-
-              <tr>
-
-                <td>
-                  <b>${term[0]}</b>
-                </td>
-
-                <td>
-                  ${term[1]}
-                </td>
-
-              </tr>
-
-            `).join("")}
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    `;
-
-  }
-
-
-  /* FORMULIERUNGEN */
-
-  if(tab==="phrases"){
-
-    const phrases = [
-
-      ["Eröffnung",
-       "Guten Tag. Was kann ich heute für Sie tun?"],
-
-      ["Anamnese",
-       "Seit wann bestehen die Beschwerden und wie haben sie sich entwickelt?"],
-
-      ["Medikation",
-       "Welche Arzneimittel nehmen Sie derzeit regelmäßig oder bei Bedarf ein?"],
-
-      ["Allergien",
-       "Sind bei Ihnen Allergien oder Unverträglichkeiten bekannt?"],
-
-      ["Anwendung",
-       "Ich erkläre Ihnen kurz, wie Sie das Arzneimittel anwenden und worauf Sie achten sollten."],
-
-      ["Verständnis",
-       "Können Sie mir bitte mit eigenen Worten sagen, wie Sie es anwenden werden?"],
-
-      ["Sicherheitsnetz",
-       "Wenn die Beschwerden stärker werden oder Warnzeichen auftreten, lassen Sie dies bitte ärztlich abklären."],
-
-      ["Abschluss",
-       "Haben Sie noch Fragen zur Anwendung oder zu möglichen Nebenwirkungen?"]
-
-    ];
-
-
-    container.innerHTML =
-      phrases.map(item=>`
-
-        <div class="card">
-
-          <b style="
-            color:var(--blue);
-            font-size:10px;
-          ">
-            ${item[0].toUpperCase()}
-          </b>
-
-          <p style="
-            font-size:12px;
-            line-height:1.5;
-            margin-top:5px;
-          ">
-            ${item[1]}
-          </p>
-
-        </div>
-
-      `).join("");
-
-  }
-
-
-  /* DIALOG */
-
-  if(tab==="dialogue"){
-
-    const dialogue = [
-
-      ["patient",
-       "Guten Tag. Ich habe seit heute Morgen starke Kopfschmerzen."],
-
-      ["pharmacist",
-       "Guten Tag. Seit wann genau bestehen die Beschwerden und wie stark sind sie auf einer Skala von 0 bis 10?"],
-
-      ["patient",
-       "Seit ungefähr sechs Stunden, etwa 7 von 10."],
-
-      ["pharmacist",
-       "Haben Sie zusätzlich Fieber, Sehstörungen, Erbrechen oder andere ungewöhnliche Beschwerden?"],
-
-      ["patient",
-       "Nein. Ich hatte so etwas schon einmal, aber heute ist es stärker."],
-
-      ["pharmacist",
-       "Welche Arzneimittel nehmen Sie regelmäßig und haben Sie heute bereits etwas gegen die Kopfschmerzen eingenommen?"],
-
-      ["patient",
-       "Ich nehme Ramipril. Heute habe ich noch nichts genommen."],
-
-      ["pharmacist",
-       "Sind Allergien oder Unverträglichkeiten bekannt?"],
-
-      ["patient",
-       "Nein."],
-
-      ["pharmacist",
-       "Ich möchte die Situation kurz einordnen und Ihnen dann erklären, welche Option geeignet sein könnte. Wenn sich die Beschwerden deutlich verschlimmern oder Warnzeichen auftreten, sollten Sie ärztlich abgeklärt werden."]
-
-    ];
-
-
-    container.innerHTML = `
-
-      <div class="card">
-
-        ${dialogue.map(item=>`
-
-          <div style="
-            background:${item[0]==="patient"?"#fff":"#eaf1ff"};
-            border:1px solid #e2e8f0;
-            border-radius:13px;
-            padding:11px;
-            font-size:11px;
-            line-height:1.5;
-            margin-bottom:8px;
-          ">
-
-            <b>
-              ${item[0]==="patient"
-                ?"PATIENT"
-                :"APOTHEKER"}
-            </b>
-
-            <br>
-
-            ${item[1]}
-
-          </div>
-
-        `).join("")}
-
-      </div>
-
-    `;
-
-  }
-
-
-  /* MINI EXAM */
-
-  if(tab==="exam"){
-
-    container.innerHTML = `
-
-      <div class="exam">
-
-        <h3>
-          Sodbrennen – Mini-Prüfung
-        </h3>
-
-        <p>
-          Formuliere eine vollständige Beratung.
-          Denke an W-Fragen, Warnzeichen, Medikation,
-          Anwendung und Abschluss.
-        </p>
-
-        <textarea
-          id="miniExam"
-          class="input"
-          placeholder="Deine Antwort..."
-        ></textarea>
-
-        <button
-          class="btn white"
-          style="margin-top:9px"
-          onclick="miniSolution()"
-        >
-          Lösung anzeigen
-        </button>
-
-        <div id="miniSolution"></div>
-
-      </div>
-
-    `;
-
-  }
+`<button class="btn"
+onclick="activatePremium()">
+Premium testen
+</button>`
 
 }
 
 
-function renderFspQuestion(){
+</div>
 
-  const question =
-    questions[currentFspQuestion];
+`;
 
-  document.getElementById(
-    "lessonTab"
-  ).innerHTML = `
-
-    <div class="question">
-
-      <div class="meta">
-
-        <span>
-          Frage ${currentFspQuestion+1}
-          von ${questions.length}
-        </span>
-
-        <span>
-          ${state.lessonQuestions.length}/${questions.length}
-          abgeschlossen
-        </span>
-
-      </div>
-
-
-      <h3>
-        ${question[0]}
-      </h3>
-
-
-      <div class="answers">
-
-        ${question.slice(1,5).map((answer,index)=>`
-
-          <button
-            class="answer"
-            onclick="answerFsp(${index})"
-          >
-            ${String.fromCharCode(65+index)}.
-            ${answer}
-          </button>
-
-        `).join("")}
-
-      </div>
-
-
-      <div
-        id="fspSolution"
-        class="solution"
-      ></div>
-
-
-      <div class="actions">
-
-        <button
-          id="nextFsp"
-          class="btn primary disabled"
-          onclick="nextFsp()"
-        >
-          Nächste Frage →
-        </button>
-
-        <button
-          class="btn soft"
-          onclick="randomFspQuestion()"
-        >
-          Zufällige Frage
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-  fspAnswered = false;
 
 }
 
 
-function answerFsp(index){
 
-  if(fspAnswered){
-    return;
-  }
-
-  fspAnswered = true;
-
-  const question =
-    questions[currentFspQuestion];
-
-  const buttons =
-    document.querySelectorAll(
-      "#lessonTab .answer"
-    );
+if(page==="path"){
 
 
-  buttons.forEach((button,i)=>{
+main.innerHTML=`
 
-    button.classList.add("lock");
+<h1>
+Lernpfad
+</h1>
 
-    if(i === question[5]){
-      button.classList.add("correct");
-    }
-
-    if(
-      i === index &&
-      i !== question[5]
-    ){
-      button.classList.add("wrong");
-    }
-
-  });
+<p class="muted">
+Freie und Premium-Lektionen
+</p>
 
 
-  const solution =
-    document.getElementById(
-      "fspSolution"
-    );
-
-  solution.classList.add("show");
-
-  solution.innerHTML = `
-
-    <b>
-      ${index === question[5]
-        ?"✓ Richtig"
-        :"✗ Nicht ganz"}
-    </b>
-
-    <br>
-
-    ${question[6]}
-
-  `;
+${
+lessons.map((l,i)=>{
 
 
-  document
-    .getElementById("nextFsp")
-    .classList.remove("disabled");
+if(!l.free && !premium){
+
+return `
+
+<div class="lesson">
+
+<div class="num lock">
+🔒
+</div>
 
 
-  state.answered++;
+<div>
+<b>${l.title}</b>
+<small>${l.desc}</small>
+</div>
 
 
-  if(index === question[5]){
-
-    state.correct++;
-
-    addXP(10);
-
-  }else{
-
-    save();
-
-  }
+<button class="btn"
+onclick="showPremium()">
+Premium
+</button>
 
 
-  if(
-    !state.lessonQuestions.includes(
-      currentFspQuestion
-    )
-  ){
+</div>
 
-    state.lessonQuestions.push(
-      currentFspQuestion
-    );
-
-  }
-
-
-  save();
+`
 
 }
 
 
-function nextFsp(){
 
-  if(!fspAnswered){
-    return;
-  }
+return `
 
-  currentFspQuestion =
-    (currentFspQuestion+1) %
-    questions.length;
+<div class="lesson">
 
-  renderFspQuestion();
+<div class="num">
+${i+1}
+</div>
+
+
+<div>
+<b>${l.title}</b>
+<small>${l.desc}</small>
+</div>
+
+
+<button class="btn"
+onclick="openLesson(${i})">
+Start
+</button>
+
+
+</div>
+
+`
+
+
+}).join("")
+}
+
+`;
 
 }
 
 
-function randomFspQuestion(){
-
-  currentFspQuestion =
-    Math.floor(
-      Math.random()*questions.length
-    );
-
-  renderFspQuestion();
-
-}
+if(page==="cases"){
 
 
-function miniSolution(){
+main.innerHTML=`
 
-  const container =
-    document.getElementById(
-      "miniSolution"
-    );
+<h1>
+Praxisfälle
+</h1>
 
-  container.innerHTML = `
+${cases.map((c,i)=>`
 
-    <div class="success" style="margin-top:10px">
+<div class="case">
 
-      <b>Musterlösung:</b>
+<span class="tag">
+FALL ${i+1}
+</span>
 
-      <br><br>
+<h3>
+${c}
+</h3>
 
-      Beschwerden und Dauer erfragen,
-      Warnzeichen ausschließen,
-      relevante Medikamente und
-      Vorerkrankungen erfragen,
-      bisherige Maßnahmen klären,
-      geeignete Selbstmedikation nur bei
-      passender Situation empfehlen,
-      Anwendung und Dauer erklären,
-      wichtige Nebenwirkungen bzw.
-      Warnzeichen nennen und mit
-      Teach-back abschließen.
+<button class="btn"
+onclick="caseStart(${i})">
+Start
+</button>
 
-    </div>
+</div>
 
-  `;
+`).join("")}
 
-
-  if(!state.examDone){
-
-    state.examDone = 1;
-
-    addXP(20);
-
-  }else{
-
-    save();
-
-  }
+`;
 
 }
 
 
-/* =========================================================
-   KNOWLEDGE SUBJECTS
-========================================================= */
 
-const knowledgeSubjects = [
-
-  [
-    "Pharmakologie & Pharmakotherapie",
-    "💊",
-    "Wirkmechanismen, Arzneistoffgruppen, Pharmakokinetik und Therapieprinzipien."
-  ],
-
-  [
-    "Pharmazeutische Chemie",
-    "🧪",
-    "Struktur, Eigenschaften, Stabilität und chemische Grundlagen."
-  ],
-
-  [
-    "Pharmakognosie",
-    "🌿",
-    "Arzneidrogen, Naturstoffe, Inhaltsstoffe und Qualität."
-  ],
-
-  [
-    "Klinische Pharmazie",
-    "🩺",
-    "Arzneimitteltherapie, Monitoring, Interaktionen und Adhärenz."
-  ],
-
-  [
-    "Arzneimittelrecht",
-    "📋",
-    "Rechtliche Grundlagen und pharmazeutische Verantwortung."
-  ],
-
-  [
-    "Galenik & Herstellung",
-    "🧴",
-    "Darreichungsformen, Rezeptur, Herstellung und Qualität."
-  ],
-
-  [
-    "Analytik",
-    "🔬",
-    "Analytische Methoden und Qualitätsprüfung."
-  ],
-
-  [
-    "Pathophysiologie",
-    "🫀",
-    "Erkrankungen, Mechanismen und therapeutische Zusammenhänge."
-  ],
-
-  [
-    "Nebenwirkungen & Interaktionen",
-    "⚠️",
-    "Sicherheitsaspekte, Kontraindikationen und Interaktionen."
-  ],
-
-  [
-    "Apothekenpraxis",
-    "🏪",
-    "Beratung, Abgabe, Selbstmedikation und Praxis."
-  ],
-
-  [
-    "Deutsches Gesundheitswesen",
-    "🇩🇪",
-    "Strukturen des Gesundheitswesens und Berufspraxis."
-
-  ]
-
-];
+if(page==="profile"){
 
 
-function renderKnowledgeSubjects(){
+main.innerHTML=`
 
-  const container =
-    document.getElementById(
-      "knowledgeSubjects"
-    );
-
-  container.innerHTML = "";
+<h1>
+Profil
+</h1>
 
 
-  knowledgeSubjects.forEach((subject,index)=>{
+<div class="card">
 
-    container.innerHTML += `
+<h2>
+FSP Pharma Konto
+</h2>
 
-      <div
-        class="rowcard"
-        onclick="openKnowledgeSubject(${index})"
-      >
 
-        <div class="num">
-          ${subject[1]}
-        </div>
+<p>
+${xp} XP
+</p>
 
-        <div class="grow">
 
-          <h3>
-            ${subject[0]}
-          </h3>
+<p>
 
-          <p>
-            ${subject[2]}
-          </p>
+Status:
 
-          <span class="tag premium">
-            PREMIUM
-          </span>
+${premium?
 
-        </div>
+"⭐ Premium"
 
-        <b style="font-size:10px">
-          🔒
-        </b>
+:
 
-      </div>
+"🔒 Standard"
 
-    `;
+}
 
-  });
+</p>
+
+
+<button class="btn"
+onclick="activatePremium()">
+
+Premium testen
+
+</button>
+
+
+</div>
+
+`;
 
 }
 
 
-/* =========================================================
-   KNOWLEDGE QUESTIONS
-========================================================= */
 
-const knowledgeQuestions = [
-
-  [
-    "Pharmakologie",
-    "Welcher Parameter beschreibt die Zeit, nach der die Plasmakonzentration eines Arzneistoffs auf die Hälfte gefallen ist?",
-    "Halbwertszeit",
-    "Bioverfügbarkeit",
-    "Clearance",
-    "Verteilungsvolumen",
-    0,
-    "Die Halbwertszeit beschreibt die Zeit bis zur Abnahme der Konzentration auf die Hälfte."
-  ],
-
-  [
-    "Klinische Pharmazie",
-    "Was ist bei einer strukturierten Medikationsanalyse besonders wichtig?",
-    "Die gesamte Medikation einschließlich Selbstmedikation erfassen.",
-    "Nur verschreibungspflichtige Arzneimittel betrachten.",
-    "Nur Packungsgrößen vergleichen.",
-    "Nur Einnahmezeiten notieren.",
-    0,
-    "Eine vollständige Medikationsübersicht ist Grundlage für die Erkennung arzneimittelbezogener Probleme."
-  ],
-
-  [
-    "Arzneimittelrecht",
-    "Welche Aussage beschreibt die pharmazeutische Verantwortung am besten?",
-    "Arzneimittel sollen fachgerecht abgegeben und Patienten angemessen beraten werden.",
-    "Rechtliche Vorgaben sind für die Beratung unerheblich.",
-    "Nur der Hersteller trägt Verantwortung.",
-    "Beratung ist grundsätzlich freiwillig.",
-    0,
-    "Die sichere und fachgerechte Arzneimittelversorgung umfasst auch die Beratung."
-  ],
-
-  [
-    "Galenik",
-    "Welche Darreichungsform ist typischerweise für eine kontrollierte Wirkstofffreisetzung geeignet?",
-    "Retardtablette",
-    "Brausetablette ohne Wirkstoff",
-    "Augentropfen",
-    "Pulver zur Inhalation immer",
-    0,
-    "Retardformulierungen sind auf eine veränderte bzw. verlängerte Wirkstofffreisetzung ausgelegt."
-  ],
-
-  [
-    "Pathophysiologie",
-    "Welches Symptom kann typisch bei einer Hypoglykämie auftreten?",
-    "Schwitzen und Zittern",
-    "Immer Fieber",
-    "Immer Hautausschlag",
-    "Immer trockene Haut",
-    0,
-    "Adrenerge Symptome wie Schwitzen und Zittern können bei Hypoglykämie auftreten."
-  ],
-
-  [
-    "Nebenwirkungen & Interaktionen",
-    "Warum ist die Erfassung von OTC-Arzneimitteln wichtig?",
-    "Auch OTC-Arzneimittel können Wechselwirkungen und Risiken verursachen.",
-    "OTC-Arzneimittel haben grundsätzlich keine Interaktionen.",
-    "OTC-Arzneimittel müssen nie berücksichtigt werden.",
-    "Nur Nahrung beeinflusst Arzneimittel.",
-    0,
-    "Selbstmedikation kann klinisch relevante Wechselwirkungen oder Doppelmedikation verursachen."
-  ],
-
-  [
-    "Apothekenpraxis",
-    "Was gehört zu einer sicheren Selbstmedikationsberatung?",
-    "Beschwerden, Dauer, Warnzeichen, Begleitmedikation und relevante Risiken prüfen.",
-    "Nur nach dem gewünschten Produkt fragen.",
-    "Nur den Preis nennen.",
-    "Immer ohne Rückfragen abgeben.",
-    0,
-    "Die strukturierte Anamnese entscheidet mit darüber, ob Selbstmedikation geeignet ist."
-  ],
-
-  [
-    "Pharmazeutische Chemie",
-    "Welche Eigenschaft kann die Löslichkeit eines Wirkstoffs beeinflussen?",
-    "Der pH-Wert",
-    "Die Packungsfarbe",
-    "Der Werbeslogan",
-    "Die Größe der Apotheke",
-    0,
-    "Ionisationsgrad und pH-Wert können die Löslichkeit vieler Wirkstoffe beeinflussen."
-  ],
-
-  [
-    "Analytik",
-    "Was ist ein Ziel der Qualitätskontrolle?",
-    "Identität, Reinheit und Gehalt entsprechend der Anforderungen prüfen.",
-    "Nur die Farbe bewerten.",
-    "Nur den Verkaufspreis bestimmen.",
-    "Nur die Verpackung gestalten.",
-    0,
-    "Qualitätskontrolle umfasst je nach Produkt definierte Prüfungen."
-  ],
-
-  [
-    "Pharmakognosie",
-    "Was bezeichnet der Begriff 'Droge' in der Pharmakognosie vereinfacht?",
-    "Arzneilich verwendetes Rohmaterial natürlicher Herkunft nach entsprechender Definition.",
-    "Immer ein Fertigarzneimittel.",
-    "Ausschließlich ein synthetischer Wirkstoff.",
-    "Nur ein Lösungsmittel.",
-    0,
-    "In der Pharmakognosie bezeichnet Droge einen arzneilich verwendeten natürlichen Ausgangsstoff nach fachlicher Definition."
-  ],
-
-  [
-    "Klinische Pharmazie",
-    "Was bedeutet Adhärenz?",
-    "Das Ausmaß, in dem das Verhalten des Patienten vereinbarten Therapieempfehlungen entspricht.",
-    "Nur die Wirkstoffstärke.",
-    "Die Haltbarkeit eines Arzneimittels.",
-    "Die Lagerungstemperatur.",
-    0,
-    "Adhärenz beschreibt die gemeinsame Umsetzung vereinbarter Therapieziele und Empfehlungen."
-  ],
-
-  [
-    "Pharmakologie",
-    "Was bedeutet 'agonistisch'?",
-    "Ein Stoff aktiviert einen Rezeptor.",
-    "Ein Stoff zerstört einen Rezeptor immer irreversibel.",
-    "Ein Stoff ist immer ein Enzym.",
-    "Ein Stoff verhindert jede Resorption.",
-    0,
-    "Ein Agonist bindet an einen Rezeptor und aktiviert ihn entsprechend seiner pharmakologischen Wirkung."
-  ],
-
-  [
-    "Pathophysiologie",
-    "Was ist ein wichtiges Ziel der Blutdrucktherapie?",
-    "Das kardiovaskuläre Risiko langfristig reduzieren.",
-    "Den Blutdruck immer auf null senken.",
-    "Jede körperliche Aktivität vermeiden.",
-    "Nur Symptome kurzfristig behandeln.",
-    0,
-    "Die Behandlung zielt unter anderem auf die Reduktion kardiovaskulärer Risiken."
-  ],
-
-  [
-    "Apothekenpraxis",
-    "Welche Technik hilft, das Verständnis einer Beratung zu prüfen?",
-    "Teach-back",
-    "Nur schneller sprechen",
-    "Mehr Fachbegriffe verwenden",
-    "Keine Rückfragen zulassen",
-    0,
-    "Beim Teach-back bittet man den Patienten, die Anwendung mit eigenen Worten zu erklären."
-  ],
-
-  [
-    "Arzneimittelrecht",
-    "Warum können Dokumentationspflichten relevant sein?",
-    "Sie unterstützen Nachvollziehbarkeit und Qualität der pharmazeutischen Versorgung.",
-    "Sie sind ausschließlich für Werbung da.",
-    "Sie ersetzen jede Beratung.",
-    "Sie gelten nur für leere Packungen.",
-    0,
-    "Dokumentation kann für Nachvollziehbarkeit, Qualität und rechtliche Anforderungen wichtig sein."
-  ],
-
-  [
-    "Galenik",
-    "Warum können bestimmte Tabletten nicht einfach geteilt werden?",
-    "Die Teilung kann Dosierung oder Freisetzung beeinflussen.",
-    "Jede Tablette ist grundsätzlich unteilbar.",
-    "Nur die Farbe entscheidet.",
-    "Das Gewicht der Packung entscheidet.",
-    0,
-    "Bei bestimmten Formulierungen kann Teilen die Dosisgenauigkeit oder Wirkstofffreisetzung verändern."
-  ],
-
-  [
-    "Nebenwirkungen & Interaktionen",
-    "Was sollte bei Polypharmazie zuerst erfolgen?",
-    "Eine vollständige und aktuelle Medikationsliste erfassen.",
-    "Sofort alle Arzneimittel absetzen.",
-    "Nur ein Präparat betrachten.",
-    "Nur die Farbe der Packungen vergleichen.",
-    0,
-    "Eine vollständige Liste ist Grundlage für eine strukturierte Bewertung."
-  ],
-
-  [
-    "Pharmazeutische Chemie",
-    "Was kann bei der Lagerung eines empfindlichen Arzneimittels relevant sein?",
-    "Temperatur, Licht und Feuchtigkeit gemäß Produktanforderungen.",
-    "Nur die Größe des Regals.",
-    "Die Farbe der Wand.",
-    "Die Öffnungszeiten der Apotheke.",
-    0,
-    "Stabilität kann von Temperatur, Licht, Feuchtigkeit und weiteren Bedingungen abhängen."
-  ],
-
-  [
-    "Analytik",
-    "Was bedeutet Selektivität bei einer analytischen Methode vereinfacht?",
-    "Die Methode kann den gesuchten Analyten gegenüber anderen Bestandteilen unterscheiden.",
-    "Die Methode ist immer kostenlos.",
-    "Die Probe ist immer farblos.",
-    "Nur die Messzeit ist gemeint.",
-    0,
-    "Selektivität beschreibt die Fähigkeit, den Analyten trotz anderer vorhandener Stoffe spezifisch zu erfassen."
-  ],
-
-  [
-    "Deutsches Gesundheitswesen",
-    "Was ist ein wichtiger Grundsatz bei pharmazeutischer Beratung?",
-    "Patientensicherheit und verständliche, individuelle Information berücksichtigen.",
-    "Nur Produktverkauf priorisieren.",
-    "Patientenfragen vermeiden.",
-    "Immer dieselbe Empfehlung geben.",
-    0,
-    "Sichere Beratung berücksichtigt individuelle Situation, Risiken und verständliche Information."
-  ]
-
-];
+if(page==="exam"){
 
 
-let currentKnowledgeQuestion = 0;
-let knowledgeAnsweredThisRound = false;
+main.innerHTML=`
+
+<h1>
+Prüfungssimulation
+</h1>
 
 
-function startKnowledgePreview(){
+<div class="card">
 
-  /*
-    Premium bleibt deaktiviert.
-    Wir erlauben aber einen kleinen Vorschau-Test,
-    damit der Nutzer das Quizsystem sehen kann.
-  */
+<h3>
+Patientenfall
+</h3>
 
-  currentKnowledgeQuestion =
-    Math.floor(
-      Math.random() *
-      knowledgeQuestions.length
-    );
 
-  showPage("knowledgeQuiz");
+<textarea placeholder="
+Schreibe deine Beratung...
+"></textarea>
 
-  renderKnowledgeQuestion();
+
+<button class="btn"
+onclick="xp+=20;save();alert('+20 XP')">
+
+Bewerten
+
+</button>
+
+
+</div>
+
+`;
 
 }
 
 
-function openKnowledgeSubject(index){
-
-  if(!PREMIUM_ACTIVE){
-
-    openPremiumInfo();
-
-    return;
-
-  }
-
-  const subject =
-    knowledgeSubjects[index][0];
-
-  const found =
-    knowledgeQuestions.findIndex(
-      q=>q[0]===subject
-    );
-
-  currentKnowledgeQuestion =
-    found >= 0 ? found : 0;
-
-  showPage("knowledgeQuiz");
-
-  renderKnowledgeQuestion();
-
 }
 
 
-function renderKnowledgeQuestion(){
 
-  const q =
-    knowledgeQuestions[
-      currentKnowledgeQuestion
-    ];
+document.querySelectorAll(".nav button")
+.forEach(b=>{
 
-  document.getElementById(
-    "knowledgeQuizMeta"
-  ).textContent =
-    q[0] +
-    " · Frage " +
-    (currentKnowledgeQuestion+1) +
-    " von " +
-    knowledgeQuestions.length;
+b.onclick=()=>render(b.dataset.page)
 
+});
 
-  document.getElementById(
-    "knowledgeQuestion"
-  ).innerHTML = `
 
-    <div class="question">
+save();
 
-      <div class="meta">
+render();
 
-        <span>
-          ${q[0]}
-        </span>
-
-        <span>
-          ${state.knowledgeAnswered.length}
-          beantwortet
-        </span>
-
-      </div>
-
-
-      <h3>
-        ${q[1]}
-      </h3>
-
-
-      <div class="answers">
-
-        ${q.slice(2,6).map((answer,index)=>`
-
-          <button
-            class="answer"
-            onclick="answerKnowledge(${index})"
-          >
-            ${String.fromCharCode(65+index)}.
-            ${answer}
-          </button>
-
-        `).join("")}
-
-      </div>
-
-
-      <div
-        id="knowledgeSolution"
-        class="solution"
-      ></div>
-
-
-      <div class="actions">
-
-        <button
-          id="nextKnowledge"
-          class="btn primary disabled"
-          onclick="nextKnowledge()"
-        >
-          Nächste Frage →
-        </button>
-
-        <button
-          class="btn soft"
-          onclick="randomKnowledge()"
-        >
-          Zufällig
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-  knowledgeAnsweredThisRound = false;
-
-}
-
-
-function answerKnowledge(index){
-
-  if(knowledgeAnsweredThisRound){
-    return;
-  }
-
-  knowledgeAnsweredThisRound = true;
-
-  const q =
-    knowledgeQuestions[
-      currentKnowledgeQuestion
-    ];
-
-
-  const buttons =
-    document.querySelectorAll(
-      "#knowledgeQuestion .answer"
-    );
-
-
-  buttons.forEach((button,i)=>{
-
-    button.classList.add("lock");
-
-    if(i===q[6]){
-      button.classList.add("correct");
-    }
-
-    if(
-      i===index &&
-      i!==q[6]
-    ){
-      button.classList.add("wrong");
-    }
-
-  });
-
-
-  const solution =
-    document.getElementById(
-      "knowledgeSolution"
-    );
-
-  solution.classList.add("show");
-
-  solution.innerHTML = `
-
-    <b>
-      ${index===q[6]
-        ?"✓ Richtig"
-        :"✗ Nicht ganz"}
-    </b>
-
-    <br>
-
-    ${q[7]}
-
-  `;
-
-
-  document
-    .getElementById(
-      "nextKnowledge"
-    )
-    .classList.remove("disabled");
-
-
-  state.answered++;
-
-  const uniqueKey =
-    currentKnowledgeQuestion;
-
-
-  if(
-    !state.knowledgeAnswered.includes(
-      uniqueKey
-    )
-  ){
-
-    state.knowledgeAnswered.push(
-      uniqueKey
-    );
-
-  }
-
-
-  if(index===q[6]){
-
-    state.correct++;
-
-    if(
-      !state.knowledgeCorrect.includes(
-        uniqueKey
-      )
-    ){
-
-      state.knowledgeCorrect.push(
-        uniqueKey
-      );
-
-    }
-
-    addXP(10);
-
-  }else{
-
-    save();
-
-  }
-
-}
-
-
-function nextKnowledge(){
-
-  if(!knowledgeAnsweredThisRound){
-    return;
-  }
-
-  currentKnowledgeQuestion =
-    (currentKnowledgeQuestion+1) %
-    knowledgeQuestions.length;
-
-  renderKnowledgeQuestion();
-
-}
-
-
-function randomKnowledge(){
-
-  currentKnowledgeQuestion =
-    Math.floor(
-      Math.random() *
-      knowledgeQuestions.length
-    );
-
-  renderKnowledgeQuestion();
-
-}
-
-
-/* =========================================================
-   CASES
-========================================================= */
-
-const cases = [
-
-  {
-    title:"Kopfschmerzen & Schmerzmittel",
-    type:"FSP",
-    free:true,
-    text:
-      "Eine Kundin möchte ein Schmerzmittel. Kläre Beginn, Intensität, Begleitsymptome, Schwangerschaft, Allergien, weitere Arzneimittel und bisherige Maßnahmen."
-  },
-
-  {
-    title:"Metformin & Nierenfunktion",
-    type:"FSP",
-    free:true,
-    text:
-      "Ein Patient mit Typ-2-Diabetes fragt nach seiner Medikation. Er berichtet über eine eingeschränkte Nierenfunktion."
-  },
-
-  {
-    title:"Erkältung & Selbstmedikation",
-    type:"FSP",
-    free:true,
-    text:
-      "Ein Patient möchte mehrere Erkältungspräparate kombinieren. Prüfe Beschwerden, Warnzeichen und bestehende Medikation."
-  },
-
-  {
-    title:"Schlafprobleme & pflanzliches Präparat",
-    type:"FSP",
-    free:false,
-    text:
-      "Eine Patientin fragt nach einem pflanzlichen Präparat gegen Schlafprobleme und nimmt bereits mehrere Arzneimittel."
-  },
-
-  {
-    title:"Komplexe Polypharmazie",
-    type:"Kenntnisprüfung",
-    free:false,
-    text:
-      "Ein älterer Patient nimmt mehrere Arzneimittel und berichtet über Schwindel. Analysiere Risiken und mögliche Ursachen."
-  },
-
-  {
-    title:"Diabetes, Hypertonie & Niereninsuffizienz",
-    type:"Kenntnisprüfung",
-    free:false,
-    text:
-      "Ein komplexer Fall mit mehreren chronischen Erkrankungen. Erstelle eine strukturierte pharmazeutische Problemliste."
-  },
-
-  {
-    title:"Antikoagulation & Schmerzmittel",
-    type:"Kenntnisprüfung",
-    free:false,
-    text:
-      "Ein Patient unter Antikoagulation möchte ein frei verkäufliches Schmerzmittel. Prüfe relevante Risiken."
-  },
-
-  {
-    title:"Asthma & Inhalation",
-    type:"Kenntnisprüfung",
-    free:false,
-    text:
-      "Eine Patientin berichtet über häufige Beschwerden und Unsicherheit bei der Inhalation."
-  }
-
-];
-
-
-function renderCases(){
-
-  const container =
-    document.getElementById(
-      "caseList"
-    );
-
-  container.innerHTML = "";
-
-
-  cases.forEach((item,index)=>{
-
-    container.innerHTML += `
-
-      <div
-        class="card case ${item.free?"":"premium-case"}"
-        onclick="openCase(${index})"
-      >
-
-        <span class="tag ${item.free?"free":"premium"}">
-          ${item.free?"KOSTENLOS":"PREMIUM"}
-        </span>
-
-        <h3>
-          ${item.title}
-        </h3>
-
-        <p>
-          ${item.type} · ${item.text}
-        </p>
-
-      </div>
-
-    `;
-
-  });
-
-}
-
-
-function openCase(index){
-
-  const item =
-    cases[index];
-
-
-  if(
-    !item.free &&
-    !PREMIUM_ACTIVE
-  ){
-
-    openPremiumInfo();
-
-    return;
-
-  }
-
-
-  openModal(`
-
-    <h2>
-      ${item.title}
-    </h2>
-
-    <p style="margin-bottom:10px">
-      ${item.text}
-    </p>
-
-
-    <div class="notice">
-
-      <b>Aufgabe:</b>
-
-      <br><br>
-
-      Strukturiere dein Vorgehen.
-
-      <br><br>
-
-      Welche Fragen stellst du?
-
-      Welche Risiken prüfst du?
-
-      Welche Beratung ist notwendig?
-
-      Welches Sicherheitsnetz gibst du dem Patienten?
-
-    </div>
-
-
-    <button
-      class="btn green"
-      style="margin-top:12px"
-      onclick="completeCase(${index})"
-    >
-      ✓ Fall bearbeitet
-    </button>
-
-  `);
-
-}
-
-
-function completeCase(index){
-
-  if(
-    !state.completedCases.includes(index)
-  ){
-
-    state.completedCases.push(index);
-
-    state.casesDone++;
-
-    addXP(25);
-
-  }
-
-  closeModal();
-
-  showToast("Fall abgeschlossen +25 XP");
-
-  save();
-
-}
-
-
-/* =========================================================
-   PREMIUM
-========================================================= */
-
-function openPremiumInfo(){
-
-  openModal(`
-
-    <h2>
-      🎓 Kenntnisprüfung Premium
-    </h2>
-
-    <p>
-      Der geplante Premium-Zugang kostet
-      <b>39 € pro Monat</b>.
-    </p>
-
-
-    <ul
-      class="checks"
-      style="color:#172033;margin-top:12px"
-    >
-
-      <li>
-        ✓ 2.000+ Fragen als Zielumfang
-      </li>
-
-      <li>
-        ✓ 11 Fachbereiche
-      </li>
-
-      <li>
-        ✓ 50+ komplexe Fälle als Zielumfang
-      </li>
-
-      <li>
-        ✓ 50-/100-Fragen-Prüfungen
-      </li>
-
-      <li>
-        ✓ Prüfungssimulationen
-      </li>
-
-      <li>
-        ✓ Fehlertraining
-      </li>
-
-      <li>
-        ✓ Lernstatistik
-      </li>
-
-    </ul>
-
-
-    <div class="notice">
-
-      🅿️ PayPal und die Zahlung sind
-      aktuell noch <b>nicht aktiv</b>.
-
-      <br><br>
-
-      Dieser Bereich dient momentan
-      nur als Vorschau der späteren
-      kostenpflichtigen Plattform.
-
-    </div>
-
-
-    <button
-      class="btn primary btn-full"
-      style="margin-top:12px"
-      onclick="closeModal()"
-    >
-      Schließen
-    </button>
-
-  `);
-
-}
-
-
-function openPayPalPreview(){
-
-  openModal(`
-
-    <h2>
-      🅿️ PayPal
-    </h2>
-
-    <p>
-      Die PayPal-Zahlung wird für eine
-      spätere Version vorbereitet.
-    </p>
-
-
-    <div
-      class="notice"
-      style="margin-top:10px"
-    >
-
-      <b>Noch nicht aktiv.</b>
-
-      <br><br>
-
-      Es wird kein Geld abgebucht
-      und keine Zahlung ausgelöst.
-
-    </div>
-
-
-    <button
-      class="btn primary btn-full"
-      style="margin-top:12px"
-      onclick="closeModal()"
-    >
-      OK
-    </button>
-
-  `);
-
-}
-
-
-/* =========================================================
-   EXAM
-========================================================= */
-
-function evaluateExam(){
-
-  const textarea =
-    document.getElementById(
-      "examText"
-    );
-
-  const text =
-    textarea.value.trim();
-
-
-  if(!text){
-
-    showToast(
-      "Bitte zuerst eine Antwort schreiben."
-    );
-
-    return;
-
-  }
-
-
-  const lower =
-    text.toLowerCase();
-
-
-  const keywords = [
-    "seit",
-    "warn",
-    "medik",
-    "allerg",
-    "anwendung",
-    "dauer",
-    "fragen",
-    "ärzt"
-  ];
-
-
-  let score = 0;
-
-
-  keywords.forEach(word=>{
-
-    if(lower.includes(word)){
-      score++;
-    }
-
-  });
-
-
-  const percent =
-    Math.min(
-      100,
-      Math.round(
-        score/keywords.length*100
-      )
-    );
-
-
-  document.getElementById(
-    "examResult"
-  ).innerHTML = `
-
-    <div
-      class="${percent>=60?"success":"notice"}"
-      style="margin-top:10px"
-    >
-
-      <b>
-        Trainingsergebnis: ${percent}%
-      </b>
-
-      <br><br>
-
-      Die automatische Bewertung ist
-      nur ein Lernindikator.
-
-      <br><br>
-
-      Prüfe deine Antwort anhand
-      der Lerninhalte und ergänze
-      fehlende Bestandteile.
-
-    </div>
-
-  `;
-
-
-  if(!state.examDone){
-
-    state.examDone = 1;
-
-    addXP(15);
-
-  }else{
-
-    save();
-
-  }
-
-}
-
-
-/* =========================================================
-   PROFILE / PROGRESS
-========================================================= */
-
-function calculateOverallProgress(){
-
-  const fsp =
-    Math.round(
-      state.lessonQuestions.length /
-      questions.length *
-      100
-    );
-
-
-  const knowledge =
-    Math.round(
-      state.knowledgeAnswered.length /
-      knowledgeQuestions.length *
-      100
-    );
-
-
-  return Math.round(
-    (fsp+knowledge)/2
-  );
-
-}
-
-
-function updateUI(){
-
-  updateStreak();
-
-
-  document.getElementById(
-    "xp"
-  ).textContent =
-    state.xp;
-
-
-  document.getElementById(
-    "streak"
-  ).textContent =
-    state.streak;
-
-
-  document.getElementById(
-    "overallProgress"
-  ).textContent =
-    calculateOverallProgress()+"%";
-
-
-  document.getElementById(
-    "profileXp"
-  ).textContent =
-    state.xp;
-
-
-  document.getElementById(
-    "profileQuestions"
-  ).textContent =
-    state.answered;
-
-
-  document.getElementById(
-    "profileCorrect"
-  ).textContent =
-    state.correct;
-
-
-  document.getElementById(
-    "profileCases"
-  ).textContent =
-    state.casesDone;
-
-
-  const kp =
-    Math.round(
-      state.knowledgeAnswered.length /
-      knowledgeQuestions.length *
-      100
-    );
-
-
-  document.getElementById(
-    "knowledgeProgressText"
-  ).textContent =
-    state.knowledgeAnswered.length +
-    " Fragen beantwortet";
-
-
-  document.getElementById(
-    "knowledgeProgressPercent"
-  ).textContent =
-    kp+"%";
-
-
-  document.getElementById(
-    "knowledgeProgressBar"
-  ).style.width =
-    kp+"%";
-
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-function resetProgress(){
-
-  const confirmed =
-    confirm(
-      "Wirklich alle lokalen Fortschrittsdaten löschen?"
-    );
-
-
-  if(!confirmed){
-    return;
-  }
-
-
-  localStorage.removeItem(
-    "fspPharmaState"
-  );
-
-
-  location.reload();
-
-}
-
-
-/* =========================================================
-   START APP
-========================================================= */
-
-renderLessons();
-renderKnowledgeSubjects();
-renderCases();
-updateUI();
 
 </script>
 
 </body>
 </html>
+<script>
+
+/* ===== LEKTIONEN INHALTE ===== */
+
+
+function openLesson(i){
+
+if(!lessons[i].free && !premium){
+
+showPremium();
+return;
+
+}
+
+
+if(i===0){
+
+openModal(`
+
+<span class="tag">
+LEKTION 1
+</span>
+
+<h2>
+🗣️ Patientengespräch
+</h2>
+
+
+<h3>
+Lernziele
+</h3>
+
+<ul>
+<li>Professioneller Gesprächseinstieg</li>
+<li>Anamnese durchführen</li>
+<li>Arzneimittel richtig erklären</li>
+<li>Patientengerechte Sprache verwenden</li>
+<li>Beratung abschließen</li>
+</ul>
+
+
+<h3>
+Wichtige Fragen
+</h3>
+
+
+<div class="option"
+onclick="addXP()">
+Für wen ist das Arzneimittel bestimmt?
+</div>
+
+
+<div class="option"
+onclick="addXP()">
+Welche Beschwerden haben Sie genau?
+</div>
+
+
+<div class="option"
+onclick="addXP()">
+Seit wann bestehen die Beschwerden?
+</div>
+
+
+<div class="option"
+onclick="addXP()">
+Nehmen Sie regelmäßig andere Medikamente ein?
+</div>
+
+
+<div class="option"
+onclick="addXP()">
+Sind Allergien bekannt?
+</div>
+
+
+
+<h3>
+Professionelle Formulierungen
+</h3>
+
+
+<p>
+❌ Was fehlt Ihnen?
+<br>
+✅ Welche Beschwerden haben Sie?
+</p>
+
+
+<p>
+❌ Was nehmen Sie?
+<br>
+✅ Welche Medikamente nehmen Sie derzeit ein?
+</p>
+
+
+<h3>
+Beispieldialog
+</h3>
+
+
+<p>
+
+<b>Apotheker:</b><br>
+Guten Tag. Wie kann ich Ihnen helfen?
+
+</p>
+
+
+<p>
+
+<b>Patient:</b><br>
+Ich brauche etwas gegen Kopfschmerzen.
+
+</p>
+
+
+<p>
+
+<b>Apotheker:</b><br>
+Für wen ist das Arzneimittel bestimmt?
+Seit wann bestehen die Beschwerden?
+Nehmen Sie bereits andere Medikamente ein?
+
+</p>
+
+
+
+<h3>
+Verständnis prüfen
+</h3>
+
+
+<button class="btn"
+onclick="addXP();alert('Richtig! +10 XP')">
+
+Ich erkläre die Anwendung und frage nach weiteren Fragen.
+
+</button>
+
+
+`);
+
+}
+
+
+else {
+
+
+openModal(`
+
+<span class="tag">
+PREMIUM
+</span>
+
+
+<h2>
+⭐ ${lessons[i].title}
+</h2>
+
+
+<p>
+Diese Lektion ist Bestandteil von FSP Pharma Premium.
+</p>
+
+
+<h3>
+Enthalten:
+</h3>
+
+
+<ul>
+
+<li>Ausführliche Lerntexte</li>
+
+<li>Interaktive Fragen</li>
+
+<li>Prüfungsfälle</li>
+
+<li>Bewertung</li>
+
+<li>XP-Fortschritt</li>
+
+</ul>
+
+
+<button class="btn"
+onclick="activatePremium();closeModal();">
+
+Premium testen
+
+</button>
+
+
+`);
+
+}
+
+
+}
+
+
+
+
+function addXP(){
+
+xp+=10;
+
+save();
+
+alert("+10 XP");
+
+}
+
+
+
+
+function showPremium(){
+
+
+openModal(`
+
+<span class="tag">
+PREMIUM
+</span>
+
+
+<h2>
+⭐ FSP Pharma Premium
+</h2>
+
+
+<h3>
+39 € / Monat
+</h3>
+
+
+<p>
+
+Erhalte Zugang zu:
+
+</p>
+
+
+<ul>
+
+<li>
+49 Kenntnisprüfung-Themen
+</li>
+
+<li>
+Große Fallsammlung
+</li>
+
+<li>
+Fachbegriffe Training
+</li>
+
+<li>
+FSP-Simulation
+</li>
+
+<li>
+Dokumentationstraining
+</li>
+
+</ul>
+
+
+<button class="btn"
+onclick="activatePremium();closeModal();">
+
+⭐ Premium testen
+
+</button>
+
+
+`);
+
+}
+
+
+
+
+
+function caseStart(i){
+
+
+openModal(`
+
+
+<span class="tag">
+FALL ${i+1}
+</span>
+
+
+<h2>
+${cases[i]}
+</h2>
+
+
+<p>
+
+Aufgabe:
+
+Führen Sie ein strukturiertes Patientengespräch.
+
+</p>
+
+
+<h3>
+Ihre Antwort:
+
+</h3>
+
+
+<textarea placeholder="
+1. Begrüßung
+2. Fragen
+3. Beratung
+4. Abschluss
+"></textarea>
+
+
+<br>
+
+
+<button class="btn"
+onclick="xp+=15;save();alert('+15 XP');closeModal();">
+
+Fall abschließen
+
+</button>
+
+
+`);
+
+}
+
+
+
+
+
+/* ===== FACHBEGRIFFE ===== */
+
+
+const fachbegriffe=[
+
+["Hypertonie","Bluthochdruck"],
+
+["Hypotonie","niedriger Blutdruck"],
+
+["Diarrhö","Durchfall"],
+
+["Obstipation","Verstopfung"],
+
+["Dyspnoe","Atemnot"],
+
+["Pruritus","Juckreiz"],
+
+["Exanthem","Hautausschlag"],
+
+["Ödem","Schwellung durch Flüssigkeit"],
+
+["oral","über den Mund"],
+
+["topisch","auf die Haut aufgetragen"],
+
+["Kontraindikation","Grund gegen die Anwendung"],
+
+["Interaktion","Wechselwirkung zwischen Arzneimitteln"],
+
+["Nebenwirkung","unerwünschte Wirkung"],
+
+["akut","plötzlich auftretend"],
+
+["chronisch","lang andauernd"]
+
+];
+
+
+
+
+function fachbegriffePage(){
+
+
+openModal(`
+
+<h2>
+📚 Fachbegriffe Training
+</h2>
+
+
+${fachbegriffe.map(f=>`
+
+<div class="card">
+
+<b>${f[0]}</b>
+
+<br>
+
+<span class="muted">
+${f[1]}
+</span>
+
+</div>
+
+`).join("")}
+
+
+`);
+
+}
+
+
+
+
+</script>
+/* ===== KENNTNISPRÜFUNG 49 THEMEN ===== */
+
+const kpThemen=[
+
+"Arzneimittelformen und Anwendung",
+"Dosierung und Einnahmehinweise",
+"Pharmakokinetik",
+"Pharmakodynamik",
+"Arzneimittelwechselwirkungen",
+"Kontraindikationen",
+"Nebenwirkungen",
+"Warnhinweise",
+"Rezeptprüfung",
+"Betäubungsmittel",
+"Dokumentation in der Apotheke",
+"Patientenberatung",
+"Kommunikation mit Patienten",
+"Fachbegriffe erklären",
+"Diabetes mellitus",
+"Hypertonie",
+"Herzinsuffizienz",
+"Asthma bronchiale",
+"COPD",
+"Allergien",
+"Schmerzen und Analgetika",
+"Fieber",
+"Erkältung",
+"Infektionen",
+"Antibiotika",
+"Magen-Darm-Erkrankungen",
+"Reflux",
+"Übelkeit und Erbrechen",
+"Verstopfung",
+"Durchfall",
+"Hauterkrankungen",
+"Ekzeme",
+"Desinfektion",
+"Impfungen",
+"Vitamine und Mineralstoffe",
+"Nahrungsergänzungsmittel",
+"Schwangerschaft",
+"Stillzeit",
+"Kinderarzneimittel",
+"Arzneimittel bei älteren Menschen",
+"Nierenfunktion",
+"Leberfunktion",
+"Laborwerte verstehen",
+"Blutgerinnung",
+"Psychische Erkrankungen",
+"Schlafstörungen",
+"Neurologische Erkrankungen",
+"Notfallsituationen"
+
+];
+
+
+function kenntnisprüfung(){
+
+
+openModal(`
+
+<span class="tag">
+PREMIUM
+</span>
+
+<h2>
+🎓 Kenntnisprüfung
+</h2>
+
+
+<p>
+49 wichtige Prüfungsthemen für Apotheker.
+</p>
+
+
+${kpThemen.map((t,i)=>`
+
+<div class="card">
+
+<b>
+${i+1}. ${t}
+</b>
+
+
+<br>
+
+
+<span class="muted">
+Premium Lerninhalt
+</span>
+
+
+</div>
+
+`).join("")}
+
+
+`);
+
+}
+
+
+
+
+/* ===== PREMIUM PRÜFUNG ===== */
+
+
+function premiumExam(){
+
+
+if(!premium){
+
+showPremium();
+
+return;
+
+}
+
+
+openModal(`
+
+<h2>
+⭐ Premium Prüfungssimulation
+</h2>
+
+
+<p>
+Simuliere eine echte FSP-Situation.
+</p>
+
+
+<h3>
+Fall:
+</h3>
+
+
+<p>
+
+Ein Patient möchte ein rezeptfreies Schmerzmittel.
+Er nimmt regelmäßig Medikamente gegen Bluthochdruck.
+
+</p>
+
+
+<textarea placeholder="
+Schreibe dein vollständiges Beratungsgespräch:
+- Begrüßung
+- Anamnese
+- Fragen
+- Beratung
+- Abschluss
+"></textarea>
+
+
+<br><br>
+
+
+<button class="btn"
+onclick="xp+=30;save();alert('+30 XP Prüfung abgeschlossen')">
+
+Auswertung starten
+
+</button>
+
+
+`);
+
+}
+
+
+
+/* ===== PREMIUM STATUS ===== */
+
+
+function premiumStatus(){
+
+
+return premium ?
+
+`
+<span class="tag">
+⭐ PREMIUM AKTIV
+</span>
+`
+
+:
+
+`
+<span class="tag">
+STANDARD
+</span>
+`
+
+}
+
+
+
+/* ===== RESET TEST ===== */
+
+
+function resetApp(){
+
+if(confirm("Alle Daten löschen?")){
+
+localStorage.clear();
+
+location.reload();
+
+}
+
+}
