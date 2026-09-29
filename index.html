@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FSP Pharma – Lernen für Apotheker</title>
+
+<title>FSP Pharma – FSP & Kenntnisprüfung</title>
 
 <style>
 *{box-sizing:border-box}
@@ -15,21 +16,27 @@ body{
   color:#172033;
 }
 
-button{font-family:inherit}
+button,input,textarea{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
 
 .header{
-  background:linear-gradient(135deg,#4f46e5,#7c3aed);
-  color:white;
-  padding:16px 20px;
   position:sticky;
   top:0;
   z-index:100;
+  background:linear-gradient(135deg,#4f46e5,#7c3aed);
+  color:white;
   box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
 .header-inner{
-  max-width:1050px;
+  max-width:1100px;
   margin:auto;
+  padding:15px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -55,9 +62,13 @@ button{font-family:inherit}
 }
 
 .main{
-  max-width:1050px;
+  max-width:1100px;
   margin:auto;
   padding:25px 16px 100px;
+}
+
+.hidden{
+  display:none!important;
 }
 
 .hero{
@@ -68,7 +79,7 @@ button{font-family:inherit}
   margin-bottom:20px;
 }
 
-.hero-badge{
+.badge{
   display:inline-block;
   background:rgba(255,255,255,.18);
   padding:7px 12px;
@@ -84,7 +95,6 @@ button{font-family:inherit}
 
 .hero p{
   line-height:1.6;
-  margin:0;
 }
 
 .primary{
@@ -94,8 +104,7 @@ button{font-family:inherit}
   padding:13px 20px;
   border-radius:12px;
   font-weight:bold;
-  cursor:pointer;
-  margin-top:20px;
+  margin-top:12px;
 }
 
 .card{
@@ -138,18 +147,17 @@ button{font-family:inherit}
   transition:.3s;
 }
 
-.home-grid{
+.grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px;
+  gap:15px;
 }
 
 .home-card{
   background:white;
   border:1px solid #e5e7eb;
-  border-radius:17px;
+  border-radius:18px;
   padding:20px;
-  cursor:pointer;
   transition:.15s;
 }
 
@@ -158,8 +166,8 @@ button{font-family:inherit}
   border-color:#7c3aed;
 }
 
-.home-card-icon{
-  font-size:28px;
+.home-icon{
+  font-size:30px;
 }
 
 .home-card strong{
@@ -188,7 +196,6 @@ button{font-family:inherit}
   align-items:center;
   gap:12px;
   text-align:left;
-  cursor:pointer;
 }
 
 .topic:hover{
@@ -197,8 +204,8 @@ button{font-family:inherit}
 }
 
 .topic-number{
-  min-width:35px;
-  height:35px;
+  min-width:36px;
+  height:36px;
   border-radius:50%;
   background:#ede9fe;
   color:#5b21b6;
@@ -208,7 +215,7 @@ button{font-family:inherit}
   font-weight:bold;
 }
 
-.topic-content{
+.topic-main{
   flex:1;
 }
 
@@ -222,7 +229,7 @@ button{font-family:inherit}
   margin-top:4px;
 }
 
-.done{
+.check{
   color:#16a34a;
   font-size:20px;
 }
@@ -241,27 +248,21 @@ button{font-family:inherit}
 }
 
 .back{
-  border:0;
   background:rgba(255,255,255,.16);
   color:white;
+  border:0;
   padding:9px 13px;
   border-radius:10px;
-  cursor:pointer;
-  margin-bottom:18px;
+  margin-bottom:15px;
 }
 
 .lesson-head h1{
   margin:0;
-  font-size:27px;
-}
-
-.lesson-head p{
-  opacity:.9;
-  line-height:1.5;
+  font-size:28px;
 }
 
 .lesson-body{
-  padding:22px;
+  padding:23px;
 }
 
 .section{
@@ -285,7 +286,7 @@ button{font-family:inherit}
 }
 
 .info li{
-  margin:9px 0;
+  margin:8px 0;
 }
 
 .terms{
@@ -306,8 +307,8 @@ button{font-family:inherit}
 .fsp{
   background:#eff6ff;
   border:1px solid #bfdbfe;
-  padding:18px;
   border-radius:15px;
+  padding:18px;
 }
 
 .patient{
@@ -331,11 +332,10 @@ button{font-family:inherit}
 textarea{
   width:100%;
   min-height:130px;
+  padding:13px;
   border:1px solid #cbd5e1;
   border-radius:12px;
-  padding:13px;
   resize:vertical;
-  font-family:inherit;
   font-size:14px;
 }
 
@@ -345,7 +345,6 @@ textarea{
   border:0;
   padding:11px 16px;
   border-radius:10px;
-  cursor:pointer;
   font-weight:bold;
   margin-top:10px;
 }
@@ -354,8 +353,8 @@ textarea{
   display:none;
   background:#ecfdf5;
   border:1px solid #bbf7d0;
-  border-radius:12px;
   padding:15px;
+  border-radius:12px;
   margin-top:10px;
   line-height:1.6;
 }
@@ -364,31 +363,61 @@ textarea{
   display:block;
 }
 
-.exam{
-  background:#faf5ff;
-  border:1px solid #e9d5ff;
-  border-radius:15px;
-  padding:18px;
-}
-
 .complete{
   width:100%;
-  border:0;
   background:#16a34a;
   color:white;
+  border:0;
   padding:15px;
   border-radius:12px;
   font-weight:bold;
-  cursor:pointer;
   font-size:15px;
 }
 
-.complete.already{
+.complete.done{
   background:#64748b;
 }
 
-.hidden{
-  display:none!important;
+.premium{
+  background:linear-gradient(135deg,#fff7ed,#fef3c7);
+  border:2px solid #f59e0b;
+}
+
+.price{
+  font-size:34px;
+  font-weight:bold;
+  color:#92400e;
+  margin:10px 0;
+}
+
+.price small{
+  font-size:15px;
+  font-weight:normal;
+}
+
+.input{
+  width:100%;
+  padding:13px;
+  border:1px solid #cbd5e1;
+  border-radius:10px;
+  margin-top:7px;
+  font-size:15px;
+}
+
+.note{
+  background:#fff;
+  border:1px solid #fde68a;
+  border-radius:12px;
+  padding:15px;
+  line-height:1.6;
+}
+
+.case{
+  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:15px;
 }
 
 .bottom{
@@ -399,14 +428,13 @@ textarea{
   height:68px;
   background:white;
   border-top:1px solid #e5e7eb;
-  display:flex;
-  justify-content:center;
   z-index:100;
 }
 
 .nav{
-  width:100%;
-  max-width:700px;
+  max-width:750px;
+  height:100%;
+  margin:auto;
   display:flex;
 }
 
@@ -415,7 +443,6 @@ textarea{
   border:0;
   background:white;
   color:#64748b;
-  cursor:pointer;
   font-size:11px;
 }
 
@@ -428,25 +455,23 @@ textarea{
   color:#4f46e5;
 }
 
-.case-box{
-  background:white;
-  border:1px solid #e5e7eb;
-  border-radius:18px;
-  padding:20px;
-  margin-bottom:15px;
-}
+@media(max-width:700px){
 
-.question{
-  background:#eef2ff;
-  border-radius:14px;
-  padding:17px;
-}
+  .grid{
+    grid-template-columns:1fr;
+  }
 
-@media(max-width:650px){
-  .hero h1{font-size:26px}
-  .home-grid{grid-template-columns:1fr}
-  .main{padding:18px 12px 90px}
-  .lesson-head h1{font-size:23px}
+  .hero h1{
+    font-size:26px;
+  }
+
+  .main{
+    padding:18px 12px 90px;
+  }
+
+  .lesson-head h1{
+    font-size:23px;
+  }
 }
 </style>
 </head>
@@ -454,11 +479,12 @@ textarea{
 <body>
 
 <header class="header">
+
   <div class="header-inner">
 
     <div class="logo">
       ⭐ FSP Pharma
-      <small>Deutsch für Fachsprachenprüfung & Kenntnisprüfung</small>
+      <small>FSP & Kenntnisprüfung für Apotheker/innen</small>
     </div>
 
     <div class="xp">
@@ -466,36 +492,39 @@ textarea{
     </div>
 
   </div>
+
 </header>
 
 
 <main class="main">
 
-<!-- START -->
+
+<!-- ================= START ================= -->
 
 <section id="home">
 
   <div class="hero">
 
-    <span class="hero-badge">
+    <span class="badge">
       FSP PHARMA
     </span>
 
     <h1>
-      Bereit für die FSP?
+      Bereit für FSP & Kenntnisprüfung?
     </h1>
 
     <p>
-      Lerne pharmazeutisches Fachwissen,
+      Lerne pharmazeutische Fachsprache,
       trainiere Patientengespräche und bereite
-      dich strukturiert auf die Kenntnisprüfung vor.
+      dich strukturiert auf deine Prüfung vor.
     </p>
 
-    <button class="primary" onclick="page('lernen')">
+    <button class="primary" onclick="showPage('lernen')">
       📚 Lernen starten
     </button>
 
   </div>
+
 
   <div class="progress-card">
 
@@ -505,7 +534,7 @@ textarea{
     </div>
 
     <div class="progress">
-      <div class="progress-bar" id="progress"></div>
+      <div id="progress" class="progress-bar"></div>
     </div>
 
     <p id="progressText">
@@ -514,24 +543,25 @@ textarea{
 
   </div>
 
-  <div class="home-grid">
 
-    <div class="home-card" onclick="page('lernen')">
-      <div class="home-card-icon">📚</div>
-      <strong>49 Themen</strong>
-      <small>Kenntnisprüfung lernen</small>
+  <div class="grid">
+
+    <div class="home-card" onclick="showPage('lernen')">
+      <div class="home-icon">📚</div>
+      <strong>49 Kenntnisprüfungsthemen</strong>
+      <small>Lerninhalte und Fachbegriffe</small>
     </div>
 
-    <div class="home-card" onclick="page('faelle')">
-      <div class="home-card-icon">🗣️</div>
+    <div class="home-card" onclick="showPage('faelle')">
+      <div class="home-icon">🗣️</div>
       <strong>FSP-Fälle</strong>
       <small>Patientengespräche üben</small>
     </div>
 
-    <div class="home-card" onclick="page('pruefung')">
-      <div class="home-card-icon">🎓</div>
-      <strong>Prüfung</strong>
-      <small>Fragen beantworten</small>
+    <div class="home-card" onclick="showPage('premium')">
+      <div class="home-icon">⭐</div>
+      <strong>Premium</strong>
+      <small>Alle Inhalte freischalten</small>
     </div>
 
   </div>
@@ -539,19 +569,22 @@ textarea{
 </section>
 
 
-<!-- LERNEN -->
+<!-- ================= LERNEN ================= -->
 
 <section id="lernen" class="hidden">
 
   <div class="card">
+
     <h2>📚 Kenntnisprüfung</h2>
+
     <p>
-      Hier findest du 49 wichtige Themen.
-      Öffne ein Thema, lerne den Inhalt und übe
-      anschließend mit einer FSP-Situation und
-      einer Prüfungsfrage.
+      Wähle ein Thema aus. Du erhältst Lerninhalte,
+      wichtige Fachbegriffe, eine FSP-Situation und
+      eine Prüfungsfrage.
     </p>
+
   </div>
+
 
   <div class="progress-card">
 
@@ -561,7 +594,7 @@ textarea{
     </div>
 
     <div class="progress">
-      <div class="progress-bar" id="progress2"></div>
+      <div id="progress2" class="progress-bar"></div>
     </div>
 
     <p id="progressText2">
@@ -570,28 +603,35 @@ textarea{
 
   </div>
 
+
   <div id="topics" class="topic-list"></div>
 
 </section>
 
 
-<!-- LERNINHALT -->
+<!-- ================= LERNINHALT ================= -->
 
 <section id="lesson" class="hidden">
+
   <div id="lessonContent"></div>
+
 </section>
 
 
-<!-- FÄLLE -->
+<!-- ================= FÄLLE ================= -->
 
 <section id="faelle" class="hidden">
 
   <div class="card">
-    <h2>🗣️ FSP-Übungen</h2>
+
+    <h2>🗣️ FSP-Patientengespräche</h2>
+
     <p>
-      Trainiere typische Situationen aus der
-      Fachsprachenprüfung.
+      Übe typische Situationen. Schreibe zuerst
+      deine eigene Antwort und vergleiche sie
+      anschließend mit dem Hinweis.
     </p>
+
   </div>
 
   <div id="cases"></div>
@@ -599,16 +639,19 @@ textarea{
 </section>
 
 
-<!-- PRÜFUNG -->
+<!-- ================= PRÜFUNG ================= -->
 
 <section id="pruefung" class="hidden">
 
   <div class="card">
+
     <h2>🎓 Prüfungstraining</h2>
+
     <p>
-      Beantworte die Fragen zunächst selbst und
-      öffne danach die Musterantwort.
+      Beantworte die Fragen selbst und öffne danach
+      die Musterantwort.
     </p>
+
   </div>
 
   <div id="questions"></div>
@@ -616,1114 +659,97 @@ textarea{
 </section>
 
 
-<!-- PROFIL -->
+<!-- ================= PREMIUM ================= -->
 
-<section id="profil" class="hidden">
+<section id="premium" class="hidden">
+
+  <div class="hero">
+
+    <span class="badge">
+      ⭐ FSP PHARMA PREMIUM
+    </span>
+
+    <h1>
+      Vollständiger Lernzugang
+    </h1>
+
+    <p>
+      49 Kenntnisprüfungsthemen, FSP-Fälle,
+      Prüfungsfragen und umfangreiche Übungen.
+    </p>
+
+    <div class="price">
+      10 € <small>/ Monat</small>
+    </div>
+
+  </div>
+
+
+  <div class="card premium">
+
+    <h2>⭐ Premium enthält</h2>
+
+    <ul>
+      <li>49 Kenntnisprüfungsthemen</li>
+      <li>Ausführliche Lerninhalte</li>
+      <li>Fachbegriffe</li>
+      <li>FSP-Patientengespräche</li>
+      <li>Übungsfälle</li>
+      <li>Prüfungsfragen</li>
+      <li>Musterantworten</li>
+      <li>Lernfortschritt und XP</li>
+    </ul>
+
+  </div>
+
 
   <div class="card">
 
-    <h2>👤 Mein Lernprofil</h2>
+    <h2>👩‍⚕️ Verifizierung</h2>
 
-    <h3>⭐ <span id="profileXP">0</span> XP</h3>
-
-    <p id="profileProgress">
-      0 von 49 Themen gelernt
+    <p>
+      Die Plattform richtet sich an Apotheker/innen
+      und Personen, die sich auf FSP oder
+      Kenntnisprüfung vorbereiten.
     </p>
 
-    <button class="btn" onclick="resetProgress()">
-      Fortschritt zurücksetzen
-    </button>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<nav class="bottom">
-
-  <div class="nav">
-
-    <button id="navHome" class="active" onclick="page('home')">
-      <strong>🏠</strong>
-      Start
-    </button>
-
-    <button id="navLernen" onclick="page('lernen')">
-      <strong>📚</strong>
-      Lernen
-    </button>
-
-    <button id="navFaelle" onclick="page('faelle')">
-      <strong>💬</strong>
-      Fälle
-    </button>
-
-    <button id="navPruefung" onclick="page('pruefung')">
-      <strong>🎓</strong>
-      Prüfung
-    </button>
-
-    <button id="navProfil" onclick="page('profil')">
-      <strong>👤</strong>
-      Profil
-    </button>
-
-  </div>
-
-</nav>
-
-
-<script>
-
-/* =========================================================
-   49 KENNTNISPRÜFUNGSTHEMEN
-   ========================================================= */
-
-const themen = [
-
-{
-title:"Arzneimittelformen und Anwendung",
-desc:"Tabletten, Kapseln, Tropfen, Salben und Inhalativa.",
-content:"Arzneimittel gibt es in unterschiedlichen Darreichungsformen. Die Darreichungsform beeinflusst die Anwendung, Wirkstofffreisetzung und teilweise die Wirkdauer.",
-know:[
-"Tabletten und Kapseln werden häufig oral angewendet.",
-"Retardformen geben den Wirkstoff verzögert bzw. kontrolliert frei.",
-"Inhalativa benötigen eine korrekte Anwendungstechnik.",
-"Salben und Cremes werden äußerlich angewendet."
-],
-terms:["Tablette","Kapsel","Retard","Inhalation","Creme"],
-patient:"Kann ich diese Tablette einfach zerdrücken?",
-question:"Was bedeutet Retard?",
-answer:"Retard bedeutet eine verzögerte bzw. kontrollierte Freisetzung des Wirkstoffs."
-},
-
-{
-title:"Dosierung und Einnahmehinweise",
-desc:"Dosis, Einnahmezeiten und Anwendung.",
-content:"Die Dosierung beschreibt unter anderem Einzeldosis, Häufigkeit und Dauer der Anwendung.",
-know:[
-"Einzeldosis und Tagesdosis unterscheiden.",
-"Einnahmezeiten erklären.",
-"Alter und Körpergewicht berücksichtigen.",
-"Nieren- und Leberfunktion können relevant sein."
-],
-terms:["Einzeldosis","Tagesdosis","Maximaldosis","Dosierungsintervall"],
-patient:"Ich habe gestern eine Tablette vergessen. Soll ich heute zwei nehmen?",
-question:"Welche Faktoren können die Dosierung beeinflussen?",
-answer:"Zum Beispiel Alter, Körpergewicht, Erkrankung, Nierenfunktion, Leberfunktion und Begleitmedikation."
-},
-
-{
-title:"Pharmakokinetik",
-desc:"Was der Körper mit dem Arzneistoff macht.",
-content:"Die Pharmakokinetik beschreibt die Prozesse, denen ein Arzneistoff im Körper unterliegt.",
-know:["Absorption","Distribution","Metabolismus","Elimination","Halbwertszeit"],
-terms:["ADME","Absorption","Distribution","Metabolismus","Elimination"],
-patient:"Warum kontrolliert mein Arzt meine Nierenwerte?",
-question:"Was bedeutet ADME?",
-answer:"ADME steht für Absorption, Distribution, Metabolismus und Elimination."
-},
-
-{
-title:"Pharmakodynamik",
-desc:"Wirkung und Wirkmechanismus.",
-content:"Die Pharmakodynamik beschreibt, was ein Arzneistoff im Körper bewirkt.",
-know:["Rezeptoren können Angriffspunkte sein.","Agonisten aktivieren Rezeptoren.","Antagonisten blockieren Rezeptoren.","Die Wirkung hängt unter anderem von der Dosis ab."],
-terms:["Rezeptor","Agonist","Antagonist","Wirkmechanismus"],
-patient:"Wie wirkt dieses Medikament eigentlich?",
-question:"Was macht ein Agonist?",
-answer:"Ein Agonist aktiviert einen entsprechenden Rezeptor."
-},
-
-{
-title:"Arzneimittelwechselwirkungen",
-desc:"Interaktionen zwischen Arzneimitteln.",
-content:"Arzneimittel können sich gegenseitig in ihrer Wirkung oder Verträglichkeit beeinflussen.",
-know:["Gesamte Medikation erfassen.","Selbstmedikation erfragen.","Nahrungsergänzungsmittel erfragen.","Mögliche Wechselwirkungen prüfen."],
-terms:["Interaktion","Enzymhemmung","Enzyminduktion","Medikationsanamnese"],
-patient:"Mein pflanzliches Präparat muss ich doch nicht erwähnen, oder?",
-question:"Warum sollte die gesamte Medikation erfasst werden?",
-answer:"Damit Wechselwirkungen, Doppelmedikationen und andere arzneimittelbezogene Probleme erkannt werden."
-},
-
-{
-title:"Kontraindikationen",
-desc:"Wann ein Arzneimittel nicht angewendet werden darf.",
-content:"Eine Kontraindikation ist ein Umstand, bei dem ein Arzneimittel nicht oder nur unter bestimmten Bedingungen angewendet werden darf.",
-know:["Vorerkrankungen prüfen.","Alter berücksichtigen.","Schwangerschaft berücksichtigen.","Begleitmedikation prüfen."],
-terms:["Kontraindikation","absolute Kontraindikation","relative Kontraindikation"],
-patient:"Ich habe eine chronische Erkrankung. Kann ich dieses Medikament nehmen?",
-question:"Was bedeutet Kontraindikation?",
-answer:"Eine Kontraindikation ist ein Umstand, bei dem ein Arzneimittel nicht oder nur unter bestimmten Bedingungen angewendet werden sollte."
-},
-
-{
-title:"Nebenwirkungen",
-desc:"Unerwünschte Arzneimittelwirkungen.",
-content:"Nebenwirkungen sind unerwünschte Reaktionen, die bei der Anwendung eines Arzneimittels auftreten können.",
-know:["Beschwerden ernst nehmen.","Zeitpunkt erfragen.","Begleitmedikation prüfen.","Bei schweren Beschwerden medizinische Abklärung."],
-terms:["Nebenwirkung","unerwünschte Arzneimittelwirkung","schwerwiegend"],
-patient:"Seit gestern habe ich nach meinem neuen Medikament starken Schwindel.",
-question:"Was sollten Sie bei einer möglichen Nebenwirkung erfragen?",
-answer:"Arzneimittel, Dosis, Beginn der Beschwerden, Symptome und weitere Medikamente."
-},
-
-{
-title:"Warnhinweise",
-desc:"Risiken und wichtige Warnzeichen.",
-content:"Warnhinweise informieren über besondere Risiken bei der Anwendung eines Arzneimittels.",
-know:["Besondere Erkrankungen berücksichtigen.","Begleitmedikation beachten.","Warnzeichen erklären.","Bei schweren Beschwerden medizinische Hilfe empfehlen."],
-terms:["Warnhinweis","Vorsichtsmaßnahme","Risikofaktor"],
-patient:"Bei welchen Beschwerden soll ich sofort zum Arzt?",
-question:"Warum sind Warnhinweise wichtig?",
-answer:"Sie helfen, relevante Risiken frühzeitig zu erkennen und angemessen darauf zu reagieren."
-},
-
-{
-title:"Rezeptprüfung",
-desc:"Verordnungen sicher prüfen.",
-content:"Bei der Rezeptprüfung werden formale und arzneimittelbezogene Angaben kontrolliert.",
-know:["Patient prüfen.","Arzneimittel prüfen.","Stärke und Darreichungsform prüfen.","Dosierung prüfen.","Unklare Angaben klären."],
-terms:["Verordnung","Dosierung","Darreichungsform","Rezeptprüfung"],
-patient:"Auf meinem Rezept ist die Dosierung nicht eindeutig.",
-question:"Was tun Sie bei einer unklaren Verordnung?",
-answer:"Die Unklarheit muss vor der Abgabe geklärt werden."
-},
-
-{
-title:"Betäubungsmittel",
-desc:"Besondere Anforderungen bei BtM.",
-content:"Betäubungsmittel unterliegen besonderen gesetzlichen Anforderungen.",
-know:["Verordnung sorgfältig prüfen.","Formale Anforderungen beachten.","Abgabe korrekt dokumentieren.","Bestände entsprechend den gesetzlichen Vorgaben dokumentieren."],
-terms:["BtM","Betäubungsmittelrezept","Dokumentation","Abgabe"],
-patient:"Ich möchte mein verordnetes Betäubungsmittel abholen.",
-question:"Warum ist bei Betäubungsmitteln eine besonders sorgfältige Prüfung erforderlich?",
-answer:"Weil für diese Arzneimittel besondere gesetzliche Anforderungen gelten."
-},
-
-{
-title:"Dokumentation in der Apotheke",
-desc:"Vollständige und nachvollziehbare Dokumentation.",
-content:"Eine korrekte Dokumentation unterstützt Qualität, Sicherheit und Nachvollziehbarkeit.",
-know:["Vollständig dokumentieren.","Nachvollziehbar dokumentieren.","Besondere Vorgänge entsprechend den Vorgaben dokumentieren."],
-terms:["Dokumentation","Nachvollziehbarkeit","Qualitätssicherung"],
-patient:"Warum müssen Sie diesen Vorgang dokumentieren?",
-question:"Was ist das Ziel einer guten Dokumentation?",
-answer:"Relevante Vorgänge sollen nachvollziehbar, vollständig und prüfbar sein."
-},
-
-{
-title:"Patientenberatung",
-desc:"Strukturierte Arzneimittelberatung.",
-content:"Eine gute Beratung stellt sicher, dass der Patient sein Arzneimittel richtig und sicher anwenden kann.",
-know:["Anliegen klären.","Dosierung erklären.","Anwendung erklären.","Warnhinweise erklären.","Verständnis überprüfen."],
-terms:["Beratung","Anamnese","Adhärenz","Compliance"],
-patient:"Beraten Sie mich bitte zu meinem neuen Medikament.",
-question:"Welche Punkte gehören zu einer guten Arzneimittelberatung?",
-answer:"Anwendung, Dosierung, Einnahme, relevante Risiken und wichtige Warnhinweise."
-},
-
-{
-title:"Kommunikation mit Patienten",
-desc:"Verständliche und professionelle Kommunikation.",
-content:"In der FSP ist eine klare, verständliche und professionelle Kommunikation besonders wichtig.",
-know:["Offene Fragen stellen.","Aktiv zuhören.","Fachbegriffe erklären.","Verständnis überprüfen.","Respektvoll kommunizieren."],
-terms:["aktives Zuhören","offene Frage","Rückfrage","patientengerechte Sprache"],
-patient:"Ich verstehe diesen medizinischen Begriff nicht.",
-question:"Warum sollten Fachbegriffe erklärt werden?",
-answer:"Damit der Patient die Beratung versteht und das Arzneimittel sicher anwenden kann."
-},
-
-{
-title:"Fachbegriffe erklären",
-desc:"Medizinische Fachsprache patientengerecht erklären.",
-content:"In der FSP müssen medizinische Fachbegriffe verständlich erklärt werden können.",
-know:["Hypertonie = Bluthochdruck.","Hypoglykämie = Unterzuckerung.","Dyspnoe = Atemnot.","Ödem = Flüssigkeitsansammlung im Gewebe."],
-terms:["Hypertonie","Hypoglykämie","Dyspnoe","Ödem"],
-patient:"Was bedeutet Hypertonie?",
-question:"Was bedeutet Hypertonie?",
-answer:"Hypertonie bedeutet dauerhaft erhöhter Blutdruck."
-},
-
-{
-title:"Diabetes mellitus",
-desc:"Diabetes, Insulin und Hypoglykämie.",
-content:"Diabetes mellitus ist eine Stoffwechselerkrankung mit chronisch erhöhtem Blutzucker.",
-know:["Typ-1-Diabetes.","Typ-2-Diabetes.","Insulin.","Hypoglykämie.","HbA1c."],
-terms:["Hyperglykämie","Hypoglykämie","Insulin","HbA1c"],
-patient:"Ich zittere, schwitze und fühle mich sehr schwach.",
-question:"Was bedeutet Hypoglykämie?",
-answer:"Hypoglykämie bedeutet einen zu niedrigen Blutzuckerspiegel."
-},
-
-{
-title:"Hypertonie",
-desc:"Bluthochdruck und Therapie.",
-content:"Hypertonie bezeichnet einen dauerhaft erhöhten Blutdruck.",
-know:["Blutdruck regelmäßig kontrollieren.","Medikamente regelmäßig anwenden.","Lebensstil berücksichtigen.","Therapietreue fördern."],
-terms:["systolisch","diastolisch","Blutdruck","Antihypertensivum"],
-patient:"Ich fühle mich gut. Warum muss ich mein Blutdruckmedikament trotzdem nehmen?",
-question:"Was bedeutet Hypertonie?",
-answer:"Hypertonie bedeutet dauerhaft erhöhter Blutdruck."
-},
-
-{
-title:"Herzinsuffizienz",
-desc:"Herzschwäche, Ödeme und Atemnot.",
-content:"Herzinsuffizienz bedeutet, dass das Herz den Körper nicht ausreichend mit Blut versorgen kann.",
-know:["Atemnot.","Leistungsminderung.","Ödeme.","Regelmäßige Therapie."],
-terms:["Herzinsuffizienz","Ödem","Dyspnoe","Belastungsdyspnoe"],
-patient:"Meine Beine sind stark geschwollen und ich bekomme schneller Atemnot.",
-question:"Welche Beschwerden können bei Herzinsuffizienz auftreten?",
-answer:"Zum Beispiel Atemnot, Leistungsminderung und Flüssigkeitseinlagerungen."
-},
-
-{
-title:"Asthma bronchiale",
-desc:"Asthma und Inhalation.",
-content:"Asthma ist eine chronisch entzündliche Atemwegserkrankung mit variabler Atemwegsverengung.",
-know:["Atemnot.","Husten.","Pfeifende Atmung.","Richtige Inhalationstechnik.","Bedarfs- und Dauertherapie."],
-terms:["Bronchospasmus","Dyspnoe","Inhalation","Bedarfsmedikation"],
-patient:"Ich glaube, ich benutze meinen Inhalator falsch.",
-question:"Warum ist die Inhalationstechnik wichtig?",
-answer:"Damit der Wirkstoff korrekt in die Atemwege gelangt."
-},
-
-{
-title:"COPD",
-desc:"Chronische Atemwegserkrankung.",
-content:"COPD ist eine chronische Atemwegserkrankung mit anhaltender Atemflusslimitierung.",
-know:["Chronischer Husten.","Auswurf.","Atemnot.","Inhalation.","Exazerbationen."],
-terms:["COPD","Exazerbation","Dyspnoe","Inhalator"],
-patient:"Meine Atemnot ist seit gestern deutlich schlimmer.",
-question:"Was bedeutet Exazerbation?",
-answer:"Eine Exazerbation ist eine akute Verschlechterung einer Erkrankung."
-},
-
-{
-title:"Allergien",
-desc:"Allergische Reaktionen.",
-content:"Allergien sind Überempfindlichkeitsreaktionen des Immunsystems.",
-know:["Juckreiz.","Niesen.","Hautreaktionen.","Antihistaminika.","Schwere allergische Reaktionen erkennen."],
-terms:["Allergen","Histamin","Antihistaminikum","Anaphylaxie"],
-patient:"Nach einem neuen Medikament habe ich Schwellungen und Atemnot.",
-question:"Warum ist Atemnot bei einer allergischen Reaktion ein Warnzeichen?",
-answer:"Sie kann auf eine schwere allergische Reaktion hinweisen und erfordert dringende medizinische Beurteilung."
-},
-
-{
-title:"Schmerzen und Analgetika",
-desc:"Schmerztherapie und Schmerzmittel.",
-content:"Schmerzen können unterschiedliche Ursachen haben und müssen entsprechend beurteilt werden.",
-know:["Schmerzart erfragen.","Schmerzdauer erfragen.","Begleitmedikation prüfen.","Kontraindikationen prüfen."],
-terms:["Analgetikum","NSAR","Opioid","Schmerzintensität"],
-patient:"Ich möchte ein Schmerzmittel, nehme aber bereits mehrere Medikamente.",
-question:"Was sollte vor der Abgabe erfragt werden?",
-answer:"Art und Dauer der Schmerzen, Alter, Vorerkrankungen, andere Medikamente und mögliche Gegenanzeigen."
-},
-
-{
-title:"Fieber",
-desc:"Fieber und Beratung.",
-content:"Fieber ist eine erhöhte Körpertemperatur und kann beispielsweise im Rahmen von Infektionen auftreten.",
-know:["Alter beachten.","Temperatur beachten.","Dauer erfragen.","Allgemeinzustand beachten.","Warnzeichen erkennen."],
-terms:["Fieber","Körpertemperatur","Antipyretikum"],
-patient:"Mein Kind hat Fieber. Was soll ich tun?",
-question:"Welche Informationen sollten Sie erfragen?",
-answer:"Alter, Temperatur, Dauer, Allgemeinzustand und weitere Symptome."
-},
-
-{
-title:"Erkältung",
-desc:"Schnupfen, Husten und Halsschmerzen.",
-content:"Eine Erkältung ist meist eine selbstlimitierende Infektion der oberen Atemwege.",
-know:["Schnupfen.","Husten.","Halsschmerzen.","Symptomatische Behandlung.","Warnzeichen beachten."],
-terms:["Rhinitis","Pharyngitis","Husten","symptomatisch"],
-patient:"Ich bin erkältet und möchte ein Antibiotikum.",
-question:"Wirken Antibiotika gegen Viren?",
-answer:"Nein. Antibiotika wirken gegen bestimmte bakterielle Erreger."
-},
-
-{
-title:"Infektionen",
-desc:"Viren, Bakterien und Infektionszeichen.",
-content:"Infektionen können durch verschiedene Erreger verursacht werden.",
-know:["Viren.","Bakterien.","Pilze.","Parasiten.","Symptome und Verlauf beachten."],
-terms:["Infektion","Virus","Bakterium","Erreger"],
-patient:"Brauche ich bei einer Erkältung ein Antibiotikum?",
-question:"Warum ist die Unterscheidung zwischen viralen und bakteriellen Infektionen wichtig?",
-answer:"Weil Antibiotika gegen Viren nicht wirken."
-},
-
-{
-title:"Antibiotika",
-desc:"Antibiotikatherapie und Resistenz.",
-content:"Antibiotika werden zur Behandlung bestimmter bakterieller Infektionen eingesetzt.",
-know:["Nicht gegen Viren.","Verordnung beachten.","Resistenz vermeiden.","Nebenwirkungen beachten.","Adhärenz fördern."],
-terms:["Antibiotikum","Resistenz","bakterielle Infektion","Adhärenz"],
-patient:"Ich fühle mich schon besser. Kann ich mein Antibiotikum jetzt absetzen?",
-question:"Warum sollte die verordnete Therapie korrekt durchgeführt werden?",
-answer:"Damit die ärztlich festgelegte Behandlung korrekt umgesetzt wird und Therapieprobleme vermieden werden."
-},
-
-{
-title:"Magen-Darm-Erkrankungen",
-desc:"Gastrointestinale Beschwerden.",
-content:"Magen-Darm-Beschwerden können viele unterschiedliche Ursachen haben.",
-know:["Beginn und Dauer erfragen.","Schmerzen erfragen.","Begleitsymptome beachten.","Warnzeichen erkennen."],
-terms:["gastrointestinal","Abdominalschmerz","Übelkeit","Diarrhö"],
-patient:"Ich habe seit mehreren Tagen starke Magen-Darm-Beschwerden.",
-question:"Was sollten Sie erfragen?",
-answer:"Beginn, Dauer, Art der Beschwerden, Begleitsymptome, Medikamente und relevante Vorerkrankungen."
-},
-
-{
-title:"Reflux",
-desc:"Sodbrennen und Reflux.",
-content:"Beim gastroösophagealen Reflux gelangt Mageninhalt in die Speiseröhre zurück.",
-know:["Sodbrennen.","Lebensstil.","Ernährung.","Protonenpumpenhemmer."],
-terms:["Reflux","Sodbrennen","Ösophagus","PPI"],
-patient:"Ich habe fast jeden Tag Sodbrennen.",
-question:"Was ist ein typisches Symptom bei Reflux?",
-answer:"Sodbrennen ist ein typisches Symptom."
-},
-
-{
-title:"Übelkeit und Erbrechen",
-desc:"Ursachen und Flüssigkeitsverlust.",
-content:"Übelkeit und Erbrechen können viele verschiedene Ursachen haben.",
-know:["Dauer erfragen.","Häufigkeit erfragen.","Flüssigkeitsverlust beachten.","Warnzeichen beachten."],
-terms:["Übelkeit","Erbrechen","Dehydratation","Antiemetikum"],
-patient:"Ich erbreche seit heute Morgen mehrfach.",
-question:"Welche Komplikation kann entstehen?",
-answer:"Flüssigkeits- und Elektrolytverlust beziehungsweise Dehydratation."
-},
-
-{
-title:"Verstopfung",
-desc:"Obstipation und Laxanzien.",
-content:"Verstopfung wird medizinisch als Obstipation bezeichnet.",
-know:["Ausreichend trinken.","Bewegung.","Ballaststoffe.","Ursache prüfen.","Laxanzien richtig anwenden."],
-terms:["Obstipation","Laxans","Ballaststoffe"],
-patient:"Ich möchte jeden Tag ein Abführmittel nehmen.",
-question:"Was sollte vor einer Empfehlung geklärt werden?",
-answer:"Dauer und Ursache der Beschwerden, Begleitsymptome, bisherige Maßnahmen und relevante Erkrankungen."
-},
-
-{
-title:"Durchfall",
-desc:"Diarrhö und Flüssigkeitsverlust.",
-content:"Durchfall kann zu Flüssigkeits- und Elektrolytverlust führen.",
-know:["Flüssigkeit ersetzen.","Elektrolyte beachten.","Dauer beachten.","Blut im Stuhl als Warnzeichen beachten."],
-terms:["Diarrhö","Dehydratation","Elektrolyte"],
-patient:"Ich habe seit zwei Tagen starken Durchfall.",
-question:"Welche Komplikation ist besonders wichtig?",
-answer:"Flüssigkeits- und Elektrolytverlust."
-},
-
-{
-title:"Hauterkrankungen",
-desc:"Hautveränderungen einschätzen.",
-content:"Hauterkrankungen benötigen eine gezielte Anamnese und passende Behandlung.",
-know:["Lokalisation.","Dauer.","Aussehen.","Juckreiz.","Bisherige Behandlung."],
-terms:["Dermatologie","Läsion","Erythem","Pruritus"],
-patient:"Ich habe diese rote, juckende Stelle seit einer Woche.",
-question:"Welche Informationen benötigen Sie?",
-answer:"Lokalisation, Dauer, Aussehen, Beschwerden, mögliche Auslöser und bisherige Behandlung."
-},
-
-{
-title:"Ekzeme",
-desc:"Entzündliche Hautveränderungen.",
-content:"Ekzeme sind entzündliche Hautveränderungen, häufig mit Rötung und Juckreiz.",
-know:["Hautpflege.","Auslöser vermeiden.","Juckreiz beachten.","Bei unklaren Veränderungen ärztlich abklären."],
-terms:["Ekzem","Erythem","Pruritus","Dermatitis"],
-patient:"Meine Haut ist trocken, gerötet und juckt stark.",
-question:"Was bedeutet Pruritus?",
-answer:"Pruritus bedeutet Juckreiz."
-},
-
-{
-title:"Desinfektion",
-desc:"Desinfektion und Hygiene.",
-content:"Desinfektion reduziert die Zahl krankmachender Mikroorganismen.",
-know:["Geeignetes Mittel verwenden.","Einwirkzeit beachten.","Anwendungshinweise beachten.","Desinfektion von Sterilisation unterscheiden."],
-terms:["Desinfektion","Sterilisation","Einwirkzeit","Antiseptik"],
-patient:"Warum muss ich die Einwirkzeit beachten?",
-question:"Was ist der Unterschied zwischen Desinfektion und Sterilisation?",
-answer:"Desinfektion reduziert krankmachende Mikroorganismen; Sterilisation zielt auf die vollständige Entfernung beziehungsweise Inaktivierung vermehrungsfähiger Mikroorganismen."
-},
-
-{
-title:"Impfungen",
-desc:"Impfungen und Impfberatung.",
-content:"Impfungen dienen dem Schutz vor bestimmten Infektionskrankheiten.",
-know:["Impfstatus beachten.","Alter berücksichtigen.","Indikation beachten.","Aktuelle STIKO-Empfehlungen prüfen."],
-terms:["Impfung","Immunisierung","STIKO","Impfreaktion"],
-patient:"Welche Impfungen brauche ich?",
-question:"Wo können aktuelle Impfempfehlungen in Deutschland geprüft werden?",
-answer:"Anhand der jeweils aktuellen Empfehlungen der STIKO."
-},
-
-{
-title:"Vitamine und Mineralstoffe",
-desc:"Mikronährstoffe und Mangelzustände.",
-content:"Vitamine und Mineralstoffe erfüllen wichtige physiologische Funktionen.",
-know:["Ernährung berücksichtigen.","Mangelzustände beachten.","Dosierungen prüfen.","Überdosierung vermeiden."],
-terms:["Vitamin","Mineralstoff","Mangel","Referenzbereich"],
-patient:"Ich möchte mehrere Vitaminpräparate gleichzeitig nehmen.",
-question:"Was sollte vorher geprüft werden?",
-answer:"Bereits eingenommene Präparate, Dosierungen, Ernährung, mögliche Mängel und relevante Medikamente."
-},
-
-{
-title:"Nahrungsergänzungsmittel",
-desc:"Supplemente richtig beraten.",
-content:"Nahrungsergänzungsmittel sind Lebensmittel und keine Arzneimittel.",
-know:["Inhaltsstoffe prüfen.","Dosierungen prüfen.","Doppelungen vermeiden.","Wechselwirkungen beachten."],
-terms:["Nahrungsergänzungsmittel","Supplement","Mikronährstoff"],
-patient:"Ich nehme fünf Nahrungsergänzungsmittel und mehrere Medikamente.",
-question:"Warum sollte die gesamte Einnahme erfasst werden?",
-answer:"Damit Doppelungen, hohe Zufuhrmengen und mögliche Wechselwirkungen erkannt werden."
-},
-
-{
-title:"Schwangerschaft",
-desc:"Arzneimittel in der Schwangerschaft.",
-content:"In der Schwangerschaft müssen Arzneimittel besonders sorgfältig bewertet werden.",
-know:["Selbstmedikation kritisch prüfen.","Wirkstoff prüfen.","Risiko-Nutzen-Abwägung.","Geeignete Fachinformationen verwenden."],
-terms:["Schwangerschaft","Embryotoxizität","Risiko-Nutzen-Abwägung"],
-patient:"Ich bin schwanger. Darf ich dieses Medikament nehmen?",
-question:"Warum ist besondere Vorsicht notwendig?",
-answer:"Weil bestimmte Wirkstoffe die Schwangerschaft beziehungsweise den Fötus beeinflussen können."
-},
-
-{
-title:"Stillzeit",
-desc:"Arzneimittel während der Stillzeit.",
-content:"Bei Arzneimitteln in der Stillzeit muss die mögliche Exposition des Säuglings berücksichtigt werden.",
-know:["Wirkstoff prüfen.","Dosis prüfen.","Alter des Säuglings berücksichtigen.","Geeignete Fachinformationen verwenden."],
-terms:["Stillzeit","Muttermilch","Säugling","Exposition"],
-patient:"Ich stille und brauche ein Schmerzmittel.",
-question:"Was muss berücksichtigt werden?",
-answer:"Wirkstoff, Dosis, mögliche Übertragung in die Muttermilch und die Situation des Säuglings."
-},
-
-{
-title:"Kinderarzneimittel",
-desc:"Arzneimittel bei Kindern.",
-content:"Bei Kindern müssen Alter, Körpergewicht und geeignete Darreichungsform berücksichtigt werden.",
-know:["Alter beachten.","Körpergewicht beachten.","Konzentration prüfen.","Eltern verständlich beraten."],
-terms:["pädiatrisch","Körpergewicht","Dosierung","Säugling"],
-patient:"Wie viel von diesem Medikament darf mein Kind bekommen?",
-question:"Warum ist das Körpergewicht häufig wichtig?",
-answer:"Weil die Dosierung vieler Arzneimittel bei Kindern vom Körpergewicht abhängt."
-},
-
-{
-title:"Arzneimittel bei älteren Menschen",
-desc:"Geriatrie und Polypharmazie.",
-content:"Bei älteren Menschen können Mehrfachmedikation und veränderte Organfunktionen relevant sein.",
-know:["Polypharmazie.","Wechselwirkungen.","Nierenfunktion.","Sturzrisiko.","Adhärenz."],
-terms:["Geriatrie","Polypharmazie","Adhärenz","Sturzrisiko"],
-patient:"Ich nehme jeden Tag zehn verschiedene Medikamente.",
-question:"Was bedeutet Polypharmazie?",
-answer:"Die gleichzeitige Anwendung mehrerer Arzneimittel."
-},
-
-{
-title:"Nierenfunktion",
-desc:"Nieren und Arzneimittelausscheidung.",
-content:"Die Nieren sind für die Ausscheidung vieler Arzneistoffe wichtig.",
-know:["Kreatinin.","eGFR.","Renale Elimination.","Dosisanpassung kann erforderlich sein."],
-terms:["Kreatinin","eGFR","renale Elimination","Nierenfunktion"],
-patient:"Warum kontrolliert mein Arzt meine Nierenwerte?",
-question:"Warum ist die Nierenfunktion für Arzneimittel wichtig?",
-answer:"Weil viele Arzneistoffe oder Metaboliten über die Nieren ausgeschieden werden."
-},
-
-{
-title:"Leberfunktion",
-desc:"Leber und Arzneimittelmetabolismus.",
-content:"Die Leber spielt eine wichtige Rolle beim Metabolismus vieler Arzneistoffe.",
-know:["Metabolismus.","Leberwerte.","Transaminasen.","Hepatotoxizität."],
-terms:["Leberfunktion","Metabolismus","Transaminasen","Hepatotoxizität"],
-patient:"Ich habe eine Lebererkrankung. Ist dieses Medikament geeignet?",
-question:"Warum kann eine Lebererkrankung die Arzneimitteltherapie beeinflussen?",
-answer:"Weil die Leber an der Metabolisierung vieler Arzneistoffe beteiligt ist."
-},
-
-{
-title:"Laborwerte verstehen",
-desc:"Wichtige Laborparameter.",
-content:"Laborwerte liefern Informationen über Körperfunktionen und Krankheitsprozesse.",
-know:["Referenzbereiche.","Kreatinin.","HbA1c.","Transaminasen.","Klinischen Zusammenhang beachten."],
-terms:["Referenzbereich","Kreatinin","HbA1c","Transaminasen"],
-patient:"Mein Laborwert ist außerhalb des Referenzbereichs. Was bedeutet das?",
-question:"Warum sollte ein Laborwert nicht isoliert interpretiert werden?",
-answer:"Weil weitere Werte, Symptome, Referenzbereiche und die klinische Situation berücksichtigt werden müssen."
-},
-
-{
-title:"Blutgerinnung",
-desc:"Antikoagulanzien und Blutungsrisiko.",
-content:"Die Blutgerinnung verhindert übermäßige Blutverluste und kann durch Medikamente beeinflusst werden.",
-know:["Antikoagulanzien.","Thrombozytenaggregationshemmer.","Blutungszeichen.","INR."],
-terms:["Antikoagulans","INR","Thrombozytenaggregationshemmer","Blutungsrisiko"],
-patient:"Ich nehme ein Blutverdünnungsmittel und habe ungewöhnliche Blutungen.",
-question:"Was ist bei ungewöhnlichen Blutungen wichtig?",
-answer:"Die Beschwerden müssen ernst genommen und je nach Ausmaß zeitnah medizinisch abgeklärt werden."
-},
-
-{
-title:"Psychische Erkrankungen",
-desc:"Psychische Erkrankungen und Kommunikation.",
-content:"Psychische Erkrankungen können Stimmung, Denken, Verhalten und Alltag beeinflussen.",
-know:["Respektvoll kommunizieren.","Nicht wertend kommunizieren.","Adhärenz beachten.","Warnzeichen erkennen."],
-terms:["Depression","Angststörung","Psychopharmakon","Adhärenz"],
-patient:"Ich fühle mich psychisch sehr belastet.",
-question:"Wie sollte ein sensibles Beratungsgespräch geführt werden?",
-answer:"Ruhig, respektvoll, empathisch und ohne wertende Sprache."
-},
-
-{
-title:"Schlafstörungen",
-desc:"Insomnie und Schlafhygiene.",
-content:"Schlafstörungen können körperliche, psychische oder verhaltensbezogene Ursachen haben.",
-know:["Schlafdauer erfragen.","Schlafgewohnheiten erfragen.","Schlafhygiene.","Medikamente berücksichtigen."],
-terms:["Insomnie","Schlafhygiene","Sedierung"],
-patient:"Ich möchte jeden Abend ein Schlafmittel nehmen.",
-question:"Was sollte vor einer Empfehlung geklärt werden?",
-answer:"Dauer und Ursache der Schlafprobleme, andere Medikamente, Erkrankungen und mögliche Risiken."
-},
-
-{
-title:"Neurologische Erkrankungen",
-desc:"Neurologie und Arzneimitteltherapie.",
-content:"Neurologische Erkrankungen betreffen Gehirn, Rückenmark oder periphere Nerven.",
-know:["Epilepsie.","Parkinson.","Neuropathie.","Regelmäßige Einnahme."],
-terms:["neurologisch","Epilepsie","Parkinson","Neuropathie"],
-patient:"Ich habe Fragen zu meiner neurologischen Dauermedikation.",
-question:"Warum kann regelmäßige Einnahme wichtig sein?",
-answer:"Weil Schwankungen der Arzneistoffkonzentration die Krankheitskontrolle beeinflussen können."
-},
-
-{
-title:"Notfallsituationen",
-desc:"Notfälle erkennen und richtig reagieren.",
-content:"Bei einem medizinischen Notfall muss die Situation schnell erkannt und Hilfe organisiert werden.",
-know:["Bewusstsein prüfen.","Atmung beachten.","Hilfe holen.","Bei Lebensgefahr Rettungsdienst alarmieren."],
-terms:["Notfall","Bewusstsein","Atmung","Kreislauf"],
-patient:"Eine Person bricht in der Apotheke zusammen und reagiert nicht normal.",
-question:"Was ist bei einem medizinischen Notfall besonders wichtig?",
-answer:"Die Situation schnell einschätzen, Hilfe organisieren und bei Lebensgefahr unverzüglich den Rettungsdienst alarmieren."
-}
-
-];
-
-
-/* =========================================================
-   SPEICHERUNG
-   ========================================================= */
-
-function learned(){
-  return JSON.parse(localStorage.getItem("fspLearned") || "[]");
-}
-
-function saveLearned(x){
-  localStorage.setItem("fspLearned",JSON.stringify(x));
-}
-
-function getXP(){
-  return Number(localStorage.getItem("fspXP") || 0);
-}
-
-function saveXP(x){
-  localStorage.setItem("fspXP",x);
-}
-
-
-/* =========================================================
-   SEITEN
-   ========================================================= */
-
-function page(name){
-
-  const pages=["home","lernen","lesson","faelle","pruefung","profil"];
-
-  pages.forEach(x=>{
-    document.getElementById(x).classList.add("hidden");
-  });
-
-  document.getElementById(name).classList.remove("hidden");
-
-  document.querySelectorAll(".nav button").forEach(x=>{
-    x.classList.remove("active");
-  });
-
-  const nav=document.getElementById(
-    "nav"+name.charAt(0).toUpperCase()+name.slice(1)
-  );
-
-  if(nav) nav.classList.add("active");
-
-  if(name==="lernen") renderTopics();
-  if(name==="faelle") renderCases();
-  if(name==="pruefung") renderQuestions();
-
-  update();
-
-  window.scrollTo(0,0);
-}
-
-
-/* =========================================================
-   THEMEN
-   ========================================================= */
-
-function renderTopics(){
-
-  const done=learned();
-
-  document.getElementById("topics").innerHTML=
-
-    themen.map((t,i)=>`
-
-      <button class="topic" onclick="openLesson(${i})">
-
-        <span class="topic-number">
-          ${i+1}
-        </span>
-
-        <span class="topic-content">
-
-          <span class="topic-title">
-            ${t.title}
-          </span>
-
-          <span class="topic-desc">
-            ${t.desc}
-          </span>
-
-        </span>
-
-        <span class="done">
-          ${done.includes(i) ? "✓" : "›"}
-        </span>
-
-      </button>
-
-    `).join("");
-}
-
-
-/* =========================================================
-   LERNINHALT
-   ========================================================= */
-
-function openLesson(i){
-
-  const t=themen[i];
-  const done=learned().includes(i);
-
-  document.getElementById("lessonContent").innerHTML=`
-
-    <div class="lesson">
-
-      <div class="lesson-head">
-
-        <button class="back" onclick="page('lernen')">
-          ← Zurück zu den Themen
-        </button>
-
-        <h1>
-          ${i+1}. ${t.title}
-        </h1>
-
-        <p>
-          ${t.desc}
-        </p>
-
-      </div>
-
-      <div class="lesson-body">
-
-
-        <div class="section">
-
-          <div class="section-title">
-            📖 Lerninhalt
-          </div>
-
-          <div class="info">
-            ${t.content}
-          </div>
-
-        </div>
-
-
-        <div class="section">
-
-          <div class="section-title">
-            🧠 Das musst du wissen
-          </div>
-
-          <div class="info">
-
-            <ul>
-              ${t.know.map(x=>`<li>${x}</li>`).join("")}
-            </ul>
-
-          </div>
-
-        </div>
-
-
-        <div class="section">
-
-          <div class="section-title">
-            📚 Fachbegriffe
-          </div>
-
-          <div class="terms">
-
-            ${t.terms.map(x=>`
-              <span class="term">${x}</span>
-            `).join("")}
-
-          </div>
-
-        </div>
-
-
-        <div class="section">
-
-          <div class="section-title">
-            🗣️ FSP-Patientengespräch
-          </div>
-
-          <div class="fsp">
-
-            <div class="patient">
-
-              <div class="patient-label">
-                👤 PATIENT
-              </div>
-
-              <p>
-                „${t.patient}“
-              </p>
-
-            </div>
-
-            <strong>
-              Deine Antwort:
-            </strong>
-
-            <p>
-              Schreibe deine Antwort wie in der FSP.
-            </p>
-
-            <textarea placeholder="Hier deine Antwort schreiben..."></textarea>
-
-            <button
-              class="btn"
-              onclick="toggle('help${i}')">
-              💡 Gesprächshilfe
-            </button>
-
-            <div class="answer" id="help${i}">
-
-              Begrüße den Patienten, stelle gezielte
-              Fragen, erfasse relevante Beschwerden
-              und Medikamente und erkläre deine
-              Empfehlung verständlich.
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="section">
-
-          <div class="section-title">
-            🎓 Prüfungsfrage
-          </div>
-
-          <div class="question">
-
-            <strong>
-              ${t.question}
-            </strong>
-
-            <br>
-
-            <button
-              class="btn"
-              onclick="toggle('answer${i}')">
-              💡 Musterantwort anzeigen
-            </button>
-
-            <div class="answer" id="answer${i}">
-              <strong>Musterantwort:</strong>
-              <p>${t.answer}</p>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="section">
-
-          <div class="section-title">
-            💡 Merksatz
-          </div>
-
-          <div class="info">
-            <strong>MERKE:</strong>
-            <p>${t.answer}</p>
-          </div>
-
-        </div>
-
-
-        <button
-          class="complete ${done ? "already" : ""}"
-          onclick="complete(${i})">
-
-          ${done
-            ? "✓ Thema bereits gelernt"
-            : "✓ Thema als gelernt markieren"}
-
-        </button>
-
-      </div>
+    <div class="note">
+
+      <strong>Bitte beachten:</strong>
+
+      <ul>
+        <li>
+          Bitte nur einen geeigneten Berufs- oder
+          Ausbildungsnachweis einreichen.
+        </li>
+
+        <li>
+          Nicht benötigte persönliche Daten möglichst
+          vorher schwärzen.
+        </li>
+
+        <li>
+          Keine Passwörter oder Zahlungsdaten senden.
+        </li>
+
+        <li>
+          Der Nachweis wird manuell geprüft.
+        </li>
+      </ul>
 
     </div>
-  `;
 
-  page("lesson");
-}
+  </div>
 
 
-/* =========================================================
-   ANTWORT
-   ========================================================= */
+  <div class="card">
 
-function toggle(id){
-  document.getElementById(id).classList.toggle("show");
-}
+    <h2>📧 Premium-Freischaltung</h2>
 
+    <p>
+      Trage deine E-Mail-Adresse ein und bereite
+      deinen Verifizierungsnachweis vor.
+    </p>
 
-/* =========================================================
-   ABSCHLIESSEN
-   ========================================================= */
 
-function complete(i){
-
-  let d=learned();
-
-  if(!d.includes(i)){
-
-    d.push(i);
-    saveLearned(d);
-
-    saveXP(getXP()+10);
-
-  }
-
-  update();
-  openLesson(i);
-}
-
-
-/* =========================================================
-   FORTSCHRITT
-   ========================================================= */
-
-function update(){
-
-  const count=learned().length;
-  const percent=Math.round(count/49*100);
-  const xp=getXP();
-
-  document.getElementById("xp").textContent=xp;
-
-  document.getElementById("percent").textContent=percent+"%";
-  document.getElementById("progress").style.width=percent+"%";
-
-  document.getElementById("progressText").textContent=
-    count+" von 49 Themen gelernt";
-
-  document.getElementById("percent2").textContent=percent+"%";
-  document.getElementById("progress2").style.width=percent+"%";
-
-  document.getElementById("progressText2").textContent=
-    count+" von 49 Themen gelernt";
-
-  document.getElementById("profileXP").textContent=xp;
-
-  document.getElementById("profileProgress").textContent=
-    count+" von 49 Themen gelernt";
-}
-
-
-/* =========================================================
-   FSP-FÄLLE
-   ========================================================= */
-
-function renderCases(){
-
-  const cases=[
-
-    [
-      "💊 Neues Medikament",
-      "Ich habe dieses Medikament zum ersten Mal bekommen. Wie muss ich es einnehmen?",
-      "Erkläre Anwendung, Dosierung, Einnahmezeit und wichtige Warnhinweise."
-    ],
-
-    [
-      "🩸 Diabetes",
-      "Ich zittere und schwitze plötzlich. Ich nehme Medikamente gegen Diabetes.",
-      "Erfrage die Situation und denke an eine mögliche Hypoglykämie."
-    ],
-
-    [
-      "🫁 Atemnot",
-      "Ich bekomme seit heute viel schlechter Luft als sonst.",
-      "Erfrage Beschwerden und erkenne mögliche Warnzeichen."
-    ],
-
-    [
-      "🤧 Erkältung",
-      "Ich bin erkältet und möchte ein Antibiotikum.",
-      "Erkläre verständlich den Unterschied zwischen Viren und Bakterien."
-    ],
-
-    [
-      "🤰 Schwangerschaft",
-      "Ich bin schwanger und möchte ein frei verkäufliches Medikament.",
-      "Führe eine besonders sorgfältige Beratung durch."
-    ]
-
-  ];
-
-  document.getElementById("cases").innerHTML=
-
-    cases.map(c=>`
-
-      <div class="case-box">
-
-        <h2>${c[0]}</h2>
-
-        <div class="patient">
-
-          <div class="patient-label">
-            👤 PATIENT
-          </div>
-
-          <p>
-            „${c[1]}“
-          </p>
-
-        </div>
-
-        <strong>Aufgabe:</strong>
-
-        <p>${c[2]}</p>
-
-        <textarea placeholder="Deine Antwort..."></textarea>
-
-        <button
-          class="btn"
-          onclick="alert('Tipp: Begrüßung → gezielte Fragen → Medikation prüfen → Warnzeichen beachten → verständliche Beratung.')">
-
-          💡 Tipp anzeigen
-
-        </button>
-
-      </div>
-
-    `).join("");
-}
-
-
-/* =========================================================
-   PRÜFUNGSFRAGEN
-   ========================================================= */
-
-function renderQuestions(){
-
-  document.getElementById("questions").innerHTML=
-
-    themen.slice(0,15).map((t,i)=>`
-
-      <div class="card">
-
-        <div class="section-title">
-          PRÜFUNGSFRAGE ${i+1}
-        </div>
-
-        <h3>
-          ${t.question}
-        </h3>
-
-        <button
-          class="btn"
-          onclick="toggle('q${i}')">
-
-          Antwort anzeigen
-
-        </button>
-
-        <div class="answer" id="q${i}">
-
-          <strong>Musterantwort:</strong>
-
-          <p>
-            ${t.answer}
-          </p>
-
-        </div>
-
-      </div>
-
-    `).join("");
-}
-
-
-/* =========================================================
-   RESET
-   ========================================================= */
-
-function resetProgress(){
-
-  if(!confirm("Möchtest du deinen Lernfortschritt wirklich löschen?")){
-    return;
-  }
-
-  localStorage.removeItem("fspLearned");
-  localStorage.removeItem("fspXP");
-
-  update();
-
-  page("profil");
-}
-
-
-/* =========================================================
-   START
-   ========================================================= */
-
-update();
-renderTopics();
-
-</script>
-
-</body>
-</html>
+    <
